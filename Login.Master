@@ -1,0 +1,94 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="HRMS.Login" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <title>User</title>
+    <script>
+        function customAlert(msgType, txtMSG) {
+            msgType = msgType.toUpperCase()
+
+            if (msgType == "S") {
+                showSuccess(txtMSG);
+                return false;
+            }
+
+            if (msgType == "W") {
+                showWarning(txtMSG);
+                return false;
+            }
+
+            if (msgType == "E") {
+                showError(txtMSG);
+                return false;
+            }
+
+            if (msgType == "I") {
+                showInfo(txtMSG);
+                return false;
+            }
+        }
+
+        //Tostr Notification implementation Start !!!!
+        //Success!!!
+        function showSuccess(msg) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut",
+                "positionClass": "toast-top-right"
+            }
+            toastr.success(msg, "Success");
+            return false;
+        }
+
+        //Information!!!
+        function showInfo(msg) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "closeDuration": "60000"
+            }
+            toastr.info(msg, "Information");
+            return false;
+        }
+
+        //Warning!!!
+        function showWarning(msg) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right"
+            }
+            toastr.warning(msg, "Warning");
+            return false;
+        }
+
+        //Error!!!
+        function showError(msg) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right"
+            }
+            toastr.error(msg, "Error");
+            return false;
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="assets/vendor/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

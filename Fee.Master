@@ -1,0 +1,731 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Fee.master.cs" Inherits="HRMS.Fee" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="no-js">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fee Management</title>
+    <!-- end: META -->
+
+    <!-- start: MAIN CSS -->
+    <!-- Bootstrap core CSS -->
+    <link href="assets/vendor/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap theme -->
+    <link href="assets/vendor/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/vendor/css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="assets/vendor/css/common.css" rel="stylesheet" />
+    <link href="assets/vendor/css/style.css" rel="stylesheet" />
+    <link href="assets/vendor/css/header-style.css" rel="stylesheet" />
+    <link href="assets/vendor/css/responsive.css" rel="stylesheet" />
+    <link href="assets/vendor/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/vendor/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="assets/vendor/css/ch-pie-line.css" rel="stylesheet" />
+    <link href="assets/vendor/css/bootstrap-multiselect.css" rel="stylesheet" />
+    <script src="assets/vendor/js/jsapi.js"></script>
+
+    <link rel="stylesheet" href="assets/css/Ajaxcal.css" />
+    <link rel="stylesheet" href="assets/toastr/toastr.min.css" />
+    <style>
+        .Learner {
+            color: orange;
+            border-style: none;
+            background: transparent;
+            font-size: 13px;
+            font-weight: 700;
+            margin-left: -7px;
+        }
+
+        .blink_me {
+            -webkit-animation-name: blinker;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-name: blinker;
+            -moz-animation-duration: 1s;
+            -moz-animation-timing-function: linear;
+            -moz-animation-iteration-count: infinite;
+            animation-name: blinker;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .download-manual {
+            background: #212121;
+            border: 0;
+            padding: 10px 10px;
+            width: 100%;
+            font-weight: 500;
+            border-bottom: 1px solid #e0e0e0 !important;
+            color: #fff;
+            text-align: left;
+        }
+
+            .download-manual:hover {
+                color: #e0e0e0;
+                background-color: #c78221;
+            }
+
+        .breadcrumb > li.pull-right:before {
+            padding: 0px;
+            color: #ccc;
+            content: "";
+        }
+
+        .back-sign {
+            animation: blink 1s linear infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        #collapseFields {
+            float: right;
+            position: relative;
+            top: 28px;
+            color: #fff;
+            padding: 5px 10px;
+            height: 35px;
+            outline: 0;
+            background: #625a4e;
+            border: none;
+            border: 2px solid #e3b30a;
+            border-bottom: none;
+        }
+
+        @media screen and (max-width: 767px) {
+            .download-manual {
+                border-left: 1px solid #e0e0e0 !important;
+                border-right: 1px solid #e0e0e0 !important;
+            }
+
+            #collapseFields {
+                position: absolute;
+                top: 160px;
+                float: none;
+                right: 15px;
+                color: #fff;
+                padding: 5px 10px;
+                height: 35px;
+                outline: 0;
+                background: #625a4e;
+                border: none;
+                border: 2px solid #e3b30a;
+            }
+
+            .topRightCollapseContent {
+                margin-top: 25px;
+            }
+
+            .nonCollapsePanel {
+                margin-top: 30px;
+            }
+
+            .current-user-name {
+                color: #fff;
+            }
+        }
+    </style>
+    <style>
+        /****  Bootstrap Datepicker  START!  */
+        .datepicker-switch {
+            text-align: center;
+        }
+
+        .datepicker table tr td, .datepicker table tr th {
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            border: none;
+        }
+
+            .datepicker table tr td span {
+                display: block;
+                width: 23%;
+                height: 54px;
+                line-height: 54px;
+                float: left;
+                margin: 1%;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+
+        .datepicker-months table, .datepicker-years table {
+            width: 100%;
+            width: 212px;
+        }
+
+            .datepicker-months table thead tr th, .datepicker-months .table > tbody > tr > th,
+            .datepicker-years table thead tr th, .datepicker-years .table > tbody > tr > th {
+                background-color: transparent !important;
+                color: #464242 !important;
+                border-top: none !important;
+            }
+
+            .datepicker-days table thead tr th, .datepicker-years table thead tr th {
+                background-color: transparent !important;
+                color: #464242 !important;
+                border-top: none !important;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+        .datepicker.datepicker-dropdown table thead tr th:first-child, .table > tbody > tr > th:first-child {
+            border-left: 0px !important;
+        }
+
+        .datepicker.datepicker-dropdown table thead tr th:last-child, .table > tbody > tr > th:last-child {
+            border-right: none !important;
+        }
+
+        .datepicker .day.active {
+            background: #e4e4e4;
+        }
+
+        .datepicker table tr td, .datepicker table tr th {
+            cursor: pointer;
+        }
+        /*Bootstrap Datepicker END!*/
+
+        @media (min-width: 768px) {
+            .bg-after-heading1 {
+                display: inline-block;
+            }
+
+            .bg-after-heading {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .bg-after-heading1 {
+                display: inline-block;
+            }
+
+            .bg-after-heading {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .bg-after-heading1 {
+                display: inline-block;
+            }
+
+            .bg-after-heading {
+                display: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .bg-after-heading1 {
+                display: none;
+            }
+
+            .bg-after-heading {
+                background: #d08426;
+                display: block;
+            }
+        }
+
+        input#ContentPlaceHolder1_txtid {
+            text-align: right;
+        }
+
+        i.fa.fa-search.icon {
+            position: absolute;
+            padding: 10px;
+            display: block;
+        }
+
+        .btn-s.float-right {
+            float: right;
+            background: white;
+            width: 72px;
+            height: 36px !important;
+        }
+
+        .back {
+            position: absolute;
+            right: 2%;
+            top: 40%;
+            background-color: #98d7e275;
+            border-radius: 50%;
+            border-radius: 1px solid red;
+            border: 2px solid #cf4e33;
+        }
+
+        .navbar-default .navbar-collapse {
+            margin-left: 16% !important;
+        }
+    </style>
+
+
+    <%--
+    <link rel="stylesheet" href="assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="assets/plugins/datepicker/css/datepicker.css" />
+    <link rel="stylesheet" href="assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" />
+    <link rel="stylesheet" href="assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+    --%>
+
+    <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+
+    <!-- Favicon ICon -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+    <!-- jquery: REQUIRED JQUERY FILE -->
+    <script src="assets/plugins/jQuery-lib/2.0.3/jquery.min.js"></script>
+    <script src="assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/toastr/toastr.min.js"></script>
+    <script type="text/javascript">  
+        $(window).bind("load", function () {
+            var footer = $("#footer");
+            var pos = footer.position();
+            var height = $(window).height();
+            height = height - pos.top;
+            height = height - footer.height();
+            if (height > 0) {
+                footer.css({
+                    'margin-top': height + 'px'
+                });
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            //$(".topRightCollapseContent").hide();
+            $('#collapseFields').on('click', function () {
+                $(this).find('i').toggleClass('fa-plus fa-2x fa-minus fa-2x');
+                $(".topRightCollapseContent").slideToggle();
+            });
+        });
+
+        function customAlert(msgType, txtMSG) {
+            msgType = msgType.toUpperCase()
+
+            if (msgType == "S") {
+                showSuccess(txtMSG);
+                return false;
+            }
+
+            if (msgType == "W") {
+                showWarning(txtMSG);
+                return false;
+            }
+
+            if (msgType == "E") {
+                showError(txtMSG);
+                return false;
+            }
+
+            if (msgType == "I") {
+                showInfo(txtMSG);
+                return false;
+            }
+        }
+
+        //Tostr Notification implementation Start !!!!
+        //Success!!!
+        function showSuccess(msg) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut",
+                "positionClass": "toast-top-right"
+            }
+            toastr.success(msg, "Success");
+            return false;
+        }
+
+        //Information!!!
+        function showInfo(msg) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "closeDuration": "60000"
+            }
+            toastr.info(msg, "Information");
+            return false;
+        }
+
+        //Warning!!!
+        function showWarning(msg) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right"
+            }
+            toastr.warning(msg, "Warning");
+            return false;
+        }
+
+        //Error!!!
+        function showError(msg) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right"
+            }
+            toastr.error(msg, "Error");
+            return false;
+        }
+    </script>
+    <script>
+        $(window).load(function () {
+            $(".loader").fadeOut("slow");
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="loader">
+        <img src="assets/images/loader1.gif" class="fa-spinner" />
+        <%--<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>--%>
+    </div>
+    <div id="wrappergb" runat="server"></div>
+    <div class="wrapper">
+        <form id="form1" runat="server">
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:HiddenField ID="hdnMainMenuClass" runat="server" Value="lblMainTst" />
+            <asp:HiddenField ID="hdnSubMenuClass" runat="server" Value="lblTSTSub" />
+            <header>
+                <div class="top_header_ber">
+                    <div class="container">
+                        <%--<span class="announcement_heading">Announcement <i class="fa fa-hand-o-right" aria-hidden="true"></i></span>--%>
+                        <div id="announcement_carousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <%-- <asp:Repeater ID="rptrAnnoucement" runat="server">
+                                    <ItemTemplate>
+                                        <div class='<%#Eval("CSSClass")%>'><%#Eval("AnnouncementText")%> </div>
+                                    </ItemTemplate>
+                                </asp:Repeater>--%>
+                            </div>
+                        </div>
+                        <div class="pull-right current-user-name">
+                            <%--                            <span class="social-media">
+                                <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                                <a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+                                <a href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                            </span>
+                            <asp:Button ID="btnResultPage" runat="server" CssClass="Learner blink_me" Text="Click Here For Results" Visible="true"></asp:Button>--%>
+                            <asp:Label ID="lblUserName" runat="server"></asp:Label>
+                            <asp:Button runat="server" ID="btnLogOut" OnClick="btnLogOut_Click" CssClass="btn btnColor pull-right" Text="LogOut" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="header_bottom">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <%-- <a class="navbar-brand" target="_blank" href="#">
+                                    <img src="images/logo.png" /></a>--%>
+                            </div>
+                            <svg height="0" width="0" style="position: absolute; margin-left: -100%;">
+                                <path id="tab-shape" class="tab-shape" d="M116.486,29.036c-23.582-8-14.821-29-42.018-29h-62.4C5.441,0.036,0,5.376,0,12.003v28.033h122v-11H116.486z"></path>
+                            </svg>
+                            <div class="collapse navbar-collapse" id="myNavbar">
+                                <ul class="nav navbar-nav navbar-right user-drop">
+                                    <li class="dropdown clearfix">
+                                        <a href="FeeClassificationList.aspx" class="dropdown-toggle" data-toggle="dropdown">Fee<b class="caret"></b></a>
+                                        <ul class="dropdown-menu" id="lidropmenu" runat="server">
+                                            <li><a href="FeeClassificationList.aspx">Fee Classification</a></li>
+                                            <li><a href="FeeComponentList.aspx">Fee Components</a></li>
+                                            <li><a href="Fee-CourseHeaderList.aspx">Course Fee Header List</a></li>
+                                            <li><a href="FeeDemand.aspx">Fee Demand</a></li>
+                                            <li><a href="Fee-MoneyReceipt.aspx">Money Receipt</a></li>
+                                            <li><a href="FeeGeneration.aspx">Fee Generation</a></li>
+                                            <li><a href="CustomerStatement.aspx">Customer Statement Report</a></li>
+                                            <li><a href="AgingReport.aspx">Aging Report</a></li>
+                                            <li><a href="CustomerTrialBalance.aspx">Customer Trial Balance Report</a></li>
+                                            <%--<li><a href="FeeCollection.aspx">Fee Collection List</a></li>
+                                            <li><a href="Fee-StudentFeeCollection.aspx">Student Fee Collection List</a></li>
+                                            <li><a href="Fee-GeneralPayment.aspx">Add General Payment</a></li>
+                                            <li><a href="Fee-GeneralPaymentList.aspx">General Payment List</a></li>--%>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown clearfix">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Accounts<b class="caret"></b></a>
+                                        <ul class="dropdown-menu" id="Ul1" runat="server">
+                                            <li><a href="Fee-GeneralPayment.aspx">General Payment</a></li>
+                                            <li><a href="Fee-GeneralPaymentList.aspx">General Payment List</a></li>
+                                            <li><a href="Account_ApplyCautionMoney.aspx">Apply Caution Money</a></li>
+                                            <li><a href="Account_CautionMoneyApplicationList.aspx">Caution Money Application List</a></li>
+                                            <li><a href="Account_RefundOrderCard.aspx">Add Caution Refund Order</a></li>
+                                            <li><a href="Account_CautionRefundOrderList.aspx">Caution Refund Order List</a></li>
+                                            <li><a href="Fee-StudentFeeCollection.aspx">Student Fee Collection</a></li>
+                                            <li><a href="Fee-StudentFeeCollectionCard.aspx">Add Student Fee</a></li>
+                                            <li><a href="TransferAccountCard.aspx">Add Transfer Account</a></li>
+                                            <li><a href="TransferAccount.aspx">Transfer Account List</a></li>
+
+                                            <li><a href="DayBook.aspx">Day Book Report</a></li>
+                                            <li><a href="CashBook.aspx">Cash Book Report</a></li>
+                                            <li><a href="BankBook.aspx">Bank Book Report</a></li>
+
+
+                                        </ul>
+                                    </li>
+                                    <%--<li class="dropdown clearfix">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transfer and Promo.<b class="caret"></b></a>
+                                        <ul class="dropdown-menu" id="Ul2" runat="server">
+                                            <li><a href="TransferAndPromotionManagement.aspx">Add Transfer Record</a></li>
+                                            <li><a href="TransferEmployeeJoiningForm.aspx">Joining Form</a></li>
+                                            <li><a href="PromotionEventsRecord.aspx">Add Promotion Record</a></li>
+                                            <li><a href="PromotionHistoryList.aspx">Promotion History List</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown clearfix">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Annual Estd.<b class="caret"></b></a>
+                                        <ul class="dropdown-menu" id="Ul4" runat="server">
+                                            <li><a href="AnnualEstablishmentReview.aspx">Part A(Regular)</a></li>
+                                            <li><a href="AERPartAList.aspx">Regular List</a></li>
+                                            <li><a href="AnnualEstablishmentReviewPartC.aspx">Part C(Non-regular)</a></li>
+                                            <li><a href="AERPartCList.aspx">Non-Regular List</a></li>
+                                            <li><a href="AnnualEstablishmentReviewPartE.aspx">Part E(Outsourced)</a></li>
+                                            <li><a href="AERPartEList.aspx">Outsourced List</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown clearfix">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transfer<b class="caret"></b></a>
+                                        <ul class="dropdown-menu" id="Ul5" runat="server">
+                                            <li><a href="TransferApplicationForm.aspx">Application Form</a></li>
+                                            <li><a href="TransferApplicationList.aspx">Application List</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown clearfix">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Staff<b class="caret"></b></a>
+                                        <ul class="dropdown-menu" id="Ul6" runat="server">
+                                            <li><a href="StaffProfile.aspx">Staff Profile Input</a></li>
+                                            <li><a href="StaffProfileList.aspx">Staff Profile List</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown clearfix">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Disciplinary<b class="caret"></b></a>
+                                        <ul class="dropdown-menu" id="Ul7" runat="server">
+                                            <li><a href="NewDisciplinaryCaseInput.aspx">Add Case</a></li>
+                                            <li><a href="DisciplinaryCaseList.aspx">Disciplinary Case List</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown clearfix">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Training<b class="caret"></b></a>
+                                        <ul class="dropdown-menu" id="Ul8" runat="server">
+                                            <li><a href="EmployeeTrainingDetailsInput.aspx">Add Training</a></li>
+                                            <li><a href="TrainingHistory.aspx">Training History</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown clearfix">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Annual Perf.<b class="caret"></b></a>
+                                        <ul class="dropdown-menu" id="Ul9" runat="server">
+                                            <li><a href="AnnualInternalPerformanceReviewForm.aspx">Add Annual Performance</a></li>
+                                            <li><a href="AnnualInternalPerformanceReviewList.aspx">Annual Performance List</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown clearfix">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTI<b class="caret"></b></a>
+                                        <ul class="dropdown-menu" id="Ul10" runat="server">
+                                            <li><a href="CourtCasesDetailsInput.aspx">Court Case</a></li>
+                                            <li><a href="CourtCaseList.aspx">Court Case List</a></li>
+                                            <li><a href="RTIDetailsInput.aspx">RTI Monitoring</a></li>
+                                            <li><a href="RTIMonitoringList.aspx">RTI Monitoring List</a></li>
+                                        </ul>
+                                    </li>--%>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="pull-right current-user-name back">
+                    <a href="default.aspx" class="btn btnColor pull-right" tooltip="Home">
+                        <span><i class="fa fa-arrow-left fa-3x" style="color: green"></i></span>
+                    </a>
+                </div>
+            </header>
+            <div class="banner">
+                <img src="assets/vendor/images/mu-acadamic-lp.jpg" class="full-img" />
+            </div>
+            <div class="bodymain">
+                <div class="container tabbable tabs-left">
+                    <div id="divLeft" runat="server" class="left_col">
+                        <div class="row">
+                            <h2 class="left_col_heading text-center m-0">
+                                <asp:Label ID="lblSubManuName" runat="server"></asp:Label></h2>
+                            <button type="button" class="navbar-toggle" id="sub-tabs">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="divRight" runat="server" class="right_col tab-content">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <footer class="p-10">©<asp:Label runat="server" ID="lblCompanyName"></asp:Label></footer>
+            </div>
+        </form>
+    </div>
+
+    <!--Go To Top Button  -->
+    <a href="#" id="backToTop">
+        <i class="fa fa-long-arrow-up"></i>
+    </a>
+
+    <!-- start: MAIN JAVASCRIPTS -->
+
+    <script src="assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+    <script src="assets/plugins/blockUI/jquery.blockUI.js"></script>
+    <script src="assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js"></script>
+    <script src="assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js"></script>
+    <%--<script src="assets/plugins/less/less-1.5.0.min.js"></script>--%>
+    <script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+    <script src="assets/js/main.js"></script>
+    <!-- end: MAIN JAVASCRIPTS -->
+
+    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="assets/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+    <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="assets/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+    <script src="assets/vendor/js/bootstrap-multiselect.js"></script>
+    <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+    <script>
+        jQuery(document).ready(function () {
+            Main.init();
+
+            //Profile Image Modal Popup
+            $('#uploadProfilePic').click(function () {
+                $('#profilePictureModal').modal('show');
+            });
+
+            $('.table-responsive').each(function () {
+                var tableCount = $('.table-responsive table').length;
+                if (tableCount == 0) {
+                    $('.table-responsive').css('border', 'none');
+                }
+            });
+
+            //////submenu show hide toggle//////
+            if ($(window).width() < 768) {
+                $('.left_col > ul.nav.nav-tabs > li >a').on('click', function () {
+                    $('.left_col > ul.nav.nav-tabs').fadeOut(1000);
+                });
+            }
+        });
+
+        $(function () {
+            $('.issue-datepicker').datepicker({
+                endDate: '+0d',
+                autoclose: true
+            });
+            $('.expiry-datepicker').datepicker({
+                startDate: new Date(),
+                autoclose: true
+            });
+        });
+
+        jQuery(document).ready(function ($) {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 50) {
+                    $('#backToTop').fadeIn('slow');
+                } else {
+                    $('#backToTop').fadeOut('slow');
+                }
+            });
+            $('#backToTop').click(function () {
+                $("html, body").animate({ scrollTop: 0 }, 500);
+                return false;
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#sub-tabs").click(function () {
+                $("#sub-tabs-list").slideToggle("fast");
+            });
+        });
+
+        var browseProfilePic = document.getElementById('fileuploadprofilepic');
+        browseProfilePic.onchange = function (e) {
+            var ext = this.value.match(/\.(.+)$/)[1];
+            switch (ext) {
+                case 'jpg':
+                    //customAlert("S", ".jpg image is selected");
+                    //alert('allowed');
+                    break;
+                default:
+                    customAlert("E", "Please select .jpg format");
+                    //alert('not allowed');
+                    this.value = '';
+            }
+        };
+
+        $(document).ready(function () {
+            var vMainClass = document.getElementById("hdnMainMenuClass").value;
+            if (vMainClass !== "") {
+                document.getElementById(vMainClass).className = "active";
+            }
+
+            var vSubClass = document.getElementById("hdnSubMenuClass").value;
+            if (vSubClass !== "") {
+                if (document.getElementById(vSubClass)) {
+                    document.getElementById(vSubClass).className = "active";
+                }
+            }
+        });
+    </script>
+    <script>
+        $(function () {
+            $(document).on('change', ':file', function () {
+                var input = $(this),
+                    numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                input.trigger('fileselect', [numFiles, label]);
+            });
+
+            $(document).ready(function () {
+                $(':file').on('fileselect', function (event, numFiles, label) {
+                    var input = $(this).parents('.input-group').find(':text'),
+                        log = numFiles > 1 ? numFiles + ' files selected' : label;
+                    if (input.length) {
+                        input.val(log);
+                    } else {
+                        //if (log) alert(log);
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="assets/vendor/js/chart.js"></script>
+    <script src="assets/vendor/js/academic-chart.js"></script>
+    <script src="assets/vendor/js/FinanceDashboard.js"></script>
+</body>
+</html>

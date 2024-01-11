@@ -1,0 +1,17 @@
+D:\HRMSDLVP\WebServices\bin\Debug\WebServices.dll.config
+D:\HRMSDLVP\WebServices\bin\Debug\WebServices.dll
+D:\HRMSDLVP\WebServices\bin\Debug\WebServices.pdb
+D:\HRMSDLVP\WebServices\bin\Debug\Microsoft.OData.Client.dll
+D:\HRMSDLVP\WebServices\bin\Debug\Microsoft.OData.Core.dll
+D:\HRMSDLVP\WebServices\bin\Debug\Microsoft.OData.Edm.dll
+D:\HRMSDLVP\WebServices\bin\Debug\Microsoft.Spatial.dll
+D:\HRMSDLVP\WebServices\bin\Debug\System.Buffers.dll
+D:\HRMSDLVP\WebServices\bin\Debug\Microsoft.OData.Client.xml
+D:\HRMSDLVP\WebServices\bin\Debug\Microsoft.OData.Core.xml
+D:\HRMSDLVP\WebServices\bin\Debug\Microsoft.OData.Edm.xml
+D:\HRMSDLVP\WebServices\bin\Debug\Microsoft.Spatial.xml
+D:\HRMSDLVP\WebServices\obj\Debug\WebServices.csproj.AssemblyReference.cache
+D:\HRMSDLVP\WebServices\obj\Debug\WebServices.csproj.CoreCompileInputs.cache
+D:\HRMSDLVP\WebServices\obj\Debug\WebServices.csproj.CopyComplete
+D:\HRMSDLVP\WebServices\obj\Debug\WebServices.dll
+D:\HRMSDLVP\WebServices\obj\Debug\WebServices.pdb

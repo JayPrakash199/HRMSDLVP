@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="Download_Employee_Training_History_Certificate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entrynopar" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Employee_Training_History_Certificate_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Financial_Upgradation_Application">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="eNTnopar" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="hRMSIDPar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Financial_Upgradation_Application_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Promotion_Order">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="eNTnopar" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Promotion_Order_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Transfer_Application_Employee">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="sLnopar" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="hRMSIDpar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Transfer_Application_Employee_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Transfer_Order">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="eNTnopar" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Transfer_Order_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportAnnualEstablishmentPartA">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportAnnualEstablishmentPartA_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportAnnualEstablishmentPartC">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportAnnualEstablishmentPartC_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportAnnualEstablishmentPartE">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportAnnualEstablishmentPartE_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportAnnualIncrementDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportAnnualIncrementDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportAnnualInternalPerformance">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportAnnualInternalPerformance_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportCourtCaseMonitoringDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportCourtCaseMonitoringDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETAnnualEstablishmentPartA">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETAnnualEstablishmentPartA_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETAnnualEstablishmentPartC">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETAnnualEstablishmentPartC_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETAnnualEstablishmentPartE">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETAnnualEstablishmentPartE_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETAnnualPerformanceDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETAnnualPerformanceDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETEmployeeList">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETEmployeeList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETEmployeeTransferApplicationDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETEmployeeTransferApplicationDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETFinancialUpgradationDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETFinancialUpgradationDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETPromotionDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETPromotionDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETStaffProfileDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETStaffProfileDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETTransferDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETTransferDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDisciplinaryDetailsPreview">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDisciplinaryDetailsPreview_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportEmployeeList">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportEmployeeList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportEmployeeTrainingDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportEmployeeTrainingDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportFinancialUpgradationApplicationForm">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportFinancialUpgradationApplicationForm_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportPromotionDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportPromotionDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportRTIMonitoringDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportRTIMonitoringDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportStaffAchivementDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportStaffAchivementDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportTransferConsolidatedList">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportTransferConsolidatedList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HRMSDataImportFromGovtPortal">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HRMSDataImportFromGovtPortal_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdateAddEmpDetailsLatest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="hRMSID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="incDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="mAPC" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="empStatus" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateAddEmpDetailsLatest_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdateAddEmpDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="hRMSID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateAddEmpDetails_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdateDesignation">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="hRMSId" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="todesignation" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateDesignation_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_Employee_Training_History_Certificate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entrynopar" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="filenamePar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_Employee_Training_History_Certificate_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_Financial_Upgradation_Application">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="eNTnopar" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="hRMSIDPar" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="filenamePar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_Financial_Upgradation_Application_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_Promotion_Order">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="eNTnopar" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="filenamePar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_Promotion_Order_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_Transfer_Application_Employee">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="sLnopar" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="hRMSIDpar" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="filenamePar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_Transfer_Application_Employee_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_Transfer_Order">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="eNTnopar" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="filenamePar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_Transfer_Order_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="Download_Employee_Training_History_Certificate">
+    <part name="parameters" element="tns:Download_Employee_Training_History_Certificate" />
+  </message>
+  <message name="Download_Employee_Training_History_Certificate_Result">
+    <part name="parameters" element="tns:Download_Employee_Training_History_Certificate_Result" />
+  </message>
+  <message name="Download_Financial_Upgradation_Application">
+    <part name="parameters" element="tns:Download_Financial_Upgradation_Application" />
+  </message>
+  <message name="Download_Financial_Upgradation_Application_Result">
+    <part name="parameters" element="tns:Download_Financial_Upgradation_Application_Result" />
+  </message>
+  <message name="Download_Promotion_Order">
+    <part name="parameters" element="tns:Download_Promotion_Order" />
+  </message>
+  <message name="Download_Promotion_Order_Result">
+    <part name="parameters" element="tns:Download_Promotion_Order_Result" />
+  </message>
+  <message name="Download_Transfer_Application_Employee">
+    <part name="parameters" element="tns:Download_Transfer_Application_Employee" />
+  </message>
+  <message name="Download_Transfer_Application_Employee_Result">
+    <part name="parameters" element="tns:Download_Transfer_Application_Employee_Result" />
+  </message>
+  <message name="Download_Transfer_Order">
+    <part name="parameters" element="tns:Download_Transfer_Order" />
+  </message>
+  <message name="Download_Transfer_Order_Result">
+    <part name="parameters" element="tns:Download_Transfer_Order_Result" />
+  </message>
+  <message name="ExportAnnualEstablishmentPartA">
+    <part name="parameters" element="tns:ExportAnnualEstablishmentPartA" />
+  </message>
+  <message name="ExportAnnualEstablishmentPartA_Result">
+    <part name="parameters" element="tns:ExportAnnualEstablishmentPartA_Result" />
+  </message>
+  <message name="ExportAnnualEstablishmentPartC">
+    <part name="parameters" element="tns:ExportAnnualEstablishmentPartC" />
+  </message>
+  <message name="ExportAnnualEstablishmentPartC_Result">
+    <part name="parameters" element="tns:ExportAnnualEstablishmentPartC_Result" />
+  </message>
+  <message name="ExportAnnualEstablishmentPartE">
+    <part name="parameters" element="tns:ExportAnnualEstablishmentPartE" />
+  </message>
+  <message name="ExportAnnualEstablishmentPartE_Result">
+    <part name="parameters" element="tns:ExportAnnualEstablishmentPartE_Result" />
+  </message>
+  <message name="ExportAnnualIncrementDetails">
+    <part name="parameters" element="tns:ExportAnnualIncrementDetails" />
+  </message>
+  <message name="ExportAnnualIncrementDetails_Result">
+    <part name="parameters" element="tns:ExportAnnualIncrementDetails_Result" />
+  </message>
+  <message name="ExportAnnualInternalPerformance">
+    <part name="parameters" element="tns:ExportAnnualInternalPerformance" />
+  </message>
+  <message name="ExportAnnualInternalPerformance_Result">
+    <part name="parameters" element="tns:ExportAnnualInternalPerformance_Result" />
+  </message>
+  <message name="ExportCourtCaseMonitoringDetails">
+    <part name="parameters" element="tns:ExportCourtCaseMonitoringDetails" />
+  </message>
+  <message name="ExportCourtCaseMonitoringDetails_Result">
+    <part name="parameters" element="tns:ExportCourtCaseMonitoringDetails_Result" />
+  </message>
+  <message name="ExportDTETAnnualEstablishmentPartA">
+    <part name="parameters" element="tns:ExportDTETAnnualEstablishmentPartA" />
+  </message>
+  <message name="ExportDTETAnnualEstablishmentPartA_Result">
+    <part name="parameters" element="tns:ExportDTETAnnualEstablishmentPartA_Result" />
+  </message>
+  <message name="ExportDTETAnnualEstablishmentPartC">
+    <part name="parameters" element="tns:ExportDTETAnnualEstablishmentPartC" />
+  </message>
+  <message name="ExportDTETAnnualEstablishmentPartC_Result">
+    <part name="parameters" element="tns:ExportDTETAnnualEstablishmentPartC_Result" />
+  </message>
+  <message name="ExportDTETAnnualEstablishmentPartE">
+    <part name="parameters" element="tns:ExportDTETAnnualEstablishmentPartE" />
+  </message>
+  <message name="ExportDTETAnnualEstablishmentPartE_Result">
+    <part name="parameters" element="tns:ExportDTETAnnualEstablishmentPartE_Result" />
+  </message>
+  <message name="ExportDTETAnnualPerformanceDetails">
+    <part name="parameters" element="tns:ExportDTETAnnualPerformanceDetails" />
+  </message>
+  <message name="ExportDTETAnnualPerformanceDetails_Result">
+    <part name="parameters" element="tns:ExportDTETAnnualPerformanceDetails_Result" />
+  </message>
+  <message name="ExportDTETEmployeeList">
+    <part name="parameters" element="tns:ExportDTETEmployeeList" />
+  </message>
+  <message name="ExportDTETEmployeeList_Result">
+    <part name="parameters" element="tns:ExportDTETEmployeeList_Result" />
+  </message>
+  <message name="ExportDTETEmployeeTransferApplicationDetails">
+    <part name="parameters" element="tns:ExportDTETEmployeeTransferApplicationDetails" />
+  </message>
+  <message name="ExportDTETEmployeeTransferApplicationDetails_Result">
+    <part name="parameters" element="tns:ExportDTETEmployeeTransferApplicationDetails_Result" />
+  </message>
+  <message name="ExportDTETFinancialUpgradationDetails">
+    <part name="parameters" element="tns:ExportDTETFinancialUpgradationDetails" />
+  </message>
+  <message name="ExportDTETFinancialUpgradationDetails_Result">
+    <part name="parameters" element="tns:ExportDTETFinancialUpgradationDetails_Result" />
+  </message>
+  <message name="ExportDTETPromotionDetails">
+    <part name="parameters" element="tns:ExportDTETPromotionDetails" />
+  </message>
+  <message name="ExportDTETPromotionDetails_Result">
+    <part name="parameters" element="tns:ExportDTETPromotionDetails_Result" />
+  </message>
+  <message name="ExportDTETStaffProfileDetails">
+    <part name="parameters" element="tns:ExportDTETStaffProfileDetails" />
+  </message>
+  <message name="ExportDTETStaffProfileDetails_Result">
+    <part name="parameters" element="tns:ExportDTETStaffProfileDetails_Result" />
+  </message>
+  <message name="ExportDTETTransferDetails">
+    <part name="parameters" element="tns:ExportDTETTransferDetails" />
+  </message>
+  <message name="ExportDTETTransferDetails_Result">
+    <part name="parameters" element="tns:ExportDTETTransferDetails_Result" />
+  </message>
+  <message name="ExportDisciplinaryDetailsPreview">
+    <part name="parameters" element="tns:ExportDisciplinaryDetailsPreview" />
+  </message>
+  <message name="ExportDisciplinaryDetailsPreview_Result">
+    <part name="parameters" element="tns:ExportDisciplinaryDetailsPreview_Result" />
+  </message>
+  <message name="ExportEmployeeList">
+    <part name="parameters" element="tns:ExportEmployeeList" />
+  </message>
+  <message name="ExportEmployeeList_Result">
+    <part name="parameters" element="tns:ExportEmployeeList_Result" />
+  </message>
+  <message name="ExportEmployeeTrainingDetails">
+    <part name="parameters" element="tns:ExportEmployeeTrainingDetails" />
+  </message>
+  <message name="ExportEmployeeTrainingDetails_Result">
+    <part name="parameters" element="tns:ExportEmployeeTrainingDetails_Result" />
+  </message>
+  <message name="ExportFinancialUpgradationApplicationForm">
+    <part name="parameters" element="tns:ExportFinancialUpgradationApplicationForm" />
+  </message>
+  <message name="ExportFinancialUpgradationApplicationForm_Result">
+    <part name="parameters" element="tns:ExportFinancialUpgradationApplicationForm_Result" />
+  </message>
+  <message name="ExportPromotionDetails">
+    <part name="parameters" element="tns:ExportPromotionDetails" />
+  </message>
+  <message name="ExportPromotionDetails_Result">
+    <part name="parameters" element="tns:ExportPromotionDetails_Result" />
+  </message>
+  <message name="ExportRTIMonitoringDetails">
+    <part name="parameters" element="tns:ExportRTIMonitoringDetails" />
+  </message>
+  <message name="ExportRTIMonitoringDetails_Result">
+    <part name="parameters" element="tns:ExportRTIMonitoringDetails_Result" />
+  </message>
+  <message name="ExportStaffAchivementDetails">
+    <part name="parameters" element="tns:ExportStaffAchivementDetails" />
+  </message>
+  <message name="ExportStaffAchivementDetails_Result">
+    <part name="parameters" element="tns:ExportStaffAchivementDetails_Result" />
+  </message>
+  <message name="ExportTransferConsolidatedList">
+    <part name="parameters" element="tns:ExportTransferConsolidatedList" />
+  </message>
+  <message name="ExportTransferConsolidatedList_Result">
+    <part name="parameters" element="tns:ExportTransferConsolidatedList_Result" />
+  </message>
+  <message name="HRMSDataImportFromGovtPortal">
+    <part name="parameters" element="tns:HRMSDataImportFromGovtPortal" />
+  </message>
+  <message name="HRMSDataImportFromGovtPortal_Result">
+    <part name="parameters" element="tns:HRMSDataImportFromGovtPortal_Result" />
+  </message>
+  <message name="UpdateAddEmpDetailsLatest">
+    <part name="parameters" element="tns:UpdateAddEmpDetailsLatest" />
+  </message>
+  <message name="UpdateAddEmpDetailsLatest_Result">
+    <part name="parameters" element="tns:UpdateAddEmpDetailsLatest_Result" />
+  </message>
+  <message name="UpdateAddEmpDetails">
+    <part name="parameters" element="tns:UpdateAddEmpDetails" />
+  </message>
+  <message name="UpdateAddEmpDetails_Result">
+    <part name="parameters" element="tns:UpdateAddEmpDetails_Result" />
+  </message>
+  <message name="UpdateDesignation">
+    <part name="parameters" element="tns:UpdateDesignation" />
+  </message>
+  <message name="UpdateDesignation_Result">
+    <part name="parameters" element="tns:UpdateDesignation_Result" />
+  </message>
+  <message name="Upload_Employee_Training_History_Certificate">
+    <part name="parameters" element="tns:Upload_Employee_Training_History_Certificate" />
+  </message>
+  <message name="Upload_Employee_Training_History_Certificate_Result">
+    <part name="parameters" element="tns:Upload_Employee_Training_History_Certificate_Result" />
+  </message>
+  <message name="Upload_Financial_Upgradation_Application">
+    <part name="parameters" element="tns:Upload_Financial_Upgradation_Application" />
+  </message>
+  <message name="Upload_Financial_Upgradation_Application_Result">
+    <part name="parameters" element="tns:Upload_Financial_Upgradation_Application_Result" />
+  </message>
+  <message name="Upload_Promotion_Order">
+    <part name="parameters" element="tns:Upload_Promotion_Order" />
+  </message>
+  <message name="Upload_Promotion_Order_Result">
+    <part name="parameters" element="tns:Upload_Promotion_Order_Result" />
+  </message>
+  <message name="Upload_Transfer_Application_Employee">
+    <part name="parameters" element="tns:Upload_Transfer_Application_Employee" />
+  </message>
+  <message name="Upload_Transfer_Application_Employee_Result">
+    <part name="parameters" element="tns:Upload_Transfer_Application_Employee_Result" />
+  </message>
+  <message name="Upload_Transfer_Order">
+    <part name="parameters" element="tns:Upload_Transfer_Order" />
+  </message>
+  <message name="Upload_Transfer_Order_Result">
+    <part name="parameters" element="tns:Upload_Transfer_Order_Result" />
+  </message>
+  <portType name="HRMSCodeunit_Port">
+    <operation name="Download_Employee_Training_History_Certificate">
+      <input name="Download_Employee_Training_History_Certificate" message="tns:Download_Employee_Training_History_Certificate" />
+      <output name="Download_Employee_Training_History_Certificate_Result" message="tns:Download_Employee_Training_History_Certificate_Result" />
+    </operation>
+    <operation name="Download_Financial_Upgradation_Application">
+      <input name="Download_Financial_Upgradation_Application" message="tns:Download_Financial_Upgradation_Application" />
+      <output name="Download_Financial_Upgradation_Application_Result" message="tns:Download_Financial_Upgradation_Application_Result" />
+    </operation>
+    <operation name="Download_Promotion_Order">
+      <input name="Download_Promotion_Order" message="tns:Download_Promotion_Order" />
+      <output name="Download_Promotion_Order_Result" message="tns:Download_Promotion_Order_Result" />
+    </operation>
+    <operation name="Download_Transfer_Application_Employee">
+      <input name="Download_Transfer_Application_Employee" message="tns:Download_Transfer_Application_Employee" />
+      <output name="Download_Transfer_Application_Employee_Result" message="tns:Download_Transfer_Application_Employee_Result" />
+    </operation>
+    <operation name="Download_Transfer_Order">
+      <input name="Download_Transfer_Order" message="tns:Download_Transfer_Order" />
+      <output name="Download_Transfer_Order_Result" message="tns:Download_Transfer_Order_Result" />
+    </operation>
+    <operation name="ExportAnnualEstablishmentPartA">
+      <input name="ExportAnnualEstablishmentPartA" message="tns:ExportAnnualEstablishmentPartA" />
+      <output name="ExportAnnualEstablishmentPartA_Result" message="tns:ExportAnnualEstablishmentPartA_Result" />
+    </operation>
+    <operation name="ExportAnnualEstablishmentPartC">
+      <input name="ExportAnnualEstablishmentPartC" message="tns:ExportAnnualEstablishmentPartC" />
+      <output name="ExportAnnualEstablishmentPartC_Result" message="tns:ExportAnnualEstablishmentPartC_Result" />
+    </operation>
+    <operation name="ExportAnnualEstablishmentPartE">
+      <input name="ExportAnnualEstablishmentPartE" message="tns:ExportAnnualEstablishmentPartE" />
+      <output name="ExportAnnualEstablishmentPartE_Result" message="tns:ExportAnnualEstablishmentPartE_Result" />
+    </operation>
+    <operation name="ExportAnnualIncrementDetails">
+      <input name="ExportAnnualIncrementDetails" message="tns:ExportAnnualIncrementDetails" />
+      <output name="ExportAnnualIncrementDetails_Result" message="tns:ExportAnnualIncrementDetails_Result" />
+    </operation>
+    <operation name="ExportAnnualInternalPerformance">
+      <input name="ExportAnnualInternalPerformance" message="tns:ExportAnnualInternalPerformance" />
+      <output name="ExportAnnualInternalPerformance_Result" message="tns:ExportAnnualInternalPerformance_Result" />
+    </operation>
+    <operation name="ExportCourtCaseMonitoringDetails">
+      <input name="ExportCourtCaseMonitoringDetails" message="tns:ExportCourtCaseMonitoringDetails" />
+      <output name="ExportCourtCaseMonitoringDetails_Result" message="tns:ExportCourtCaseMonitoringDetails_Result" />
+    </operation>
+    <operation name="ExportDTETAnnualEstablishmentPartA">
+      <input name="ExportDTETAnnualEstablishmentPartA" message="tns:ExportDTETAnnualEstablishmentPartA" />
+      <output name="ExportDTETAnnualEstablishmentPartA_Result" message="tns:ExportDTETAnnualEstablishmentPartA_Result" />
+    </operation>
+    <operation name="ExportDTETAnnualEstablishmentPartC">
+      <input name="ExportDTETAnnualEstablishmentPartC" message="tns:ExportDTETAnnualEstablishmentPartC" />
+      <output name="ExportDTETAnnualEstablishmentPartC_Result" message="tns:ExportDTETAnnualEstablishmentPartC_Result" />
+    </operation>
+    <operation name="ExportDTETAnnualEstablishmentPartE">
+      <input name="ExportDTETAnnualEstablishmentPartE" message="tns:ExportDTETAnnualEstablishmentPartE" />
+      <output name="ExportDTETAnnualEstablishmentPartE_Result" message="tns:ExportDTETAnnualEstablishmentPartE_Result" />
+    </operation>
+    <operation name="ExportDTETAnnualPerformanceDetails">
+      <input name="ExportDTETAnnualPerformanceDetails" message="tns:ExportDTETAnnualPerformanceDetails" />
+      <output name="ExportDTETAnnualPerformanceDetails_Result" message="tns:ExportDTETAnnualPerformanceDetails_Result" />
+    </operation>
+    <operation name="ExportDTETEmployeeList">
+      <input name="ExportDTETEmployeeList" message="tns:ExportDTETEmployeeList" />
+      <output name="ExportDTETEmployeeList_Result" message="tns:ExportDTETEmployeeList_Result" />
+    </operation>
+    <operation name="ExportDTETEmployeeTransferApplicationDetails">
+      <input name="ExportDTETEmployeeTransferApplicationDetails" message="tns:ExportDTETEmployeeTransferApplicationDetails" />
+      <output name="ExportDTETEmployeeTransferApplicationDetails_Result" message="tns:ExportDTETEmployeeTransferApplicationDetails_Result" />
+    </operation>
+    <operation name="ExportDTETFinancialUpgradationDetails">
+      <input name="ExportDTETFinancialUpgradationDetails" message="tns:ExportDTETFinancialUpgradationDetails" />
+      <output name="ExportDTETFinancialUpgradationDetails_Result" message="tns:ExportDTETFinancialUpgradationDetails_Result" />
+    </operation>
+    <operation name="ExportDTETPromotionDetails">
+      <input name="ExportDTETPromotionDetails" message="tns:ExportDTETPromotionDetails" />
+      <output name="ExportDTETPromotionDetails_Result" message="tns:ExportDTETPromotionDetails_Result" />
+    </operation>
+    <operation name="ExportDTETStaffProfileDetails">
+      <input name="ExportDTETStaffProfileDetails" message="tns:ExportDTETStaffProfileDetails" />
+      <output name="ExportDTETStaffProfileDetails_Result" message="tns:ExportDTETStaffProfileDetails_Result" />
+    </operation>
+    <operation name="ExportDTETTransferDetails">
+      <input name="ExportDTETTransferDetails" message="tns:ExportDTETTransferDetails" />
+      <output name="ExportDTETTransferDetails_Result" message="tns:ExportDTETTransferDetails_Result" />
+    </operation>
+    <operation name="ExportDisciplinaryDetailsPreview">
+      <input name="ExportDisciplinaryDetailsPreview" message="tns:ExportDisciplinaryDetailsPreview" />
+      <output name="ExportDisciplinaryDetailsPreview_Result" message="tns:ExportDisciplinaryDetailsPreview_Result" />
+    </operation>
+    <operation name="ExportEmployeeList">
+      <input name="ExportEmployeeList" message="tns:ExportEmployeeList" />
+      <output name="ExportEmployeeList_Result" message="tns:ExportEmployeeList_Result" />
+    </operation>
+    <operation name="ExportEmployeeTrainingDetails">
+      <input name="ExportEmployeeTrainingDetails" message="tns:ExportEmployeeTrainingDetails" />
+      <output name="ExportEmployeeTrainingDetails_Result" message="tns:ExportEmployeeTrainingDetails_Result" />
+    </operation>
+    <operation name="ExportFinancialUpgradationApplicationForm">
+      <input name="ExportFinancialUpgradationApplicationForm" message="tns:ExportFinancialUpgradationApplicationForm" />
+      <output name="ExportFinancialUpgradationApplicationForm_Result" message="tns:ExportFinancialUpgradationApplicationForm_Result" />
+    </operation>
+    <operation name="ExportPromotionDetails">
+      <input name="ExportPromotionDetails" message="tns:ExportPromotionDetails" />
+      <output name="ExportPromotionDetails_Result" message="tns:ExportPromotionDetails_Result" />
+    </operation>
+    <operation name="ExportRTIMonitoringDetails">
+      <input name="ExportRTIMonitoringDetails" message="tns:ExportRTIMonitoringDetails" />
+      <output name="ExportRTIMonitoringDetails_Result" message="tns:ExportRTIMonitoringDetails_Result" />
+    </operation>
+    <operation name="ExportStaffAchivementDetails">
+      <input name="ExportStaffAchivementDetails" message="tns:ExportStaffAchivementDetails" />
+      <output name="ExportStaffAchivementDetails_Result" message="tns:ExportStaffAchivementDetails_Result" />
+    </operation>
+    <operation name="ExportTransferConsolidatedList">
+      <input name="ExportTransferConsolidatedList" message="tns:ExportTransferConsolidatedList" />
+      <output name="ExportTransferConsolidatedList_Result" message="tns:ExportTransferConsolidatedList_Result" />
+    </operation>
+    <operation name="HRMSDataImportFromGovtPortal">
+      <input name="HRMSDataImportFromGovtPortal" message="tns:HRMSDataImportFromGovtPortal" />
+      <output name="HRMSDataImportFromGovtPortal_Result" message="tns:HRMSDataImportFromGovtPortal_Result" />
+    </operation>
+    <operation name="UpdateAddEmpDetailsLatest">
+      <input name="UpdateAddEmpDetailsLatest" message="tns:UpdateAddEmpDetailsLatest" />
+      <output name="UpdateAddEmpDetailsLatest_Result" message="tns:UpdateAddEmpDetailsLatest_Result" />
+    </operation>
+    <operation name="UpdateAddEmpDetails">
+      <input name="UpdateAddEmpDetails" message="tns:UpdateAddEmpDetails" />
+      <output name="UpdateAddEmpDetails_Result" message="tns:UpdateAddEmpDetails_Result" />
+    </operation>
+    <operation name="UpdateDesignation">
+      <input name="UpdateDesignation" message="tns:UpdateDesignation" />
+      <output name="UpdateDesignation_Result" message="tns:UpdateDesignation_Result" />
+    </operation>
+    <operation name="Upload_Employee_Training_History_Certificate">
+      <input name="Upload_Employee_Training_History_Certificate" message="tns:Upload_Employee_Training_History_Certificate" />
+      <output name="Upload_Employee_Training_History_Certificate_Result" message="tns:Upload_Employee_Training_History_Certificate_Result" />
+    </operation>
+    <operation name="Upload_Financial_Upgradation_Application">
+      <input name="Upload_Financial_Upgradation_Application" message="tns:Upload_Financial_Upgradation_Application" />
+      <output name="Upload_Financial_Upgradation_Application_Result" message="tns:Upload_Financial_Upgradation_Application_Result" />
+    </operation>
+    <operation name="Upload_Promotion_Order">
+      <input name="Upload_Promotion_Order" message="tns:Upload_Promotion_Order" />
+      <output name="Upload_Promotion_Order_Result" message="tns:Upload_Promotion_Order_Result" />
+    </operation>
+    <operation name="Upload_Transfer_Application_Employee">
+      <input name="Upload_Transfer_Application_Employee" message="tns:Upload_Transfer_Application_Employee" />
+      <output name="Upload_Transfer_Application_Employee_Result" message="tns:Upload_Transfer_Application_Employee_Result" />
+    </operation>
+    <operation name="Upload_Transfer_Order">
+      <input name="Upload_Transfer_Order" message="tns:Upload_Transfer_Order" />
+      <output name="Upload_Transfer_Order_Result" message="tns:Upload_Transfer_Order_Result" />
+    </operation>
+  </portType>
+  <binding name="HRMSCodeunit_Binding" type="tns:HRMSCodeunit_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="Download_Employee_Training_History_Certificate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:Download_Employee_Training_History_Certificate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Download_Employee_Training_History_Certificate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Download_Employee_Training_History_Certificate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Download_Financial_Upgradation_Application">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:Download_Financial_Upgradation_Application" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Download_Financial_Upgradation_Application">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Download_Financial_Upgradation_Application_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Download_Promotion_Order">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:Download_Promotion_Order" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Download_Promotion_Order">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Download_Promotion_Order_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Download_Transfer_Application_Employee">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:Download_Transfer_Application_Employee" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Download_Transfer_Application_Employee">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Download_Transfer_Application_Employee_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Download_Transfer_Order">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:Download_Transfer_Order" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Download_Transfer_Order">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Download_Transfer_Order_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportAnnualEstablishmentPartA">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportAnnualEstablishmentPartA" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportAnnualEstablishmentPartA">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportAnnualEstablishmentPartA_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportAnnualEstablishmentPartC">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportAnnualEstablishmentPartC" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportAnnualEstablishmentPartC">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportAnnualEstablishmentPartC_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportAnnualEstablishmentPartE">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportAnnualEstablishmentPartE" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportAnnualEstablishmentPartE">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportAnnualEstablishmentPartE_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportAnnualIncrementDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportAnnualIncrementDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportAnnualIncrementDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportAnnualIncrementDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportAnnualInternalPerformance">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportAnnualInternalPerformance" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportAnnualInternalPerformance">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportAnnualInternalPerformance_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportCourtCaseMonitoringDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportCourtCaseMonitoringDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportCourtCaseMonitoringDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportCourtCaseMonitoringDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETAnnualEstablishmentPartA">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportDTETAnnualEstablishmentPartA" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETAnnualEstablishmentPartA">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETAnnualEstablishmentPartA_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETAnnualEstablishmentPartC">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportDTETAnnualEstablishmentPartC" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETAnnualEstablishmentPartC">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETAnnualEstablishmentPartC_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETAnnualEstablishmentPartE">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportDTETAnnualEstablishmentPartE" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETAnnualEstablishmentPartE">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETAnnualEstablishmentPartE_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETAnnualPerformanceDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportDTETAnnualPerformanceDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETAnnualPerformanceDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETAnnualPerformanceDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETEmployeeList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportDTETEmployeeList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETEmployeeList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETEmployeeList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETEmployeeTransferApplicationDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportDTETEmployeeTransferApplicationDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETEmployeeTransferApplicationDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETEmployeeTransferApplicationDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETFinancialUpgradationDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportDTETFinancialUpgradationDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETFinancialUpgradationDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETFinancialUpgradationDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETPromotionDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportDTETPromotionDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETPromotionDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETPromotionDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETStaffProfileDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportDTETStaffProfileDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETStaffProfileDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETStaffProfileDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETTransferDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportDTETTransferDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETTransferDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETTransferDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDisciplinaryDetailsPreview">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportDisciplinaryDetailsPreview" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDisciplinaryDetailsPreview">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDisciplinaryDetailsPreview_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportEmployeeList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportEmployeeList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportEmployeeList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportEmployeeList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportEmployeeTrainingDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportEmployeeTrainingDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportEmployeeTrainingDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportEmployeeTrainingDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportFinancialUpgradationApplicationForm">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportFinancialUpgradationApplicationForm" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportFinancialUpgradationApplicationForm">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportFinancialUpgradationApplicationForm_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportPromotionDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportPromotionDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportPromotionDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportPromotionDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportRTIMonitoringDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportRTIMonitoringDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportRTIMonitoringDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportRTIMonitoringDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportStaffAchivementDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportStaffAchivementDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportStaffAchivementDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportStaffAchivementDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportTransferConsolidatedList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:ExportTransferConsolidatedList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportTransferConsolidatedList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportTransferConsolidatedList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="HRMSDataImportFromGovtPortal">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:HRMSDataImportFromGovtPortal" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="HRMSDataImportFromGovtPortal">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="HRMSDataImportFromGovtPortal_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateAddEmpDetailsLatest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:UpdateAddEmpDetailsLatest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateAddEmpDetailsLatest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateAddEmpDetailsLatest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateAddEmpDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:UpdateAddEmpDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateAddEmpDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateAddEmpDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateDesignation">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:UpdateDesignation" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateDesignation">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateDesignation_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_Employee_Training_History_Certificate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:Upload_Employee_Training_History_Certificate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_Employee_Training_History_Certificate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_Employee_Training_History_Certificate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_Financial_Upgradation_Application">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:Upload_Financial_Upgradation_Application" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_Financial_Upgradation_Application">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_Financial_Upgradation_Application_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_Promotion_Order">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:Upload_Promotion_Order" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_Promotion_Order">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_Promotion_Order_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_Transfer_Application_Employee">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:Upload_Transfer_Application_Employee" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_Transfer_Application_Employee">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_Transfer_Application_Employee_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_Transfer_Order">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:Upload_Transfer_Order" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_Transfer_Order">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_Transfer_Order_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="HRMSCodeunit">
+    <port name="HRMSCodeunit_Port" binding="tns:HRMSCodeunit_Binding">
+      <address location="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Codeunit/HRMSCodeunit" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

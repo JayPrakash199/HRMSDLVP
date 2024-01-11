@@ -1,0 +1,2029 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="Download_Auditorium_Building_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="buildingCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Auditorium_Building_File_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Hostel_Building_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="blockCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Hostel_Building_File_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Institutional_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="blockCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Institutional_File_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Land_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="khatianNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Land_File_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_ProjectEntry_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="projectType" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="projectCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_ProjectEntry_File_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Project_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="projectType" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="projectCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Project_File_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Staff_Building_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="blockCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Download_Staff_Building_File_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Boys_Common_Room_Photos">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Boys_Common_Room_Photos_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Central_Library_Photos">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Central_Library_Photos_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Computer_Lab_Photos">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Computer_Lab_Photos_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Conference_Room_photo">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Conference_Room_photo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Dispensary_Photos">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Dispensary_Photos_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Field_Gallery_photo">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Field_Gallery_photo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Field_Photos">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Field_Photos_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Girls_Common_Room_Photos">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Girls_Common_Room_Photos_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Library_Photos">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Library_Photos_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Main_Entrance_Photos">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Main_Entrance_Photos_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Sports_Court_photo">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Sports_Court_photo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Staff_Canteena47Cafeteria_Photos">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Staff_Canteena47Cafeteria_Photos_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Staff_Common_Room_Photos">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Staff_Common_Room_Photos_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Video_Conference_Room_photo">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Downlond_GB_Video_Conference_Room_photo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GeneralLand_Building_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="primaryKey" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Downlond_GeneralLand_Building_File_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportAuditoriumBuilding">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportAuditoriumBuilding_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETAuditoriumBuilding">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETAuditoriumBuilding_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETEstimatePreparationMonitoring">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETEstimatePreparationMonitoring_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETHostelBuilding">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETHostelBuilding_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETInstitutionalBuilding">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETInstitutionalBuilding_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETLandDataDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETLandDataDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETMaintanenceAndAMC">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETMaintanenceAndAMC_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETProjectProgressDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETProjectProgressDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETServiceMonitoring">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETServiceMonitoring_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportDTETStaffBuilding">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportDTETStaffBuilding_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportEstimatePreparationMonitoring">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportEstimatePreparationMonitoring_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportHostelBuilding">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportHostelBuilding_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportInstitutionalBuilding">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportInstitutionalBuilding_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportLandDataDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportLandDataDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportLandDataTemplate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportLandDataTemplate_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportMaintanenceAndAMC">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportMaintanenceAndAMC_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportProjectProgressDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportProjectProgressDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportServiceMonitoring">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportServiceMonitoring_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ExportStaffBuilding">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ExportStaffBuilding_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ImportLandFile">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ImportLandFile_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_Auditorium_Buliding_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="buildingCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_Auditorium_Buliding_File_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Boys_Common_Room_Photos">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Boys_Common_Room_Photos_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Central_Library_Photos">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Central_Library_Photos_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Computer_Lab_Photos">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Computer_Lab_Photos_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Conference_Room_photo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Conference_Room_photo_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Dispensary_Photos">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Dispensary_Photos_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Field_Gallery_photo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Field_Gallery_photo_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Field_Photos">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Field_Photos_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Girls_Common_Room_Photos">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Girls_Common_Room_Photos_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Library_Photos">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Library_Photos_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Main_Entrance_Photos">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Main_Entrance_Photos_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Sports_Court_photo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Sports_Court_photo_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Staff_Canteena47Cafeteria_Photos">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Staff_Canteena47Cafeteria_Photos_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Staff_Common_Room_Photos">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Staff_Common_Room_Photos_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GB_Video_Conference_Room_photo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileNamepar" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GB_Video_Conference_Room_photo_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_GeneralLand_Buliding_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="primaryKey" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_GeneralLand_Buliding_File_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_Hostel_Buliding_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="blockCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_Hostel_Buliding_File_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_Institute_Buliding_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="blockCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_Institute_Buliding_File_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_Land_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="khatianNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_Land_File_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_Project_Entry_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="projectType" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="projectCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_Project_Entry_File_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_Project_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="projectType" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="projectCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_Project_File_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Upload_Staff_Buliding_File">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="quarterCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Upload_Staff_Buliding_File_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="Download_Auditorium_Building_File">
+    <part name="parameters" element="tns:Download_Auditorium_Building_File" />
+  </message>
+  <message name="Download_Auditorium_Building_File_Result">
+    <part name="parameters" element="tns:Download_Auditorium_Building_File_Result" />
+  </message>
+  <message name="Download_Hostel_Building_File">
+    <part name="parameters" element="tns:Download_Hostel_Building_File" />
+  </message>
+  <message name="Download_Hostel_Building_File_Result">
+    <part name="parameters" element="tns:Download_Hostel_Building_File_Result" />
+  </message>
+  <message name="Download_Institutional_File">
+    <part name="parameters" element="tns:Download_Institutional_File" />
+  </message>
+  <message name="Download_Institutional_File_Result">
+    <part name="parameters" element="tns:Download_Institutional_File_Result" />
+  </message>
+  <message name="Download_Land_File">
+    <part name="parameters" element="tns:Download_Land_File" />
+  </message>
+  <message name="Download_Land_File_Result">
+    <part name="parameters" element="tns:Download_Land_File_Result" />
+  </message>
+  <message name="Download_ProjectEntry_File">
+    <part name="parameters" element="tns:Download_ProjectEntry_File" />
+  </message>
+  <message name="Download_ProjectEntry_File_Result">
+    <part name="parameters" element="tns:Download_ProjectEntry_File_Result" />
+  </message>
+  <message name="Download_Project_File">
+    <part name="parameters" element="tns:Download_Project_File" />
+  </message>
+  <message name="Download_Project_File_Result">
+    <part name="parameters" element="tns:Download_Project_File_Result" />
+  </message>
+  <message name="Download_Staff_Building_File">
+    <part name="parameters" element="tns:Download_Staff_Building_File" />
+  </message>
+  <message name="Download_Staff_Building_File_Result">
+    <part name="parameters" element="tns:Download_Staff_Building_File_Result" />
+  </message>
+  <message name="Downlond_GB_Boys_Common_Room_Photos">
+    <part name="parameters" element="tns:Downlond_GB_Boys_Common_Room_Photos" />
+  </message>
+  <message name="Downlond_GB_Boys_Common_Room_Photos_Result">
+    <part name="parameters" element="tns:Downlond_GB_Boys_Common_Room_Photos_Result" />
+  </message>
+  <message name="Downlond_GB_Central_Library_Photos">
+    <part name="parameters" element="tns:Downlond_GB_Central_Library_Photos" />
+  </message>
+  <message name="Downlond_GB_Central_Library_Photos_Result">
+    <part name="parameters" element="tns:Downlond_GB_Central_Library_Photos_Result" />
+  </message>
+  <message name="Downlond_GB_Computer_Lab_Photos">
+    <part name="parameters" element="tns:Downlond_GB_Computer_Lab_Photos" />
+  </message>
+  <message name="Downlond_GB_Computer_Lab_Photos_Result">
+    <part name="parameters" element="tns:Downlond_GB_Computer_Lab_Photos_Result" />
+  </message>
+  <message name="Downlond_GB_Conference_Room_photo">
+    <part name="parameters" element="tns:Downlond_GB_Conference_Room_photo" />
+  </message>
+  <message name="Downlond_GB_Conference_Room_photo_Result">
+    <part name="parameters" element="tns:Downlond_GB_Conference_Room_photo_Result" />
+  </message>
+  <message name="Downlond_GB_Dispensary_Photos">
+    <part name="parameters" element="tns:Downlond_GB_Dispensary_Photos" />
+  </message>
+  <message name="Downlond_GB_Dispensary_Photos_Result">
+    <part name="parameters" element="tns:Downlond_GB_Dispensary_Photos_Result" />
+  </message>
+  <message name="Downlond_GB_Field_Gallery_photo">
+    <part name="parameters" element="tns:Downlond_GB_Field_Gallery_photo" />
+  </message>
+  <message name="Downlond_GB_Field_Gallery_photo_Result">
+    <part name="parameters" element="tns:Downlond_GB_Field_Gallery_photo_Result" />
+  </message>
+  <message name="Downlond_GB_Field_Photos">
+    <part name="parameters" element="tns:Downlond_GB_Field_Photos" />
+  </message>
+  <message name="Downlond_GB_Field_Photos_Result">
+    <part name="parameters" element="tns:Downlond_GB_Field_Photos_Result" />
+  </message>
+  <message name="Downlond_GB_Girls_Common_Room_Photos">
+    <part name="parameters" element="tns:Downlond_GB_Girls_Common_Room_Photos" />
+  </message>
+  <message name="Downlond_GB_Girls_Common_Room_Photos_Result">
+    <part name="parameters" element="tns:Downlond_GB_Girls_Common_Room_Photos_Result" />
+  </message>
+  <message name="Downlond_GB_Library_Photos">
+    <part name="parameters" element="tns:Downlond_GB_Library_Photos" />
+  </message>
+  <message name="Downlond_GB_Library_Photos_Result">
+    <part name="parameters" element="tns:Downlond_GB_Library_Photos_Result" />
+  </message>
+  <message name="Downlond_GB_Main_Entrance_Photos">
+    <part name="parameters" element="tns:Downlond_GB_Main_Entrance_Photos" />
+  </message>
+  <message name="Downlond_GB_Main_Entrance_Photos_Result">
+    <part name="parameters" element="tns:Downlond_GB_Main_Entrance_Photos_Result" />
+  </message>
+  <message name="Downlond_GB_Sports_Court_photo">
+    <part name="parameters" element="tns:Downlond_GB_Sports_Court_photo" />
+  </message>
+  <message name="Downlond_GB_Sports_Court_photo_Result">
+    <part name="parameters" element="tns:Downlond_GB_Sports_Court_photo_Result" />
+  </message>
+  <message name="Downlond_GB_Staff_Canteena47Cafeteria_Photos">
+    <part name="parameters" element="tns:Downlond_GB_Staff_Canteena47Cafeteria_Photos" />
+  </message>
+  <message name="Downlond_GB_Staff_Canteena47Cafeteria_Photos_Result">
+    <part name="parameters" element="tns:Downlond_GB_Staff_Canteena47Cafeteria_Photos_Result" />
+  </message>
+  <message name="Downlond_GB_Staff_Common_Room_Photos">
+    <part name="parameters" element="tns:Downlond_GB_Staff_Common_Room_Photos" />
+  </message>
+  <message name="Downlond_GB_Staff_Common_Room_Photos_Result">
+    <part name="parameters" element="tns:Downlond_GB_Staff_Common_Room_Photos_Result" />
+  </message>
+  <message name="Downlond_GB_Video_Conference_Room_photo">
+    <part name="parameters" element="tns:Downlond_GB_Video_Conference_Room_photo" />
+  </message>
+  <message name="Downlond_GB_Video_Conference_Room_photo_Result">
+    <part name="parameters" element="tns:Downlond_GB_Video_Conference_Room_photo_Result" />
+  </message>
+  <message name="Downlond_GeneralLand_Building_File">
+    <part name="parameters" element="tns:Downlond_GeneralLand_Building_File" />
+  </message>
+  <message name="Downlond_GeneralLand_Building_File_Result">
+    <part name="parameters" element="tns:Downlond_GeneralLand_Building_File_Result" />
+  </message>
+  <message name="ExportAuditoriumBuilding">
+    <part name="parameters" element="tns:ExportAuditoriumBuilding" />
+  </message>
+  <message name="ExportAuditoriumBuilding_Result">
+    <part name="parameters" element="tns:ExportAuditoriumBuilding_Result" />
+  </message>
+  <message name="ExportDTETAuditoriumBuilding">
+    <part name="parameters" element="tns:ExportDTETAuditoriumBuilding" />
+  </message>
+  <message name="ExportDTETAuditoriumBuilding_Result">
+    <part name="parameters" element="tns:ExportDTETAuditoriumBuilding_Result" />
+  </message>
+  <message name="ExportDTETEstimatePreparationMonitoring">
+    <part name="parameters" element="tns:ExportDTETEstimatePreparationMonitoring" />
+  </message>
+  <message name="ExportDTETEstimatePreparationMonitoring_Result">
+    <part name="parameters" element="tns:ExportDTETEstimatePreparationMonitoring_Result" />
+  </message>
+  <message name="ExportDTETHostelBuilding">
+    <part name="parameters" element="tns:ExportDTETHostelBuilding" />
+  </message>
+  <message name="ExportDTETHostelBuilding_Result">
+    <part name="parameters" element="tns:ExportDTETHostelBuilding_Result" />
+  </message>
+  <message name="ExportDTETInstitutionalBuilding">
+    <part name="parameters" element="tns:ExportDTETInstitutionalBuilding" />
+  </message>
+  <message name="ExportDTETInstitutionalBuilding_Result">
+    <part name="parameters" element="tns:ExportDTETInstitutionalBuilding_Result" />
+  </message>
+  <message name="ExportDTETLandDataDetails">
+    <part name="parameters" element="tns:ExportDTETLandDataDetails" />
+  </message>
+  <message name="ExportDTETLandDataDetails_Result">
+    <part name="parameters" element="tns:ExportDTETLandDataDetails_Result" />
+  </message>
+  <message name="ExportDTETMaintanenceAndAMC">
+    <part name="parameters" element="tns:ExportDTETMaintanenceAndAMC" />
+  </message>
+  <message name="ExportDTETMaintanenceAndAMC_Result">
+    <part name="parameters" element="tns:ExportDTETMaintanenceAndAMC_Result" />
+  </message>
+  <message name="ExportDTETProjectProgressDetails">
+    <part name="parameters" element="tns:ExportDTETProjectProgressDetails" />
+  </message>
+  <message name="ExportDTETProjectProgressDetails_Result">
+    <part name="parameters" element="tns:ExportDTETProjectProgressDetails_Result" />
+  </message>
+  <message name="ExportDTETServiceMonitoring">
+    <part name="parameters" element="tns:ExportDTETServiceMonitoring" />
+  </message>
+  <message name="ExportDTETServiceMonitoring_Result">
+    <part name="parameters" element="tns:ExportDTETServiceMonitoring_Result" />
+  </message>
+  <message name="ExportDTETStaffBuilding">
+    <part name="parameters" element="tns:ExportDTETStaffBuilding" />
+  </message>
+  <message name="ExportDTETStaffBuilding_Result">
+    <part name="parameters" element="tns:ExportDTETStaffBuilding_Result" />
+  </message>
+  <message name="ExportEstimatePreparationMonitoring">
+    <part name="parameters" element="tns:ExportEstimatePreparationMonitoring" />
+  </message>
+  <message name="ExportEstimatePreparationMonitoring_Result">
+    <part name="parameters" element="tns:ExportEstimatePreparationMonitoring_Result" />
+  </message>
+  <message name="ExportHostelBuilding">
+    <part name="parameters" element="tns:ExportHostelBuilding" />
+  </message>
+  <message name="ExportHostelBuilding_Result">
+    <part name="parameters" element="tns:ExportHostelBuilding_Result" />
+  </message>
+  <message name="ExportInstitutionalBuilding">
+    <part name="parameters" element="tns:ExportInstitutionalBuilding" />
+  </message>
+  <message name="ExportInstitutionalBuilding_Result">
+    <part name="parameters" element="tns:ExportInstitutionalBuilding_Result" />
+  </message>
+  <message name="ExportLandDataDetails">
+    <part name="parameters" element="tns:ExportLandDataDetails" />
+  </message>
+  <message name="ExportLandDataDetails_Result">
+    <part name="parameters" element="tns:ExportLandDataDetails_Result" />
+  </message>
+  <message name="ExportLandDataTemplate">
+    <part name="parameters" element="tns:ExportLandDataTemplate" />
+  </message>
+  <message name="ExportLandDataTemplate_Result">
+    <part name="parameters" element="tns:ExportLandDataTemplate_Result" />
+  </message>
+  <message name="ExportMaintanenceAndAMC">
+    <part name="parameters" element="tns:ExportMaintanenceAndAMC" />
+  </message>
+  <message name="ExportMaintanenceAndAMC_Result">
+    <part name="parameters" element="tns:ExportMaintanenceAndAMC_Result" />
+  </message>
+  <message name="ExportProjectProgressDetails">
+    <part name="parameters" element="tns:ExportProjectProgressDetails" />
+  </message>
+  <message name="ExportProjectProgressDetails_Result">
+    <part name="parameters" element="tns:ExportProjectProgressDetails_Result" />
+  </message>
+  <message name="ExportServiceMonitoring">
+    <part name="parameters" element="tns:ExportServiceMonitoring" />
+  </message>
+  <message name="ExportServiceMonitoring_Result">
+    <part name="parameters" element="tns:ExportServiceMonitoring_Result" />
+  </message>
+  <message name="ExportStaffBuilding">
+    <part name="parameters" element="tns:ExportStaffBuilding" />
+  </message>
+  <message name="ExportStaffBuilding_Result">
+    <part name="parameters" element="tns:ExportStaffBuilding_Result" />
+  </message>
+  <message name="ImportLandFile">
+    <part name="parameters" element="tns:ImportLandFile" />
+  </message>
+  <message name="ImportLandFile_Result">
+    <part name="parameters" element="tns:ImportLandFile_Result" />
+  </message>
+  <message name="Upload_Auditorium_Buliding_File">
+    <part name="parameters" element="tns:Upload_Auditorium_Buliding_File" />
+  </message>
+  <message name="Upload_Auditorium_Buliding_File_Result">
+    <part name="parameters" element="tns:Upload_Auditorium_Buliding_File_Result" />
+  </message>
+  <message name="Upload_GB_Boys_Common_Room_Photos">
+    <part name="parameters" element="tns:Upload_GB_Boys_Common_Room_Photos" />
+  </message>
+  <message name="Upload_GB_Boys_Common_Room_Photos_Result">
+    <part name="parameters" element="tns:Upload_GB_Boys_Common_Room_Photos_Result" />
+  </message>
+  <message name="Upload_GB_Central_Library_Photos">
+    <part name="parameters" element="tns:Upload_GB_Central_Library_Photos" />
+  </message>
+  <message name="Upload_GB_Central_Library_Photos_Result">
+    <part name="parameters" element="tns:Upload_GB_Central_Library_Photos_Result" />
+  </message>
+  <message name="Upload_GB_Computer_Lab_Photos">
+    <part name="parameters" element="tns:Upload_GB_Computer_Lab_Photos" />
+  </message>
+  <message name="Upload_GB_Computer_Lab_Photos_Result">
+    <part name="parameters" element="tns:Upload_GB_Computer_Lab_Photos_Result" />
+  </message>
+  <message name="Upload_GB_Conference_Room_photo">
+    <part name="parameters" element="tns:Upload_GB_Conference_Room_photo" />
+  </message>
+  <message name="Upload_GB_Conference_Room_photo_Result">
+    <part name="parameters" element="tns:Upload_GB_Conference_Room_photo_Result" />
+  </message>
+  <message name="Upload_GB_Dispensary_Photos">
+    <part name="parameters" element="tns:Upload_GB_Dispensary_Photos" />
+  </message>
+  <message name="Upload_GB_Dispensary_Photos_Result">
+    <part name="parameters" element="tns:Upload_GB_Dispensary_Photos_Result" />
+  </message>
+  <message name="Upload_GB_Field_Gallery_photo">
+    <part name="parameters" element="tns:Upload_GB_Field_Gallery_photo" />
+  </message>
+  <message name="Upload_GB_Field_Gallery_photo_Result">
+    <part name="parameters" element="tns:Upload_GB_Field_Gallery_photo_Result" />
+  </message>
+  <message name="Upload_GB_Field_Photos">
+    <part name="parameters" element="tns:Upload_GB_Field_Photos" />
+  </message>
+  <message name="Upload_GB_Field_Photos_Result">
+    <part name="parameters" element="tns:Upload_GB_Field_Photos_Result" />
+  </message>
+  <message name="Upload_GB_Girls_Common_Room_Photos">
+    <part name="parameters" element="tns:Upload_GB_Girls_Common_Room_Photos" />
+  </message>
+  <message name="Upload_GB_Girls_Common_Room_Photos_Result">
+    <part name="parameters" element="tns:Upload_GB_Girls_Common_Room_Photos_Result" />
+  </message>
+  <message name="Upload_GB_Library_Photos">
+    <part name="parameters" element="tns:Upload_GB_Library_Photos" />
+  </message>
+  <message name="Upload_GB_Library_Photos_Result">
+    <part name="parameters" element="tns:Upload_GB_Library_Photos_Result" />
+  </message>
+  <message name="Upload_GB_Main_Entrance_Photos">
+    <part name="parameters" element="tns:Upload_GB_Main_Entrance_Photos" />
+  </message>
+  <message name="Upload_GB_Main_Entrance_Photos_Result">
+    <part name="parameters" element="tns:Upload_GB_Main_Entrance_Photos_Result" />
+  </message>
+  <message name="Upload_GB_Sports_Court_photo">
+    <part name="parameters" element="tns:Upload_GB_Sports_Court_photo" />
+  </message>
+  <message name="Upload_GB_Sports_Court_photo_Result">
+    <part name="parameters" element="tns:Upload_GB_Sports_Court_photo_Result" />
+  </message>
+  <message name="Upload_GB_Staff_Canteena47Cafeteria_Photos">
+    <part name="parameters" element="tns:Upload_GB_Staff_Canteena47Cafeteria_Photos" />
+  </message>
+  <message name="Upload_GB_Staff_Canteena47Cafeteria_Photos_Result">
+    <part name="parameters" element="tns:Upload_GB_Staff_Canteena47Cafeteria_Photos_Result" />
+  </message>
+  <message name="Upload_GB_Staff_Common_Room_Photos">
+    <part name="parameters" element="tns:Upload_GB_Staff_Common_Room_Photos" />
+  </message>
+  <message name="Upload_GB_Staff_Common_Room_Photos_Result">
+    <part name="parameters" element="tns:Upload_GB_Staff_Common_Room_Photos_Result" />
+  </message>
+  <message name="Upload_GB_Video_Conference_Room_photo">
+    <part name="parameters" element="tns:Upload_GB_Video_Conference_Room_photo" />
+  </message>
+  <message name="Upload_GB_Video_Conference_Room_photo_Result">
+    <part name="parameters" element="tns:Upload_GB_Video_Conference_Room_photo_Result" />
+  </message>
+  <message name="Upload_GeneralLand_Buliding_File">
+    <part name="parameters" element="tns:Upload_GeneralLand_Buliding_File" />
+  </message>
+  <message name="Upload_GeneralLand_Buliding_File_Result">
+    <part name="parameters" element="tns:Upload_GeneralLand_Buliding_File_Result" />
+  </message>
+  <message name="Upload_Hostel_Buliding_File">
+    <part name="parameters" element="tns:Upload_Hostel_Buliding_File" />
+  </message>
+  <message name="Upload_Hostel_Buliding_File_Result">
+    <part name="parameters" element="tns:Upload_Hostel_Buliding_File_Result" />
+  </message>
+  <message name="Upload_Institute_Buliding_File">
+    <part name="parameters" element="tns:Upload_Institute_Buliding_File" />
+  </message>
+  <message name="Upload_Institute_Buliding_File_Result">
+    <part name="parameters" element="tns:Upload_Institute_Buliding_File_Result" />
+  </message>
+  <message name="Upload_Land_File">
+    <part name="parameters" element="tns:Upload_Land_File" />
+  </message>
+  <message name="Upload_Land_File_Result">
+    <part name="parameters" element="tns:Upload_Land_File_Result" />
+  </message>
+  <message name="Upload_Project_Entry_File">
+    <part name="parameters" element="tns:Upload_Project_Entry_File" />
+  </message>
+  <message name="Upload_Project_Entry_File_Result">
+    <part name="parameters" element="tns:Upload_Project_Entry_File_Result" />
+  </message>
+  <message name="Upload_Project_File">
+    <part name="parameters" element="tns:Upload_Project_File" />
+  </message>
+  <message name="Upload_Project_File_Result">
+    <part name="parameters" element="tns:Upload_Project_File_Result" />
+  </message>
+  <message name="Upload_Staff_Buliding_File">
+    <part name="parameters" element="tns:Upload_Staff_Buliding_File" />
+  </message>
+  <message name="Upload_Staff_Buliding_File_Result">
+    <part name="parameters" element="tns:Upload_Staff_Buliding_File_Result" />
+  </message>
+  <portType name="InfraCodeunit_Port">
+    <operation name="Download_Auditorium_Building_File">
+      <input name="Download_Auditorium_Building_File" message="tns:Download_Auditorium_Building_File" />
+      <output name="Download_Auditorium_Building_File_Result" message="tns:Download_Auditorium_Building_File_Result" />
+    </operation>
+    <operation name="Download_Hostel_Building_File">
+      <input name="Download_Hostel_Building_File" message="tns:Download_Hostel_Building_File" />
+      <output name="Download_Hostel_Building_File_Result" message="tns:Download_Hostel_Building_File_Result" />
+    </operation>
+    <operation name="Download_Institutional_File">
+      <input name="Download_Institutional_File" message="tns:Download_Institutional_File" />
+      <output name="Download_Institutional_File_Result" message="tns:Download_Institutional_File_Result" />
+    </operation>
+    <operation name="Download_Land_File">
+      <input name="Download_Land_File" message="tns:Download_Land_File" />
+      <output name="Download_Land_File_Result" message="tns:Download_Land_File_Result" />
+    </operation>
+    <operation name="Download_ProjectEntry_File">
+      <input name="Download_ProjectEntry_File" message="tns:Download_ProjectEntry_File" />
+      <output name="Download_ProjectEntry_File_Result" message="tns:Download_ProjectEntry_File_Result" />
+    </operation>
+    <operation name="Download_Project_File">
+      <input name="Download_Project_File" message="tns:Download_Project_File" />
+      <output name="Download_Project_File_Result" message="tns:Download_Project_File_Result" />
+    </operation>
+    <operation name="Download_Staff_Building_File">
+      <input name="Download_Staff_Building_File" message="tns:Download_Staff_Building_File" />
+      <output name="Download_Staff_Building_File_Result" message="tns:Download_Staff_Building_File_Result" />
+    </operation>
+    <operation name="Downlond_GB_Boys_Common_Room_Photos">
+      <input name="Downlond_GB_Boys_Common_Room_Photos" message="tns:Downlond_GB_Boys_Common_Room_Photos" />
+      <output name="Downlond_GB_Boys_Common_Room_Photos_Result" message="tns:Downlond_GB_Boys_Common_Room_Photos_Result" />
+    </operation>
+    <operation name="Downlond_GB_Central_Library_Photos">
+      <input name="Downlond_GB_Central_Library_Photos" message="tns:Downlond_GB_Central_Library_Photos" />
+      <output name="Downlond_GB_Central_Library_Photos_Result" message="tns:Downlond_GB_Central_Library_Photos_Result" />
+    </operation>
+    <operation name="Downlond_GB_Computer_Lab_Photos">
+      <input name="Downlond_GB_Computer_Lab_Photos" message="tns:Downlond_GB_Computer_Lab_Photos" />
+      <output name="Downlond_GB_Computer_Lab_Photos_Result" message="tns:Downlond_GB_Computer_Lab_Photos_Result" />
+    </operation>
+    <operation name="Downlond_GB_Conference_Room_photo">
+      <input name="Downlond_GB_Conference_Room_photo" message="tns:Downlond_GB_Conference_Room_photo" />
+      <output name="Downlond_GB_Conference_Room_photo_Result" message="tns:Downlond_GB_Conference_Room_photo_Result" />
+    </operation>
+    <operation name="Downlond_GB_Dispensary_Photos">
+      <input name="Downlond_GB_Dispensary_Photos" message="tns:Downlond_GB_Dispensary_Photos" />
+      <output name="Downlond_GB_Dispensary_Photos_Result" message="tns:Downlond_GB_Dispensary_Photos_Result" />
+    </operation>
+    <operation name="Downlond_GB_Field_Gallery_photo">
+      <input name="Downlond_GB_Field_Gallery_photo" message="tns:Downlond_GB_Field_Gallery_photo" />
+      <output name="Downlond_GB_Field_Gallery_photo_Result" message="tns:Downlond_GB_Field_Gallery_photo_Result" />
+    </operation>
+    <operation name="Downlond_GB_Field_Photos">
+      <input name="Downlond_GB_Field_Photos" message="tns:Downlond_GB_Field_Photos" />
+      <output name="Downlond_GB_Field_Photos_Result" message="tns:Downlond_GB_Field_Photos_Result" />
+    </operation>
+    <operation name="Downlond_GB_Girls_Common_Room_Photos">
+      <input name="Downlond_GB_Girls_Common_Room_Photos" message="tns:Downlond_GB_Girls_Common_Room_Photos" />
+      <output name="Downlond_GB_Girls_Common_Room_Photos_Result" message="tns:Downlond_GB_Girls_Common_Room_Photos_Result" />
+    </operation>
+    <operation name="Downlond_GB_Library_Photos">
+      <input name="Downlond_GB_Library_Photos" message="tns:Downlond_GB_Library_Photos" />
+      <output name="Downlond_GB_Library_Photos_Result" message="tns:Downlond_GB_Library_Photos_Result" />
+    </operation>
+    <operation name="Downlond_GB_Main_Entrance_Photos">
+      <input name="Downlond_GB_Main_Entrance_Photos" message="tns:Downlond_GB_Main_Entrance_Photos" />
+      <output name="Downlond_GB_Main_Entrance_Photos_Result" message="tns:Downlond_GB_Main_Entrance_Photos_Result" />
+    </operation>
+    <operation name="Downlond_GB_Sports_Court_photo">
+      <input name="Downlond_GB_Sports_Court_photo" message="tns:Downlond_GB_Sports_Court_photo" />
+      <output name="Downlond_GB_Sports_Court_photo_Result" message="tns:Downlond_GB_Sports_Court_photo_Result" />
+    </operation>
+    <operation name="Downlond_GB_Staff_Canteena47Cafeteria_Photos">
+      <input name="Downlond_GB_Staff_Canteena47Cafeteria_Photos" message="tns:Downlond_GB_Staff_Canteena47Cafeteria_Photos" />
+      <output name="Downlond_GB_Staff_Canteena47Cafeteria_Photos_Result" message="tns:Downlond_GB_Staff_Canteena47Cafeteria_Photos_Result" />
+    </operation>
+    <operation name="Downlond_GB_Staff_Common_Room_Photos">
+      <input name="Downlond_GB_Staff_Common_Room_Photos" message="tns:Downlond_GB_Staff_Common_Room_Photos" />
+      <output name="Downlond_GB_Staff_Common_Room_Photos_Result" message="tns:Downlond_GB_Staff_Common_Room_Photos_Result" />
+    </operation>
+    <operation name="Downlond_GB_Video_Conference_Room_photo">
+      <input name="Downlond_GB_Video_Conference_Room_photo" message="tns:Downlond_GB_Video_Conference_Room_photo" />
+      <output name="Downlond_GB_Video_Conference_Room_photo_Result" message="tns:Downlond_GB_Video_Conference_Room_photo_Result" />
+    </operation>
+    <operation name="Downlond_GeneralLand_Building_File">
+      <input name="Downlond_GeneralLand_Building_File" message="tns:Downlond_GeneralLand_Building_File" />
+      <output name="Downlond_GeneralLand_Building_File_Result" message="tns:Downlond_GeneralLand_Building_File_Result" />
+    </operation>
+    <operation name="ExportAuditoriumBuilding">
+      <input name="ExportAuditoriumBuilding" message="tns:ExportAuditoriumBuilding" />
+      <output name="ExportAuditoriumBuilding_Result" message="tns:ExportAuditoriumBuilding_Result" />
+    </operation>
+    <operation name="ExportDTETAuditoriumBuilding">
+      <input name="ExportDTETAuditoriumBuilding" message="tns:ExportDTETAuditoriumBuilding" />
+      <output name="ExportDTETAuditoriumBuilding_Result" message="tns:ExportDTETAuditoriumBuilding_Result" />
+    </operation>
+    <operation name="ExportDTETEstimatePreparationMonitoring">
+      <input name="ExportDTETEstimatePreparationMonitoring" message="tns:ExportDTETEstimatePreparationMonitoring" />
+      <output name="ExportDTETEstimatePreparationMonitoring_Result" message="tns:ExportDTETEstimatePreparationMonitoring_Result" />
+    </operation>
+    <operation name="ExportDTETHostelBuilding">
+      <input name="ExportDTETHostelBuilding" message="tns:ExportDTETHostelBuilding" />
+      <output name="ExportDTETHostelBuilding_Result" message="tns:ExportDTETHostelBuilding_Result" />
+    </operation>
+    <operation name="ExportDTETInstitutionalBuilding">
+      <input name="ExportDTETInstitutionalBuilding" message="tns:ExportDTETInstitutionalBuilding" />
+      <output name="ExportDTETInstitutionalBuilding_Result" message="tns:ExportDTETInstitutionalBuilding_Result" />
+    </operation>
+    <operation name="ExportDTETLandDataDetails">
+      <input name="ExportDTETLandDataDetails" message="tns:ExportDTETLandDataDetails" />
+      <output name="ExportDTETLandDataDetails_Result" message="tns:ExportDTETLandDataDetails_Result" />
+    </operation>
+    <operation name="ExportDTETMaintanenceAndAMC">
+      <input name="ExportDTETMaintanenceAndAMC" message="tns:ExportDTETMaintanenceAndAMC" />
+      <output name="ExportDTETMaintanenceAndAMC_Result" message="tns:ExportDTETMaintanenceAndAMC_Result" />
+    </operation>
+    <operation name="ExportDTETProjectProgressDetails">
+      <input name="ExportDTETProjectProgressDetails" message="tns:ExportDTETProjectProgressDetails" />
+      <output name="ExportDTETProjectProgressDetails_Result" message="tns:ExportDTETProjectProgressDetails_Result" />
+    </operation>
+    <operation name="ExportDTETServiceMonitoring">
+      <input name="ExportDTETServiceMonitoring" message="tns:ExportDTETServiceMonitoring" />
+      <output name="ExportDTETServiceMonitoring_Result" message="tns:ExportDTETServiceMonitoring_Result" />
+    </operation>
+    <operation name="ExportDTETStaffBuilding">
+      <input name="ExportDTETStaffBuilding" message="tns:ExportDTETStaffBuilding" />
+      <output name="ExportDTETStaffBuilding_Result" message="tns:ExportDTETStaffBuilding_Result" />
+    </operation>
+    <operation name="ExportEstimatePreparationMonitoring">
+      <input name="ExportEstimatePreparationMonitoring" message="tns:ExportEstimatePreparationMonitoring" />
+      <output name="ExportEstimatePreparationMonitoring_Result" message="tns:ExportEstimatePreparationMonitoring_Result" />
+    </operation>
+    <operation name="ExportHostelBuilding">
+      <input name="ExportHostelBuilding" message="tns:ExportHostelBuilding" />
+      <output name="ExportHostelBuilding_Result" message="tns:ExportHostelBuilding_Result" />
+    </operation>
+    <operation name="ExportInstitutionalBuilding">
+      <input name="ExportInstitutionalBuilding" message="tns:ExportInstitutionalBuilding" />
+      <output name="ExportInstitutionalBuilding_Result" message="tns:ExportInstitutionalBuilding_Result" />
+    </operation>
+    <operation name="ExportLandDataDetails">
+      <input name="ExportLandDataDetails" message="tns:ExportLandDataDetails" />
+      <output name="ExportLandDataDetails_Result" message="tns:ExportLandDataDetails_Result" />
+    </operation>
+    <operation name="ExportLandDataTemplate">
+      <input name="ExportLandDataTemplate" message="tns:ExportLandDataTemplate" />
+      <output name="ExportLandDataTemplate_Result" message="tns:ExportLandDataTemplate_Result" />
+    </operation>
+    <operation name="ExportMaintanenceAndAMC">
+      <input name="ExportMaintanenceAndAMC" message="tns:ExportMaintanenceAndAMC" />
+      <output name="ExportMaintanenceAndAMC_Result" message="tns:ExportMaintanenceAndAMC_Result" />
+    </operation>
+    <operation name="ExportProjectProgressDetails">
+      <input name="ExportProjectProgressDetails" message="tns:ExportProjectProgressDetails" />
+      <output name="ExportProjectProgressDetails_Result" message="tns:ExportProjectProgressDetails_Result" />
+    </operation>
+    <operation name="ExportServiceMonitoring">
+      <input name="ExportServiceMonitoring" message="tns:ExportServiceMonitoring" />
+      <output name="ExportServiceMonitoring_Result" message="tns:ExportServiceMonitoring_Result" />
+    </operation>
+    <operation name="ExportStaffBuilding">
+      <input name="ExportStaffBuilding" message="tns:ExportStaffBuilding" />
+      <output name="ExportStaffBuilding_Result" message="tns:ExportStaffBuilding_Result" />
+    </operation>
+    <operation name="ImportLandFile">
+      <input name="ImportLandFile" message="tns:ImportLandFile" />
+      <output name="ImportLandFile_Result" message="tns:ImportLandFile_Result" />
+    </operation>
+    <operation name="Upload_Auditorium_Buliding_File">
+      <input name="Upload_Auditorium_Buliding_File" message="tns:Upload_Auditorium_Buliding_File" />
+      <output name="Upload_Auditorium_Buliding_File_Result" message="tns:Upload_Auditorium_Buliding_File_Result" />
+    </operation>
+    <operation name="Upload_GB_Boys_Common_Room_Photos">
+      <input name="Upload_GB_Boys_Common_Room_Photos" message="tns:Upload_GB_Boys_Common_Room_Photos" />
+      <output name="Upload_GB_Boys_Common_Room_Photos_Result" message="tns:Upload_GB_Boys_Common_Room_Photos_Result" />
+    </operation>
+    <operation name="Upload_GB_Central_Library_Photos">
+      <input name="Upload_GB_Central_Library_Photos" message="tns:Upload_GB_Central_Library_Photos" />
+      <output name="Upload_GB_Central_Library_Photos_Result" message="tns:Upload_GB_Central_Library_Photos_Result" />
+    </operation>
+    <operation name="Upload_GB_Computer_Lab_Photos">
+      <input name="Upload_GB_Computer_Lab_Photos" message="tns:Upload_GB_Computer_Lab_Photos" />
+      <output name="Upload_GB_Computer_Lab_Photos_Result" message="tns:Upload_GB_Computer_Lab_Photos_Result" />
+    </operation>
+    <operation name="Upload_GB_Conference_Room_photo">
+      <input name="Upload_GB_Conference_Room_photo" message="tns:Upload_GB_Conference_Room_photo" />
+      <output name="Upload_GB_Conference_Room_photo_Result" message="tns:Upload_GB_Conference_Room_photo_Result" />
+    </operation>
+    <operation name="Upload_GB_Dispensary_Photos">
+      <input name="Upload_GB_Dispensary_Photos" message="tns:Upload_GB_Dispensary_Photos" />
+      <output name="Upload_GB_Dispensary_Photos_Result" message="tns:Upload_GB_Dispensary_Photos_Result" />
+    </operation>
+    <operation name="Upload_GB_Field_Gallery_photo">
+      <input name="Upload_GB_Field_Gallery_photo" message="tns:Upload_GB_Field_Gallery_photo" />
+      <output name="Upload_GB_Field_Gallery_photo_Result" message="tns:Upload_GB_Field_Gallery_photo_Result" />
+    </operation>
+    <operation name="Upload_GB_Field_Photos">
+      <input name="Upload_GB_Field_Photos" message="tns:Upload_GB_Field_Photos" />
+      <output name="Upload_GB_Field_Photos_Result" message="tns:Upload_GB_Field_Photos_Result" />
+    </operation>
+    <operation name="Upload_GB_Girls_Common_Room_Photos">
+      <input name="Upload_GB_Girls_Common_Room_Photos" message="tns:Upload_GB_Girls_Common_Room_Photos" />
+      <output name="Upload_GB_Girls_Common_Room_Photos_Result" message="tns:Upload_GB_Girls_Common_Room_Photos_Result" />
+    </operation>
+    <operation name="Upload_GB_Library_Photos">
+      <input name="Upload_GB_Library_Photos" message="tns:Upload_GB_Library_Photos" />
+      <output name="Upload_GB_Library_Photos_Result" message="tns:Upload_GB_Library_Photos_Result" />
+    </operation>
+    <operation name="Upload_GB_Main_Entrance_Photos">
+      <input name="Upload_GB_Main_Entrance_Photos" message="tns:Upload_GB_Main_Entrance_Photos" />
+      <output name="Upload_GB_Main_Entrance_Photos_Result" message="tns:Upload_GB_Main_Entrance_Photos_Result" />
+    </operation>
+    <operation name="Upload_GB_Sports_Court_photo">
+      <input name="Upload_GB_Sports_Court_photo" message="tns:Upload_GB_Sports_Court_photo" />
+      <output name="Upload_GB_Sports_Court_photo_Result" message="tns:Upload_GB_Sports_Court_photo_Result" />
+    </operation>
+    <operation name="Upload_GB_Staff_Canteena47Cafeteria_Photos">
+      <input name="Upload_GB_Staff_Canteena47Cafeteria_Photos" message="tns:Upload_GB_Staff_Canteena47Cafeteria_Photos" />
+      <output name="Upload_GB_Staff_Canteena47Cafeteria_Photos_Result" message="tns:Upload_GB_Staff_Canteena47Cafeteria_Photos_Result" />
+    </operation>
+    <operation name="Upload_GB_Staff_Common_Room_Photos">
+      <input name="Upload_GB_Staff_Common_Room_Photos" message="tns:Upload_GB_Staff_Common_Room_Photos" />
+      <output name="Upload_GB_Staff_Common_Room_Photos_Result" message="tns:Upload_GB_Staff_Common_Room_Photos_Result" />
+    </operation>
+    <operation name="Upload_GB_Video_Conference_Room_photo">
+      <input name="Upload_GB_Video_Conference_Room_photo" message="tns:Upload_GB_Video_Conference_Room_photo" />
+      <output name="Upload_GB_Video_Conference_Room_photo_Result" message="tns:Upload_GB_Video_Conference_Room_photo_Result" />
+    </operation>
+    <operation name="Upload_GeneralLand_Buliding_File">
+      <input name="Upload_GeneralLand_Buliding_File" message="tns:Upload_GeneralLand_Buliding_File" />
+      <output name="Upload_GeneralLand_Buliding_File_Result" message="tns:Upload_GeneralLand_Buliding_File_Result" />
+    </operation>
+    <operation name="Upload_Hostel_Buliding_File">
+      <input name="Upload_Hostel_Buliding_File" message="tns:Upload_Hostel_Buliding_File" />
+      <output name="Upload_Hostel_Buliding_File_Result" message="tns:Upload_Hostel_Buliding_File_Result" />
+    </operation>
+    <operation name="Upload_Institute_Buliding_File">
+      <input name="Upload_Institute_Buliding_File" message="tns:Upload_Institute_Buliding_File" />
+      <output name="Upload_Institute_Buliding_File_Result" message="tns:Upload_Institute_Buliding_File_Result" />
+    </operation>
+    <operation name="Upload_Land_File">
+      <input name="Upload_Land_File" message="tns:Upload_Land_File" />
+      <output name="Upload_Land_File_Result" message="tns:Upload_Land_File_Result" />
+    </operation>
+    <operation name="Upload_Project_Entry_File">
+      <input name="Upload_Project_Entry_File" message="tns:Upload_Project_Entry_File" />
+      <output name="Upload_Project_Entry_File_Result" message="tns:Upload_Project_Entry_File_Result" />
+    </operation>
+    <operation name="Upload_Project_File">
+      <input name="Upload_Project_File" message="tns:Upload_Project_File" />
+      <output name="Upload_Project_File_Result" message="tns:Upload_Project_File_Result" />
+    </operation>
+    <operation name="Upload_Staff_Buliding_File">
+      <input name="Upload_Staff_Buliding_File" message="tns:Upload_Staff_Buliding_File" />
+      <output name="Upload_Staff_Buliding_File_Result" message="tns:Upload_Staff_Buliding_File_Result" />
+    </operation>
+  </portType>
+  <binding name="InfraCodeunit_Binding" type="tns:InfraCodeunit_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="Download_Auditorium_Building_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Download_Auditorium_Building_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Download_Auditorium_Building_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Download_Auditorium_Building_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Download_Hostel_Building_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Download_Hostel_Building_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Download_Hostel_Building_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Download_Hostel_Building_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Download_Institutional_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Download_Institutional_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Download_Institutional_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Download_Institutional_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Download_Land_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Download_Land_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Download_Land_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Download_Land_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Download_ProjectEntry_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Download_ProjectEntry_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Download_ProjectEntry_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Download_ProjectEntry_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Download_Project_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Download_Project_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Download_Project_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Download_Project_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Download_Staff_Building_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Download_Staff_Building_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Download_Staff_Building_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Download_Staff_Building_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Boys_Common_Room_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Boys_Common_Room_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Boys_Common_Room_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Boys_Common_Room_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Central_Library_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Central_Library_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Central_Library_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Central_Library_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Computer_Lab_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Computer_Lab_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Computer_Lab_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Computer_Lab_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Conference_Room_photo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Conference_Room_photo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Conference_Room_photo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Conference_Room_photo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Dispensary_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Dispensary_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Dispensary_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Dispensary_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Field_Gallery_photo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Field_Gallery_photo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Field_Gallery_photo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Field_Gallery_photo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Field_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Field_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Field_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Field_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Girls_Common_Room_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Girls_Common_Room_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Girls_Common_Room_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Girls_Common_Room_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Library_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Library_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Library_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Library_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Main_Entrance_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Main_Entrance_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Main_Entrance_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Main_Entrance_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Sports_Court_photo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Sports_Court_photo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Sports_Court_photo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Sports_Court_photo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Staff_Canteena47Cafeteria_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Staff_Canteena47Cafeteria_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Staff_Canteena47Cafeteria_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Staff_Canteena47Cafeteria_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Staff_Common_Room_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Staff_Common_Room_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Staff_Common_Room_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Staff_Common_Room_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GB_Video_Conference_Room_photo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GB_Video_Conference_Room_photo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GB_Video_Conference_Room_photo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GB_Video_Conference_Room_photo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Downlond_GeneralLand_Building_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Downlond_GeneralLand_Building_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Downlond_GeneralLand_Building_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Downlond_GeneralLand_Building_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportAuditoriumBuilding">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportAuditoriumBuilding" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportAuditoriumBuilding">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportAuditoriumBuilding_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETAuditoriumBuilding">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportDTETAuditoriumBuilding" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETAuditoriumBuilding">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETAuditoriumBuilding_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETEstimatePreparationMonitoring">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportDTETEstimatePreparationMonitoring" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETEstimatePreparationMonitoring">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETEstimatePreparationMonitoring_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETHostelBuilding">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportDTETHostelBuilding" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETHostelBuilding">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETHostelBuilding_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETInstitutionalBuilding">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportDTETInstitutionalBuilding" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETInstitutionalBuilding">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETInstitutionalBuilding_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETLandDataDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportDTETLandDataDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETLandDataDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETLandDataDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETMaintanenceAndAMC">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportDTETMaintanenceAndAMC" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETMaintanenceAndAMC">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETMaintanenceAndAMC_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETProjectProgressDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportDTETProjectProgressDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETProjectProgressDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETProjectProgressDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETServiceMonitoring">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportDTETServiceMonitoring" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETServiceMonitoring">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETServiceMonitoring_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportDTETStaffBuilding">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportDTETStaffBuilding" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportDTETStaffBuilding">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportDTETStaffBuilding_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportEstimatePreparationMonitoring">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportEstimatePreparationMonitoring" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportEstimatePreparationMonitoring">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportEstimatePreparationMonitoring_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportHostelBuilding">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportHostelBuilding" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportHostelBuilding">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportHostelBuilding_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportInstitutionalBuilding">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportInstitutionalBuilding" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportInstitutionalBuilding">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportInstitutionalBuilding_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportLandDataDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportLandDataDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportLandDataDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportLandDataDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportLandDataTemplate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportLandDataTemplate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportLandDataTemplate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportLandDataTemplate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportMaintanenceAndAMC">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportMaintanenceAndAMC" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportMaintanenceAndAMC">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportMaintanenceAndAMC_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportProjectProgressDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportProjectProgressDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportProjectProgressDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportProjectProgressDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportServiceMonitoring">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportServiceMonitoring" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportServiceMonitoring">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportServiceMonitoring_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ExportStaffBuilding">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ExportStaffBuilding" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ExportStaffBuilding">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ExportStaffBuilding_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ImportLandFile">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:ImportLandFile" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ImportLandFile">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ImportLandFile_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_Auditorium_Buliding_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_Auditorium_Buliding_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_Auditorium_Buliding_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_Auditorium_Buliding_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Boys_Common_Room_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Boys_Common_Room_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Boys_Common_Room_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Boys_Common_Room_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Central_Library_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Central_Library_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Central_Library_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Central_Library_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Computer_Lab_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Computer_Lab_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Computer_Lab_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Computer_Lab_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Conference_Room_photo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Conference_Room_photo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Conference_Room_photo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Conference_Room_photo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Dispensary_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Dispensary_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Dispensary_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Dispensary_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Field_Gallery_photo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Field_Gallery_photo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Field_Gallery_photo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Field_Gallery_photo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Field_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Field_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Field_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Field_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Girls_Common_Room_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Girls_Common_Room_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Girls_Common_Room_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Girls_Common_Room_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Library_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Library_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Library_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Library_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Main_Entrance_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Main_Entrance_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Main_Entrance_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Main_Entrance_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Sports_Court_photo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Sports_Court_photo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Sports_Court_photo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Sports_Court_photo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Staff_Canteena47Cafeteria_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Staff_Canteena47Cafeteria_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Staff_Canteena47Cafeteria_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Staff_Canteena47Cafeteria_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Staff_Common_Room_Photos">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Staff_Common_Room_Photos" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Staff_Common_Room_Photos">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Staff_Common_Room_Photos_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GB_Video_Conference_Room_photo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GB_Video_Conference_Room_photo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GB_Video_Conference_Room_photo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GB_Video_Conference_Room_photo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_GeneralLand_Buliding_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_GeneralLand_Buliding_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_GeneralLand_Buliding_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_GeneralLand_Buliding_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_Hostel_Buliding_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_Hostel_Buliding_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_Hostel_Buliding_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_Hostel_Buliding_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_Institute_Buliding_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_Institute_Buliding_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_Institute_Buliding_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_Institute_Buliding_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_Land_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_Land_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_Land_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_Land_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_Project_Entry_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_Project_Entry_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_Project_Entry_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_Project_Entry_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_Project_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_Project_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_Project_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_Project_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Upload_Staff_Buliding_File">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/InfraCodeunit:Upload_Staff_Buliding_File" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Upload_Staff_Buliding_File">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Upload_Staff_Buliding_File_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="InfraCodeunit">
+    <port name="InfraCodeunit_Port" binding="tns:InfraCodeunit_Binding">
+      <address location="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Codeunit/InfraCodeunit" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

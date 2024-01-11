@@ -1,0 +1,866 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF1AB863-143A-4730-986F-3A4968E16864}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebServices</RootNamespace>
+    <AssemblyName>WebServices</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.OData.Client, Version=7.12.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Client.7.12.3\lib\net45\Microsoft.OData.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Core, Version=7.12.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Core.7.12.3\lib\net45\Microsoft.OData.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm, Version=7.12.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Edm.7.12.3\lib\net45\Microsoft.OData.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=7.12.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Spatial.7.12.3\lib\net45\Microsoft.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Connected Services\OData Service\OdataReference.cs" />
+    <Compile Include="ODataServices.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ResultMessages.cs" />
+    <Compile Include="SOAPServices.cs" />
+    <Compile Include="Web References\AccountManagementReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\AnnualEstablishmentReviewReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\AnnualPerformanceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\BookAccessionReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\BookCardReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\BookCardReference\Reference.cs" />
+    <Compile Include="Web References\BookIssueCardReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CautionRefundOrderReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CautionRefundSubformCardReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CourseFeeHeaderReference1\Reference.cs" />
+    <Compile Include="Web References\CourseFeeHeaderReference\Reference.cs" />
+    <Compile Include="Web References\CourtCaseReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EmplaoyeeReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EmployeeAchvReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EmployeeAdditionalCardReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EmployeeDscpReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EmployeePromotionHistoryReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EmployeeTrainingHistoryReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EmployeeTransferApplicationReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EmployeeTransferHistoryReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\FeeGeneralPaymentReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\FeeManagementCodeUnitReference2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\FinancialUpgradeReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\HRMSCodeunitReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\InfraAMCReference\Reference.cs" />
+    <Compile Include="Web References\InfraAuditoriumBuildingReference\Reference.cs" />
+    <Compile Include="Web References\InfraCodeunitReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\InfraEstimatePrepReference\Reference.cs" />
+    <Compile Include="Web References\InfraGeneralLandBuildingReference\Reference.cs" />
+    <Compile Include="Web References\InfraHostelBuildingReference\Reference.cs" />
+    <Compile Include="Web References\InfraImprovementprojectReference\Reference.cs" />
+    <Compile Include="Web References\InfraInstituteBuildingReference\Reference.cs" />
+    <Compile Include="Web References\InfraLandCardReference\Reference.cs" />
+    <Compile Include="Web References\InfraNewprojectReference\Reference.cs" />
+    <Compile Include="Web References\InfraOngoingprojectReference\Reference.cs" />
+    <Compile Include="Web References\InfraProjectprogressdetailsReference\Reference.cs" />
+    <Compile Include="Web References\InfraServiceReference\Reference.cs" />
+    <Compile Include="Web References\InfraStaffQuarterReference\Reference.cs" />
+    <Compile Include="Web References\LibraryCodeunitReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\LibraryMgmtReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\PortalFunctionReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\RTIMonitoringReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\StudentFeeCollectionCardReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\StudentFeeCollectionReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TransferAccountReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\UserAuthenticationCardReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Connected Services\OData Service\ConnectedService.json" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AccountManagementReference\AccountManagement.wsdl" />
+    <None Include="Web References\AccountManagementReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AnnualEstablishmentReviewReference\AnnualEstablishmentReviewCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AnnualEstablishmentReviewReference\AnnualEstablishmentReviewCard.wsdl" />
+    <None Include="Web References\AnnualEstablishmentReviewReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AnnualPerformanceReference\AnnualPerformanceCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AnnualPerformanceReference\AnnualPerformanceCard.wsdl" />
+    <None Include="Web References\AnnualPerformanceReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BookAccessionReference\BookAccessionCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BookAccessionReference\BookAccessionCard.wsdl" />
+    <None Include="Web References\BookAccessionReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BookCardReference1\BookCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BookCardReference1\BookCard.wsdl" />
+    <None Include="Web References\BookCardReference1\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BookCardReference\BookCard.datasource" />
+    <None Include="Web References\BookCardReference\BookCard.wsdl" />
+    <None Include="Web References\BookCardReference\Reference.map" />
+    <None Include="Web References\BookIssueCardReference\BookIssueCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BookIssueCardReference\BookIssueCard.wsdl" />
+    <None Include="Web References\BookIssueCardReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CautionRefundOrderReference\CautionRefundOrder.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CautionRefundOrderReference\CautionRefundOrder.wsdl" />
+    <None Include="Web References\CautionRefundOrderReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CautionRefundSubformCardReference\CautionRefundSubformCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CautionRefundSubformCardReference\CautionRefundSubformCard.wsdl" />
+    <None Include="Web References\CautionRefundSubformCardReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CourseFeeHeaderReference1\CourseFeeHeaderCard.datasource" />
+    <None Include="Web References\CourseFeeHeaderReference1\CourseFeeHeaderCard.wsdl" />
+    <None Include="Web References\CourseFeeHeaderReference1\Reference.map" />
+    <None Include="Web References\CourseFeeHeaderReference\CourseFeeHeaderCard.datasource" />
+    <None Include="Web References\CourseFeeHeaderReference\CourseFeeHeaderCard.wsdl" />
+    <None Include="Web References\CourseFeeHeaderReference\Reference.map" />
+    <None Include="Web References\CourtCaseReference\CourtCaseCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CourtCaseReference\CourtCaseCard.wsdl" />
+    <None Include="Web References\CourtCaseReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EmplaoyeeReference\EmployeeCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EmplaoyeeReference\EmployeeCard.wsdl" />
+    <None Include="Web References\EmplaoyeeReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EmployeeAchvReference\EmployeeAchvCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EmployeeAchvReference\EmployeeAchvCard.wsdl" />
+    <None Include="Web References\EmployeeAchvReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EmployeeAdditionalCardReference\EmployeeAdditionalInfoCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EmployeeAdditionalCardReference\EmployeeAdditionalInfoCard.wsdl" />
+    <None Include="Web References\EmployeeAdditionalCardReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EmployeeDscpReference\EmployeeDscpCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EmployeeDscpReference\EmployeeDscpCard.wsdl" />
+    <None Include="Web References\EmployeeDscpReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EmployeePromotionHistoryReference\EmployeePromotionHistoryCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EmployeePromotionHistoryReference\EmployeePromotionHistoryCard.wsdl" />
+    <None Include="Web References\EmployeePromotionHistoryReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EmployeeTrainingHistoryReference\EmployeeTrainingHistoryCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EmployeeTrainingHistoryReference\EmployeeTrainingHistoryCard.wsdl" />
+    <None Include="Web References\EmployeeTrainingHistoryReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EmployeeTransferApplicationReference\EmployeeTransferApplicationCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EmployeeTransferApplicationReference\EmployeeTransferApplicationCard.wsdl" />
+    <None Include="Web References\EmployeeTransferApplicationReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EmployeeTransferHistoryReference\EmployeeTransferHistoryCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\EmployeeTransferHistoryReference\EmployeeTransferHistoryCard.wsdl" />
+    <None Include="Web References\EmployeeTransferHistoryReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\FeeGeneralPaymentReference\GeneralPayment.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\FeeGeneralPaymentReference\GeneralPayment.wsdl" />
+    <None Include="Web References\FeeGeneralPaymentReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\FeeManagementCodeUnitReference2\FeeManagementCodeUnit.wsdl" />
+    <None Include="Web References\FeeManagementCodeUnitReference2\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\FinancialUpgradeReference\FinancialUpgradeCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\FinancialUpgradeReference\FinancialUpgradeCard.wsdl" />
+    <None Include="Web References\FinancialUpgradeReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\HRMSCodeunitReference\HRMSCodeunit.wsdl" />
+    <None Include="Web References\HRMSCodeunitReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\InfraAMCReference\AMCCard.datasource" />
+    <None Include="Web References\InfraAMCReference\AMCCard.wsdl" />
+    <None Include="Web References\InfraAMCReference\Reference.map" />
+    <None Include="Web References\InfraAuditoriumBuildingReference\AuditoriumBuilding.datasource" />
+    <None Include="Web References\InfraAuditoriumBuildingReference\AuditoriumBuilding.wsdl" />
+    <None Include="Web References\InfraAuditoriumBuildingReference\Reference.map" />
+    <None Include="Web References\InfraCodeunitReference\InfraCodeunit.wsdl" />
+    <None Include="Web References\InfraCodeunitReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\InfraEstimatePrepReference\EstimatePrepCard.datasource" />
+    <None Include="Web References\InfraEstimatePrepReference\EstimatePrepCard.wsdl" />
+    <None Include="Web References\InfraEstimatePrepReference\Reference.map" />
+    <None Include="Web References\InfraGeneralLandBuildingReference\GeneralLandBuildingCard.datasource" />
+    <None Include="Web References\InfraGeneralLandBuildingReference\GeneralLandBuildingCard.wsdl" />
+    <None Include="Web References\InfraGeneralLandBuildingReference\Reference.map" />
+    <None Include="Web References\InfraHostelBuildingReference\HostelBuildingCard.datasource" />
+    <None Include="Web References\InfraHostelBuildingReference\HostelBuildingCard.wsdl" />
+    <None Include="Web References\InfraHostelBuildingReference\Reference.map" />
+    <None Include="Web References\InfraImprovementprojectReference\Improvementprojectcard.datasource" />
+    <None Include="Web References\InfraImprovementprojectReference\Improvementprojectcard.wsdl" />
+    <None Include="Web References\InfraImprovementprojectReference\Reference.map" />
+    <None Include="Web References\InfraInstituteBuildingReference\InstituteBuildingCard.datasource" />
+    <None Include="Web References\InfraInstituteBuildingReference\InstituteBuildingCard.wsdl" />
+    <None Include="Web References\InfraInstituteBuildingReference\Reference.map" />
+    <None Include="Web References\InfraLandCardReference\LandCard.datasource" />
+    <None Include="Web References\InfraLandCardReference\LandCard.wsdl" />
+    <None Include="Web References\InfraLandCardReference\Reference.map" />
+    <None Include="Web References\InfraNewprojectReference\Newprojectcard.datasource" />
+    <None Include="Web References\InfraNewprojectReference\Newprojectcard.wsdl" />
+    <None Include="Web References\InfraNewprojectReference\Reference.map" />
+    <None Include="Web References\InfraOngoingprojectReference\Ongoingprojectcard.datasource" />
+    <None Include="Web References\InfraOngoingprojectReference\Ongoingprojectcard.wsdl" />
+    <None Include="Web References\InfraOngoingprojectReference\Reference.map" />
+    <None Include="Web References\InfraProjectprogressdetailsReference\Projectprogressdetailscard.datasource" />
+    <None Include="Web References\InfraProjectprogressdetailsReference\Projectprogressdetailscard.wsdl" />
+    <None Include="Web References\InfraProjectprogressdetailsReference\Reference.map" />
+    <None Include="Web References\InfraServiceReference\Reference.map" />
+    <None Include="Web References\InfraServiceReference\ServiceCard.datasource" />
+    <None Include="Web References\InfraServiceReference\ServiceCard.wsdl" />
+    <None Include="Web References\InfraStaffQuarterReference\Reference.map" />
+    <None Include="Web References\InfraStaffQuarterReference\StaffQuarterCard.datasource" />
+    <None Include="Web References\InfraStaffQuarterReference\StaffQuarterCard.wsdl" />
+    <None Include="Web References\LibraryCodeunitReference\LibraryCodeunit.wsdl" />
+    <None Include="Web References\LibraryCodeunitReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\LibraryMgmtReference\LibraryMgmt.wsdl" />
+    <None Include="Web References\LibraryMgmtReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PortalFunctionReference\PortalFunction.wsdl" />
+    <None Include="Web References\PortalFunctionReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\RTIMonitoringReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\RTIMonitoringReference\RTIMonitoringCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RTIMonitoringReference\RTIMonitoringCard.wsdl" />
+    <None Include="Web References\StudentFeeCollectionCardReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\StudentFeeCollectionCardReference\StudentFeeCollectionCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\StudentFeeCollectionCardReference\StudentFeeCollectionCard.wsdl" />
+    <None Include="Web References\StudentFeeCollectionReference\FeeCollection.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\StudentFeeCollectionReference\FeeCollection.wsdl" />
+    <None Include="Web References\StudentFeeCollectionReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TransferAccountReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TransferAccountReference\TransferAccount.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TransferAccountReference\TransferAccount.wsdl" />
+    <None Include="Web References\UserAuthenticationCardReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\UserAuthenticationCardReference\UserAuthenticationCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UserAuthenticationCardReference\UserAuthenticationCard.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Codeunit/HRMSCodeunit">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\HRMSCodeunitReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Codeunit/HRMSCodeunit</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_HRMSCodeunitReference_HRMSCodeunit</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Codeunit/InfraCodeunit">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\InfraCodeunitReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Codeunit/InfraCodeunit</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_InfraCodeunitReference_InfraCodeunit</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Codeunit/LibraryMgmt">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\LibraryMgmtReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Codeunit/LibraryMgmt</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_LibraryMgmtReference_LibraryMgmt</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/AnnualEstablishmentReviewCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AnnualEstablishmentReviewReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/AnnualEstablishmentReviewCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_AnnualEstablishmentReviewReference_AnnualEstablishmentReviewCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/EmployeeAchvCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EmployeeAchvReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/EmployeeAchvCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_EmployeeAchvReference_EmployeeAchvCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/EmployeeAdditionalInfoCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EmployeeAdditionalCardReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/EmployeeAdditionalInfoCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_EmployeeAdditionalCardReference_EmployeeAdditionalInfoCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Page/EmployeeCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EmplaoyeeReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Page/EmployeeCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_EmplaoyeeReference_EmployeeCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Page/EmployeeDscpCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EmployeeDscpReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Page/EmployeeDscpCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_EmployeeDscpReference_EmployeeDscpCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Page/EmployeeTrainingHistoryCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EmployeeTrainingHistoryReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Page/EmployeeTrainingHistoryCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_EmployeeTrainingHistoryReference_EmployeeTrainingHistoryCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Page/EmployeeTransferApplicationCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EmployeeTransferApplicationReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Page/EmployeeTransferApplicationCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_EmployeeTransferApplicationReference_EmployeeTransferApplicationCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Page/EmployeeTransferHistoryCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EmployeeTransferHistoryReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Page/EmployeeTransferHistoryCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_EmployeeTransferHistoryReference_EmployeeTransferHistoryCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/DTE%2526T%252C%2520Odisha/Page/UserAuthenticationCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\UserAuthenticationCardReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/DTE%2526T%252C%2520Odisha/Page/UserAuthenticationCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_UserAuthenticationCardReference_UserAuthenticationCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Codeunit/AccountManagement">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AccountManagementReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Codeunit/AccountManagement</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_AccountManagementReference_AccountManagement</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Codeunit/FeeManagementCodeUnit">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\FeeManagementCodeUnitReference2\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Codeunit/FeeManagementCodeUnit</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_FeeManagementCodeUnitReference2_FeeManagementCodeUnit</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Codeunit/LibraryCodeunit">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\LibraryCodeunitReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Codeunit/LibraryCodeunit</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_LibraryCodeunitReference_LibraryCodeunit</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Codeunit/PortalFunction">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PortalFunctionReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Codeunit/PortalFunction</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_PortalFunctionReference_PortalFunction</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/AnnualPerformanceCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AnnualPerformanceReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/AnnualPerformanceCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_AnnualPerformanceReference_AnnualPerformanceCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/BookAccessionCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\BookAccessionReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/BookAccessionCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_BookAccessionReference_BookAccessionCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/BookCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\BookCardReference1\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/BookCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_BookCardReference1_BookCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/BookIssueCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\BookIssueCardReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/BookIssueCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_BookIssueCardReference_BookIssueCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/CautionRefundOrder">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CautionRefundOrderReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/CautionRefundOrder</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_CautionRefundOrderReference_CautionRefundOrder_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/CautionRefundSubformCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CautionRefundSubformCardReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/CautionRefundSubformCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_CautionRefundSubformCardReference_CautionRefundSubformCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/CourtCaseCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CourtCaseReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/CourtCaseCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_CourtCaseReference_CourtCaseCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/EmployeePromotionHistoryCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EmployeePromotionHistoryReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/EmployeePromotionHistoryCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_EmployeePromotionHistoryReference_EmployeePromotionHistoryCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/FeeCollection">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\StudentFeeCollectionReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/FeeCollection</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_StudentFeeCollectionReference_FeeCollection_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/FinancialUpgradeCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\FinancialUpgradeReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/FinancialUpgradeCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_FinancialUpgradeReference_FinancialUpgradeCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/GeneralPayment">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\FeeGeneralPaymentReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/GeneralPayment</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_FeeGeneralPaymentReference_GeneralPayment_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/RTIMonitoringCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\RTIMonitoringReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/RTIMonitoringCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_RTIMonitoringReference_RTIMonitoringCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/StudentFeeCollectionCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\StudentFeeCollectionCardReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/StudentFeeCollectionCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_StudentFeeCollectionCardReference_StudentFeeCollectionCard_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/TransferAccount">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TransferAccountReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/TransferAccount</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_TransferAccountReference_TransferAccount_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Connected Services\OData Service\OData ServiceCsdl.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Text.Json.6.0.6\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.6\build\System.Text.Json.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.6\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.6\build\System.Text.Json.targets'))" />
+  </Target>
+</Project>

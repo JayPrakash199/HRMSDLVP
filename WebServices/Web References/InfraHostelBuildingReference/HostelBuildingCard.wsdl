@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/page/hostelbuildingcard" targetNamespace="urn:microsoft-dynamics-schemas/page/hostelbuildingcard" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/page/hostelbuildingcard" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:simpleType name="Hostel_Type">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Boys" />
+          <xsd:enumeration value="Girls" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Fire_Safety_Status">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Certificate_Obtained" />
+          <xsd:enumeration value="No_Certificate" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Approval_Status">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Approval_Obtained" />
+          <xsd:enumeration value="Approval_Not_Obtained" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Book_Of_Account">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="PWD" />
+          <xsd:enumeration value="IDCO" />
+          <xsd:enumeration value="SOIC" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Transformer_Type">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Own" />
+          <xsd:enumeration value="Public" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Source_Of_Water">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Own_Source" />
+          <xsd:enumeration value="PHD_Source" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Building_Safety_Status">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Safe" />
+          <xsd:enumeration value="UnSafe" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="HostelBuildingCard">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Key" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Block_Code" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Block_Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Hostel_Type" type="tns:Hostel_Type" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="No_Of_Room" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="No_Of_Floor" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Total_Floor_Area_in_sqft" type="xsd:decimal" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Total_Capacity" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Building_Length" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Building_Breadth_in_meter" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Building_Height" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Fire_Safety_Status" type="tns:Fire_Safety_Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Fire_Safety_Valid_Upto" type="xsd:date" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Layout_Plan_No" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Approval_Status" type="tns:Approval_Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Electricity_Agency" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Book_Of_Account" type="tns:Book_Of_Account" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Electricity_Load_in_KW" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Electricity_Consumer_No" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Transformer_Type" type="tns:Transformer_Type" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Source_Of_Water" type="tns:Source_Of_Water" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="PHD_Consumer_No" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Building_Safety_Status" type="tns:Building_Safety_Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Year_of_Construction" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="No_of_RO_Water_Purifier" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="No_of_Non_RO_Water_Purifier" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Uploaded_FileName" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="HostelBuildingCard_List">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="HostelBuildingCard" type="tns:HostelBuildingCard" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="HostelBuildingCard_Fields">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Block_Code" />
+          <xsd:enumeration value="Block_Name" />
+          <xsd:enumeration value="Hostel_Type" />
+          <xsd:enumeration value="No_Of_Room" />
+          <xsd:enumeration value="No_Of_Floor" />
+          <xsd:enumeration value="Total_Floor_Area_in_sqft" />
+          <xsd:enumeration value="Total_Capacity" />
+          <xsd:enumeration value="Building_Length" />
+          <xsd:enumeration value="Building_Breadth_in_meter" />
+          <xsd:enumeration value="Building_Height" />
+          <xsd:enumeration value="Fire_Safety_Status" />
+          <xsd:enumeration value="Fire_Safety_Valid_Upto" />
+          <xsd:enumeration value="Layout_Plan_No" />
+          <xsd:enumeration value="Approval_Status" />
+          <xsd:enumeration value="Electricity_Agency" />
+          <xsd:enumeration value="Book_Of_Account" />
+          <xsd:enumeration value="Electricity_Load_in_KW" />
+          <xsd:enumeration value="Electricity_Consumer_No" />
+          <xsd:enumeration value="Transformer_Type" />
+          <xsd:enumeration value="Source_Of_Water" />
+          <xsd:enumeration value="PHD_Consumer_No" />
+          <xsd:enumeration value="Building_Safety_Status" />
+          <xsd:enumeration value="Year_of_Construction" />
+          <xsd:enumeration value="No_of_RO_Water_Purifier" />
+          <xsd:enumeration value="No_of_Non_RO_Water_Purifier" />
+          <xsd:enumeration value="Uploaded_FileName" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="HostelBuildingCard_Filter">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Field" type="tns:HostelBuildingCard_Fields" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Criteria" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Read">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Block_Code" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Read_Result">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="HostelBuildingCard" type="tns:HostelBuildingCard" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ReadByRecId">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="recId" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ReadByRecId_Result">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="HostelBuildingCard" type="tns:HostelBuildingCard" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ReadMultiple">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="filter" type="tns:HostelBuildingCard_Filter" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="bookmarkKey" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="setSize" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ReadMultiple_Result">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="ReadMultiple_Result" type="tns:HostelBuildingCard_List" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="IsUpdated">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Key" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="IsUpdated_Result">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="IsUpdated_Result" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetRecIdFromKey">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Key" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetRecIdFromKey_Result">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="GetRecIdFromKey_Result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Create">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="HostelBuildingCard" type="tns:HostelBuildingCard" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Create_Result">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="HostelBuildingCard" type="tns:HostelBuildingCard" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CreateMultiple">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="HostelBuildingCard_List" type="tns:HostelBuildingCard_List" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CreateMultiple_Result">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="HostelBuildingCard_List" type="tns:HostelBuildingCard_List" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Update">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="HostelBuildingCard" type="tns:HostelBuildingCard" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Update_Result">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="HostelBuildingCard" type="tns:HostelBuildingCard" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateMultiple">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="HostelBuildingCard_List" type="tns:HostelBuildingCard_List" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateMultiple_Result">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="HostelBuildingCard_List" type="tns:HostelBuildingCard_List" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name="Read">
+    <part name="parameters" element="tns:Read" />
+  </message>
+  <message name="Read_Result">
+    <part name="parameters" element="tns:Read_Result" />
+  </message>
+  <message name="ReadByRecId">
+    <part name="parameters" element="tns:ReadByRecId" />
+  </message>
+  <message name="ReadByRecId_Result">
+    <part name="parameters" element="tns:ReadByRecId_Result" />
+  </message>
+  <message name="ReadMultiple">
+    <part name="parameters" element="tns:ReadMultiple" />
+  </message>
+  <message name="ReadMultiple_Result">
+    <part name="parameters" element="tns:ReadMultiple_Result" />
+  </message>
+  <message name="IsUpdated">
+    <part name="parameters" element="tns:IsUpdated" />
+  </message>
+  <message name="IsUpdated_Result">
+    <part name="parameters" element="tns:IsUpdated_Result" />
+  </message>
+  <message name="GetRecIdFromKey">
+    <part name="parameters" element="tns:GetRecIdFromKey" />
+  </message>
+  <message name="GetRecIdFromKey_Result">
+    <part name="parameters" element="tns:GetRecIdFromKey_Result" />
+  </message>
+  <message name="Create">
+    <part name="parameters" element="tns:Create" />
+  </message>
+  <message name="Create_Result">
+    <part name="parameters" element="tns:Create_Result" />
+  </message>
+  <message name="CreateMultiple">
+    <part name="parameters" element="tns:CreateMultiple" />
+  </message>
+  <message name="CreateMultiple_Result">
+    <part name="parameters" element="tns:CreateMultiple_Result" />
+  </message>
+  <message name="Update">
+    <part name="parameters" element="tns:Update" />
+  </message>
+  <message name="Update_Result">
+    <part name="parameters" element="tns:Update_Result" />
+  </message>
+  <message name="UpdateMultiple">
+    <part name="parameters" element="tns:UpdateMultiple" />
+  </message>
+  <message name="UpdateMultiple_Result">
+    <part name="parameters" element="tns:UpdateMultiple_Result" />
+  </message>
+  <portType name="HostelBuildingCard_Port">
+    <operation name="Read">
+      <input name="Read" message="tns:Read" />
+      <output name="Read_Result" message="tns:Read_Result" />
+    </operation>
+    <operation name="ReadByRecId">
+      <input name="ReadByRecId" message="tns:ReadByRecId" />
+      <output name="ReadByRecId_Result" message="tns:ReadByRecId_Result" />
+    </operation>
+    <operation name="ReadMultiple">
+      <input name="ReadMultiple" message="tns:ReadMultiple" />
+      <output name="ReadMultiple_Result" message="tns:ReadMultiple_Result" />
+    </operation>
+    <operation name="IsUpdated">
+      <input name="IsUpdated" message="tns:IsUpdated" />
+      <output name="IsUpdated_Result" message="tns:IsUpdated_Result" />
+    </operation>
+    <operation name="GetRecIdFromKey">
+      <input name="GetRecIdFromKey" message="tns:GetRecIdFromKey" />
+      <output name="GetRecIdFromKey_Result" message="tns:GetRecIdFromKey_Result" />
+    </operation>
+    <operation name="Create">
+      <input name="Create" message="tns:Create" />
+      <output name="Create_Result" message="tns:Create_Result" />
+    </operation>
+    <operation name="CreateMultiple">
+      <input name="CreateMultiple" message="tns:CreateMultiple" />
+      <output name="CreateMultiple_Result" message="tns:CreateMultiple_Result" />
+    </operation>
+    <operation name="Update">
+      <input name="Update" message="tns:Update" />
+      <output name="Update_Result" message="tns:Update_Result" />
+    </operation>
+    <operation name="UpdateMultiple">
+      <input name="UpdateMultiple" message="tns:UpdateMultiple" />
+      <output name="UpdateMultiple_Result" message="tns:UpdateMultiple_Result" />
+    </operation>
+  </portType>
+  <binding name="HostelBuildingCard_Binding" type="tns:HostelBuildingCard_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="Read">
+      <operation soapAction="urn:microsoft-dynamics-schemas/page/hostelbuildingcard:Read" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Read">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Read_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ReadByRecId">
+      <operation soapAction="urn:microsoft-dynamics-schemas/page/hostelbuildingcard:ReadByRecId" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ReadByRecId">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ReadByRecId_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ReadMultiple">
+      <operation soapAction="urn:microsoft-dynamics-schemas/page/hostelbuildingcard:ReadMultiple" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ReadMultiple">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ReadMultiple_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="IsUpdated">
+      <operation soapAction="urn:microsoft-dynamics-schemas/page/hostelbuildingcard:IsUpdated" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="IsUpdated">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="IsUpdated_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetRecIdFromKey">
+      <operation soapAction="urn:microsoft-dynamics-schemas/page/hostelbuildingcard:GetRecIdFromKey" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetRecIdFromKey">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetRecIdFromKey_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Create">
+      <operation soapAction="urn:microsoft-dynamics-schemas/page/hostelbuildingcard:Create" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Create">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Create_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateMultiple">
+      <operation soapAction="urn:microsoft-dynamics-schemas/page/hostelbuildingcard:CreateMultiple" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateMultiple">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateMultiple_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Update">
+      <operation soapAction="urn:microsoft-dynamics-schemas/page/hostelbuildingcard:Update" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Update">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Update_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateMultiple">
+      <operation soapAction="urn:microsoft-dynamics-schemas/page/hostelbuildingcard:UpdateMultiple" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateMultiple">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateMultiple_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="HostelBuildingCard_Service">
+    <port name="HostelBuildingCard_Port" binding="tns:HostelBuildingCard_Binding">
+      <address location="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/HostelBuildingCard" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="AgingReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNo1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="endDate1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="agingBy1" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="periodLegth1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="printAmtInLCY1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="printDetails1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="headingType1" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="newPagePerCustomer1" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AgingReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="BankBook">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="printDetails" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="lineNarration1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="voucherNaration1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="bankAccNo1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateFilter1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateFilter2" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dimension1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dimension2" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="BankBook_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CashBook">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="printDetails" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="lineNarration1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="voucherNaration1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="gLNo1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateFilter1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateFilter2" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dimension1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dimension2" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CashBook_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CustomerStatement">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="startDate" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="endDate" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="showOverDueEntries" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="includeAllCustomerWithLedgerEntry" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="includeAllCustomerWithBalance" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="includeReversedEntries" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="includeUnappliedEntries" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="includeAgingBand" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="periodLength" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateChoice" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="logInteraction" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CustomerStatement_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CustomerTrialBalance">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNo1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="printAmountsInLCY1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="printOnlyOnePerPage1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="excludeBalanceOnly1" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CustomerTrialBalance_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DayBook">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="lineNarration1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="voucherNaration1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="postingDate2" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="postingDate4" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dimension1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dimension2" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DayBook_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FeeDemand">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="academicYear" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="customerNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FeeDemand_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FeeGeneration">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="academicYear" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="semester" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="feeClassification" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="courseCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FeeGeneration_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="MoneyReceipt">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="MoneyReceipt_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostCautionRefundOrder">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostCautionRefundOrder_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostGeneralPayment">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostGeneralPayment_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostStudentFeeCollection">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostStudentFeeCollection_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="AgingReport">
+    <part name="parameters" element="tns:AgingReport" />
+  </message>
+  <message name="AgingReport_Result">
+    <part name="parameters" element="tns:AgingReport_Result" />
+  </message>
+  <message name="BankBook">
+    <part name="parameters" element="tns:BankBook" />
+  </message>
+  <message name="BankBook_Result">
+    <part name="parameters" element="tns:BankBook_Result" />
+  </message>
+  <message name="CashBook">
+    <part name="parameters" element="tns:CashBook" />
+  </message>
+  <message name="CashBook_Result">
+    <part name="parameters" element="tns:CashBook_Result" />
+  </message>
+  <message name="CustomerStatement">
+    <part name="parameters" element="tns:CustomerStatement" />
+  </message>
+  <message name="CustomerStatement_Result">
+    <part name="parameters" element="tns:CustomerStatement_Result" />
+  </message>
+  <message name="CustomerTrialBalance">
+    <part name="parameters" element="tns:CustomerTrialBalance" />
+  </message>
+  <message name="CustomerTrialBalance_Result">
+    <part name="parameters" element="tns:CustomerTrialBalance_Result" />
+  </message>
+  <message name="DayBook">
+    <part name="parameters" element="tns:DayBook" />
+  </message>
+  <message name="DayBook_Result">
+    <part name="parameters" element="tns:DayBook_Result" />
+  </message>
+  <message name="FeeDemand">
+    <part name="parameters" element="tns:FeeDemand" />
+  </message>
+  <message name="FeeDemand_Result">
+    <part name="parameters" element="tns:FeeDemand_Result" />
+  </message>
+  <message name="FeeGeneration">
+    <part name="parameters" element="tns:FeeGeneration" />
+  </message>
+  <message name="FeeGeneration_Result">
+    <part name="parameters" element="tns:FeeGeneration_Result" />
+  </message>
+  <message name="MoneyReceipt">
+    <part name="parameters" element="tns:MoneyReceipt" />
+  </message>
+  <message name="MoneyReceipt_Result">
+    <part name="parameters" element="tns:MoneyReceipt_Result" />
+  </message>
+  <message name="PostCautionRefundOrder">
+    <part name="parameters" element="tns:PostCautionRefundOrder" />
+  </message>
+  <message name="PostCautionRefundOrder_Result">
+    <part name="parameters" element="tns:PostCautionRefundOrder_Result" />
+  </message>
+  <message name="PostGeneralPayment">
+    <part name="parameters" element="tns:PostGeneralPayment" />
+  </message>
+  <message name="PostGeneralPayment_Result">
+    <part name="parameters" element="tns:PostGeneralPayment_Result" />
+  </message>
+  <message name="PostStudentFeeCollection">
+    <part name="parameters" element="tns:PostStudentFeeCollection" />
+  </message>
+  <message name="PostStudentFeeCollection_Result">
+    <part name="parameters" element="tns:PostStudentFeeCollection_Result" />
+  </message>
+  <portType name="FeeManagementCodeUnit_Port">
+    <operation name="AgingReport">
+      <input name="AgingReport" message="tns:AgingReport" />
+      <output name="AgingReport_Result" message="tns:AgingReport_Result" />
+    </operation>
+    <operation name="BankBook">
+      <input name="BankBook" message="tns:BankBook" />
+      <output name="BankBook_Result" message="tns:BankBook_Result" />
+    </operation>
+    <operation name="CashBook">
+      <input name="CashBook" message="tns:CashBook" />
+      <output name="CashBook_Result" message="tns:CashBook_Result" />
+    </operation>
+    <operation name="CustomerStatement">
+      <input name="CustomerStatement" message="tns:CustomerStatement" />
+      <output name="CustomerStatement_Result" message="tns:CustomerStatement_Result" />
+    </operation>
+    <operation name="CustomerTrialBalance">
+      <input name="CustomerTrialBalance" message="tns:CustomerTrialBalance" />
+      <output name="CustomerTrialBalance_Result" message="tns:CustomerTrialBalance_Result" />
+    </operation>
+    <operation name="DayBook">
+      <input name="DayBook" message="tns:DayBook" />
+      <output name="DayBook_Result" message="tns:DayBook_Result" />
+    </operation>
+    <operation name="FeeDemand">
+      <input name="FeeDemand" message="tns:FeeDemand" />
+      <output name="FeeDemand_Result" message="tns:FeeDemand_Result" />
+    </operation>
+    <operation name="FeeGeneration">
+      <input name="FeeGeneration" message="tns:FeeGeneration" />
+      <output name="FeeGeneration_Result" message="tns:FeeGeneration_Result" />
+    </operation>
+    <operation name="MoneyReceipt">
+      <input name="MoneyReceipt" message="tns:MoneyReceipt" />
+      <output name="MoneyReceipt_Result" message="tns:MoneyReceipt_Result" />
+    </operation>
+    <operation name="PostCautionRefundOrder">
+      <input name="PostCautionRefundOrder" message="tns:PostCautionRefundOrder" />
+      <output name="PostCautionRefundOrder_Result" message="tns:PostCautionRefundOrder_Result" />
+    </operation>
+    <operation name="PostGeneralPayment">
+      <input name="PostGeneralPayment" message="tns:PostGeneralPayment" />
+      <output name="PostGeneralPayment_Result" message="tns:PostGeneralPayment_Result" />
+    </operation>
+    <operation name="PostStudentFeeCollection">
+      <input name="PostStudentFeeCollection" message="tns:PostStudentFeeCollection" />
+      <output name="PostStudentFeeCollection_Result" message="tns:PostStudentFeeCollection_Result" />
+    </operation>
+  </portType>
+  <binding name="FeeManagementCodeUnit_Binding" type="tns:FeeManagementCodeUnit_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="AgingReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:AgingReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AgingReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AgingReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="BankBook">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:BankBook" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="BankBook">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="BankBook_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CashBook">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:CashBook" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CashBook">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CashBook_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CustomerStatement">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:CustomerStatement" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CustomerStatement">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CustomerStatement_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CustomerTrialBalance">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:CustomerTrialBalance" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CustomerTrialBalance">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CustomerTrialBalance_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="DayBook">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:DayBook" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="DayBook">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="DayBook_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FeeDemand">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:FeeDemand" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FeeDemand">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FeeDemand_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FeeGeneration">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:FeeGeneration" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FeeGeneration">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FeeGeneration_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="MoneyReceipt">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:MoneyReceipt" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="MoneyReceipt">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="MoneyReceipt_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="PostCautionRefundOrder">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:PostCautionRefundOrder" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="PostCautionRefundOrder">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="PostCautionRefundOrder_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="PostGeneralPayment">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:PostGeneralPayment" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="PostGeneralPayment">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="PostGeneralPayment_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="PostStudentFeeCollection">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:PostStudentFeeCollection" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="PostStudentFeeCollection">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="PostStudentFeeCollection_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="FeeManagementCodeUnit">
+    <port name="FeeManagementCodeUnit_Port" binding="tns:FeeManagementCodeUnit_Binding">
+      <address location="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Codeunit/FeeManagementCodeUnit" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

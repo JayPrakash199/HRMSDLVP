@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/LibraryCodeunit" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/LibraryCodeunit" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/LibraryCodeunit" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="DTETBookDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="DTETBookDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="DTETBookDetails">
+    <part name="parameters" element="tns:DTETBookDetails" />
+  </message>
+  <message name="DTETBookDetails_Result">
+    <part name="parameters" element="tns:DTETBookDetails_Result" />
+  </message>
+  <portType name="LibraryCodeunit_Port">
+    <operation name="DTETBookDetails">
+      <input name="DTETBookDetails" message="tns:DTETBookDetails" />
+      <output name="DTETBookDetails_Result" message="tns:DTETBookDetails_Result" />
+    </operation>
+  </portType>
+  <binding name="LibraryCodeunit_Binding" type="tns:LibraryCodeunit_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="DTETBookDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/LibraryCodeunit:DTETBookDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="DTETBookDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="DTETBookDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="LibraryCodeunit">
+    <port name="LibraryCodeunit_Port" binding="tns:LibraryCodeunit_Binding">
+      <address location="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Codeunit/LibraryCodeunit" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

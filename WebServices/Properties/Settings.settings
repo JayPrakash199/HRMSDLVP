@@ -1,0 +1,144 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WebServices.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WebServices_EmployeeAdditionalCardReference_EmployeeAdditionalInfoCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/EmployeeAdditionalInfoCard</Value>
+    </Setting>
+    <Setting Name="WebServices_EmplaoyeeReference_EmployeeCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/EmployeeCard</Value>
+    </Setting>
+    <Setting Name="WebServices_FinancialUpgradeReference_FinancialUpgradeCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/FinancialUpgradeCard</Value>
+    </Setting>
+    <Setting Name="WebServices_EmployeePromotionHistoryReference_EmployeePromotionHistoryCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/EmployeePromotionHistoryCard</Value>
+    </Setting>
+    <Setting Name="WebServices_EmployeeTransferApplicationReference_EmployeeTransferApplicationCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/EmployeeTransferApplicationCard</Value>
+    </Setting>
+    <Setting Name="WebServices_EmployeeAchvReference_EmployeeAchvCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/EmployeeAchvCard</Value>
+    </Setting>
+    <Setting Name="WebServices_EmployeeDscpReference_EmployeeDscpCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/EmployeeDscpCard</Value>
+    </Setting>
+    <Setting Name="WebServices_EmployeeTrainingHistoryReference_EmployeeTrainingHistoryCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/EmployeeTrainingHistoryCard</Value>
+    </Setting>
+    <Setting Name="WebServices_AnnualPerformanceReference_AnnualPerformanceCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/AnnualPerformanceCard</Value>
+    </Setting>
+    <Setting Name="WebServices_CourtCaseReference_CourtCaseCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/CourtCaseCard</Value>
+    </Setting>
+    <Setting Name="WebServices_RTIMonitoringReference_RTIMonitoringCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/RTIMonitoringCard</Value>
+    </Setting>
+    <Setting Name="WebServices_AnnualEstablishmentReviewReference_AnnualEstablishmentReviewCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/AnnualEstablishmentReviewCard</Value>
+    </Setting>
+    <Setting Name="WebServices_HRMSCodeunitReference_HRMSCodeunit" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Codeunit/HRMSCodeunit</Value>
+    </Setting>
+    <Setting Name="WebServices_EmployeeTransferHistoryReference_EmployeeTransferHistoryCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/EmployeeTransferHistoryCard</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraCodeunitReference_InfraCodeunit" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Codeunit/InfraCodeunit</Value>
+    </Setting>
+    <Setting Name="WebServices_CourseFeeHeaderReference_CourseFeeHeaderCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/CourseFeeHeaderCard</Value>
+    </Setting>
+    <Setting Name="WebServices_BookCardReference_BookCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/BookCard</Value>
+    </Setting>
+    <Setting Name="WebServices_FeeManagementCodeUnitReference2_FeeManagementCodeUnit" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Codeunit/FeeManagementCodeUnit</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraLandCardReference_LandCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/LandCard</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraGeneralLandBuildingReference_GeneralLandBuildingCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/GeneralLandBuildingCard</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraInstituteBuildingReference_InstituteBuildingCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/InstituteBuildingCard</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraHostelBuildingReference_HostelBuildingCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/HostelBuildingCard</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraStaffQuarterReference_StaffQuarterCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/StaffQuarterCard</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraAuditoriumBuildingReference_AuditoriumBuilding_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/AuditoriumBuilding</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraNewprojectReference_Newprojectcard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/Newprojectcard</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraOngoingprojectReference_Ongoingprojectcard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/Ongoingprojectcard</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraImprovementprojectReference_Improvementprojectcard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/Improvementprojectcard</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraProjectprogressdetailsReference_Projectprogressdetailscard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/Projectprogressdetailscard</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraEstimatePrepReference_EstimatePrepCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/EstimatePrepCard</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraServiceReference_ServiceCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/ServiceCard</Value>
+    </Setting>
+    <Setting Name="WebServices_BookCardReference1_BookCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/BookCard</Value>
+    </Setting>
+    <Setting Name="WebServices_BookIssueCardReference_BookIssueCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/BookIssueCard</Value>
+    </Setting>
+    <Setting Name="WebServices_LibraryMgmtReference_LibraryMgmt" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Codeunit/LibraryMgmt</Value>
+    </Setting>
+    <Setting Name="WebServices_CourseFeeHeaderReference1_CourseFeeHeaderCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/CourseFeeHeaderCard</Value>
+    </Setting>
+    <Setting Name="WebServices_InfraAMCReference_AMCCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/AMCCard</Value>
+    </Setting>
+    <Setting Name="WebServices_FeeGeneralPaymentReference_GeneralPayment_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/GeneralPayment</Value>
+    </Setting>
+    <Setting Name="WebServices_BookAccessionReference_BookAccessionCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/BookAccessionCard</Value>
+    </Setting>
+    <Setting Name="WebServices_AccountManagementReference_AccountManagement" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Codeunit/AccountManagement</Value>
+    </Setting>
+    <Setting Name="WebServices_CautionRefundOrderReference_CautionRefundOrder_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/CautionRefundOrder</Value>
+    </Setting>
+    <Setting Name="WebServices_PortalFunctionReference_PortalFunction" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Codeunit/PortalFunction</Value>
+    </Setting>
+    <Setting Name="WebServices_CautionRefundSubformCardReference_CautionRefundSubformCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/CautionRefundSubformCard</Value>
+    </Setting>
+    <Setting Name="WebServices_StudentFeeCollectionReference_FeeCollection_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/FeeCollection</Value>
+    </Setting>
+    <Setting Name="WebServices_UserAuthenticationCardReference_UserAuthenticationCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/DTE%2526T%252C%20Odisha/Page/UserAuthenticationCard</Value>
+    </Setting>
+    <Setting Name="WebServices_LibraryCodeunitReference_LibraryCodeunit" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Codeunit/LibraryCodeunit</Value>
+    </Setting>
+    <Setting Name="WebServices_StudentFeeCollectionCardReference_StudentFeeCollectionCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/StudentFeeCollectionCard</Value>
+    </Setting>
+    <Setting Name="WebServices_TransferAccountReference_TransferAccount_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/TransferAccount</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

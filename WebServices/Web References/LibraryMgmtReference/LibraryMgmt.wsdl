@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="AccessionList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bookNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AccessionList_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="AccessionPost">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bookNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AccessionPost_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Book_Issue">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Book_Issue_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Book_Renewal">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Book_Renewal_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Book_Return">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Book_Return_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="CreateBookBatch">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="itemCategory" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateBookBatch_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ItemJournalBook">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ItemJournalBook_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ItemUpload">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ItemUpload_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="AccessionList">
+    <part name="parameters" element="tns:AccessionList" />
+  </message>
+  <message name="AccessionList_Result">
+    <part name="parameters" element="tns:AccessionList_Result" />
+  </message>
+  <message name="AccessionPost">
+    <part name="parameters" element="tns:AccessionPost" />
+  </message>
+  <message name="AccessionPost_Result">
+    <part name="parameters" element="tns:AccessionPost_Result" />
+  </message>
+  <message name="Book_Issue">
+    <part name="parameters" element="tns:Book_Issue" />
+  </message>
+  <message name="Book_Issue_Result">
+    <part name="parameters" element="tns:Book_Issue_Result" />
+  </message>
+  <message name="Book_Renewal">
+    <part name="parameters" element="tns:Book_Renewal" />
+  </message>
+  <message name="Book_Renewal_Result">
+    <part name="parameters" element="tns:Book_Renewal_Result" />
+  </message>
+  <message name="Book_Return">
+    <part name="parameters" element="tns:Book_Return" />
+  </message>
+  <message name="Book_Return_Result">
+    <part name="parameters" element="tns:Book_Return_Result" />
+  </message>
+  <message name="CreateBookBatch">
+    <part name="parameters" element="tns:CreateBookBatch" />
+  </message>
+  <message name="CreateBookBatch_Result">
+    <part name="parameters" element="tns:CreateBookBatch_Result" />
+  </message>
+  <message name="ItemJournalBook">
+    <part name="parameters" element="tns:ItemJournalBook" />
+  </message>
+  <message name="ItemJournalBook_Result">
+    <part name="parameters" element="tns:ItemJournalBook_Result" />
+  </message>
+  <message name="ItemUpload">
+    <part name="parameters" element="tns:ItemUpload" />
+  </message>
+  <message name="ItemUpload_Result">
+    <part name="parameters" element="tns:ItemUpload_Result" />
+  </message>
+  <portType name="LibraryMgmt_Port">
+    <operation name="AccessionList">
+      <input name="AccessionList" message="tns:AccessionList" />
+      <output name="AccessionList_Result" message="tns:AccessionList_Result" />
+    </operation>
+    <operation name="AccessionPost">
+      <input name="AccessionPost" message="tns:AccessionPost" />
+      <output name="AccessionPost_Result" message="tns:AccessionPost_Result" />
+    </operation>
+    <operation name="Book_Issue">
+      <input name="Book_Issue" message="tns:Book_Issue" />
+      <output name="Book_Issue_Result" message="tns:Book_Issue_Result" />
+    </operation>
+    <operation name="Book_Renewal">
+      <input name="Book_Renewal" message="tns:Book_Renewal" />
+      <output name="Book_Renewal_Result" message="tns:Book_Renewal_Result" />
+    </operation>
+    <operation name="Book_Return">
+      <input name="Book_Return" message="tns:Book_Return" />
+      <output name="Book_Return_Result" message="tns:Book_Return_Result" />
+    </operation>
+    <operation name="CreateBookBatch">
+      <input name="CreateBookBatch" message="tns:CreateBookBatch" />
+      <output name="CreateBookBatch_Result" message="tns:CreateBookBatch_Result" />
+    </operation>
+    <operation name="ItemJournalBook">
+      <input name="ItemJournalBook" message="tns:ItemJournalBook" />
+      <output name="ItemJournalBook_Result" message="tns:ItemJournalBook_Result" />
+    </operation>
+    <operation name="ItemUpload">
+      <input name="ItemUpload" message="tns:ItemUpload" />
+      <output name="ItemUpload_Result" message="tns:ItemUpload_Result" />
+    </operation>
+  </portType>
+  <binding name="LibraryMgmt_Binding" type="tns:LibraryMgmt_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="AccessionList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt:AccessionList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AccessionList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AccessionList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="AccessionPost">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt:AccessionPost" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AccessionPost">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AccessionPost_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Book_Issue">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt:Book_Issue" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Book_Issue">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Book_Issue_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Book_Renewal">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt:Book_Renewal" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Book_Renewal">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Book_Renewal_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Book_Return">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt:Book_Return" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Book_Return">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Book_Return_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateBookBatch">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt:CreateBookBatch" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateBookBatch">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateBookBatch_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ItemJournalBook">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt:ItemJournalBook" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ItemJournalBook">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ItemJournalBook_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ItemUpload">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt:ItemUpload" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ItemUpload">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ItemUpload_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="LibraryMgmt">
+    <port name="LibraryMgmt_Port" binding="tns:LibraryMgmt_Binding">
+      <address location="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Codeunit/LibraryMgmt" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

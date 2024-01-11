@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/PortalFunction" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/PortalFunction" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/PortalFunction" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="ChangePassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="userName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pass1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pass2" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ChangePassword_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="CreateLoginRegister">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="userID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="sessionID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="loginDateTime" type="dateTime" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateLoginRegister_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="PostingGeneral">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="paymentEntryNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostingGeneral_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="SetEntryNo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SetEntryNo_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdateLoginRegister">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="userID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="sessionID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="logoutDateTime" type="dateTime" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateLoginRegister_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="ChangePassword">
+    <part name="parameters" element="tns:ChangePassword" />
+  </message>
+  <message name="ChangePassword_Result">
+    <part name="parameters" element="tns:ChangePassword_Result" />
+  </message>
+  <message name="CreateLoginRegister">
+    <part name="parameters" element="tns:CreateLoginRegister" />
+  </message>
+  <message name="CreateLoginRegister_Result">
+    <part name="parameters" element="tns:CreateLoginRegister_Result" />
+  </message>
+  <message name="PostingGeneral">
+    <part name="parameters" element="tns:PostingGeneral" />
+  </message>
+  <message name="PostingGeneral_Result">
+    <part name="parameters" element="tns:PostingGeneral_Result" />
+  </message>
+  <message name="SetEntryNo">
+    <part name="parameters" element="tns:SetEntryNo" />
+  </message>
+  <message name="SetEntryNo_Result">
+    <part name="parameters" element="tns:SetEntryNo_Result" />
+  </message>
+  <message name="UpdateLoginRegister">
+    <part name="parameters" element="tns:UpdateLoginRegister" />
+  </message>
+  <message name="UpdateLoginRegister_Result">
+    <part name="parameters" element="tns:UpdateLoginRegister_Result" />
+  </message>
+  <portType name="PortalFunction_Port">
+    <operation name="ChangePassword">
+      <input name="ChangePassword" message="tns:ChangePassword" />
+      <output name="ChangePassword_Result" message="tns:ChangePassword_Result" />
+    </operation>
+    <operation name="CreateLoginRegister">
+      <input name="CreateLoginRegister" message="tns:CreateLoginRegister" />
+      <output name="CreateLoginRegister_Result" message="tns:CreateLoginRegister_Result" />
+    </operation>
+    <operation name="PostingGeneral">
+      <input name="PostingGeneral" message="tns:PostingGeneral" />
+      <output name="PostingGeneral_Result" message="tns:PostingGeneral_Result" />
+    </operation>
+    <operation name="SetEntryNo">
+      <input name="SetEntryNo" message="tns:SetEntryNo" />
+      <output name="SetEntryNo_Result" message="tns:SetEntryNo_Result" />
+    </operation>
+    <operation name="UpdateLoginRegister">
+      <input name="UpdateLoginRegister" message="tns:UpdateLoginRegister" />
+      <output name="UpdateLoginRegister_Result" message="tns:UpdateLoginRegister_Result" />
+    </operation>
+  </portType>
+  <binding name="PortalFunction_Binding" type="tns:PortalFunction_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="ChangePassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PortalFunction:ChangePassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ChangePassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ChangePassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateLoginRegister">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PortalFunction:CreateLoginRegister" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateLoginRegister">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateLoginRegister_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="PostingGeneral">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PortalFunction:PostingGeneral" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="PostingGeneral">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="PostingGeneral_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SetEntryNo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PortalFunction:SetEntryNo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SetEntryNo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SetEntryNo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateLoginRegister">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PortalFunction:UpdateLoginRegister" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateLoginRegister">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateLoginRegister_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="PortalFunction">
+    <port name="PortalFunction_Port" binding="tns:PortalFunction_Binding">
+      <address location="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Codeunit/PortalFunction" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>
