@@ -793,6 +793,15 @@ namespace WebServices
             _obj_Binding.Update(ref obj);
             return ResultMessages.UpdateSuccessfullMessage;
         }
+
+
+        public static void ApplyLeave(string hrmsId, DateTime fromdate, DateTime todate, int typeOfLeave, string companyName)
+        {
+            AccountManagementReference.AccountManagement obj = new AccountManagementReference.AccountManagement();
+            obj = (AccountManagementReference.AccountManagement)Configuration
+                .getNavService(new AccountManagementReference.AccountManagement(), "AccountManagement", "Codeunit", companyName);
+            obj.EmployeeLeaveSubmit(hrmsId, fromdate,todate,typeOfLeave);
+        }
         #endregion
 
         #region Library

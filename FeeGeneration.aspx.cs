@@ -103,9 +103,30 @@ namespace HRMS
                     Session["SessionCompanyName"] as string);
             }
             if (string.IsNullOrEmpty(returnVal))
+            {
+                ClearControl();
                 Alert.ShowAlert(this, "s", "Fee generation completed.");
+            }
             else
                 Alert.ShowAlert(this, "e", returnVal);
+        }
+
+        private void ClearControl()
+        {
+            ddlacademicYear.ClearSelection();
+            ddlacademicYear.Items.FindByValue("0").Selected = true;
+
+            ddlSemester.ClearSelection();
+            ddlSemester.Items.FindByValue("0").Selected = true;
+
+            ddlFeeClassification.ClearSelection();
+            ddlFeeClassification.Items.FindByValue("0").Selected = true;
+
+            ddlCourseCode.ClearSelection();
+            ddlCourseCode.Items.FindByValue("0").Selected = true;
+
+            ddlStudentNo.ClearSelection();
+            ddlStudentNo.Items.FindByValue("0").Selected = true;
         }
     }
 }

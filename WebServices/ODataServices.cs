@@ -30,6 +30,15 @@ namespace WebServices
 
             return q;
         }
+        public static IList<HRMSODATA.EmployeeLeaveList> GetEmployeeLeaveList(string companyName)
+        {
+            string serviceUrl = GetOdataURL(companyName);
+            Uri uri = new Uri(serviceUrl);
+            var container = new HRMSODATA.NAV(uri);
+            container.BuildingRequest += Context_BuildingRequest;
+            List<HRMSODATA.EmployeeLeaveList> lstLeave = container.CreateQuery<HRMSODATA.EmployeeLeaveList>("EmployeeLeaveList").ToList();
+            return lstLeave;
+        }
 
         public static IList<HRMSODATA.EmployeeAdditionalInfoList> GetAdditionalEmployeeList(string companyName)
         {

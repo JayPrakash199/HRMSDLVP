@@ -25,7 +25,7 @@ namespace HRMS
         {
             Exception Ex = Server.GetLastError();
             Server.ClearError();
-            Server.Transfer("Error.aspx?e=" + Ex.Message);
+            Server.Transfer("Error.aspx?e=" + Ex.InnerException.Message);
         }
         void Session_Start(object sender, EventArgs e)
         {

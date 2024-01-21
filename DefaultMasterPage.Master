@@ -269,22 +269,26 @@
             border-radius: 1px solid red;
             border: 2px solid #cf4e33;
         }
+
         .NewEntrydiv {
-    background-color: #fff !important;
-}
-         header {
-    position: unset !important;
-}
-.FridgeHeader {
-    font-weight: bold;
-    position: sticky;
-    top: 0;
-    z-index:1;
-}
-.container.box {
-    padding: 5% !important;
-    margin-top: 0% !important;
-}
+            background-color: #fff !important;
+        }
+
+        header {
+            position: unset !important;
+        }
+
+        .FridgeHeader {
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .container.box {
+            padding: 5% !important;
+            margin-top: 0% !important;
+        }
     </style>
 
 
@@ -424,14 +428,14 @@
                         <nav class="navbar navbar-default">
                             <div class="container-fluid">
                                 <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                              <%--  <a class="navbar-brand" target="_blank" href="">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <%--  <a class="navbar-brand" target="_blank" href="">
                                     <img src="images/logo.png" /></a>--%>
-                            </div>
+                                </div>
                                 <%--<svg height="0" width="0" style="position: absolute; margin-left: -100%;">
                                 <path id="tab-shape" class="tab-shape" d="M116.486,29.036c-23.582-8-14.821-29-42.018-29h-62.4C5.441,0.036,0,5.376,0,12.003v28.033h122v-11H116.486z"></path>
                             </svg>--%>
@@ -445,6 +449,8 @@
                                                 <%--<li><a href="NewEmployeeDetails.aspx">Add New Employee</a></li>--%>
                                                 <li><a href="AdditionalEmployeeDetails.aspx">Add Additional Employee Details</a></li>
                                                 <li><a href="EditEmployee.aspx">Update Additional Employee Details</a></li>
+                                                <li><a href="EmployeeLeave.aspx">Employee Leave Application</a></li>
+                                                <li><a href="EmployeeLeaveList.aspx">Employee Leave List</a></li>
                                             </ul>
                                         </li>
                                         <li class="dropdown clearfix">
@@ -509,9 +515,9 @@
                                                 <li><a href="AnnualInternalPerformanceReviewList.aspx">Annual Performance List</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown clearfix" >
+                                        <li class="dropdown clearfix">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTI<b class="caret"></b></a>
-                                            <ul class="dropdown-menu" id="Ul10" style="right: 0 !important; left:auto !important" runat="server">
+                                            <ul class="dropdown-menu" id="Ul10" style="right: 0 !important; left: auto !important" runat="server">
                                                 <li><a href="CourtCasesDetailsInput.aspx">Court Case</a></li>
                                                 <li><a href="CourtCaseList.aspx">Court Case List</a></li>
                                                 <li><a href="RTIDetailsInput.aspx">RTI Monitoring</a></li>

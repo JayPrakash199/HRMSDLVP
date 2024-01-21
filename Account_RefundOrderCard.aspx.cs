@@ -21,26 +21,64 @@ namespace HRMS
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            var obj = new WebServices.CautionRefundOrderReference.CautionRefundOrder
+            try
             {
-                Cheque_DateSpecified = true,
-                Payment_MethodSpecified = true,
-                Posting_DateSpecified = true,
+                if (ddlPaymentMethod.SelectedValue.ToLower() == "bank")
+                {
+                    if (ddlAccountNo.SelectedValue == "0")
+                    {
+                        Alert.ShowAlert(this, "e", "Please select a Bank account no");
+                        return;
+                    }
+                }
+                if (ddlPaymentMethod.SelectedValue.ToLower() == "cash")
+                {
+                    if (ddlAccountNo.SelectedValue == "0")
+                    {
+                        Alert.ShowAlert(this, "e", "Please select a account No");
+                        return;
+                    }
+                }
 
-                Academic_Year = ddlAcademicYear.SelectedItem.Text,
-                Posting_Date = DateTimeParser.ParseDateTime(txtPostingDate.Text),
-                Payment_Method = ddlPaymentMethod.SelectedValue == "Bank" ? WebServices.CautionRefundOrderReference.Payment_Method.Bank : WebServices.CautionRefundOrderReference.Payment_Method.Cash,
-                Account_No = ddlAccountNo.SelectedValue,
-                Chaque_No = txtChequeNo.Text,
-                Cheque_Date = DateTimeParser.ParseDateTime(txtChequeDate.Text),
-                External_Document_No = txtExternalDocumentNo.Text,
-                Naration = txtNaration.Text
-            };
+                var obj = new WebServices.CautionRefundOrderReference.CautionRefundOrder
+                {
+                    Cheque_DateSpecified = true,
+                    Payment_MethodSpecified = true,
+                    Posting_DateSpecified = true,
 
-            SOAPServices.AddCautionRefundOrder(obj, Session["SessionCompanyName"] as string);
-            Alert.ShowAlert(this, "s", "Record added successfully.");
+                    Academic_Year = ddlAcademicYear.SelectedItem.Text,
+                    Posting_Date = DateTimeParser.ParseDateTime(txtPostingDate.Text),
+                    Payment_Method = ddlPaymentMethod.SelectedValue == "Bank" ? WebServices.CautionRefundOrderReference.Payment_Method.Bank : WebServices.CautionRefundOrderReference.Payment_Method.Cash,
+                    Account_No = ddlAccountNo.SelectedValue,
+                    Chaque_No = txtChequeNo.Text,
+                    Cheque_Date = DateTimeParser.ParseDateTime(txtChequeDate.Text),
+                    External_Document_No = txtExternalDocumentNo.Text,
+                    Naration = txtNaration.Text
+                };
+
+                SOAPServices.AddCautionRefundOrder(obj, Session["SessionCompanyName"] as string);
+                ClearControl();
+                Alert.ShowAlert(this, "s", "Record added successfully.");
+            }
+            catch (Exception ex)
+            {
+                Alert.ShowAlert(this, "e", "Exception occured :" + ex.Message);
+            }
         }
-
+        private void ClearControl()
+        {
+            ddlAcademicYear.ClearSelection();
+            ddlAcademicYear.Items.FindByValue("0").Selected = true;
+            txtPostingDate.Text = "";
+            ddlPaymentMethod.ClearSelection();
+            ddlPaymentMethod.Items.FindByValue("Select").Selected = true;
+            ddlAccountNo.ClearSelection();
+            ddlAccountNo.Items.FindByValue("0").Selected = true;
+            txtChequeNo.Text = "";
+            txtChequeDate.Text = "";
+            txtExternalDocumentNo.Text = "";
+            txtNaration.Text = "";
+        }
         public void BindFianacialYear()
         {
             var FyList = ODataServices.GetFinancialYearList(Session["SessionCompanyName"] as string);
@@ -52,7 +90,7 @@ namespace HRMS
         }
 
         public void GetCashAccounts()
-        {            
+        {
             ddlAccountNo.DataSource = ODataServices.GetChartofAccounts(Session["SessionCompanyName"] as string);
             ddlAccountNo.DataTextField = "Name";
             ddlAccountNo.DataValueField = "No";

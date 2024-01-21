@@ -43,8 +43,27 @@ namespace HRMS
         
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            SOAPServices.ApplyCautionMoney(ddlStudentNo.SelectedValue, ddlAcademicYear.SelectedItem.Text, Session["SessionCompanyName"] as string);
-            Alert.ShowAlert(this, "s", "Applied successfully.");
+            try
+            {
+                SOAPServices.ApplyCautionMoney(ddlStudentNo.SelectedValue, ddlAcademicYear.SelectedItem.Text, Session["SessionCompanyName"] as string);
+                ClearControl();
+                Alert.ShowAlert(this, "s", "Applied successfully.");
+            }
+            catch (Exception ex)
+            {
+                Alert.ShowAlert(this, "e", "Exception occured:"+ex.Message);
+            }
+        }
+
+        private void ClearControl()
+        {
+            ddlAcademicYear.ClearSelection();
+            ddlAcademicYear.Items.FindByValue("0").Selected = true;
+
+            ddlStudentNo.ClearSelection();
+            ddlStudentNo.Items.FindByValue("0").Selected = true;
+            
+
         }
     }
 

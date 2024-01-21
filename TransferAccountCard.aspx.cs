@@ -199,6 +199,23 @@ namespace HRMS
         {
             var entry_No = Request.QueryString["Entry_No"];
 
+            if (ddlPaymentType.SelectedValue == "CASH")
+            {
+                if(ddlglAcName.SelectedValue=="0")
+                {
+                    Alert.ShowAlert(this, "e", "Please select a G/L account name");
+                    return;
+                }
+            }
+            else if (ddlPaymentType.SelectedValue == "CASH")
+            {
+                if (ddlbankAcName.SelectedValue == "0")
+                {
+                    Alert.ShowAlert(this, "e", "Please select a Bank account name");
+                    return;
+                }
+            }
+
             var obj = new WebServices.TransferAccountReference.TransferAccount
             {
                 Payment_TypeSpecified = true,

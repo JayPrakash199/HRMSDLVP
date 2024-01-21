@@ -17,6 +17,21 @@
           </sequence>
         </complexType>
       </element>
+      <element name="EmployeeLeaveSubmit">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="hRMSID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fromDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="toDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="typeofLeave" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="EmployeeLeaveSubmit_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
       <element name="GetLines">
         <complexType>
           <sequence>
@@ -115,6 +130,12 @@
   <message name="DeleteCautionRefundLine_Result">
     <part name="parameters" element="tns:DeleteCautionRefundLine_Result" />
   </message>
+  <message name="EmployeeLeaveSubmit">
+    <part name="parameters" element="tns:EmployeeLeaveSubmit" />
+  </message>
+  <message name="EmployeeLeaveSubmit_Result">
+    <part name="parameters" element="tns:EmployeeLeaveSubmit_Result" />
+  </message>
   <message name="GetLines">
     <part name="parameters" element="tns:GetLines" />
   </message>
@@ -162,6 +183,10 @@
       <input name="DeleteCautionRefundLine" message="tns:DeleteCautionRefundLine" />
       <output name="DeleteCautionRefundLine_Result" message="tns:DeleteCautionRefundLine_Result" />
     </operation>
+    <operation name="EmployeeLeaveSubmit">
+      <input name="EmployeeLeaveSubmit" message="tns:EmployeeLeaveSubmit" />
+      <output name="EmployeeLeaveSubmit_Result" message="tns:EmployeeLeaveSubmit_Result" />
+    </operation>
     <operation name="GetLines">
       <input name="GetLines" message="tns:GetLines" />
       <output name="GetLines_Result" message="tns:GetLines_Result" />
@@ -199,6 +224,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="DeleteCautionRefundLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="EmployeeLeaveSubmit">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/AccountManagement:EmployeeLeaveSubmit" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="EmployeeLeaveSubmit">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="EmployeeLeaveSubmit_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

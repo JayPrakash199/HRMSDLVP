@@ -600,6 +600,8 @@
     <Content Include="EditEmployee.aspx" />
     <Content Include="EmployeeCard.aspx" />
     <Content Include="EmployeeDisciplinaryCaseList.aspx" />
+    <Content Include="EmployeeLeave.aspx" />
+    <Content Include="EmployeeLeaveList.aspx" />
     <Content Include="EmployeeList.aspx" />
     <Content Include="EmployeeTrainingDetailsInput.aspx" />
     <Content Include="Error.aspx" />
@@ -1105,6 +1107,20 @@
     </Compile>
     <Compile Include="EmployeeDisciplinaryCaseList.aspx.designer.cs">
       <DependentUpon>EmployeeDisciplinaryCaseList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeLeave.aspx.cs">
+      <DependentUpon>EmployeeLeave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeLeave.aspx.designer.cs">
+      <DependentUpon>EmployeeLeave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeLeaveList.aspx.cs">
+      <DependentUpon>EmployeeLeaveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeLeaveList.aspx.designer.cs">
+      <DependentUpon>EmployeeLeaveList.aspx</DependentUpon>
     </Compile>
     <Compile Include="EmployeeList.aspx.cs">
       <DependentUpon>EmployeeList.aspx</DependentUpon>

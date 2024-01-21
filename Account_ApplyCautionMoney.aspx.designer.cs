@@ -24,6 +24,15 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.DropDownList ddlAcademicYear;
 
         /// <summary>
+        /// rfacademicyear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfacademicyear;
+
+        /// <summary>
         /// ddlStudentNo control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace HRMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlStudentNo;
+
+        /// <summary>
+        /// rqstudentNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqstudentNo;
 
         /// <summary>
         /// btnSubmit control.

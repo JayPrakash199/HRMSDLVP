@@ -41,16 +41,6 @@ namespace HRMS
             ddlCustomerNo.Items.Insert(0, new ListItem("Select Student", "0"));
         }
 
-        //public void BindFeeClassificationType()
-        //{
-        //    var studentType = ODataServices.GetFeeClassificationList(Session["SessionCompanyName"] as string);
-        //    ddlFeeClassSpecification.DataSource = studentType;
-        //    ddlFeeClassSpecification.DataTextField = "Description";
-        //    ddlFeeClassSpecification.DataValueField = "Code";
-        //    ddlFeeClassSpecification.DataBind();
-        //    ddlFeeClassSpecification.Items.Insert(0, new ListItem("Select Fee Classification", "0"));
-        //}
-
         protected void ddlType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlType.SelectedValue == "StudentFee")
@@ -276,6 +266,23 @@ namespace HRMS
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (ddlPaymentType.SelectedValue == "BANK")
+            {
+                if (ddlBankAccountNo.SelectedValue == "0")
+                {
+                    Alert.ShowAlert(this, "e", "Please select a Bank account no");
+                    return;
+                }
+            }
+            if (ddlPaymentType.SelectedValue == "CASH")
+            {
+                if (ddlCashGLAccountNo.SelectedValue == "0")
+                {
+                    Alert.ShowAlert(this, "e", "Please select a Cash GL Account No");
+                    return;
+                }
+            }
+
             var obj = new WebServices.StudentFeeCollectionCardReference.StudentFeeCollectionCard
             {
                 TypeSpecified = true,
@@ -323,6 +330,7 @@ namespace HRMS
             try
             {
                 SOAPServices.AddStudentFee(obj, Session["SessionCompanyName"] as string);
+                ClearControl();
                 Alert.ShowAlert(this, "s", "Record added successfully.");
             }
             catch (Exception ex)
@@ -330,6 +338,79 @@ namespace HRMS
                 Alert.ShowAlert(this, "e", ex.Message);
             }
 
+        }
+        private void ClearControl()
+        {
+           
+            if (ddlType.SelectedValue == "StudentFee")
+            {
+                ddlCustomerNo.ClearSelection();
+                ddlCustomerNo.Items.FindByValue("0").Selected = true;
+            }
+            if (ddlType.SelectedValue == "InternalTransfer")
+            {
+                ddlCustomerNo.ClearSelection();
+                ddlCustomerNo.Items.FindByValue("0").Selected = true;
+            }
+            if (ddlType.SelectedValue == "AdvancePayment")
+            {
+                ddlCustomerNo.ClearSelection();
+                ddlCustomerNo.Items.FindByValue("0").Selected = true;
+            }
+            if (ddlType.SelectedValue == "OtherIncome")
+            {
+                ddlGLNo.ClearSelection();
+                ddlGLNo.Items.FindByValue("0").Selected = true;
+                ddlCashGLAccountNo.ClearSelection();
+                ddlCashGLAccountNo.Items.FindByValue("0").Selected = true;
+                ddlInstiuteCode.ClearSelection();
+                ddlInstiuteCode.Items.FindByValue("0").Selected = true;
+                ddlDepartmentCode.ClearSelection();
+                ddlDepartmentCode.Items.FindByValue("0").Selected = true;
+                ddlSlcmnoCode.ClearSelection();
+                ddlSlcmnoCode.Items.FindByValue("0").Selected = true;
+                ddlEmployeeNo.ClearSelection();
+                ddlEmployeeNo.Items.FindByValue("0").Selected = true;
+                ddlFundingsourceCode.ClearSelection();
+                ddlFundingsourceCode.Items.FindByValue("0").Selected = true;
+            }
+            if (ddlType.SelectedValue == "StaffAdvanceRefund")
+            {
+                ddlInstiuteCode.ClearSelection();
+                ddlInstiuteCode.Items.FindByValue("0").Selected = true;
+                ddlDepartmentCode.ClearSelection();
+                ddlDepartmentCode.Items.FindByValue("0").Selected = true;
+                ddlSlcmnoCode.ClearSelection();
+                ddlSlcmnoCode.Items.FindByValue("0").Selected = true;
+                ddlEmployeeNo.ClearSelection();
+                ddlEmployeeNo.Items.FindByValue("0").Selected = true;
+                ddlFundingsourceCode.ClearSelection();
+                ddlFundingsourceCode.Items.FindByValue("0").Selected = true;
+                divCustomerNo.Visible = false;
+                divEmployeeNo.Visible = true;
+            }
+            ddlType.ClearSelection();
+            ddlType.Items.FindByValue("Select").Selected = true;
+
+            if (ddlPaymentType.SelectedValue == "BANK")
+            {
+                ddlBankAccountNo.ClearSelection();
+                ddlBankAccountNo.Items.FindByValue("0").Selected = true;
+                txtTranDate.Text = "";
+                txtTranNo.Text= "";
+            }
+            if (ddlPaymentType.SelectedValue == "CASH")
+            {
+                ddlCashGLAccountNo.ClearSelection();
+                ddlCashGLAccountNo.Items.FindByValue("0").Selected = true;
+            }
+            ddlPaymentType.ClearSelection();
+            ddlPaymentType.Items.FindByValue("Select").Selected = true;
+            
+
+            txtAmount.Text = "";
+            txtExDocNo.Text = "";
+            txtNarration.Text = "";
         }
     }
     public class Dimension

@@ -5,7 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         .summary-box {
-            margin-top: 75px;
             height: auto;
             text-align: center;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -17,7 +16,6 @@
         }
 
         .container.box {
-            margin-top: 61px;
             margin-bottom: 26px;
         }
 
@@ -110,24 +108,31 @@
                                                     <label for="exampleAccount">Academic Year</label>
                                                     <asp:DropDownList ID="ddlAcademicYear" CssClass="form-control ajax__calendar_body" runat="server">
                                                     </asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ID="rfacademicyear" ClientIDMode="Static" ControlToValidate="ddlAcademicYear" InitialValue="0" ValidationGroup="CautionMoney"
+                                                        runat="server" Style="color: red; font-size: 11px; visibility: visible; text-align: left; position: absolute; left: 7%;" ErrorMessage="Select academic year *"></asp:RequiredFieldValidator>
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 contact-info">
                                             <div class="container">
-                                                
+
                                                 <div class="form-group">
                                                     <label>Student No</label>
                                                     <asp:DropDownList ID="ddlStudentNo" CssClass="form-control ajax__calendar_body" runat="server">
                                                     </asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ID="rqstudentNo" ClientIDMode="Static" ControlToValidate="ddlStudentNo" InitialValue="0" ValidationGroup="CautionMoney"
+                                                        runat="server" Style="color: red; font-size: 11px; visibility: visible; text-align: left; position: absolute; left: 7%;"
+                                                        ErrorMessage="Select a student *"></asp:RequiredFieldValidator>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" CssClass="btn-s float-right btn-primary" Text="Apply" />
+                            <div class="col-md-12" style="padding: 10px">
+                                <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" CssClass="btn-s float-right btn-primary" ValidationGroup="CautionMoney" Text="Apply" />
                             </div>
                         </div>
                     </div>
@@ -135,7 +140,7 @@
             </div>
         </div>
     </div>
-   <%-- <script language="Javascript">        
+    <%-- <script language="Javascript">        
         var yearsLength = 30;
         var currentYear = new Date().getFullYear();
         for (var i = 0; i < 10; i++) {

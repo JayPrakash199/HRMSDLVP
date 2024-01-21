@@ -31,6 +31,8 @@ namespace WebServices.AccountManagementReference {
         
         private System.Threading.SendOrPostCallback DeleteCautionRefundLineOperationCompleted;
         
+        private System.Threading.SendOrPostCallback EmployeeLeaveSubmitOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetLinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback PostTransferAccountOperationCompleted;
@@ -87,6 +89,9 @@ namespace WebServices.AccountManagementReference {
         public event DeleteCautionRefundLineCompletedEventHandler DeleteCautionRefundLineCompleted;
         
         /// <remarks/>
+        public event EmployeeLeaveSubmitCompletedEventHandler EmployeeLeaveSubmitCompleted;
+        
+        /// <remarks/>
         public event GetLinesCompletedEventHandler GetLinesCompleted;
         
         /// <remarks/>
@@ -137,6 +142,40 @@ namespace WebServices.AccountManagementReference {
             if ((this.DeleteCautionRefundLineCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.DeleteCautionRefundLineCompleted(this, new DeleteCautionRefundLineCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/AccountManagement:EmployeeLeaveSubmit", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/AccountManagement", ResponseElementName="EmployeeLeaveSubmit_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/AccountManagement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void EmployeeLeaveSubmit(string hRMSID, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime fromDate, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime toDate, int typeofLeave) {
+            this.Invoke("EmployeeLeaveSubmit", new object[] {
+                        hRMSID,
+                        fromDate,
+                        toDate,
+                        typeofLeave});
+        }
+        
+        /// <remarks/>
+        public void EmployeeLeaveSubmitAsync(string hRMSID, System.DateTime fromDate, System.DateTime toDate, int typeofLeave) {
+            this.EmployeeLeaveSubmitAsync(hRMSID, fromDate, toDate, typeofLeave, null);
+        }
+        
+        /// <remarks/>
+        public void EmployeeLeaveSubmitAsync(string hRMSID, System.DateTime fromDate, System.DateTime toDate, int typeofLeave, object userState) {
+            if ((this.EmployeeLeaveSubmitOperationCompleted == null)) {
+                this.EmployeeLeaveSubmitOperationCompleted = new System.Threading.SendOrPostCallback(this.OnEmployeeLeaveSubmitOperationCompleted);
+            }
+            this.InvokeAsync("EmployeeLeaveSubmit", new object[] {
+                        hRMSID,
+                        fromDate,
+                        toDate,
+                        typeofLeave}, this.EmployeeLeaveSubmitOperationCompleted, userState);
+        }
+        
+        private void OnEmployeeLeaveSubmitOperationCompleted(object arg) {
+            if ((this.EmployeeLeaveSubmitCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.EmployeeLeaveSubmitCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -391,6 +430,10 @@ namespace WebServices.AccountManagementReference {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void EmployeeLeaveSubmitCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
