@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css" />
     <style>
         .summary-box {
-            margin-top: 100px;
             height: auto;
             text-align: center;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -16,16 +15,6 @@
 
         .container.box {
             margin-bottom: 5%;
-        }
-
-        p.NewEntry {
-            float: left;
-            font-weight: 600;
-            color: black;
-        }
-
-        .col-lg-12.NewEntrydiv {
-            background-color: #eeeeee;
         }
 
         p.Introduction {
@@ -188,7 +177,7 @@
                             <div class="mb-3">
                                 <asp:FileUpload ID="pdfUploader" Width="205px" CssClass="form-control form-control-sm" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" runat="server" />
                             </div>
-                            <div class="mb-3" style="padding">
+                            <div class="mb-3" style="padding:10px;float: right;">
                                 <asp:LinkButton OnClick="btnUpload_Click" ID="btnUpload" CssClass="btn btn-file-upload" runat="server">Upload</asp:LinkButton>
                             </div>
 

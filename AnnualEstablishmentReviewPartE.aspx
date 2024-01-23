@@ -12,17 +12,6 @@
             border: 1px solid;
         }
 
-
-        p.NewEntry {
-            float: left;
-            font-weight: 600;
-            color: black;
-        }
-
-        .col-lg-12.NewEntrydiv {
-            background-color: #eeeeee;
-        }
-
         p.Introduction {
             float: left;
             color: black;
@@ -199,12 +188,7 @@
                                                     <asp:DropDownList ID="ddlFinancialYear" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 contact-info">
-                                            <div class="container">
-
-                                                <div class="form-group">
+                                                 <div class="form-group">
                                                     <label for="exampleAccount">Persons in Position</label>
                                                     <asp:TextBox ID="txtPersonsinPosition" CssClass="form-control" runat="server"></asp:TextBox>
                                                 </div>
@@ -212,6 +196,12 @@
                                                     <label for="exampleAccount">Remark if any</label>
                                                     <asp:TextBox ID="txtRemark" CssClass="form-control" runat="server"></asp:TextBox>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 contact-info">
+                                            <div class="container">
+
+                                               
                                             </div>
                                         </div>
                                     </div>

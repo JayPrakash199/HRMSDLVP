@@ -15,15 +15,6 @@
             border-top: none !important;
         }
 
-        p.NewEntry {
-            float: left;
-            font-weight: 600;
-            color: black;
-        }
-
-        .col-lg-12.NewEntrydiv {
-            background-color: #eeeeee;
-        }
 
         p.Introduction {
             float: left;
@@ -119,7 +110,7 @@
                                                     </LayoutTemplate>
                                                     <ItemTemplate>
                                                         <tr class="TableData">
-                                                             <td>
+                                                            <td>
                                                                 <asp:Label ID="Label6" runat="server" Text='<%# Eval("Entry_No")%>'> </asp:Label>
                                                             </td>
                                                             <td>
@@ -159,8 +150,8 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12 ExportFoot">
-                                        <asp:Button ID="btnExport" OnClick="btnExport_Click"  CssClass="btn-s float-right submit btn-yellow"
- runat="server" Text="Export" />
+                                        <asp:Button ID="btnExport" Style="margin: 2%" OnClick="btnExport_Click" CssClass="btn-s float-right submit btn-yellow"
+                                            runat="server" Text="Export" />
                                     </div>
                                 </div>
                             </div>

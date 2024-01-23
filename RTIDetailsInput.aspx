@@ -12,16 +12,6 @@
             border: 1px solid;
         }
 
-        p.NewEntry {
-            float: left;
-            font-weight: 600;
-            color: black;
-        }
-
-        .col-lg-12.NewEntrydiv {
-            background-color: #eeeeee;
-        }
-
         p.Introduction {
             float: left;
             color: black;
@@ -32,7 +22,7 @@
 
         .row.md-12.marginx {
             margin: 69px;
-            padding-bottom: 36px;
+            margin-bottom: 30px;
         }
 
         i.fal.fa-plus-circle.full {
@@ -177,11 +167,6 @@
             font-size: 10px;
             width: 203px;
             text-align: justify;
-        }
-
-        .row.ab {
-            border-bottom: 1px solid;
-            padding: 0px 0px 52px 0px
         }
 
         .row.ac {

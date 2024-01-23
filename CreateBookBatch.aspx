@@ -21,16 +21,7 @@
             margin-bottom: 26px;
         }
 
-        p.NewEntry {
-            float: left;
-            font-weight: 600;
-            color: black;
-        }
-
-        .col-lg-12.NewEntrydiv {
-            background-color: #eeeeee;
-        }
-
+       
         .right_col_content.border-box.label-responsive {
             border: none;
         }

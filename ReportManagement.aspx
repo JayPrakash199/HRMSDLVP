@@ -33,19 +33,6 @@
             border: 1px solid;
         }
 
-        p.NewEntry {
-            color: #105be6;
-            font-weight: 900;
-            font-size: x-large;
-            margin: 2%;
-            padding: 2%;
-            border-bottom: 3px solid black;
-        }
-
-        .col-lg-12.NewEntrydiv {
-            background-color: #eeeeee;
-        }
-
         p.Introduction {
             float: left;
             color: black;

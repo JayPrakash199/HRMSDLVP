@@ -101,13 +101,13 @@
 @media (min-width: 768px) {
     .navbar-default .navbar-nav > .active > a,
     .navbar-default .navbar-nav > .open > a {
-        background: none !important;
+        background: #2c477f !important;
         box-shadow: none;
         color: #cf4e33;
     }
 
     .navbar-default .navbar-nav > li > a:hover {
-        color: #cf4e33 !important;
+        color: #eee6c9 !important;
     }
 
     .navbar-default .navbar-collapse, .navbar-default .navbar-form {

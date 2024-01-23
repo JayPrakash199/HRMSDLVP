@@ -14,19 +14,6 @@
         table thead tr th, .table > tbody > tr > th {
             border-top: none !important;
         }
-
-
-
-        p.NewEntry {
-            float: left;
-            font-weight: 600;
-            color: black;
-        }
-
-        .col-lg-12.NewEntrydiv {
-            background-color: #eeeeee;
-        }
-
         p.Introduction {
             float: left;
             color: black;

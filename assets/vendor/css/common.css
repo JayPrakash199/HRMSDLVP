@@ -681,11 +681,13 @@ select::-ms-expand {
 }
 
 .NewEntrydiv {
-    background-color: transparent !important;
-    color: whitesmoke !important;
-    text-align: center !important;
-    font-size: 15px;
     margin-top: 1%;
+    font-weight: 700;
+    color: #2c477f !important;
+    font-size: 1.4vw;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2);
+    background-color: transparent !important;
+    letter-spacing: .10em;
 }
 
 .summary-box {

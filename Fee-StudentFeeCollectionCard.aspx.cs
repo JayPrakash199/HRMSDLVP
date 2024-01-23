@@ -369,8 +369,6 @@ namespace HRMS
                 ddlDepartmentCode.Items.FindByValue("0").Selected = true;
                 ddlSlcmnoCode.ClearSelection();
                 ddlSlcmnoCode.Items.FindByValue("0").Selected = true;
-                ddlEmployeeNo.ClearSelection();
-                ddlEmployeeNo.Items.FindByValue("0").Selected = true;
                 ddlFundingsourceCode.ClearSelection();
                 ddlFundingsourceCode.Items.FindByValue("0").Selected = true;
             }

@@ -5,7 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         .summary-box {
-            margin-top: 75px;
             height: auto;
             text-align: center;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -17,18 +16,7 @@
         }
 
         .container.box {
-            margin-top: 61px;
-            margin-bottom: 26px;
-        }
-
-        p.NewEntry {
-            float: left;
-            font-weight: 600;
-            color: black;
-        }
-
-        .col-lg-12.NewEntrydiv {
-            background-color: #eeeeee;
+            margin-bottom: 5%;
         }
 
         p.Introduction {
@@ -57,10 +45,6 @@
 
         i.fa-solid.fa-file {
             font-size: 35px;
-        }
-
-        .col-lg-12.col-md-12.summary-box {
-            margin: 94px 10px 10px -113px;
         }
 
         .custom-file-input::-webkit-file-upload-button {
@@ -128,7 +112,7 @@
                                                                 <asp:CheckBox ID="chkSelect" runat="server" />
                                                             </td>
                                                             <td>
-                                                                <a href="#" >
+                                                                <a href="#">
                                                                     <asp:Label ID="Label2" runat="server" Text='<%# Eval("Entry_No")%>'> </asp:Label>
                                                                 </a>
                                                             </td>

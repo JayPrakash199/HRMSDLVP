@@ -13,16 +13,6 @@
         }
 
 
-        p.NewEntry {
-            float: left;
-            font-weight: 600;
-            color: black;
-        }
-
-        .col-lg-12.NewEntrydiv {
-            background-color: #eeeeee;
-        }
-
         p.Introduction {
             float: left;
             color: black;
@@ -32,8 +22,8 @@
         }
 
         .row.md-12.marginx {
+            margin-bottom: 15px !important;
             margin: 69px;
-            padding-bottom: 36px;
         }
 
         i.fal.fa-plus-circle.full {
@@ -52,7 +42,7 @@
         }
 
         .btn-s.float-right {
-            float: right;
+            text-align: center !important;
             background: white;
             width: 72px;
             height: 31px;
@@ -180,11 +170,7 @@
             text-align: justify;
         }
 
-        .row.ab {
-            border-bottom: 1px solid;
-            padding: 0px 0px 52px 0px
-        }
-
+       
         .row.ac {
             padding: 23px 0px 24px 0px;
         }
@@ -272,7 +258,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <asp:Button ID="btnSubmit" OnClick="btnSubmit_Click" Style="margin: 1%" runat="server" CssClass="btn-s float-right submit btn-yellow"
+                                    <asp:Button ID="btnSubmit" OnClick="btnSubmit_Click" Style="margin: 3%" runat="server" CssClass="btn-s float-right submit btn-yellow"
                                         type="submit" Text="Apply" />
                                 </div>
                             </div>

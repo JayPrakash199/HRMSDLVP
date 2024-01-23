@@ -13,15 +13,7 @@
             border: 1px solid;
         }
 
-        p.NewEntry {
-            float: left;
-            font-weight: 600;
-            color: black;
-        }
-
-        .col-lg-12.NewEntrydiv {
-            background-color: #eeeeee;
-        }
+       
 
         p.Introduction {
             float: left;
@@ -236,6 +228,7 @@
                                                     <label for="exampleAccount">Service Joining Station</label>
                                                     <asp:DropDownList ID="ddlSeviceJoiningStation" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
+
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Base Qualification</label>

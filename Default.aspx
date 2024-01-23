@@ -84,7 +84,6 @@
         }
 
         .gradient-custom {
-           
             height: 100%;
         }
 
@@ -99,9 +98,10 @@
         }
 
         .itServicePadding {
-            box-shadow: 0 4px 12px rgb(20 29 56 / 75%) !important;
             padding: 5%;
-            background-color: #2c477f;
+            box-shadow: inset 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+            border-radius: 50px;
+            background-image: linear-gradient( 95.2deg, rgb(44 71 127) 26.8%, rgb(46 123 148) 64% );
         }
 
             .itServicePadding:Hover {
@@ -159,7 +159,10 @@
             text-decoration: none;
             font-size: 30px;
             font-weight: 900;
-            color: #ffff;
+            color: #d9f7ffe8;
+            text-shadow: #bbb 0 0 1px, #3d55863b 0 -1px 2px, #000000d6 0 6px 10px, rgb(226 218 218 / 23%) 0 30px 25px;
+            transition: margin-left 0.3s cubic-bezier(0, 1, 0, 1);
+            text-transform: uppercase;
         }
 
         .pb-4 {

@@ -19,16 +19,7 @@
             margin-bottom: 5%;
         }
 
-        p.NewEntry {
-            float: left;
-            font-weight: 600;
-            color: black;
-        }
-
-        .col-lg-12.NewEntrydiv {
-            background-color: #fff;
-        }
-
+        
         p.Introduction {
             float: left;
             color: black;

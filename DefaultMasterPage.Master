@@ -254,10 +254,10 @@
         }
 
         .btn-s.float-right {
-            float: right;
             background: white;
-            width: 72px;
+            width: 75px !important;
             height: 36px !important;
+            border-radius: 25px;
         }
 
         .back {
@@ -268,10 +268,6 @@
             border-radius: 50%;
             border-radius: 1px solid red;
             border: 2px solid #cf4e33;
-        }
-
-        .NewEntrydiv {
-            background-color: #fff !important;
         }
 
         header {

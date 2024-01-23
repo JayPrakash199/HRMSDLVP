@@ -89,7 +89,7 @@ namespace HRMS
                                                 : ddlMatterRelatingTo.SelectedItem.Text == "Other"
                                                     ? WebServices.CourtCaseReference.Matter_Relating_to.Other
                                                     : WebServices.CourtCaseReference.Matter_Relating_to._blank_,
-                Lowest_level_office_In_The_hierarchy_Relating_To_This_Case = ddlLowestLevelOffice.SelectedItem.Text,
+                Lowest_level_office_In_The_hierarchy_Relating_To_This_Case = ddlLowestLevelOffice.SelectedItem.Value,
                 Last_Case_Date = DateTimeParser.ParseDateTime(txtLastDate.Text),
                 Case_Status = txtCaseStatus.Text
             };
