@@ -16,6 +16,15 @@ namespace HRMS.Dto
         /// Gets or sets UserName.
         ///</summary>
         public string UserName { get; set; }
+
+
+        public string FatherName { get; set; }
+        public string MotherName { get; set; }
+        public string AdharNo { get; set; }
+        public string PanNO { get; set; }
+        public string PermanentAddress { get; set; }
+        public string PresentAdddress { get; set; }
+
         ///<summary>
         /// Gets or sets Email.
         ///</summary>
@@ -25,6 +34,8 @@ namespace HRMS.Dto
         /// Gets or sets MobileNo.
         ///</summary>
         public long MobileNo { get; set; }
+        public long AlternativeMobileNo { get; set; }
+        public long NewPassword { get; set; }
         ///<summary>
         /// Gets or sets CompanyName.
         ///</summary>
