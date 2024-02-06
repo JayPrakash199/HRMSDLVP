@@ -26,10 +26,31 @@ namespace HRMS
                 }
                 CompanyName = Session["SessionCompanyName"] as string;
 
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
+                {
+                    var role = lstUserRole
+                        .FirstOrDefault(x => string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(x.Page_Name.Trim(), "Book Issue List", StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
+                    if (role == null)
+                    {
+                        BindListView();
+                    }
+                    else
+                    {
+                        if (!Convert.ToBoolean(role.Read))
+                        {
+                            Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                            return;
+                        }
+                        BindListView();
+                    }
+                }
+
                 BindListView();
             }
         }
-       
         protected override void Render(HtmlTextWriter writer)
         {
             ClientScript.RegisterForEventValidation(ddlNo.UniqueID.ToString());
@@ -38,8 +59,8 @@ namespace HRMS
             base.Render(writer);
         }
 
-      
-        private void  BindListView()
+
+        private void BindListView()
         {
             IList<HRMSODATA.BookIssueList> BookIssueList = ODataServices.GetBookIssueList(CompanyName);
 
@@ -49,24 +70,77 @@ namespace HRMS
                 BookIssueListView.DataBind();
             }
         }
+        //protected void btnSearchBookIssuedata_Click(object sender, EventArgs e)
+        //{
+        //    if (!string.IsNullOrEmpty(txtbookIssueSearch.Text))
+        //    {
+        //        var LibrarySearchList = ODataServices.GetFilterBookIssueList(txtbookIssueSearch.Text, CompanyName);
+        //        if (LibrarySearchList != null)
+        //        {
+        //            BookIssueListView.DataSource = LibrarySearchList;
+        //            BookIssueListView.DataBind();
+        //        }
+        //    }
+        //}
+
+        //Added By Deshpande
         protected void btnSearchBookIssuedata_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtbookIssueSearch.Text))
+            var lstUserRole = ODataServices.GetUserAuthorizationList();
+            var role = lstUserRole
+                .FirstOrDefault(x => string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Book Issue List", StringComparison.OrdinalIgnoreCase)
+                                     && string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
+
+            if (role == null || Convert.ToBoolean(role.Read))
             {
-                var LibrarySearchList = ODataServices.GetFilterBookIssueList(txtbookIssueSearch.Text, CompanyName);
-                if (LibrarySearchList != null)
+                if (!string.IsNullOrEmpty(txtbookIssueSearch.Text))
                 {
-                    BookIssueListView.DataSource = LibrarySearchList;
-                    BookIssueListView.DataBind();
+                    var LibrarySearchList = ODataServices.GetFilterBookIssueList(txtbookIssueSearch.Text, CompanyName);
+                    if (LibrarySearchList != null)
+                    {
+                        BookIssueListView.DataSource = LibrarySearchList;
+                        BookIssueListView.DataBind();
+                    }
+                    else
+                    {
+                        
+                    }
                 }
+                else
+                {
+                    
+                    //BindListView();
+                }
+
+                //BookIssueListView.DataBind();
+            }
+            else
+            {
+                Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
             }
         }
 
+
+        //Added by Deshpande(02-02-2024)
         protected void btnIssueNewBook_Click(object sender, EventArgs e)
         {
-            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "$('#MyPopup').modal('show')", true);
-            LoadUserTypeDropDown();
-            LoadAccessnoDropdown();
+            var lstUserRole = ODataServices.GetUserAuthorizationList();
+            var role = lstUserRole
+                .FirstOrDefault(x => string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase)&&
+               string.Equals (x.Page_Name.Trim(), "Book Issue List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
+            if (role == null || Convert.ToBoolean(role.Read))
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "Popup", "$('#MyPopup').modal('show')", true);
+                LoadUserTypeDropDown();
+                LoadAccessnoDropdown();
+            }
+            else
+            {
+                Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                return;
+            }
         }
 
         protected void BookReturnListView_ItemCommand(object sender, ListViewCommandEventArgs e)

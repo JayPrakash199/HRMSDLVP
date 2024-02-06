@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HRMS.Common;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using WebServices;
 
 namespace HRMS
@@ -15,9 +18,29 @@ namespace HRMS
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
                     Response.Redirect("Default.aspx");
                 }
-                BindListView();
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
+                {
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Posted Book Accession List", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
+
+                    if (role == null || Convert.ToBoolean(role.Read))
+                    {
+                        BindListView();
+
+
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                        return;
+                    }
+                }
             }
         }
+
 
         private void BindListView()
         {

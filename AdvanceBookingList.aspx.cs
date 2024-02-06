@@ -1,4 +1,8 @@
-﻿using System;
+﻿using HRMS.Common;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Web.UI.WebControls;
 using WebServices;
 
@@ -8,7 +12,6 @@ namespace HRMS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 if (string.IsNullOrEmpty(Session["SessionCompanyName"] as string))
@@ -17,10 +20,31 @@ namespace HRMS
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
                     Response.Redirect("Default.aspx");
                 }
+
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
+                {
+                    var role = lstUserRole.FirstOrDefault(x =>
+                        string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(x.Page_Name.Trim(), "Advance Booking List", StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
+
+                    if (role == null || Convert.ToBoolean(role.Read))
+                    {
+                        BindListView();
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                        return;
+                    }
+                }
+
                 BindListView();
             }
-
         }
+
+
 
         private void BindListView()
         {
@@ -39,20 +63,62 @@ namespace HRMS
 
         protected void btnSearchAdvanceBookData_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtbookAdvanceBookData.Text))
+            var lstUserRole = ODataServices.GetUserAuthorizationList();
+            var role = lstUserRole
+                .FirstOrDefault(x => string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Advance Booking List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
+
+            if (role == null || Convert.ToBoolean(role.Read))
             {
-                var BookIssueList = ODataServices.GetFilterAdvanceBookingList(txtbookAdvanceBookData.Text, Session["SessionCompanyName"] as string);
-                if (BookIssueList != null)
+                string companyName = Session["SessionCompanyName"] as string;
+
+                if (!string.IsNullOrEmpty(txtbookAdvanceBookData.Text))
                 {
-                    AdvanceBooklListView.DataSource = BookIssueList;
-                    AdvanceBooklListView.DataBind();
+                    var bookIssueList = ODataServices.GetFilterAdvanceBookingList(txtbookAdvanceBookData.Text, companyName);
+                    if (bookIssueList != null)
+                    {
+                        
+                        AdvanceBooklListView.DataSource = bookIssueList;
+                        AdvanceBooklListView.DataBind();
+                    }
+                    else
+                    {
+                       
+                    }
                 }
+                else
+                {
+                    
+                }
+            }
+            else
+            {
+                Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                return;
             }
         }
 
         protected void btnAddBookcard_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdvanceBookingCard.aspx");
+            var lstUserRole = ODataServices.GetUserAuthorizationList();
+            var role = lstUserRole
+                .FirstOrDefault(x => string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Advance Booking List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
+
+            if (role == null || Convert.ToBoolean(role.Read))
+            {
+                Response.Redirect("AdvanceBookingCard.aspx");
+            }
+            else
+            {
+                Alert.ShowAlert(this, "W", "You do not have permission to access the content. Kindly contact the system administrator.");
+            }
         }
+
+
     }
 }
+
+

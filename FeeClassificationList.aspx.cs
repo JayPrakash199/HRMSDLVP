@@ -1,4 +1,8 @@
-﻿using System;
+﻿using HRMS.Common;
+using Microsoft.Ajax.Utilities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using WebServices;
 
 namespace HRMS
@@ -15,8 +19,26 @@ namespace HRMS
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
                     Response.Redirect("Default.aspx");
                 }
-                FeeClassificationListView.DataSource = ODataServices.GetFeeClassificationList(Session["SessionCompanyName"] as string);
-                FeeClassificationListView.DataBind();
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if(lstUserRole != null)
+                {
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name, "Fee Classification List", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name, "Account And management", StringComparison.OrdinalIgnoreCase));
+
+                    if(role == null || Convert.ToBoolean(role.Read))
+                    {
+                        FeeClassificationListView.DataSource = ODataServices.GetFeeClassificationList(Session["SessionCompanyName"] as string);
+                        FeeClassificationListView.DataBind();
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                    return;
+                }
+                
             }
         }
     }

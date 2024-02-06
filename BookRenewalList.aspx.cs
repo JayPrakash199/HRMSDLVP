@@ -1,5 +1,7 @@
 ﻿using HRMS.Common;
+using Microsoft.Ajax.Utilities;
 using System;
+using System.Linq;
 using System.Web.UI.WebControls;
 using WebServices;
 
@@ -17,24 +19,76 @@ namespace HRMS
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
                     Response.Redirect("Default.aspx");
                 }
-                var BookIssueList = ODataServices.GetBookRenewalList(Session["SessionCompanyName"] as string);
-                if (BookIssueList != null)
+
+                var lstUserRole = ODataServices.GetUserAuthorizationList();
+                var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name.Trim(), Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Book Renewal List", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Read))
                 {
-                    BookRenewalListView.DataSource = BookIssueList;
-                    BookRenewalListView.DataBind();
+                    string companyName = Session["SessionCompanyName"] as string;
+
+                    var bookRenewalList = ODataServices.GetBookRenewalList(companyName);
+
+                    if (bookRenewalList != null)
+                    {
+                        
+                        BookRenewalListView.DataSource = bookRenewalList;
+                        BookRenewalListView.DataBind();
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                    return;
                 }
             }
         }
 
+
         protected void btnSearchBookRenewaldata_Click(object sender, EventArgs e)
         {
-            var LibrarySearchList = ODataServices.GetFilterBookRenewalList(txtbookRenewalSearch.Text, Session["SessionCompanyName"] as string);
-            if (LibrarySearchList != null)
+            var lstUserRole = ODataServices.GetUserAuthorizationList();
+            var role = lstUserRole
+                .FirstOrDefault(x => string.Equals(x.User_Name.Trim(), Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Book Renewal List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
+
+            if (role == null || Convert.ToBoolean(role.Read))
             {
-                BookRenewalListView.DataSource = LibrarySearchList;
-                BookRenewalListView.DataBind();
+                string companyName = Session["SessionCompanyName"] as string;
+
+                if (!string.IsNullOrEmpty(txtbookRenewalSearch.Text))
+                {
+                    var librarySearchList = ODataServices.GetFilterBookRenewalList(txtbookRenewalSearch.Text, companyName);
+                    if (librarySearchList != null)
+                    {
+                        
+                        BookRenewalListView.DataSource = librarySearchList;
+                        BookRenewalListView.DataBind();
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+                else
+                {
+                   
+                }
+            }
+            else
+            {
+                Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
             }
         }
+
         protected void BookReturnListView_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
             switch (e.CommandName)

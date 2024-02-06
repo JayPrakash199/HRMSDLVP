@@ -1,6 +1,7 @@
 ﻿using HRMS.Common;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using WebServices;
 
 namespace HRMS
@@ -17,34 +18,67 @@ namespace HRMS
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
                     Response.Redirect("Default.aspx");
                 }
-                IList<HRMSODATA.ItemCategories> BookIssueList = ODataServices.GetItemCategoriesList(Session["SessionCompanyName"] as string);
 
-                if (BookIssueList != null)
+                IList<HRMSODATA.ItemCategories> bookIssueList = ODataServices.GetItemCategoriesList(Session["SessionCompanyName"] as string);
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+
+                if (lstUserRole != null)
                 {
-                    ddlCategory.DataSource = BookIssueList;
-                    ddlCategory.DataTextField = "Code";
-                    ddlCategory.DataValueField = "Description";
-                    ddlCategory.DataBind();
+                    var role = lstUserRole.FirstOrDefault(x =>
+                        string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(x.Page_Name.Trim(), "Create Book Batch", StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
+
+                    if (role == null || Convert.ToBoolean(role.Read))
+                    {
+                        if (bookIssueList != null)
+                        {
+                            ddlCategory.DataSource = bookIssueList;
+                            ddlCategory.DataTextField = "Code";
+                            ddlCategory.DataValueField = "Description";
+                            ddlCategory.DataBind();
+                        }
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                        return;
+                    }
                 }
             }
         }
 
+
+
+
         protected void btnSubmitCategory_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(ddlCategory.SelectedItem.Text))
+            var lstUserRole = ODataServices.GetUserAuthorizationList();
+            var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Create Book Batch", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
+
+            if (role == null || Convert.ToBoolean(role.Read))
             {
-                try
+                if (!string.IsNullOrEmpty(ddlCategory.SelectedItem.Text))
                 {
-                    SOAPServices.CreateBookBatch(ddlCategory.SelectedItem.Text, Session["SessionCompanyName"] as string);
-                    Alert.ShowAlert(this, "s", "Batch executed successfully.");
-                }
-                catch (Exception ex)
-                {
-                    string message = string.Format("Message: {0}\\n\\n", ex.Message);
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
+                    try
+                    {
+                        SOAPServices.CreateBookBatch(ddlCategory.SelectedItem.Text, Session["SessionCompanyName"] as string);
+                        Alert.ShowAlert(this, "s", "Batch executed successfully.");
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = string.Format("Message: {0}\\n\\n", ex.Message);
+                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
+                    }
                 }
             }
-
+            else
+            {
+                Alert.ShowAlert(this, "W", "You do not have permission to execute the batch. Kindly contact the system administrator.");
+            }
         }
     }
 }
