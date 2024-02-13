@@ -26,7 +26,7 @@ namespace HRMS
                 string.Equals(x.Page_Name.Trim(), "Upload Book", StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
 
-            if (role == null || Convert.ToBoolean(role.Read))
+            if (role == null || Convert.ToBoolean(role.Insert))
             {
                 if (this.csvBookUploader.HasFile)
                 {
@@ -56,7 +56,7 @@ namespace HRMS
             }
             else
             {
-                Alert.ShowAlert(this, "W", "You do not have permission to access the content. Kindly contact the system administrator.");
+                Alert.ShowAlert(this, "W", "You do not have permission to Upload the content. Kindly contact the system administrator.");
             }
         }
     }

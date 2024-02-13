@@ -40,38 +40,55 @@ namespace HRMS
 
         protected void btnExport_Click(object sender, EventArgs e)
         {
-            try
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
             {
-                if (!string.IsNullOrEmpty(ddlStudentNo.SelectedValue))
-                {
-                    var servicePath = SOAPServices.GetAgingReport(
-                       ddlStudentNo.SelectedItem.Value != "0" ? ddlStudentNo.SelectedItem.Value : "",
-                          !string.IsNullOrEmpty(txtEndDate.Text) ? txtEndDate.Text : "",
-                         Convert.ToInt32(ddlagingbandBy.SelectedValue),
-                           !string.IsNullOrEmpty(txtperiodLegth.Text) ? txtperiodLegth.Text : "",
-                         rdPrintAmtInLCY.Checked,
-                         rdPrintDetails.Checked,
-                         Convert.ToInt32(ddlheadingType.SelectedValue),
-                         rdNewPagePerCustomer.Checked,
-                         Session["SessionCompanyName"] as string);
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Aged Accounts", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
 
-                    var FileName = "Aging-Report.pdf";
-                    string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
-                    WebClient wc = new WebClient();
-                    byte[] buffer = wc.DownloadData(exportedFilePath);
-                    var fileName = "attachment; filename=" + FileName;
-                    base.Response.ClearContent();
-                    base.Response.AddHeader("content-disposition", fileName);
-                    base.Response.ContentType = "application/pdf";
-                    base.Response.BinaryWrite(buffer);
-                    base.Response.End();
+                if (role == null || Convert.ToBoolean(role.Read))
+                {
+                    try
+                    {
+                        if (!string.IsNullOrEmpty(ddlStudentNo.SelectedValue))
+                        {
+                            var servicePath = SOAPServices.GetAgingReport(
+                               ddlStudentNo.SelectedItem.Value != "0" ? ddlStudentNo.SelectedItem.Value : "",
+                                  !string.IsNullOrEmpty(txtEndDate.Text) ? txtEndDate.Text : "",
+                                 Convert.ToInt32(ddlagingbandBy.SelectedValue),
+                                   !string.IsNullOrEmpty(txtperiodLegth.Text) ? txtperiodLegth.Text : "",
+                                 rdPrintAmtInLCY.Checked,
+                                 rdPrintDetails.Checked,
+                                 Convert.ToInt32(ddlheadingType.SelectedValue),
+                                 rdNewPagePerCustomer.Checked,
+                                 Session["SessionCompanyName"] as string);
+
+                            var FileName = "Aging-Report.pdf";
+                            string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
+                            WebClient wc = new WebClient();
+                            byte[] buffer = wc.DownloadData(exportedFilePath);
+                            var fileName = "attachment; filename=" + FileName;
+                            base.Response.ClearContent();
+                            base.Response.AddHeader("content-disposition", fileName);
+                            base.Response.ContentType = "application/pdf";
+                            base.Response.BinaryWrite(buffer);
+                            base.Response.End();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Alert.ShowAlert(this, "e", ex.Message.ToString());
+                    }
+
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to export the content. Kindly contact the system administrator.");
+                    
                 }
             }
-            catch (Exception ex)
-            {
-                Alert.ShowAlert(this, "e", ex.Message.ToString());
-            }
-
         }
     }
 }

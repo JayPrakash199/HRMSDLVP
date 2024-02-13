@@ -15,13 +15,30 @@ namespace HRMS
         {
             if (!IsPostBack)
             {
-                var cautionRefundOrderList = ODataServices.GetCautionRefundOrder(Session["SessionCompanyName"] as string);
-                if (cautionRefundOrderList.Any())
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
                 {
-                    CautionMoneyRefundOrderListView.DataSource = cautionRefundOrderList;
-                    CautionMoneyRefundOrderListView.DataBind();
-                }
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Caution Refund Order List", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
 
+                    if (role == null || Convert.ToBoolean(role.Read))
+                    {
+
+                        var cautionRefundOrderList = ODataServices.GetCautionRefundOrder(Session["SessionCompanyName"] as string);
+                        if (cautionRefundOrderList.Any())
+                        {
+                            CautionMoneyRefundOrderListView.DataSource = cautionRefundOrderList;
+                            CautionMoneyRefundOrderListView.DataBind();
+                        }
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                        return;
+                    }
+                }
             }
 
         }

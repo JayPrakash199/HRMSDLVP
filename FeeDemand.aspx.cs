@@ -23,14 +23,33 @@ namespace HRMS
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
                     Response.Redirect("Default.aspx");
                 }
-                BindStudentDropDownList();
-                BindFianacialYear();
-                BindDocumentDropDownList();
+
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
+                {
+                    var role = lstUserRole.FirstOrDefault(x =>
+                        string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(x.Page_Name.Trim(), "Course Fee Header List", StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                    if (role == null || Convert.ToBoolean(role.Read))
+                    {
+                        BindStudentDropDownList();
+                        BindFianacialYear();
+                        BindDocumentDropDownList();
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                        
+                    }
+                }
             }
         }
 
         public void BindStudentDropDownList()
         {
+
             var studentList = ODataServices.GetCustomerList(Session["SessionCompanyName"] as string);
             var finalStudentList = new List<CommonList>();
 
@@ -45,56 +64,75 @@ namespace HRMS
             ddlStudentNo.DataBind();
             ddlStudentNo.Items.Insert(0, new ListItem("Select Student", "0"));
         }
-
         public void BindDocumentDropDownList()
         {
-            var list = ODataServices.GetDocumentData(Session["SessionCompanyName"] as string);
-            var data = list.Where(x => string.Equals(x.Customer_No, ddlStudentNo.SelectedValue, StringComparison.OrdinalIgnoreCase)
-            && string.Equals(x.Document_Type.ToLower(), "invoice", StringComparison.OrdinalIgnoreCase)
-            && string.Equals(x.Academic_Year, ddlacademicYear.SelectedItem.Text, StringComparison.OrdinalIgnoreCase)
-            ).ToList();
-
-            var DcList = new List<DocumentList>();
-
-            foreach (var dc in data)
             {
-                DcList.Add(new HRMS.DocumentList
-                {
-                    DocumentNo = dc.Document_No,
-                    DocumentName = dc.Document_No + " " + dc.Document_Type + " " + dc.Customer_No + " " + dc.Amount_LCY
-                });
-            }
+                var list = ODataServices.GetDocumentData(Session["SessionCompanyName"] as string);
+                var data = list.Where(x => string.Equals(x.Customer_No, ddlStudentNo.SelectedValue, StringComparison.OrdinalIgnoreCase)
+                && string.Equals(x.Document_Type.ToLower(), "invoice", StringComparison.OrdinalIgnoreCase)
+                && string.Equals(x.Academic_Year, ddlacademicYear.SelectedItem.Text, StringComparison.OrdinalIgnoreCase)
+                ).ToList();
 
-            ddlDocumentNo.DataSource = DcList;
-            ddlDocumentNo.DataTextField = "DocumentName";
-            ddlDocumentNo.DataValueField = "DocumentNo";
-            ddlDocumentNo.DataBind();
-            ddlDocumentNo.Items.Insert(0, new ListItem("Select Document", "0"));
+                var DcList = new List<DocumentList>();
+
+                foreach (var dc in data)
+                {
+                    DcList.Add(new HRMS.DocumentList
+                    {
+                        DocumentNo = dc.Document_No,
+                        DocumentName = dc.Document_No + " " + dc.Document_Type + " " + dc.Customer_No + " " + dc.Amount_LCY
+                    });
+                }
+
+                ddlDocumentNo.DataSource = DcList;
+                ddlDocumentNo.DataTextField = "DocumentName";
+                ddlDocumentNo.DataValueField = "DocumentNo";
+                ddlDocumentNo.DataBind();
+                ddlDocumentNo.Items.Insert(0, new ListItem("Select Document", "0"));
+            }
         }
 
         protected void btnExport_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(ddlacademicYear.SelectedItem.Text) &&
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
+            {
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Fee Demand", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Read))
+                {
+                    if (!string.IsNullOrEmpty(ddlacademicYear.SelectedItem.Text) &&
                 !string.IsNullOrEmpty(ddlStudentNo.SelectedValue) &&
                 !string.IsNullOrEmpty(ddlDocumentNo.SelectedItem.Text))
-            {
-                var servicePath = SOAPServices.GetFeeDemand(ddlacademicYear.SelectedItem.Text,
-                                                            ddlStudentNo.SelectedValue,
-                                                            ddlDocumentNo.SelectedValue,
-                                                            Session["SessionCompanyName"] as string);
-                var FileName = "Fee-Demand.pdf";
-                string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
-                WebClient wc = new WebClient();
-                byte[] buffer = wc.DownloadData(exportedFilePath);
-                var fileName = "attachment; filename=" + FileName;
-                base.Response.ClearContent();
-                base.Response.AddHeader("content-disposition", fileName);
-                base.Response.ContentType = "application/pdf";
-                base.Response.BinaryWrite(buffer);
-                base.Response.End();
+                    {
+                        var servicePath = SOAPServices.GetFeeDemand(ddlacademicYear.SelectedItem.Text,
+                                                                    ddlStudentNo.SelectedValue,
+                                                                    ddlDocumentNo.SelectedValue,
+                                                                    Session["SessionCompanyName"] as string);
+                        var FileName = "Fee-Demand.pdf";
+                        string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
+                        WebClient wc = new WebClient();
+                        byte[] buffer = wc.DownloadData(exportedFilePath);
+                        var fileName = "attachment; filename=" + FileName;
+                        base.Response.ClearContent();
+                        base.Response.AddHeader("content-disposition", fileName);
+                        base.Response.ContentType = "application/pdf";
+                        base.Response.BinaryWrite(buffer);
+                        base.Response.End();
 
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to export the content. Kindly contact the system administrator.");
+
+                }
             }
         }
+
 
         public void BindFianacialYear()
         {
@@ -107,11 +145,15 @@ namespace HRMS
             ddlacademicYear.Items.Insert(0, new ListItem("Select Year", "0"));
         }
 
+
         protected void ddlStudentNo_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindDocumentDropDownList();
         }
+
     }
+
+
 
 
     public class DocumentList

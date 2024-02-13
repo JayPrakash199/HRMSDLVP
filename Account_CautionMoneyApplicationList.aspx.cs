@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HRMS.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,11 +15,28 @@ namespace HRMS
         {
             if (!IsPostBack)
             {
-                var applicationList = ODataServices.GetCautionMoneyApplicationList(Session["SessionCompanyName"] as string);
-                if (applicationList.Any())
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
                 {
-                    CautionMoneyApplicationListView.DataSource = applicationList;
-                    CautionMoneyApplicationListView.DataBind();
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Account Caution Money Application List", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                    if (role == null || Convert.ToBoolean(role.Read))
+                    {
+                        var applicationList = ODataServices.GetCautionMoneyApplicationList(Session["SessionCompanyName"] as string);
+                        if (applicationList.Any())
+                        {
+                            CautionMoneyApplicationListView.DataSource = applicationList;
+                            CautionMoneyApplicationListView.DataBind();
+                        }
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                        
+                    }
                 }
             }
         }

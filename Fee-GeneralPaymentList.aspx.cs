@@ -1,5 +1,8 @@
 ﻿using HRMS.Common;
+using Microsoft.Ajax.Utilities;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI.WebControls;
 using WebServices;
 
@@ -17,9 +20,27 @@ namespace HRMS
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
                     Response.Redirect("Default.aspx");
                 }
-                BindListView();
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
+                {
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Fee General Payment List", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                    if (role == null || Convert.ToBoolean(role.Read))
+                    {
+                        BindListView();
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                     
+                    }
+                }
             }
         }
+
         private void BindListView()
         {
             GeneralPaymentListView.DataSource = ODataServices.GetGeneralPaymentList(Session["SessionCompanyName"] as string);
@@ -27,17 +48,35 @@ namespace HRMS
         }
         protected void btnPost_Click(object sender, EventArgs e)
         {
-            LinkButton btn = sender as LinkButton;
-            ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
-            Label entryNo = item.FindControl("lblEntryNo") as Label;
-            string returnVal = SOAPServices.PostingGeneralPayment(entryNo.Text, Session["SessionCompanyName"] as string);
-            if (string.IsNullOrEmpty(returnVal))
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
             {
-                BindListView();
-                Alert.ShowAlert(this, "s", "Posted successfully.");
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Fee General Payment List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Insert))
+                {
+
+                    LinkButton btn = sender as LinkButton;
+                    ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                    Label entryNo = item.FindControl("lblEntryNo") as Label;
+                    string returnVal = SOAPServices.PostingGeneralPayment(entryNo.Text, Session["SessionCompanyName"] as string);
+                    if (string.IsNullOrEmpty(returnVal))
+                    {
+                        BindListView();
+                        Alert.ShowAlert(this, "s", "Posted successfully.");
+                    }
+                    else
+                        Alert.ShowAlert(this, "e", returnVal);
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to post the content. Kindly contact the system administrator.");
+                    
+                }
             }
-            else
-                Alert.ShowAlert(this, "e", returnVal);
         }
     }
 }

@@ -59,7 +59,7 @@ namespace HRMS
                 string.Equals(x.Page_Name.Trim(), "Create Book Batch", StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
 
-            if (role == null || Convert.ToBoolean(role.Read))
+            if (role == null || Convert.ToBoolean(role.Insert))
             {
                 if (!string.IsNullOrEmpty(ddlCategory.SelectedItem.Text))
                 {

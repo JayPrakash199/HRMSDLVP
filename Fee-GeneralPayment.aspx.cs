@@ -3,6 +3,7 @@ using HRMSODATA;
 using InfrastructureManagement.Common;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Services.Description;
 using System.Web.UI.WebControls;
 using WebServices;
@@ -24,58 +25,79 @@ namespace HRMS
 
         protected void btnGeneralPaymentSubmit_Click(object sender, EventArgs e)
         {
-            var obj = new WebServices.FeeGeneralPaymentReference.GeneralPayment
-            {
-                AmountSpecified = true,
-                Amount_LCYSpecified = true,
-                //Date__TimeSpecified = true,
-                // Cheque_DateSpecified = true,
-                Payment_Type_Collection_MethodSpecified = true,
-                Posting_DateSpecified = true,
-                StatusSpecified = true,
-                TypeSpecified = true,
 
-                Type = ddlType.SelectedItem.Text == "Vendor" ? WebServices.FeeGeneralPaymentReference.Type.Vendor
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+
+            if (lstUserRole != null)
+            {
+
+                var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Fee General Payment", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+
+                if (role == null || Convert.ToBoolean(role.Insert))
+                {
+                    var obj = new WebServices.FeeGeneralPaymentReference.GeneralPayment
+                    {
+                        AmountSpecified = true,
+                        Amount_LCYSpecified = true,
+                        //Date__TimeSpecified = true,
+                        // Cheque_DateSpecified = true,
+                        Payment_Type_Collection_MethodSpecified = true,
+                        Posting_DateSpecified = true,
+                        StatusSpecified = true,
+                        TypeSpecified = true,
+
+                        Type = ddlType.SelectedItem.Text == "Vendor" ? WebServices.FeeGeneralPaymentReference.Type.Vendor
                 : ddlType.SelectedItem.Text == "Caution_Money" ? WebServices.FeeGeneralPaymentReference.Type.Caution_Money
                 : ddlType.SelectedItem.Text == "Employee" ? WebServices.FeeGeneralPaymentReference.Type.Employee
                 : WebServices.FeeGeneralPaymentReference.Type._blank_,
 
-                Vendor_Name = ddlType.SelectedItem.Text == "Vendor" ? ddlVendorNo.SelectedItem.Text.Split('_')[1] : string.Empty,
-                Vendor_No = ddlType.SelectedItem.Text == "Vendor" ? ddlVendorNo.SelectedValue : string.Empty,
-                Student_Name = ddlType.SelectedItem.Text == "Caution_Money" ? ddlStudentNo.SelectedItem.Text.Split('_')[1] : string.Empty,
-                Student_No = ddlType.SelectedItem.Text == "Caution_Money" ? ddlStudentNo.SelectedValue : string.Empty,
-                Employee_Name = ddlType.SelectedItem.Text == "Employee" ? ddlEmployeeNo.SelectedItem.Text.Split('_')[1] : string.Empty,
-                Employee_No = ddlType.SelectedItem.Text == "Employee" ? ddlEmployeeNo.SelectedValue : string.Empty,
+                        Vendor_Name = ddlType.SelectedItem.Text == "Vendor" ? ddlVendorNo.SelectedItem.Text.Split('_')[1] : string.Empty,
+                        Vendor_No = ddlType.SelectedItem.Text == "Vendor" ? ddlVendorNo.SelectedValue : string.Empty,
+                        Student_Name = ddlType.SelectedItem.Text == "Caution_Money" ? ddlStudentNo.SelectedItem.Text.Split('_')[1] : string.Empty,
+                        Student_No = ddlType.SelectedItem.Text == "Caution_Money" ? ddlStudentNo.SelectedValue : string.Empty,
+                        Employee_Name = ddlType.SelectedItem.Text == "Employee" ? ddlEmployeeNo.SelectedItem.Text.Split('_')[1] : string.Empty,
+                        Employee_No = ddlType.SelectedItem.Text == "Employee" ? ddlEmployeeNo.SelectedValue : string.Empty,
 
 
-                Posting_Date = DateTimeParser.ParseDateTime(txtPostingDate.Text),
-                Payment_Type_Collection_Method = ddlPaymentMethod.SelectedItem.Text == "CASH" ? WebServices.FeeGeneralPaymentReference.Payment_Type_Collection_Method.CASH
+                        Posting_Date = DateTimeParser.ParseDateTime(txtPostingDate.Text),
+                        Payment_Type_Collection_Method = ddlPaymentMethod.SelectedItem.Text == "CASH" ? WebServices.FeeGeneralPaymentReference.Payment_Type_Collection_Method.CASH
                 : ddlPaymentMethod.SelectedItem.Text == "BANK" ? WebServices.FeeGeneralPaymentReference.Payment_Type_Collection_Method.BANK
                 : WebServices.FeeGeneralPaymentReference.Payment_Type_Collection_Method._blank_,
 
-                Cash_G_L_Account_No = ddlPaymentMethod.SelectedItem.Text == "CASH" ? ddlCashAccountNo.SelectedValue : string.Empty,
-                Bank_Account_No = ddlPaymentMethod.SelectedItem.Text.ToLower() == "bank" ? ddlBank_AccountNo.SelectedValue : string.Empty,
-                Narration = txtNarration.Text,
-                External_Document_No = txtExternal_Document_No.Text,
-                Amount = NumericHandler.ConvertToDecimal(txtAmount.Text),
-                Cheque_DateSpecified = ddlPaymentMethod.SelectedItem.Text.ToLower() == "bank" ? true : false,
-                Cheque_Date = DateTimeParser.ParseDateTime(txtCheque_Date.Text),
-                Cheque_No_DD = txtCheque_No_DD.Text,
+                        Cash_G_L_Account_No = ddlPaymentMethod.SelectedItem.Text == "CASH" ? ddlCashAccountNo.SelectedValue : string.Empty,
+                        Bank_Account_No = ddlPaymentMethod.SelectedItem.Text.ToLower() == "bank" ? ddlBank_AccountNo.SelectedValue : string.Empty,
+                        Narration = txtNarration.Text,
+                        External_Document_No = txtExternal_Document_No.Text,
+                        Amount = NumericHandler.ConvertToDecimal(txtAmount.Text),
+                        Cheque_DateSpecified = ddlPaymentMethod.SelectedItem.Text.ToLower() == "bank" ? true : false,
+                        Cheque_Date = DateTimeParser.ParseDateTime(txtCheque_Date.Text),
+                        Cheque_No_DD = txtCheque_No_DD.Text,
 
-            };
+                    };
 
-            try
-            {
-                SOAPServices.AddGeneralPayment(obj, Session["SessionCompanyName"] as string);
-               // string message = string.Format("Message: {0}\\n\\n", "Record added successfully");
-               // ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
-                Alert.ShowAlert(this, "s", "Record added successfully.");
-                ClearControl();
-               // Response.Redirect("Fee-GeneralPaymentList.aspx");
-            }
-            catch (Exception ex)
-            {
-                Alert.ShowAlert(this, "e", ex.Message);
+                    try
+                    {
+                        SOAPServices.AddGeneralPayment(obj, Session["SessionCompanyName"] as string);
+                        // string message = string.Format("Message: {0}\\n\\n", "Record added successfully");
+                        // ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
+                        Alert.ShowAlert(this, "s", "Record added successfully.");
+                        ClearControl();
+                        // Response.Redirect("Fee-GeneralPaymentList.aspx");
+                    }
+                    catch (Exception ex)
+                    {
+                        Alert.ShowAlert(this, "e", ex.Message);
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to Submit the content. Kindly contact the system administrator.");
+                    
+                }
             }
         }
 
@@ -109,11 +131,11 @@ namespace HRMS
 
             ddlPaymentMethod.ClearSelection();
             ddlPaymentMethod.Items.FindByText("Select").Selected = true;
-            
-           
+
+
             txtExternal_Document_No.Text = "";
             txtAmount.Text = "";
-            
+
         }
 
         protected void ddlType_SelectedIndexChanged(object sender, EventArgs e)

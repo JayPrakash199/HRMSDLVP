@@ -13,7 +13,7 @@ namespace HRMS
 {
     public partial class LibraryBookSearch : System.Web.UI.Page
     {
-         IList<HRMSODATA.PublisherName> lstPublisherName = null;
+        IList<HRMSODATA.PublisherName> lstPublisherName = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,11 +24,29 @@ namespace HRMS
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
                     Response.Redirect("Default.aspx");
                 }
-                lstPublisherName = ODataServices.GetPublisherNames(Session["SessionCompanyName"] as string);
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
+                {
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Library Book List", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
 
-                BindListView();
+                    if (role == null || Convert.ToBoolean(role.Read))
+                    {
+                        lstPublisherName = ODataServices.GetPublisherNames(Session["SessionCompanyName"] as string);
+
+                        BindListView();
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+
+                    }
+                    lstPublisherName = ODataServices.GetPublisherNames(Session["SessionCompanyName"] as string);
+                }
             }
-            lstPublisherName = ODataServices.GetPublisherNames(Session["SessionCompanyName"] as string);
+           
         }
 
         private void BindListView()
@@ -111,25 +129,42 @@ namespace HRMS
 
         protected void btnLibraryBookSearch_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtbookSearch.Text))
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
             {
-                var LibrarySearchList = ODataServices.GetFilterBookList(txtbookSearch.Text, Session["SessionCompanyName"] as string);
-                if (LibrarySearchList != null)
-                {
-                    LibrarySearchListView.DataSource = LibrarySearchList;
-                    LibrarySearchListView.DataBind();
-                }
-            }
-            else
-            {
-                var LibraryList = ODataServices.GetBookList(Session["SessionCompanyName"] as string);
-                if (LibraryList != null)
-                {
-                    LibrarySearchListView.DataSource = LibraryList;
-                    LibrarySearchListView.DataBind();
-                }
-            }
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Library Book List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
 
+                if (role == null || Convert.ToBoolean(role.Read))
+                {
+
+                    if (!string.IsNullOrEmpty(txtbookSearch.Text))
+                    {
+                        var LibrarySearchList = ODataServices.GetFilterBookList(txtbookSearch.Text, Session["SessionCompanyName"] as string);
+                        if (LibrarySearchList != null)
+                        {
+                            LibrarySearchListView.DataSource = LibrarySearchList;
+                            LibrarySearchListView.DataBind();
+                        }
+                    }
+                    else
+                    {
+                        var LibraryList = ODataServices.GetBookList(Session["SessionCompanyName"] as string);
+                        if (LibraryList != null)
+                        {
+                            LibrarySearchListView.DataSource = LibraryList;
+                            LibrarySearchListView.DataBind();
+                        }
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to Search the content. Kindly contact the system administrator.");
+                    
+                }
+            }
         }
 
         private void showPopup(string title, string body)
@@ -184,52 +219,72 @@ namespace HRMS
 
         protected void BtnUpdate_Click(object sender, EventArgs e)
         {
-            string BookName = txtmdBookName.Text;
-            string AuthorName = txtmdAuthorName.Text;
-            string AuthorName_2 = txtmdAuthorName2.Text;
-            string PublisherCode = ddlPublisherCode.SelectedItem.Text == "Select" ? "" : ddlPublisherCode.SelectedItem.Text;
-            string Bookcategorycode = ddlBookcategoryCode.SelectedItem.Text == "Select" ? "" : ddlBookcategoryCode.SelectedItem.Text;
-            string NoofPages = txtNoOfpages.Text;
-            bool NoOfPageSpecified = !string.IsNullOrEmpty(NoofPages) ? true : false;
-            string callNo = txtCallNo.Text;
-            string shelf = txtShelf.Text;
-            string Language = ddllanguage.SelectedItem.Text == "Select" ? "" : ddllanguage.SelectedItem.Text;
-            String bookType = ddlBookType.SelectedItem.Text == "Select" ? "" : ddlBookType.SelectedValue;
-            decimal unitCost = NumericHandler.ConvertToDecimal(txtUnitCost.Text);
-            var SuplierName = txtSuplierName.Text;
-            var updateObj = new WebServices.BookCardReference1.BookCard
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
             {
-                No = txtno.Text,
-                Book_Name = BookName,
-                Author_Name = AuthorName,
-                Author_Name_2 = AuthorName_2,
-                Place__Publisher_Code = PublisherCode,
-                Book_Category_Code = NumericHandler.ConvertToDecimal(Bookcategorycode),
-                No_of_Pages = NumericHandler.ConvertToInteger(NoofPages),
-                No_of_PagesSpecified = NoOfPageSpecified,
-                Book_Category_CodeSpecified=true,
-                Call_No = callNo,
-                Shelf = shelf,
-                Langauge = Language,
-                Book_Type = bookType,
-                Supplier_Name = SuplierName,
-                Unit_Cost = unitCost
-            };
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Library Book List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
 
-            var result = SOAPServices.UpdateBookDetails(updateObj, Session["SessionCompanyName"] as string);
-            if (result == ResultMessages.UpdateSuccessfullMessage)
-            {
-                Alert.ShowAlert(this, "s", "Book updated successfully.");
+                if (role == null || Convert.ToBoolean(role.Insert))
+                {
+
+                    string BookName = txtmdBookName.Text;
+                    string AuthorName = txtmdAuthorName.Text;
+                    string AuthorName_2 = txtmdAuthorName2.Text;
+                    string PublisherCode = ddlPublisherCode.SelectedItem.Text == "Select" ? "" : ddlPublisherCode.SelectedItem.Text;
+                    string Bookcategorycode = ddlBookcategoryCode.SelectedItem.Text == "Select" ? "" : ddlBookcategoryCode.SelectedItem.Text;
+                    string NoofPages = txtNoOfpages.Text;
+                    bool NoOfPageSpecified = !string.IsNullOrEmpty(NoofPages) ? true : false;
+                    string callNo = txtCallNo.Text;
+                    string shelf = txtShelf.Text;
+                    string Language = ddllanguage.SelectedItem.Text == "Select" ? "" : ddllanguage.SelectedItem.Text;
+                    String bookType = ddlBookType.SelectedItem.Text == "Select" ? "" : ddlBookType.SelectedValue;
+                    decimal unitCost = NumericHandler.ConvertToDecimal(txtUnitCost.Text);
+                    var SuplierName = txtSuplierName.Text;
+                    var updateObj = new WebServices.BookCardReference1.BookCard
+                    {
+                        No = txtno.Text,
+                        Book_Name = BookName,
+                        Author_Name = AuthorName,
+                        Author_Name_2 = AuthorName_2,
+                        Place__Publisher_Code = PublisherCode,
+                        Book_Category_Code = NumericHandler.ConvertToDecimal(Bookcategorycode),
+                        No_of_Pages = NumericHandler.ConvertToInteger(NoofPages),
+                        No_of_PagesSpecified = NoOfPageSpecified,
+                        Book_Category_CodeSpecified = true,
+                        Call_No = callNo,
+                        Shelf = shelf,
+                        Langauge = Language,
+                        Book_Type = bookType,
+                        Supplier_Name = SuplierName,
+                        Unit_Cost = unitCost
+                    };
+
+                    var result = SOAPServices.UpdateBookDetails(updateObj, Session["SessionCompanyName"] as string);
+                    if (result == ResultMessages.UpdateSuccessfullMessage)
+                    {
+                        Alert.ShowAlert(this, "s", "Book updated successfully.");
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "e", "Update unsuccessfull.");
+                    }
+                    BindListView();
+                }
+
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to Edit the content. Kindly contact the system administrator.");
+                    
+                }
             }
-            else
-            {
-                Alert.ShowAlert(this, "e", "Update unsuccessfull.");
-            }
-            BindListView();
         }
 
 
-        protected void btnAccession_Click(object sender, EventArgs e)
+
+            protected void btnAccession_Click(object sender, EventArgs e)
         {
             try
             {

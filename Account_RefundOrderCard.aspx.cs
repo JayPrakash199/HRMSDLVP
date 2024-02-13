@@ -21,48 +21,65 @@ namespace HRMS
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            try
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
             {
-                if (ddlPaymentMethod.SelectedValue.ToLower() == "bank")
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Caution Refund Order Card", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Insert))
                 {
-                    if (ddlAccountNo.SelectedValue == "0")
+                    try
                     {
-                        Alert.ShowAlert(this, "e", "Please select a Bank account no");
-                        return;
+                        if (ddlPaymentMethod.SelectedValue.ToLower() == "bank")
+                        {
+                            if (ddlAccountNo.SelectedValue == "0")
+                            {
+                                Alert.ShowAlert(this, "e", "Please select a Bank account no");
+                                return;
+                            }
+                        }
+                        if (ddlPaymentMethod.SelectedValue.ToLower() == "cash")
+                        {
+                            if (ddlAccountNo.SelectedValue == "0")
+                            {
+                                Alert.ShowAlert(this, "e", "Please select a account No");
+                                return;
+                            }
+                        }
+
+                        var obj = new WebServices.CautionRefundOrderReference.CautionRefundOrder
+                        {
+                            Cheque_DateSpecified = true,
+                            Payment_MethodSpecified = true,
+                            Posting_DateSpecified = true,
+
+                            Academic_Year = ddlAcademicYear.SelectedItem.Text,
+                            Posting_Date = DateTimeParser.ParseDateTime(txtPostingDate.Text),
+                            Payment_Method = ddlPaymentMethod.SelectedValue == "Bank" ? WebServices.CautionRefundOrderReference.Payment_Method.Bank : WebServices.CautionRefundOrderReference.Payment_Method.Cash,
+                            Account_No = ddlAccountNo.SelectedValue,
+                            Chaque_No = txtChequeNo.Text,
+                            Cheque_Date = DateTimeParser.ParseDateTime(txtChequeDate.Text),
+                            External_Document_No = txtExternalDocumentNo.Text,
+                            Naration = txtNaration.Text
+                        };
+
+                        SOAPServices.AddCautionRefundOrder(obj, Session["SessionCompanyName"] as string);
+                        ClearControl();
+                        Alert.ShowAlert(this, "s", "Record added successfully.");
+                    }
+                    catch (Exception ex)
+                    {
+                        Alert.ShowAlert(this, "e", "Exception occured :" + ex.Message);
                     }
                 }
-                if (ddlPaymentMethod.SelectedValue.ToLower() == "cash")
+                else
                 {
-                    if (ddlAccountNo.SelectedValue == "0")
-                    {
-                        Alert.ShowAlert(this, "e", "Please select a account No");
-                        return;
-                    }
+                    Alert.ShowAlert(this, "W", "You do not have permission to Submit the content. Kindly contact the system administrator.");
+                 
                 }
-
-                var obj = new WebServices.CautionRefundOrderReference.CautionRefundOrder
-                {
-                    Cheque_DateSpecified = true,
-                    Payment_MethodSpecified = true,
-                    Posting_DateSpecified = true,
-
-                    Academic_Year = ddlAcademicYear.SelectedItem.Text,
-                    Posting_Date = DateTimeParser.ParseDateTime(txtPostingDate.Text),
-                    Payment_Method = ddlPaymentMethod.SelectedValue == "Bank" ? WebServices.CautionRefundOrderReference.Payment_Method.Bank : WebServices.CautionRefundOrderReference.Payment_Method.Cash,
-                    Account_No = ddlAccountNo.SelectedValue,
-                    Chaque_No = txtChequeNo.Text,
-                    Cheque_Date = DateTimeParser.ParseDateTime(txtChequeDate.Text),
-                    External_Document_No = txtExternalDocumentNo.Text,
-                    Naration = txtNaration.Text
-                };
-
-                SOAPServices.AddCautionRefundOrder(obj, Session["SessionCompanyName"] as string);
-                ClearControl();
-                Alert.ShowAlert(this, "s", "Record added successfully.");
-            }
-            catch (Exception ex)
-            {
-                Alert.ShowAlert(this, "e", "Exception occured :" + ex.Message);
             }
         }
         private void ClearControl()

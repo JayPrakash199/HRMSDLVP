@@ -25,12 +25,29 @@ namespace HRMS
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
                     Response.Redirect("Default.aspx");
                 }
-                Response.Cache.SetCacheability(HttpCacheability.NoCache);
-                Response.Cache.SetNoStore();
-                GetBankAccounts();
-                BindGlAccount();
-                ShowDimentation();
-                //BindData();
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
+                {
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Student Fee Collection List", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                    if (role == null || Convert.ToBoolean(role.Insert))
+                    {
+                        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                        Response.Cache.SetNoStore();
+                        GetBankAccounts();
+                        BindGlAccount();
+                        ShowDimentation();
+                        //BindData();
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to Read to the content. Kindly contact the system administrator.");
+                    }
+
+                }
             }
         }
         private void ShowDimentation()
@@ -192,8 +209,24 @@ namespace HRMS
 
         protected void btnPostTransferAccount_Click(object sender, EventArgs e)
         {
-            PostTransferAccount();
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
+            {
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Transfer Account", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
 
+                if (role == null || Convert.ToBoolean(role.Insert))
+                {
+                    PostTransferAccount();
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to access the content. Kindly contact the system administrator.");
+
+                }
+            }
         }
         private void PostTransferAccount()
         {
@@ -201,7 +234,7 @@ namespace HRMS
 
             if (ddlPaymentType.SelectedValue == "CASH")
             {
-                if(ddlglAcName.SelectedValue=="0")
+                if (ddlglAcName.SelectedValue == "0")
                 {
                     Alert.ShowAlert(this, "e", "Please select a G/L account name");
                     return;

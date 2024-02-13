@@ -23,7 +23,7 @@ namespace HRMS
                 string companyName = Session["SessionCompanyName"] as string;
                 List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
 
-                
+
                 var role = lstUserRole.FirstOrDefault(x =>
                     string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
                     string.Equals(x.Page_Name.Trim(), "Book Return List", StringComparison.OrdinalIgnoreCase) &&
@@ -31,25 +31,22 @@ namespace HRMS
 
                 if (role == null || Convert.ToBoolean(role.Read))
                 {
-                   
+
                     var bookReturnList = ODataServices.GetBookReturnList(companyName);
 
                     if (bookReturnList != null)
                     {
-                        
+
                         BookReturnListView.DataSource = bookReturnList;
                         BookReturnListView.DataBind();
                     }
-                    else
-                    {
-                        
-                    }
+
                 }
                 else
                 {
-                   
+
                     Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
-                    return;
+                    
                 }
             }
         }
@@ -71,45 +68,55 @@ namespace HRMS
                     var librarySearchList = ODataServices.GetFilterBookreturnList(txtbookReturnSearch.Text, companyName);
                     if (librarySearchList != null)
                     {
-                       
+
                         BookReturnListView.DataSource = librarySearchList;
                         BookReturnListView.DataBind();
                     }
-                    else
-                    {
-                        
-                    }
-                }
-                else
-                {
-                    
                 }
             }
             else
             {
-                Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                Alert.ShowAlert(this, "W", "You do not have permission to Search the content. Kindly contact the system administrator.");
             }
         }
 
 
         protected void BookReturnListView_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            switch (e.CommandName)
+
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
             {
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Book Return List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
 
-                case ("Return"):
-                    string Entry_No = e.CommandArgument.ToString();
-                    try
+                if (role == null || Convert.ToBoolean(role.Insert))
+                {
+                    switch (e.CommandName)
                     {
-                        SOAPServices.ReturnBook(Entry_No, Session["SessionCompanyName"] as string);
-                        Alert.ShowAlert(this, "s", "Books Returned Successfully");
-                    }
-                    catch(Exception ex)
-                    {
-                        Alert.ShowAlert(this, "e", ex.Message);
-                    }
-                    break;
 
+                        case ("Return"):
+                            string Entry_No = e.CommandArgument.ToString();
+                            try
+                            {
+                                SOAPServices.ReturnBook(Entry_No, Session["SessionCompanyName"] as string);
+                                Alert.ShowAlert(this, "s", "Books Returned Successfully");
+                            }
+                            catch (Exception ex)
+                            {
+                                Alert.ShowAlert(this, "e", ex.Message);
+                            }
+                            break;
+
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to return the Books. Kindly contact the system administrator.");
+                    
+                }
             }
         }
     }

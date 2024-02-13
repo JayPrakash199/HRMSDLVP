@@ -20,23 +20,24 @@ namespace HRMS
                     Response.Redirect("Default.aspx");
                 }
                 List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
-                if(lstUserRole != null)
+                if (lstUserRole != null)
                 {
                     var role = lstUserRole.FirstOrDefault(x =>
                     string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
                     string.Equals(x.Page_Name, "Fee Classification List", StringComparison.OrdinalIgnoreCase) &&
-                    string.Equals(x.Module_Name, "Account And management", StringComparison.OrdinalIgnoreCase));
+                    string.Equals(x.Module_Name, "Accounts", StringComparison.OrdinalIgnoreCase));
 
-                    if(role == null || Convert.ToBoolean(role.Read))
+                    if (role == null || Convert.ToBoolean(role.Read))
                     {
                         FeeClassificationListView.DataSource = ODataServices.GetFeeClassificationList(Session["SessionCompanyName"] as string);
                         FeeClassificationListView.DataBind();
                     }
-                }
-                else
-                {
-                    Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
-                    return;
+
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                        
+                    }
                 }
                 
             }

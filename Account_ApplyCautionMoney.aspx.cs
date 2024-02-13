@@ -40,18 +40,39 @@ namespace HRMS
             ddlAcademicYear.Items.Insert(0, new ListItem("Select Year", "0"));
         }
 
-        
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            try
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+
+            if (lstUserRole != null)
             {
-                SOAPServices.ApplyCautionMoney(ddlStudentNo.SelectedValue, ddlAcademicYear.SelectedItem.Text, Session["SessionCompanyName"] as string);
-                ClearControl();
-                Alert.ShowAlert(this, "s", "Applied successfully.");
-            }
-            catch (Exception ex)
-            {
-                Alert.ShowAlert(this, "e", "Exception occured:"+ex.Message);
+
+                var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Apply Caution Money", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+
+                if (role == null || Convert.ToBoolean(role.Insert))
+                {
+
+                    try
+                    {
+                        SOAPServices.ApplyCautionMoney(ddlStudentNo.SelectedValue, ddlAcademicYear.SelectedItem.Text, Session["SessionCompanyName"] as string);
+                        ClearControl();
+                        Alert.ShowAlert(this, "s", "Applied successfully.");
+                    }
+                    catch (Exception ex)
+                    {
+                        Alert.ShowAlert(this, "e", "Exception occured:" + ex.Message);
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to apply to the content. Kindly contact the system administrator.");
+                    
+                }
             }
         }
 
@@ -62,7 +83,7 @@ namespace HRMS
 
             ddlStudentNo.ClearSelection();
             ddlStudentNo.Items.FindByValue("0").Selected = true;
-            
+
 
         }
     }

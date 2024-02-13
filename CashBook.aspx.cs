@@ -83,39 +83,57 @@ namespace HRMS
         }
         protected void btnExport_Click(object sender, EventArgs e)
         {
-            try
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
             {
-                if (string.IsNullOrEmpty(txtFromDate.Text) && !string.IsNullOrEmpty(txtToDate.Text)
-                   || !string.IsNullOrEmpty(txtFromDate.Text) && string.IsNullOrEmpty(txtToDate.Text))
-                {
-                    Alert.ShowAlert(this, "e", "plese select both from date and to date");
-                    return;
-                }
-                var servicePath = SOAPServices.GetCashBookReport(
-                            rdPrintDetails.Checked,
-                            rdLineNarration.Checked,
-                            rdvoucherNaration.Checked,
-                            ddlGlNo.SelectedValue == "0" ? "" : ddlGlNo.SelectedValue,
-                             !string.IsNullOrEmpty(txtFromDate.Text) ? txtFromDate.Text : "0D",
-                            !string.IsNullOrEmpty(txtToDate.Text) ? txtToDate.Text : "0D",
-                              ddlInstiuteCode.SelectedValue == "0" ? "" : ddlInstiuteCode.SelectedItem.Text,
-                             ddlDepartment.SelectedValue == "0" ? "" : ddlDepartment.SelectedItem.Text,
-                            Session["SessionCompanyName"] as string);
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Cash Book", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
 
-                var FileName = "Cash_Book_Report.pdf";
-                string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
-                WebClient wc = new WebClient();
-                byte[] buffer = wc.DownloadData(exportedFilePath);
-                var fileName = "attachment; filename=" + FileName;
-                base.Response.ClearContent();
-                base.Response.AddHeader("content-disposition", fileName);
-                base.Response.ContentType = "application/pdf";
-                base.Response.BinaryWrite(buffer);
-                base.Response.End();
-            }
-            catch (Exception ex)
-            {
-                Alert.ShowAlert(this, "e", ex.Message);
+                if (role == null || Convert.ToBoolean(role.Read))
+                {
+
+                    try
+                    {
+                        if (string.IsNullOrEmpty(txtFromDate.Text) && !string.IsNullOrEmpty(txtToDate.Text)
+                           || !string.IsNullOrEmpty(txtFromDate.Text) && string.IsNullOrEmpty(txtToDate.Text))
+                        {
+                            Alert.ShowAlert(this, "e", "plese select both from date and to date");
+                            return;
+                        }
+                        var servicePath = SOAPServices.GetCashBookReport(
+                                    rdPrintDetails.Checked,
+                                    rdLineNarration.Checked,
+                                    rdvoucherNaration.Checked,
+                                    ddlGlNo.SelectedValue == "0" ? "" : ddlGlNo.SelectedValue,
+                                     !string.IsNullOrEmpty(txtFromDate.Text) ? txtFromDate.Text : "0D",
+                                    !string.IsNullOrEmpty(txtToDate.Text) ? txtToDate.Text : "0D",
+                                      ddlInstiuteCode.SelectedValue == "0" ? "" : ddlInstiuteCode.SelectedItem.Text,
+                                     ddlDepartment.SelectedValue == "0" ? "" : ddlDepartment.SelectedItem.Text,
+                                    Session["SessionCompanyName"] as string);
+
+                        var FileName = "Cash_Book_Report.pdf";
+                        string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
+                        WebClient wc = new WebClient();
+                        byte[] buffer = wc.DownloadData(exportedFilePath);
+                        var fileName = "attachment; filename=" + FileName;
+                        base.Response.ClearContent();
+                        base.Response.AddHeader("content-disposition", fileName);
+                        base.Response.ContentType = "application/pdf";
+                        base.Response.BinaryWrite(buffer);
+                        base.Response.End();
+                    }
+                    catch (Exception ex)
+                    {
+                        Alert.ShowAlert(this, "e", ex.Message);
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to export the content. Kindly contact the system administrator.");
+                 
+                }
             }
 
         }

@@ -36,7 +36,7 @@ namespace HRMS
                     else
                     {
                         Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
-                        return;
+                        
                     }
                 }
 
@@ -78,26 +78,20 @@ namespace HRMS
                     var bookIssueList = ODataServices.GetFilterAdvanceBookingList(txtbookAdvanceBookData.Text, companyName);
                     if (bookIssueList != null)
                     {
-                        
+
                         AdvanceBooklListView.DataSource = bookIssueList;
                         AdvanceBooklListView.DataBind();
                     }
-                    else
-                    {
-                       
-                    }
-                }
-                else
-                {
-                    
                 }
             }
+
             else
             {
-                Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
-                return;
+                Alert.ShowAlert(this, "W", "You do not have permission to Search the content. Kindly contact the system administrator.");
+                
             }
         }
+
 
         protected void btnAddBookcard_Click(object sender, EventArgs e)
         {
@@ -107,13 +101,13 @@ namespace HRMS
                 string.Equals(x.Page_Name.Trim(), "Advance Booking List", StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
 
-            if (role == null || Convert.ToBoolean(role.Read))
+            if (role == null || Convert.ToBoolean(role.Insert))
             {
                 Response.Redirect("AdvanceBookingCard.aspx");
             }
             else
             {
-                Alert.ShowAlert(this, "W", "You do not have permission to access the content. Kindly contact the system administrator.");
+                Alert.ShowAlert(this, "W", "You do not have permission to add the content. Kindly contact the system administrator.");
             }
         }
 

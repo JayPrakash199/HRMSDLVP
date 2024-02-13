@@ -266,82 +266,99 @@ namespace HRMS
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (ddlPaymentType.SelectedValue == "BANK")
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
             {
-                if (ddlBankAccountNo.SelectedValue == "0")
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Student Fee Collection Card", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Insert))
                 {
-                    Alert.ShowAlert(this, "e", "Please select a Bank account no");
-                    return;
+                    if (ddlPaymentType.SelectedValue == "BANK")
+                    {
+                        if (ddlBankAccountNo.SelectedValue == "0")
+                        {
+                            Alert.ShowAlert(this, "e", "Please select a Bank account no");
+                            return;
+                        }
+                    }
+                    if (ddlPaymentType.SelectedValue == "CASH")
+                    {
+                        if (ddlCashGLAccountNo.SelectedValue == "0")
+                        {
+                            Alert.ShowAlert(this, "e", "Please select a Cash GL Account No");
+                            return;
+                        }
+                    }
+
+                    var obj = new WebServices.StudentFeeCollectionCardReference.StudentFeeCollectionCard
+                    {
+                        TypeSpecified = true,
+                        AmountSpecified = true,
+                        // Amount_LCYSpecified = true,
+                        Payment_Type_Collection_MethodSpecified = true,
+                        Cheque_DateSpecified = true,
+                        //  Date__TimeSpecified = true,
+                        //  Posting_DateSpecified       = true, 
+                        StatusSpecified = true,
+
+                        Type = ddlType.SelectedValue == "StudentFee" ? WebServices.StudentFeeCollectionCardReference.Type.Student_Fee
+                    : ddlType.SelectedValue == "OtherIncome" ? WebServices.StudentFeeCollectionCardReference.Type.Other_Income
+                    : ddlType.SelectedValue == "InternalTransfer" ? WebServices.StudentFeeCollectionCardReference.Type.Internal_Transfer
+                    : ddlType.SelectedValue == "AdvancePayment" ? WebServices.StudentFeeCollectionCardReference.Type.Advance_Payment
+                    : ddlType.SelectedValue == "StaffAdvanceRefund" ? WebServices.StudentFeeCollectionCardReference.Type.Staff_Advance_Refund
+                    : WebServices.StudentFeeCollectionCardReference.Type._blank_,
+                        Customer_No = (ddlType.SelectedValue != "OtherIncome" || ddlType.SelectedValue != "StaffAdvanceRefund") ? ddlCustomerNo.SelectedValue : string.Empty,
+                        Amount = NumericHandler.ConvertToDecimal(txtAmount.Text),
+                        // Amount_LCY = NumericHandler.ConvertToDecimal(txtAmountLCY.Text),
+                        Payment_Type_Collection_Method = ddlPaymentType.SelectedItem.Text == "CASH" ? WebServices.StudentFeeCollectionCardReference.Payment_Type_Collection_Method.CASH
+                        : ddlPaymentType.SelectedItem.Text == "BANK" ? WebServices.StudentFeeCollectionCardReference.Payment_Type_Collection_Method.BANK
+                        : WebServices.StudentFeeCollectionCardReference.Payment_Type_Collection_Method._blank_,
+                        Cash_G_L_Account_No = ddlPaymentType.SelectedValue == "CASH" ? ddlCashGLAccountNo.SelectedItem.Value : string.Empty,
+                        Bank_Account_No = ddlPaymentType.SelectedValue == "BANK" ? ddlBankAccountNo.SelectedValue : string.Empty,
+                        G_L_No = ddlType.SelectedValue == "OtherIncome" ? ddlGLNo.SelectedValue : string.Empty,
+
+                        Employee_No = ddlType.SelectedValue == "StaffAdvanceRefund" ? ddlEmployeeNo.SelectedValue : string.Empty,
+
+                        Shortcut_Dimension_1 = ddlType.SelectedValue == "OtherIncome" || ddlType.SelectedValue == "StaffAdvanceRefund" ?
+                        ddlInstiuteCode.SelectedItem.Text != "Select Institute" ? ddlInstiuteCode.SelectedItem.Text : "" : string.Empty,
+
+                        Shortcut_Dimension_2 = ddlType.SelectedValue == "OtherIncome" || ddlType.SelectedValue == "StaffAdvanceRefund" ?
+                        ddlDepartmentCode.SelectedItem.Text != "Select Department" ? ddlDepartmentCode.SelectedItem.Text : "" : string.Empty,
+
+                        Shortcut_Dimension_5 = ddlType.SelectedValue == "OtherIncome" || ddlType.SelectedValue == "StaffAdvanceRefund" ?
+                        ddlFundingsourceCode.SelectedItem.Text != "Select Funding Source" ? ddlFundingsourceCode.SelectedItem.Text : "" : string.Empty,
+
+                        Ext_Doc_No = txtExDocNo.Text,
+                        Narration = txtNarration.Text,
+                        Cheque_No_DD = ddlPaymentType.SelectedValue == "BANK" ? txtTranNo.Text : string.Empty,
+                        Cheque_Date = DateTimeParser.ParseDateTime(txtTranDate.Text),
+                    };
+
+                    try
+                    {
+                        SOAPServices.AddStudentFee(obj, Session["SessionCompanyName"] as string);
+                        ClearControl();
+                        Alert.ShowAlert(this, "s", "Record added successfully.");
+                    }
+                    catch (Exception ex)
+                    {
+                        Alert.ShowAlert(this, "e", ex.Message);
+                    }
                 }
-            }
-            if (ddlPaymentType.SelectedValue == "CASH")
-            {
-                if (ddlCashGLAccountNo.SelectedValue == "0")
+                else
                 {
-                    Alert.ShowAlert(this, "e", "Please select a Cash GL Account No");
-                    return;
+                    Alert.ShowAlert(this, "W", "You do not have permission to submit the content. Kindly contact the system administrator.");
+                    
                 }
-            }
-
-            var obj = new WebServices.StudentFeeCollectionCardReference.StudentFeeCollectionCard
-            {
-                TypeSpecified = true,
-                AmountSpecified = true,
-                // Amount_LCYSpecified = true,
-                Payment_Type_Collection_MethodSpecified = true,
-                Cheque_DateSpecified = true,
-                //  Date__TimeSpecified = true,
-                //  Posting_DateSpecified       = true, 
-                StatusSpecified = true,
-
-                Type = ddlType.SelectedValue == "StudentFee" ? WebServices.StudentFeeCollectionCardReference.Type.Student_Fee
-            : ddlType.SelectedValue == "OtherIncome" ? WebServices.StudentFeeCollectionCardReference.Type.Other_Income
-            : ddlType.SelectedValue == "InternalTransfer" ? WebServices.StudentFeeCollectionCardReference.Type.Internal_Transfer
-            : ddlType.SelectedValue == "AdvancePayment" ? WebServices.StudentFeeCollectionCardReference.Type.Advance_Payment
-            : ddlType.SelectedValue == "StaffAdvanceRefund" ? WebServices.StudentFeeCollectionCardReference.Type.Staff_Advance_Refund
-            : WebServices.StudentFeeCollectionCardReference.Type._blank_,
-                Customer_No = (ddlType.SelectedValue != "OtherIncome" || ddlType.SelectedValue != "StaffAdvanceRefund") ? ddlCustomerNo.SelectedValue : string.Empty,
-                Amount = NumericHandler.ConvertToDecimal(txtAmount.Text),
-                // Amount_LCY = NumericHandler.ConvertToDecimal(txtAmountLCY.Text),
-                Payment_Type_Collection_Method = ddlPaymentType.SelectedItem.Text == "CASH" ? WebServices.StudentFeeCollectionCardReference.Payment_Type_Collection_Method.CASH
-                : ddlPaymentType.SelectedItem.Text == "BANK" ? WebServices.StudentFeeCollectionCardReference.Payment_Type_Collection_Method.BANK
-                : WebServices.StudentFeeCollectionCardReference.Payment_Type_Collection_Method._blank_,
-                Cash_G_L_Account_No = ddlPaymentType.SelectedValue == "CASH" ? ddlCashGLAccountNo.SelectedItem.Value : string.Empty,
-                Bank_Account_No = ddlPaymentType.SelectedValue == "BANK" ? ddlBankAccountNo.SelectedValue : string.Empty,
-                G_L_No = ddlType.SelectedValue == "OtherIncome" ? ddlGLNo.SelectedValue : string.Empty,
-
-                Employee_No = ddlType.SelectedValue == "StaffAdvanceRefund" ? ddlEmployeeNo.SelectedValue : string.Empty,
-
-                Shortcut_Dimension_1 = ddlType.SelectedValue == "OtherIncome" || ddlType.SelectedValue == "StaffAdvanceRefund" ?
-                ddlInstiuteCode.SelectedItem.Text != "Select Institute" ? ddlInstiuteCode.SelectedItem.Text : "" : string.Empty,
-               
-                Shortcut_Dimension_2 = ddlType.SelectedValue == "OtherIncome" || ddlType.SelectedValue == "StaffAdvanceRefund" ?
-                ddlDepartmentCode.SelectedItem.Text != "Select Department" ? ddlDepartmentCode.SelectedItem.Text : "" : string.Empty,
-                
-                Shortcut_Dimension_5 = ddlType.SelectedValue == "OtherIncome" || ddlType.SelectedValue == "StaffAdvanceRefund" ?
-                ddlFundingsourceCode.SelectedItem.Text != "Select Funding Source" ? ddlFundingsourceCode.SelectedItem.Text : "" : string.Empty,
-                
-                Ext_Doc_No = txtExDocNo.Text,
-                Narration = txtNarration.Text,
-                Cheque_No_DD = ddlPaymentType.SelectedValue == "BANK" ? txtTranNo.Text : string.Empty,
-                Cheque_Date = DateTimeParser.ParseDateTime(txtTranDate.Text),
-            };
-
-            try
-            {
-                SOAPServices.AddStudentFee(obj, Session["SessionCompanyName"] as string);
-                ClearControl();
-                Alert.ShowAlert(this, "s", "Record added successfully.");
-            }
-            catch (Exception ex)
-            {
-                Alert.ShowAlert(this, "e", ex.Message);
             }
 
         }
         private void ClearControl()
         {
-           
+
             if (ddlType.SelectedValue == "StudentFee")
             {
                 ddlCustomerNo.ClearSelection();
@@ -395,7 +412,7 @@ namespace HRMS
                 ddlBankAccountNo.ClearSelection();
                 ddlBankAccountNo.Items.FindByValue("0").Selected = true;
                 txtTranDate.Text = "";
-                txtTranNo.Text= "";
+                txtTranNo.Text = "";
             }
             if (ddlPaymentType.SelectedValue == "CASH")
             {
@@ -404,7 +421,7 @@ namespace HRMS
             }
             ddlPaymentType.ClearSelection();
             ddlPaymentType.Items.FindByValue("Select").Selected = true;
-            
+
 
             txtAmount.Text = "";
             txtExDocNo.Text = "";

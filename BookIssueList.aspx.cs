@@ -42,7 +42,7 @@ namespace HRMS
                         if (!Convert.ToBoolean(role.Read))
                         {
                             Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
-                            return;
+                            
                         }
                         BindListView();
                     }
@@ -70,19 +70,7 @@ namespace HRMS
                 BookIssueListView.DataBind();
             }
         }
-        //protected void btnSearchBookIssuedata_Click(object sender, EventArgs e)
-        //{
-        //    if (!string.IsNullOrEmpty(txtbookIssueSearch.Text))
-        //    {
-        //        var LibrarySearchList = ODataServices.GetFilterBookIssueList(txtbookIssueSearch.Text, CompanyName);
-        //        if (LibrarySearchList != null)
-        //        {
-        //            BookIssueListView.DataSource = LibrarySearchList;
-        //            BookIssueListView.DataBind();
-        //        }
-        //    }
-        //}
-
+        
         //Added By Deshpande
         protected void btnSearchBookIssuedata_Click(object sender, EventArgs e)
         {
@@ -102,24 +90,16 @@ namespace HRMS
                         BookIssueListView.DataSource = LibrarySearchList;
                         BookIssueListView.DataBind();
                     }
-                    else
-                    {
-                        
-                    }
-                }
-                else
-                {
-                    
-                    //BindListView();
-                }
 
-                //BookIssueListView.DataBind();
+                }
             }
             else
             {
-                Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                Alert.ShowAlert(this, "W", "You do not have permission to Search the content. Kindly contact the system administrator.");
             }
-        }
+            }
+
+        
 
 
         //Added by Deshpande(02-02-2024)
@@ -127,10 +107,10 @@ namespace HRMS
         {
             var lstUserRole = ODataServices.GetUserAuthorizationList();
             var role = lstUserRole
-                .FirstOrDefault(x => string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase)&&
-               string.Equals (x.Page_Name.Trim(), "Book Issue List", StringComparison.OrdinalIgnoreCase) &&
+                .FirstOrDefault(x => string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+               string.Equals(x.Page_Name.Trim(), "Book Issue List", StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
-            if (role == null || Convert.ToBoolean(role.Read))
+            if (role == null || Convert.ToBoolean(role.Insert))
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "Popup", "$('#MyPopup').modal('show')", true);
                 LoadUserTypeDropDown();
@@ -138,8 +118,8 @@ namespace HRMS
             }
             else
             {
-                Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
-                return;
+                Alert.ShowAlert(this, "W", "You do not have permission to Add the Books. Kindly contact the system administrator.");
+                
             }
         }
 
@@ -155,10 +135,10 @@ namespace HRMS
                         SOAPServices.BookIssue(Entry_No, CompanyName);
                         Alert.ShowAlert(this, "s", "Book issued successfully.");
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         Alert.ShowAlert(this, "e", ex.Message);
-                    }                        
+                    }
                     break;
             }
         }
@@ -186,10 +166,10 @@ namespace HRMS
             User_Type Type = (User_Type)Enum.Parse(typeof(User_Type), UserType);
             var updateObj = new WebServices.BookIssueCardReference.BookIssueCard
             {
-                User_Type=  Type,
-                No=No,
-                Accession_No=AccessNo,
-                User_TypeSpecified=IsUserTypeSpecified(UserType)
+                User_Type = Type,
+                No = No,
+                Accession_No = AccessNo,
+                User_TypeSpecified = IsUserTypeSpecified(UserType)
             };
 
             SOAPServices.IssueBookcard(updateObj, CompanyName);
@@ -226,21 +206,21 @@ namespace HRMS
             string jsonData1 = "";
             dynamic lststnd = "";
             dynamic lstBook = "";
-            if (No!="Select")
+            if (No != "Select")
             {
                 IList<HRMSODATA.StudentList> lstStudent = ODataServices.GetStudentListByNo(No, CompanyName);
-                if (lstStudent!=null && lstStudent.Count>0)
+                if (lstStudent != null && lstStudent.Count > 0)
                 {
                     lststnd = lstStudent.Select(x => new
                     {
                         FirstName = x.First_Name,
                         CourseCode = x.Course_Code
                     }).ToList();
-                    jsonData=(new JavaScriptSerializer()).Serialize(lststnd);
+                    jsonData = (new JavaScriptSerializer()).Serialize(lststnd);
                 }
 
                 IList<HRMSODATA.BookIssueList> bookIssueListByNo = ODataServices.GetBookIssueListByNo(No, CompanyName);
-                if (bookIssueListByNo!=null && bookIssueListByNo.Count>0)
+                if (bookIssueListByNo != null && bookIssueListByNo.Count > 0)
                 {
                     lstBook = bookIssueListByNo.Select(x => new
                     {
@@ -265,12 +245,12 @@ namespace HRMS
         [ScriptMethod(UseHttpGet = false)]
         public static string LoadStudentAccessInfo(string AccessNo)
         {
-            if (AccessNo!="select")
+            if (AccessNo != "select")
             {
                 string jsonData = "";
                 IList<HRMSODATA.BookIssueList> lstStudent = ODataServices.GetBookIssueListByAccessNo(AccessNo, CompanyName);
 
-                if (lstStudent!=null && lstStudent.Count>0)
+                if (lstStudent != null && lstStudent.Count > 0)
                 {
                     var lstStudentAccession = lstStudent.Select(x => new
                     {
@@ -278,14 +258,14 @@ namespace HRMS
                         BookNo = x.Book_No,
                         AvlQty = x.Avl_Qty
                     }).ToList();
-                    jsonData=(new JavaScriptSerializer()).Serialize(lstStudentAccession);
+                    jsonData = (new JavaScriptSerializer()).Serialize(lstStudentAccession);
                 }
 
 
                 return jsonData;
             }
             return "";
-        } 
+        }
         #endregion
 
         private void LoadUserTypeDropDown()
@@ -295,11 +275,11 @@ namespace HRMS
         }
 
 
-      
+
         public static bool IsUserTypeSpecified(string userType)
         {
             User_Type Type = (User_Type)Enum.Parse(typeof(User_Type), userType);
-            if (Type==User_Type.Student || Type==User_Type.Staff)
+            if (Type == User_Type.Student || Type == User_Type.Staff)
             {
                 return true;
             }
@@ -307,9 +287,9 @@ namespace HRMS
         }
         private void LoadAccessnoDropdown()
         {
-            ddlAccessNo.DataSource=ODataServices.GetAccessionList(CompanyName);
-            ddlAccessNo.DataTextField="Accession_No";
-            ddlAccessNo.DataValueField="Accession_No";
+            ddlAccessNo.DataSource = ODataServices.GetAccessionList(CompanyName);
+            ddlAccessNo.DataTextField = "Accession_No";
+            ddlAccessNo.DataValueField = "Accession_No";
             ddlAccessNo.DataBind();
             ddlAccessNo.Items.Insert(0, new ListItem("Select", "NA"));
         }
