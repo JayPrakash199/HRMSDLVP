@@ -19,6 +19,12 @@ namespace HRMS
         {
             if (!IsPostBack)
             {
+                if (string.IsNullOrEmpty(Session["SessionCompanyName"] as string))
+                {
+                    string message = string.Format("Message: {0}\\n\\n", "Please select a company");
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
+                    Response.Redirect("Default.aspx");
+                }
                 BindFianacialYear();
 
                 if (Request.QueryString["SLNO"] != null)
@@ -171,77 +177,86 @@ namespace HRMS
 
         protected void btnCautionRefundUpdate_Click(object sender, EventArgs e)
         {
-            var obj = new WebServices.CautionRefundOrderReference.CautionRefundOrder
+            if (!((Fee)this.Master).IsPageRefresh)
             {
-                Academic_Year = ddlAcademicYear.SelectedItem.Text,
-                Posting_Date = DateTimeParser.ParseDateTime(txtPostingDate.Text),
-                Payment_Method = ddlPaymentMethod.SelectedItem.Text == "Bank" ? WebServices.CautionRefundOrderReference.Payment_Method.Bank
-                : WebServices.CautionRefundOrderReference.Payment_Method.Cash,
-                Account_No = ddlAccountNo.SelectedValue,
-                Chaque_No = txtChequeNo.Text,
-                Cheque_Date = DateTimeParser.ParseDateTime(txtChequeDate.Text),
-                External_Document_No = txtExternalDocumentNo.Text,
-                Naration = txtNaration.Text,
-                Refund_Sl_No = lblRefundOrderSerialNo.Text
-            };
+                var obj = new WebServices.CautionRefundOrderReference.CautionRefundOrder
+                {
+                    Academic_Year = ddlAcademicYear.SelectedItem.Text,
+                    Posting_Date = DateTimeParser.ParseDateTime(txtPostingDate.Text),
+                    Payment_Method = ddlPaymentMethod.SelectedItem.Text == "Bank" ? WebServices.CautionRefundOrderReference.Payment_Method.Bank
+                       : WebServices.CautionRefundOrderReference.Payment_Method.Cash,
+                    Account_No = ddlAccountNo.SelectedValue,
+                    Chaque_No = txtChequeNo.Text,
+                    Cheque_Date = DateTimeParser.ParseDateTime(txtChequeDate.Text),
+                    External_Document_No = txtExternalDocumentNo.Text,
+                    Naration = txtNaration.Text,
+                    Refund_Sl_No = lblRefundOrderSerialNo.Text
+                };
 
-            try
-            {
-                SOAPServices.UpdateCautionRefund(obj, Session["SessionCompanyName"] as string);
-                Alert.ShowAlert(this, "s", "Updated.");
-            }
-            catch (Exception ex)
-            {
+                try
+                {
+                    SOAPServices.UpdateCautionRefund(obj, Session["SessionCompanyName"] as string);
+                    Alert.ShowAlert(this, "s", "Updated.");
+                }
+                catch (Exception ex)
+                {
+                } 
             }
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            LinkButton btn = sender as LinkButton;
-            ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
-            Label lineNo = item.FindControl("lblLineNo") as Label;
-            Label refundDocNo = item.FindControl("lblRefundDocNo") as Label;
-            try
+            if (!((Fee)this.Master).IsPageRefresh)
             {
-                var result = SOAPServices.DeleteCautionRefundOrder(refundDocNo.Text, Convert.ToInt32(lineNo.Text), Session["SessionCompanyName"] as string);
-                if (result)
+                LinkButton btn = sender as LinkButton;
+                ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                Label lineNo = item.FindControl("lblLineNo") as Label;
+                Label refundDocNo = item.FindControl("lblRefundDocNo") as Label;
+                try
                 {
-                    BindSubFormListView(refundDocNo.Text);
-                    Alert.ShowAlert(this, "s", "Deleted successfully.");
+                    var result = SOAPServices.DeleteCautionRefundOrder(refundDocNo.Text, Convert.ToInt32(lineNo.Text), Session["SessionCompanyName"] as string);
+                    if (result)
+                    {
+                        BindSubFormListView(refundDocNo.Text);
+                        Alert.ShowAlert(this, "s", "Deleted successfully.");
+                    }
+                    else
+                        Alert.ShowAlert(this, "e", "Delete unsuccessfully.");
                 }
-                else
-                    Alert.ShowAlert(this, "e", "Delete unsuccessfully.");
-            }
-            catch (Exception ex)
-            {
+                catch (Exception ex)
+                {
 
+                } 
             }
         }
 
 
         protected void btndeleteall_Click(object sender, EventArgs e)
         {
-            List<string> lst = new List<string>();
-            bool result = false;
-            for (int i = 0; i < CautionMoneySubFormListView.Items.Count; i++)
+            if (!((Fee)this.Master).IsPageRefresh)
             {
-                HtmlInputCheckBox chkDelete = CautionMoneySubFormListView.Items[i].FindControl("chkitem") as HtmlInputCheckBox;
-                if (chkDelete.Checked)
+                List<string> lst = new List<string>();
+                bool result = false;
+                for (int i = 0; i < CautionMoneySubFormListView.Items.Count; i++)
                 {
-                    Label refundDocNo = CautionMoneySubFormListView.Items[i].FindControl("lblRefundDocNo") as Label;
-                    Label lineNo = CautionMoneySubFormListView.Items[i].FindControl("lblLineNo") as Label;
-                    result = SOAPServices.DeleteCautionRefundOrder(refundDocNo.Text, Convert.ToInt32(lineNo.Text), Session["SessionCompanyName"] as string);
+                    HtmlInputCheckBox chkDelete = CautionMoneySubFormListView.Items[i].FindControl("chkitem") as HtmlInputCheckBox;
+                    if (chkDelete.Checked)
+                    {
+                        Label refundDocNo = CautionMoneySubFormListView.Items[i].FindControl("lblRefundDocNo") as Label;
+                        Label lineNo = CautionMoneySubFormListView.Items[i].FindControl("lblLineNo") as Label;
+                        result = SOAPServices.DeleteCautionRefundOrder(refundDocNo.Text, Convert.ToInt32(lineNo.Text), Session["SessionCompanyName"] as string);
 
+                    }
                 }
+                if (result)
+                {
+                    var refundOrderSerialNo = Request.QueryString["SLNO"];
+                    BindSubFormListView(refundOrderSerialNo);
+                    Alert.ShowAlert(this, "s", "Deleted successfully.");
+                }
+                else
+                    Alert.ShowAlert(this, "e", "Delete unsuccessfully."); 
             }
-            if (result)
-            {
-                var refundOrderSerialNo = Request.QueryString["SLNO"];
-                BindSubFormListView(refundOrderSerialNo);
-                Alert.ShowAlert(this, "s", "Deleted successfully.");
-            }
-            else
-                Alert.ShowAlert(this, "e", "Delete unsuccessfully.");
 
         }
     }

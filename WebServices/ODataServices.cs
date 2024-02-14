@@ -1046,5 +1046,17 @@ namespace WebServices
             return lst;
         }
         #endregion
+
+        #region MyRegion
+        public static IList<HRMSODATA.TimeTable> GetTimeTableData(string companyName)
+        {
+            string serviceUrl = GetOdataURL(companyName);
+            Uri uri = new Uri(serviceUrl);
+            var container = new HRMSODATA.NAV(uri);
+            container.BuildingRequest += Context_BuildingRequest;
+            List<HRMSODATA.TimeTable> lstTimeTable = container.CreateQuery<HRMSODATA.TimeTable>("TimeTable").ToList();
+            return lstTimeTable;
+        } 
+        #endregion
     }
 }

@@ -23,7 +23,6 @@
             $("#MyPopup").modal("show");
         }
         function redirectOnSuccess() {
-            debugger;
             var cmpnyName = document.getElementById('ContentPlaceHolder1_ddlCompany').value;
             $.ajax({
                 type: "POST",

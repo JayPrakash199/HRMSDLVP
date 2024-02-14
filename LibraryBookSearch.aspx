@@ -110,7 +110,6 @@
             $('#loader').hide();
         };
         function LoadPublisherCode() {
-            debugger;
             showLoader();
             var publishcode = $("#ContentPlaceHolder1_ddlPublisherCode option:selected").text();
             $.ajax({

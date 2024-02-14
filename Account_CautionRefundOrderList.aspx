@@ -130,7 +130,7 @@
                                                                 <asp:Label ID="lblAcademic_Year" runat="server" Text='<%# Eval("Academic_Year")%>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="lblPosting_Date" runat="server" Text='<%# DateTime.Parse(Eval("Posting_Date").ToString()).ToString("d") %>'> </asp:Label>
+                                                                <asp:Label ID="lblPosting_Date" runat="server" Text='<%# DateTime.Parse(Eval("Posting_Date").ToString()).ToString("d")=="01-01-0001"?"":DateTime.Parse(Eval("Posting_Date").ToString()).ToString("d") %>'> </asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="lblPayment_Method" runat="server" Text='<%# Eval("Payment_Method")%>'> </asp:Label>
@@ -139,7 +139,7 @@
                                                                 <asp:Label ID="lblChaque_No" runat="server" Text='<%# Eval("Chaque_No")%>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="lblCheque_Date" runat="server" Text='<%# DateTime.Parse(Eval("Cheque_Date").ToString()).ToString("d") %>'> </asp:Label>
+                                                                <asp:Label ID="lblCheque_Date" runat="server" Text='<%# DateTime.Parse(Eval("Cheque_Date").ToString()).ToString("d")=="01-01-0001"?"":DateTime.Parse(Eval("Cheque_Date").ToString()).ToString("d") %>'> </asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="lblExternal_Document_No" runat="server" Text='<%# Eval("External_Document_No")%>'> </asp:Label>

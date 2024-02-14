@@ -405,7 +405,7 @@ $(document).ready(function () {
             right: 'agendaWeek,agendaDay'
         },
         defaultView: 'agendaWeek',
-        eventClick: updateEvent,
+        //eventClick: updateEvent,
         selectable: vs,
         selectHelper: true,
         selectConstraint: {
@@ -415,16 +415,19 @@ $(document).ready(function () {
         select: selectDate,
         editable: false,
         firstDay: 0,                            //Suyash_to_display_sunday
-        minTime: "08:00:00",
-        maxTime: "24:00:00",
+        minTime: "09:00:00",
+        maxTime: "18:00:00",
         validRange: {
             start: '2010-01-01',
-            end: '2020-12-31'
+            end: '2025-12-31'
         },
         viewRender: renderViewColumns,
         //events: "JsonResponse.ashx?nstart=2017-05-01 11:30:00&nend=2017-05-10 17:30:00",        
         events: "JsonResponse.ashx",
         eventRender: function (event, element) {
+            //alert(event);
+            //$('.loader').show();
+           
             element.qtip({
                 content: {
                     text: qTipText(event.start, event.end, event.description),
@@ -447,6 +450,8 @@ $(document).ready(function () {
     });
 
     function renderViewColumns(view, element) {
+        $('.loader').hide().delay(100).fadeIn(100);
+        $('.loader').hide().delay(1500).fadeOut(500);
         element.find('th.fc-day-header.fc-widget-header').each(function () {
             var theDate = moment($(this).data('date')); /* th.data-date="YYYY-MM-DD" */
             $(this).html(buildDateColumnHeader(theDate));

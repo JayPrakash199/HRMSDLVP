@@ -11,13 +11,15 @@ namespace HRMS.Common
             {
                 return dateTime;
             }
-            return DateTime.UtcNow;
+            return dateTime;
         }
 
         public static string ConvertDateTimeToText(Microsoft.OData.Edm.Date? date)
         {
             if (date.HasValue)
             {
+                if (date.Value.ToString().Contains("0001-01-01"))
+                    return "";
                 var convertedDateTime = Convert.ToDateTime(date.Value);
                 return convertedDateTime.ToString("yyyy'-'MM'-'dd");
             }

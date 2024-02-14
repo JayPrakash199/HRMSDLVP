@@ -149,6 +149,7 @@
                                                                 <th runat="server">Cheque Date</th>
                                                                 <th runat="server">Ext Doc No</th>
                                                                 <th runat="server">Narration</th>
+                                                                 <th runat="server">Posting Date</th>
                                                                 <th runat="server">Post</th>
                                                             </tr>
                                                             <tr id="ItemPlaceholder" runat="server">
@@ -208,13 +209,16 @@
                                                                 <asp:Label ID="Label16" runat="server" Text='<%# Eval("Cheque_No_DD")%>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="Label17" runat="server" Text='<%# DateTime.Parse(Eval("Cheque_Date").ToString()).ToString("d") %>'> </asp:Label>
+                                                                <asp:Label ID="Label17" runat="server" Text='<%# DateTime.Parse(Eval("Cheque_Date").ToString()).ToString("d")=="01-01-0001"?"":DateTime.Parse(Eval("Cheque_Date").ToString()).ToString("d") %>'> </asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="Label13" runat="server" Text='<%# Eval("Ext_Doc_No")%>'> </asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="Label14" runat="server" Text='<%# Eval("Narration")%>'> </asp:Label>
+                                                            </td>
+                                                             <td>
+                                                                <asp:Label ID="Label18" runat="server" Text='<%# DateTime.Parse(Eval("Posting_Date").ToString()).ToString("d")=="01-01-0001"?"":DateTime.Parse(Eval("Posting_Date").ToString()).ToString("d") %>'> </asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:LinkButton ID="btnPost" OnClientClick="showLoader();" class="btn btn-primary" runat="server" OnClick="btnPost_Click">Release & Post</asp:LinkButton>

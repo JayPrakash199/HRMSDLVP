@@ -220,13 +220,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class=" col-md-6 col-sm-6   pb-4">
-                        <div class="icon-box-s2 s1  itServicePadding">
-                            <div class="content-box">
-                                <a class="Contenta" visible="false" href="FeeClassificationList.aspx" role="button" runat="server" id="btnFeeMgmntt">Accounts and Fee Management</a>
-                            </div>
-                        </div>
-                    </div>
+                  
                     <div class=" col-md-6 col-sm-6 pb-4" id="divreport" visible="False" runat="server">
                         <div class="icon-box-s2 s1 itServicePadding">
                             <div class="content-box">
@@ -234,10 +228,24 @@
                             </div>
                         </div>
                     </div>
+                     <div class=" col-md-6 col-sm-6 pb-4" id="divslcm"  runat="server">
+                        <div class="icon-box-s2 s1 itServicePadding">
+                            <div class="content-box">
+                                <a class="Contenta" visible="True" href="Timetable.aspx" role="button" runat="server" id="btnslcm">SLCM</a>
+                            </div>
+                        </div>
+                    </div>
                     <div class=" col-md-6 col-sm-6 pb-4" id="div1" visible="true" runat="server">
                         <div class="icon-box-s2 s1 itServicePadding">
                             <div class="content-box">
                                 <asp:LinkButton class="Contenta" ID="btnStockStore" Text="Stock and Store" OnClick="btnStockStore_Click" runat="server" />
+                            </div>
+                        </div>
+                    </div>
+                      <div class=" col-md-6 col-sm-6   pb-4">
+                        <div class="icon-box-s2 s1  itServicePadding">
+                            <div class="content-box">
+                                <a class="Contenta" visible="false" href="FeeClassificationList.aspx" role="button" runat="server" id="btnFeeMgmntt">Accounts and Fee Management</a>
                             </div>
                         </div>
                     </div>

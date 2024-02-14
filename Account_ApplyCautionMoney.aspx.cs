@@ -15,6 +15,12 @@ namespace HRMS
         {
             if (!IsPostBack)
             {
+                if (string.IsNullOrEmpty(Session["SessionCompanyName"] as string))
+                {
+                    string message = string.Format("Message: {0}\\n\\n", "Please select a company");
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
+                    Response.Redirect("Default.aspx");
+                }
                 var studentList = ODataServices.GetStudentList(Session["SessionCompanyName"] as string);
                 var finalStudentList = new List<CommonList>();
                 foreach (var student in studentList)
@@ -43,36 +49,43 @@ namespace HRMS
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
-
-            if (lstUserRole != null)
+            if (!((Fee)this.Master).IsPageRefresh)
             {
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
 
-                var role = lstUserRole.FirstOrDefault(x =>
-                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                    string.Equals(x.Page_Name.Trim(), "Apply Caution Money", StringComparison.OrdinalIgnoreCase) &&
-                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
-
-
-                if (role == null || Convert.ToBoolean(role.Insert))
+                if (lstUserRole != null)
                 {
 
-                    try
+                    var role = lstUserRole.FirstOrDefault(x =>
+                        string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(x.Page_Name.Trim(), "Apply Caution Money", StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+
+                    if (role == null || Convert.ToBoolean(role.Insert))
                     {
-                        SOAPServices.ApplyCautionMoney(ddlStudentNo.SelectedValue, ddlAcademicYear.SelectedItem.Text, Session["SessionCompanyName"] as string);
-                        ClearControl();
-                        Alert.ShowAlert(this, "s", "Applied successfully.");
+
+                        try
+                        {
+                            SOAPServices.ApplyCautionMoney(ddlStudentNo.SelectedValue, ddlAcademicYear.SelectedItem.Text, Session["SessionCompanyName"] as string);
+                            ClearControl();
+                            Alert.ShowAlert(this, "s", "Applied successfully.");
+                        }
+                        catch (Exception ex)
+                        {
+                            Alert.ShowAlert(this, "e", "Exception occured:" + ex.Message);
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        Alert.ShowAlert(this, "e", "Exception occured:" + ex.Message);
+                        Alert.ShowAlert(this, "W", "You do not have permission to apply to the content. Kindly contact the system administrator.");
+
                     }
                 }
-                else
-                {
-                    Alert.ShowAlert(this, "W", "You do not have permission to apply to the content. Kindly contact the system administrator.");
-                    
-                }
+            }
+            else
+            {
+                ClearControl();
             }
         }
 

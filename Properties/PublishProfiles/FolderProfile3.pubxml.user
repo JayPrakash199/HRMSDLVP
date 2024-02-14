@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\SProject\Publish DLVP</_PublishTargetUrl>
-    <History>True|2024-01-29T07:42:51.2392555Z;True|2024-01-11T22:05:19.5263842+05:30;True|2024-01-02T20:33:16.0405055+05:30;True|2023-12-20T15:16:37.1841528+05:30;True|2023-12-19T15:15:39.3948013+05:30;True|2023-12-11T21:24:12.6237504+05:30;True|2023-12-11T15:07:06.6829457+05:30;True|2023-12-05T16:42:15.4697443+05:30;True|2023-09-12T12:25:17.8051144+05:30;True|2023-09-09T10:26:31.8468802+05:30;</History>
+    <History>True|2024-02-14T11:17:38.8658465Z;True|2024-01-29T13:12:51.2392555+05:30;True|2024-01-11T22:05:19.5263842+05:30;True|2024-01-02T20:33:16.0405055+05:30;True|2023-12-20T15:16:37.1841528+05:30;True|2023-12-19T15:15:39.3948013+05:30;True|2023-12-11T21:24:12.6237504+05:30;True|2023-12-11T15:07:06.6829457+05:30;True|2023-12-05T16:42:15.4697443+05:30;True|2023-09-12T12:25:17.8051144+05:30;True|2023-09-09T10:26:31.8468802+05:30;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -19,10 +19,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/23/2024 15:47:34</publishTime>
     </File>
     <File Include="Account_CautionRefundOrder.aspx">
-      <publishTime>01/23/2024 15:47:34</publishTime>
+      <publishTime>02/14/2024 12:40:42</publishTime>
     </File>
     <File Include="Account_CautionRefundOrderList.aspx">
-      <publishTime>01/23/2024 15:47:34</publishTime>
+      <publishTime>02/14/2024 12:52:42</publishTime>
     </File>
     <File Include="Account_RefundOrderCard.aspx">
       <publishTime>01/23/2024 15:37:21</publishTime>
@@ -49,7 +49,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/23/2024 15:38:10</publishTime>
     </File>
     <File Include="AnnualEstablishmentReview.aspx">
-      <publishTime>01/23/2024 23:51:23</publishTime>
+      <publishTime>02/14/2024 12:40:47</publishTime>
     </File>
     <File Include="AnnualEstablishmentReviewPartC.aspx">
       <publishTime>01/23/2024 15:38:23</publishTime>
@@ -262,7 +262,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/28/2023 12:28:13</publishTime>
     </File>
     <File Include="assets/js/calendarscript.js">
-      <publishTime>05/28/2023 12:28:13</publishTime>
+      <publishTime>02/14/2024 11:48:11</publishTime>
     </File>
     <File Include="assets/js/charts.js">
       <publishTime>05/28/2023 12:28:13</publishTime>
@@ -1207,7 +1207,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/28/2023 12:28:13</publishTime>
     </File>
     <File Include="assets/vendor/css/common.css">
-      <publishTime>01/23/2024 16:31:29</publishTime>
+      <publishTime>02/14/2024 11:47:40</publishTime>
     </File>
     <File Include="assets/vendor/css/font-awesome.min.css">
       <publishTime>05/28/2023 12:28:13</publishTime>
@@ -1222,7 +1222,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/04/2023 21:53:54</publishTime>
     </File>
     <File Include="assets/vendor/css/style.css">
-      <publishTime>01/23/2024 21:51:11</publishTime>
+      <publishTime>02/14/2024 11:47:50</publishTime>
     </File>
     <File Include="assets/vendor/fonts/fontawesome-webfont.eot">
       <publishTime>05/28/2023 12:28:13</publishTime>
@@ -1305,6 +1305,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="assets/vendor/js/bootstrap.min.js">
       <publishTime>05/28/2023 12:28:14</publishTime>
     </File>
+    <File Include="assets/vendor/js/calendarscript.js">
+      <publishTime>02/08/2024 23:31:25</publishTime>
+    </File>
     <File Include="assets/vendor/js/chart.js">
       <publishTime>05/28/2023 12:28:14</publishTime>
     </File>
@@ -1327,7 +1330,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/28/2023 12:28:14</publishTime>
     </File>
     <File Include="assets/vendor/plugins/FullCalendar/fullcalendar.css">
-      <publishTime>05/28/2023 12:28:14</publishTime>
+      <publishTime>02/14/2024 09:47:14</publishTime>
     </File>
     <File Include="assets/vendor/plugins/FullCalendar/fullcalendar.js">
       <publishTime>05/28/2023 12:28:14</publishTime>
@@ -1426,10 +1429,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/22/2019 20:54:22</publishTime>
     </File>
     <File Include="bin/HRMS.dll">
-      <publishTime>01/29/2024 13:12:47</publishTime>
+      <publishTime>02/14/2024 16:47:34</publishTime>
     </File>
     <File Include="bin/HRMS.pdb">
-      <publishTime>01/29/2024 13:12:47</publishTime>
+      <publishTime>02/14/2024 16:47:34</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>07/30/2013 22:27:30</publishTime>
@@ -1555,25 +1558,25 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/23/2014 19:27:34</publishTime>
     </File>
     <File Include="bin/WebServices.dll">
-      <publishTime>01/21/2024 12:30:32</publishTime>
+      <publishTime>02/14/2024 16:47:27</publishTime>
     </File>
     <File Include="bin/WebServices.dll.config">
       <publishTime>09/08/2023 15:07:29</publishTime>
     </File>
     <File Include="bin/WebServices.pdb">
-      <publishTime>01/21/2024 12:30:32</publishTime>
+      <publishTime>02/14/2024 16:47:27</publishTime>
     </File>
     <File Include="bin/WebServices.XmlSerializers.dll">
-      <publishTime>01/21/2024 12:30:38</publishTime>
+      <publishTime>02/14/2024 16:47:32</publishTime>
     </File>
     <File Include="BookAccessionCard.aspx">
-      <publishTime>01/23/2024 15:47:33</publishTime>
+      <publishTime>02/14/2024 12:41:39</publishTime>
     </File>
     <File Include="BookAccessionList.aspx">
       <publishTime>01/23/2024 15:47:33</publishTime>
     </File>
     <File Include="BookIssueList.aspx">
-      <publishTime>01/23/2024 16:00:31</publishTime>
+      <publishTime>02/14/2024 12:41:08</publishTime>
     </File>
     <File Include="BookRenewalList.aspx">
       <publishTime>01/23/2024 15:47:32</publishTime>
@@ -1651,7 +1654,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/23/2024 15:47:30</publishTime>
     </File>
     <File Include="Default.aspx">
-      <publishTime>01/23/2024 21:38:46</publishTime>
+      <publishTime>02/14/2024 11:27:23</publishTime>
     </File>
     <File Include="DefaultMasterPage.Master">
       <publishTime>01/23/2024 22:42:27</publishTime>
@@ -1699,16 +1702,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/23/2024 15:47:34</publishTime>
     </File>
     <File Include="Fee-GeneralPaymentList.aspx">
-      <publishTime>01/23/2024 15:47:26</publishTime>
+      <publishTime>02/14/2024 11:29:01</publishTime>
     </File>
     <File Include="Fee-MoneyReceipt.aspx">
       <publishTime>01/23/2024 15:47:26</publishTime>
     </File>
     <File Include="Fee-StudentFeeCollection.aspx">
-      <publishTime>01/23/2024 15:47:25</publishTime>
+      <publishTime>02/14/2024 11:32:33</publishTime>
     </File>
     <File Include="Fee-StudentFeeCollectionCard.aspx">
-      <publishTime>01/23/2024 15:47:35</publishTime>
+      <publishTime>02/14/2024 11:35:33</publishTime>
     </File>
     <File Include="Fee.Master">
       <publishTime>01/03/2024 13:30:01</publishTime>
@@ -1809,14 +1812,17 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="ItemJournalBook.aspx">
       <publishTime>01/23/2024 15:45:14</publishTime>
     </File>
+    <File Include="JsonResponse.ashx">
+      <publishTime>02/14/2024 11:42:29</publishTime>
+    </File>
     <File Include="LibraryBookSearch.aspx">
-      <publishTime>01/23/2024 16:00:29</publishTime>
+      <publishTime>02/14/2024 12:41:14</publishTime>
     </File>
     <File Include="LibraryManagement.Master">
       <publishTime>07/10/2023 15:34:40</publishTime>
     </File>
     <File Include="Login.aspx">
-      <publishTime>08/24/2023 13:36:23</publishTime>
+      <publishTime>02/14/2024 12:41:38</publishTime>
     </File>
     <File Include="Login.Master">
       <publishTime>11/03/2023 22:01:05</publishTime>
@@ -2232,17 +2238,23 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Site.Mobile.Master">
       <publishTime>05/28/2023 12:28:13</publishTime>
     </File>
+    <File Include="SLCM.Master">
+      <publishTime>02/14/2024 11:43:55</publishTime>
+    </File>
     <File Include="StaffProfile.aspx">
       <publishTime>01/23/2024 15:46:33</publishTime>
     </File>
     <File Include="StaffProfileList.aspx">
       <publishTime>01/23/2024 15:47:24</publishTime>
     </File>
+    <File Include="Timetable.aspx">
+      <publishTime>02/14/2024 11:44:32</publishTime>
+    </File>
     <File Include="TrainingHistory.aspx">
       <publishTime>01/23/2024 15:46:44</publishTime>
     </File>
     <File Include="TransferAccount.aspx">
-      <publishTime>01/23/2024 15:46:50</publishTime>
+      <publishTime>02/14/2024 11:45:09</publishTime>
     </File>
     <File Include="TransferAccountCard.aspx">
       <publishTime>01/23/2024 15:46:55</publishTime>

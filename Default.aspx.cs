@@ -65,7 +65,7 @@ namespace HRMS
                     }
                     if (isSLCM)
                     {
-
+                        btnslcm.Visible = true;
                     }
                     if (isLibraryMgmnt)
                     {

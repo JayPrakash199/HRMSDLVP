@@ -1,0 +1,480 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SLCM.master.cs" Inherits="HRMS.SLCM" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SLCM</title>
+    <link href="assets/vendor/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="assets/vendor/css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+    <link href="assets/vendor/css/common.css" rel="stylesheet" />
+    <link href="assets/vendor/css/style.css" rel="stylesheet" />
+    <link href="assets/vendor/css/header-style.css" rel="stylesheet" />
+    <link href="assets/vendor/css/responsive.css" rel="stylesheet" />
+    <link href="assets/vendor/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="assets/vendor/js/ie-emulation-modes-warning.js"></script>
+    <link href="assets/vendor/css/ch-pie-line.css" rel="stylesheet" />
+    <link href="assets/vendor/css/bootstrap-multiselect.css" rel="stylesheet" />
+    <script src="assets/vendor/js/jsapi.js"></script>
+    <link rel="stylesheet" href="assets/css/Ajaxcal.css" />
+    <link rel="stylesheet" href="assets/toastr/toastr.min.css" />
+    <style>
+        .Learner {
+            color: orange;
+            border-style: none;
+            background: transparent;
+            font-size: 13px;
+            font-weight: 700;
+            margin-left: -7px;
+        }
+
+        .blink_me {
+            -webkit-animation-name: blinker;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-name: blinker;
+            -moz-animation-duration: 1s;
+            -moz-animation-timing-function: linear;
+            -moz-animation-iteration-count: infinite;
+            animation-name: blinker;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .download-manual {
+            background: #212121;
+            border: 0;
+            padding: 10px 10px;
+            width: 100%;
+            font-weight: 500;
+            border-bottom: 1px solid #e0e0e0 !important;
+            color: #fff;
+            text-align: left;
+        }
+
+            .download-manual:hover {
+                color: #e0e0e0;
+                background-color: #c78221;
+            }
+
+        .breadcrumb > li.pull-right:before {
+            padding: 0px;
+            color: #ccc;
+            content: "";
+        }
+
+        .back-sign {
+            animation: blink 1s linear infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        #collapseFields {
+            float: right;
+            position: relative;
+            top: 28px;
+            color: #fff;
+            padding: 5px 10px;
+            height: 35px;
+            outline: 0;
+            background: #625a4e;
+            border: none;
+            border: 2px solid #e3b30a;
+            border-bottom: none;
+        }
+
+        @media screen and (max-width: 767px) {
+            .download-manual {
+                border-left: 1px solid #e0e0e0 !important;
+                border-right: 1px solid #e0e0e0 !important;
+            }
+
+            #collapseFields {
+                position: absolute;
+                top: 160px;
+                float: none;
+                right: 15px;
+                color: #fff;
+                padding: 5px 10px;
+                height: 35px;
+                outline: 0;
+                background: #625a4e;
+                border: none;
+                border: 2px solid #e3b30a;
+            }
+
+            .topRightCollapseContent {
+                margin-top: 25px;
+            }
+
+            .nonCollapsePanel {
+                margin-top: 30px;
+            }
+
+            .current-user-name {
+                color: #fff;
+            }
+        }
+    </style>
+    <style>
+        /****  Bootstrap Datepicker  START!  */
+        .datepicker-switch {
+            text-align: center;
+        }
+
+        .datepicker table tr td, .datepicker table tr th {
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            border: none;
+        }
+
+            .datepicker table tr td span {
+                display: block;
+                width: 23%;
+                height: 54px;
+                line-height: 54px;
+                float: left;
+                margin: 1%;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+
+        .datepicker-months table, .datepicker-years table {
+            width: 100%;
+            width: 212px;
+        }
+
+            .datepicker-months table thead tr th, .datepicker-months .table > tbody > tr > th,
+            .datepicker-years table thead tr th, .datepicker-years .table > tbody > tr > th {
+                background-color: transparent !important;
+                color: #464242 !important;
+                border-top: none !important;
+            }
+
+            .datepicker-days table thead tr th, .datepicker-years table thead tr th {
+                background-color: transparent !important;
+                color: #464242 !important;
+                border-top: none !important;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+        .datepicker.datepicker-dropdown table thead tr th:first-child, .table > tbody > tr > th:first-child {
+            border-left: 0px !important;
+        }
+
+        .datepicker.datepicker-dropdown table thead tr th:last-child, .table > tbody > tr > th:last-child {
+            border-right: none !important;
+        }
+
+        .datepicker .day.active {
+            background: #e4e4e4;
+        }
+
+        .datepicker table tr td, .datepicker table tr th {
+            cursor: pointer;
+        }
+        /*Bootstrap Datepicker END!*/
+
+        @media (min-width: 768px) {
+            .bg-after-heading1 {
+                display: inline-block;
+            }
+
+            .bg-after-heading {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .bg-after-heading1 {
+                display: inline-block;
+            }
+
+            .bg-after-heading {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .bg-after-heading1 {
+                display: inline-block;
+            }
+
+            .bg-after-heading {
+                display: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .bg-after-heading1 {
+                display: none;
+            }
+
+            .bg-after-heading {
+                background: #d08426;
+                display: block;
+            }
+        }
+
+        input#ContentPlaceHolder1_txtid {
+            text-align: right;
+        }
+
+        i.fa.fa-search.icon {
+            position: absolute;
+            padding: 10px;
+            display: block;
+        }
+
+        .btn-s.float-right {
+            background: white;
+            width: 75px !important;
+            height: 36px !important;
+            border-radius: 25px;
+        }
+
+        .back {
+            position: absolute;
+            right: 1%;
+            top: 8%;
+            background-color: #98d7e275;
+            border-radius: 50%;
+            border-radius: 1px solid red;
+            border: 2px solid #cf4e33;
+        }
+
+        header {
+            position: unset !important;
+        }
+
+        .FridgeHeader {
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .container.box {
+            padding: 5% !important;
+            margin-top: 0% !important;
+        }
+    </style>
+
+
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+    <!-- jquery: REQUIRED JQUERY FILE -->
+    <script src="assets/plugins/jQuery-lib/2.0.3/jquery.min.js"></script>
+    <script src="assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/toastr/toastr.min.js"></script>
+    <script type="text/javascript">  
+        $(window).bind("load", function () {
+            var footer = $("#footer");
+            var pos = footer.position();
+            var height = $(window).height();
+            height = height - pos.top;
+            height = height - footer.height();
+            if (height > 0) {
+                footer.css({
+                    'margin-top': height + 'px'
+                });
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            //$(".topRightCollapseContent").hide();
+            $('#collapseFields').on('click', function () {
+                $(this).find('i').toggleClass('fa-plus fa-2x fa-minus fa-2x');
+                $(".topRightCollapseContent").slideToggle();
+            });
+        });
+
+        function customAlert(msgType, txtMSG) {
+            msgType = msgType.toUpperCase()
+
+            if (msgType == "S") {
+                showSuccess(txtMSG);
+                return false;
+            }
+
+            if (msgType == "W") {
+                showWarning(txtMSG);
+                return false;
+            }
+
+            if (msgType == "E") {
+                showError(txtMSG);
+                return false;
+            }
+
+            if (msgType == "I") {
+                showInfo(txtMSG);
+                return false;
+            }
+        }
+
+        //Tostr Notification implementation Start !!!!
+        //Success!!!
+        function showSuccess(msg) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut",
+                "positionClass": "toast-top-right"
+            }
+            toastr.success(msg, "Success");
+            return false;
+        }
+
+        //Information!!!
+        function showInfo(msg) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "closeDuration": "60000"
+            }
+            toastr.info(msg, "Information");
+            return false;
+        }
+
+        //Warning!!!
+        function showWarning(msg) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right"
+            }
+            toastr.warning(msg, "Warning");
+            return false;
+        }
+
+        //Error!!!
+        function showError(msg) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right"
+            }
+            toastr.error(msg, "Error");
+            return false;
+        }
+    </script>
+    <script>
+        $(window).load(function () {
+            $(".loader").fadeOut("slow");
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   <div class="loader">
+        <img src="assets/images/loader.gif" class="fa-spinner" />
+        <%--<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>--%>
+    </div>
+    <div id="wrappergb" runat="server"></div>
+    <div class="wrapper">
+        <form id="form1" runat="server">
+            <asp:ScriptManager ID="ScriptManager1" EnablePartialRendering="true" EnablePageMethods="true" runat="server"></asp:ScriptManager>
+
+            <div class="fluid-container">
+                <header>
+                    <div class="top_header_ber">
+                        <div class="container">
+                            <div class="pull-right current-user-name">
+                                <asp:Label ID="lblUserName" runat="server"></asp:Label>
+                                <asp:Button runat="server" ID="btnLogOut"  CssClass="btn btnColor pull-right" Text="LogOut" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header_bottom">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="collapse navbar-collapse" id="myNavbar">
+                                    <ul class="nav navbar-nav navbar-right user-drop">
+                                        <li class="dropdown clearfix">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employee Timetable<b class="caret"></b></a>
+                                            <ul class="dropdown-menu" id="lidropmenu" runat="server">
+                                                <li><a href="Timetable.aspx">Employee Timetable</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="pull-right current-user-name back">
+                        <a href="default.aspx" class="btn btnColor pull-right" tooltip="Home">
+                            <span><i class="fa fa-arrow-left fa-3x" style="color: green"></i></span>
+                        </a>
+                    </div>
+                </header>
+                <div class="bodymain">
+                    <div class="container tabbable tabs-left">
+                        <div id="divRight" runat="server" class="">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                    <div id="footer">
+                    <footer style="position: unset !important" class="p-10">©<asp:Label runat="server" ID="lblCompanyName"></asp:Label></footer>
+                </div>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+    <a href="#" id="backToTop">
+        <i class="fa fa-long-arrow-up"></i>
+    </a>
+    <script src="assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+    <script src="assets/plugins/blockUI/jquery.blockUI.js"></script>
+    <script src="assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js"></script>
+    <script src="assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js"></script>
+    <script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="assets/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+    <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="assets/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+    <script src="assets/vendor/js/bootstrap-multiselect.js"></script>
+
+    <script>
+        $(function () {
+            $('.issue-datepicker').datepicker({
+                endDate: '+0d',
+                autoclose: true
+            });
+            $('.expiry-datepicker').datepicker({
+                startDate: new Date(),
+                autoclose: true
+            });
+        });
+    </script>
+</body>
+</html>

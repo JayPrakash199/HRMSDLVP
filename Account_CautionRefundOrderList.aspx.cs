@@ -15,6 +15,12 @@ namespace HRMS
         {
             if (!IsPostBack)
             {
+                if (string.IsNullOrEmpty(Session["SessionCompanyName"] as string))
+                {
+                    string message = string.Format("Message: {0}\\n\\n", "Please select a company");
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
+                    Response.Redirect("Default.aspx");
+                }
                 List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
                 if (lstUserRole != null)
                 {

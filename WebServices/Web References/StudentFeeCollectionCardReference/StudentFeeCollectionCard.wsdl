@@ -60,6 +60,7 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="Shortcut_Dimension_7" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Shortcut_Dimension_8" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Shortcut_Dimension_9" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Posting_Date" type="xsd:date" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="StudentFeeCollectionCard_List">
@@ -99,6 +100,7 @@
           <xsd:enumeration value="Shortcut_Dimension_7" />
           <xsd:enumeration value="Shortcut_Dimension_8" />
           <xsd:enumeration value="Shortcut_Dimension_9" />
+          <xsd:enumeration value="Posting_Date" />
         </xsd:restriction>
       </xsd:simpleType>
       <xsd:complexType name="StudentFeeCollectionCard_Filter">

@@ -36,7 +36,6 @@ namespace HRMS
                     else
                     {
                         Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
-                        
                     }
                 }
 
@@ -78,20 +77,18 @@ namespace HRMS
                     var bookIssueList = ODataServices.GetFilterAdvanceBookingList(txtbookAdvanceBookData.Text, companyName);
                     if (bookIssueList != null)
                     {
-
+                        
                         AdvanceBooklListView.DataSource = bookIssueList;
                         AdvanceBooklListView.DataBind();
                     }
                 }
             }
-
             else
             {
-                Alert.ShowAlert(this, "W", "You do not have permission to Search the content. Kindly contact the system administrator.");
-                
+                Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
+                return;
             }
         }
-
 
         protected void btnAddBookcard_Click(object sender, EventArgs e)
         {
@@ -101,13 +98,13 @@ namespace HRMS
                 string.Equals(x.Page_Name.Trim(), "Advance Booking List", StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
 
-            if (role == null || Convert.ToBoolean(role.Insert))
+            if (role == null || Convert.ToBoolean(role.Read))
             {
                 Response.Redirect("AdvanceBookingCard.aspx");
             }
             else
             {
-                Alert.ShowAlert(this, "W", "You do not have permission to add the content. Kindly contact the system administrator.");
+                Alert.ShowAlert(this, "W", "You do not have permission to access the content. Kindly contact the system administrator.");
             }
         }
 

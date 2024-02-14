@@ -116,12 +116,12 @@
                                                     <asp:DropDownList ID="ddlEmployeeNo" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>
-                                               <%-- <div class="form-group" runat="server" id="divFeeClassiifcationType" visible="false">
+                                                <%-- <div class="form-group" runat="server" id="divFeeClassiifcationType" visible="false">
                                                     <label for="exampleAccount">Fee Classification Type</label>
                                                     <asp:DropDownList ID="ddlFeeClassSpecification" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>--%>
-                                                
+
                                                 <div class="form-group" runat="server" id="divExDocNo">
                                                     <label for="exampleAccount">Ext. Doc. No.</label>
                                                     <asp:TextBox ID="txtExDocNo" CssClass="form-control" runat="server">
@@ -131,6 +131,10 @@
                                                     <label for="exampleAccount">Narration</label>
                                                     <asp:TextBox ID="txtNarration" CssClass="form-control" runat="server">
                                                     </asp:TextBox>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Posting Date</label>
+                                                    <asp:TextBox ID="txtPostingDate" type="date" CssClass="form-control ajax__calendar_body" runat="server"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -233,7 +237,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12" style="padding:10px">
+                        <div class="col-md-12" style="padding: 10px">
                             <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" CssClass="btn-s float-right btn-primary" Text="Submit" />
                         </div>
                     </div>

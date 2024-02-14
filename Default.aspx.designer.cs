@@ -78,15 +78,6 @@ namespace HRMS
         protected global::System.Web.UI.HtmlControls.HtmlAnchor btnLibraryMgmntt;
 
         /// <summary>
-        /// btnFeeMgmntt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnFeeMgmntt;
-
-        /// <summary>
         /// divreport control.
         /// </summary>
         /// <remarks>
@@ -105,6 +96,24 @@ namespace HRMS
         protected global::System.Web.UI.HtmlControls.HtmlAnchor btnReport;
 
         /// <summary>
+        /// divslcm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divslcm;
+
+        /// <summary>
+        /// btnslcm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnslcm;
+
+        /// <summary>
         /// div1 control.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace HRMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnStockStore;
+
+        /// <summary>
+        /// btnFeeMgmntt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnFeeMgmntt;
 
         /// <summary>
         /// ddlCompany control.

@@ -517,6 +517,10 @@ namespace WebServices.StudentFeeCollectionCardReference {
         
         private string shortcut_Dimension_9Field;
         
+        private System.DateTime posting_DateField;
+        
+        private bool posting_DateFieldSpecified;
+        
         /// <remarks/>
         public string Key {
             get {
@@ -882,6 +886,28 @@ namespace WebServices.StudentFeeCollectionCardReference {
                 this.shortcut_Dimension_9Field = value;
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime Posting_Date {
+            get {
+                return this.posting_DateField;
+            }
+            set {
+                this.posting_DateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Posting_DateSpecified {
+            get {
+                return this.posting_DateFieldSpecified;
+            }
+            set {
+                this.posting_DateFieldSpecified = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1072,6 +1098,9 @@ namespace WebServices.StudentFeeCollectionCardReference {
         
         /// <remarks/>
         Shortcut_Dimension_9,
+        
+        /// <remarks/>
+        Posting_Date,
     }
     
     /// <remarks/>

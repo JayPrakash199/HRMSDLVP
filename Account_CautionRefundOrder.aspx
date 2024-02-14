@@ -193,9 +193,7 @@
         };
 
         $(document).ready(function () {
-            debugger;
             $('.selectall').on('click', function () {
-                debugger;
                 if (this.checked) {
                     $('.selectone').each(function () {
                         this.checked = true;

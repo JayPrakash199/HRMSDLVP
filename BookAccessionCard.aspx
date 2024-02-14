@@ -188,7 +188,6 @@
         function preventPostBack(event) {
          
             if (event.keyCode === 13 ) {
-                debugger;
                 event.preventDefault();
                 return false;
             }

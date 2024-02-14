@@ -15,71 +15,85 @@ namespace HRMS
         {
             if (!IsPostBack)
             {
+                if (string.IsNullOrEmpty(Session["SessionCompanyName"] as string))
+                {
+                    string message = string.Format("Message: {0}\\n\\n", "Please select a company");
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
+                    Response.Redirect("Default.aspx");
+                    txtPostingDate.Text = System.DateTime.Now.ToString();
+                }
                 BindFianacialYear();
             }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
-            if (lstUserRole != null)
+            if (!((Fee)this.Master).IsPageRefresh)
             {
-                var role = lstUserRole.FirstOrDefault(x =>
-                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Page_Name.Trim(), "Caution Refund Order Card", StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
-
-                if (role == null || Convert.ToBoolean(role.Insert))
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
                 {
-                    try
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Caution Refund Order Card", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                    if (role == null || Convert.ToBoolean(role.Insert))
                     {
-                        if (ddlPaymentMethod.SelectedValue.ToLower() == "bank")
+                        try
                         {
-                            if (ddlAccountNo.SelectedValue == "0")
+                            if (ddlPaymentMethod.SelectedValue.ToLower() == "bank")
                             {
-                                Alert.ShowAlert(this, "e", "Please select a Bank account no");
-                                return;
+                                if (ddlAccountNo.SelectedValue == "0")
+                                {
+                                    Alert.ShowAlert(this, "e", "Please select a Bank account no");
+                                    return;
+                                }
                             }
-                        }
-                        if (ddlPaymentMethod.SelectedValue.ToLower() == "cash")
-                        {
-                            if (ddlAccountNo.SelectedValue == "0")
+                            if (ddlPaymentMethod.SelectedValue.ToLower() == "cash")
                             {
-                                Alert.ShowAlert(this, "e", "Please select a account No");
-                                return;
+                                if (ddlAccountNo.SelectedValue == "0")
+                                {
+                                    Alert.ShowAlert(this, "e", "Please select a account No");
+                                    return;
+                                }
                             }
+
+                            var obj = new WebServices.CautionRefundOrderReference.CautionRefundOrder
+                            {
+                                Cheque_DateSpecified = true,
+                                Payment_MethodSpecified = true,
+                                Posting_DateSpecified = true,
+
+                                Academic_Year = ddlAcademicYear.SelectedItem.Text,
+                                Posting_Date = DateTimeParser.ParseDateTime(txtPostingDate.Text),
+                                Payment_Method = ddlPaymentMethod.SelectedValue == "Bank" ? WebServices.CautionRefundOrderReference.Payment_Method.Bank : WebServices.CautionRefundOrderReference.Payment_Method.Cash,
+                                Account_No = ddlAccountNo.SelectedValue,
+                                Chaque_No = txtChequeNo.Text,
+                                Cheque_Date = DateTimeParser.ParseDateTime(txtChequeDate.Text),
+                                External_Document_No = txtExternalDocumentNo.Text,
+                                Naration = txtNaration.Text
+                            };
+
+                            SOAPServices.AddCautionRefundOrder(obj, Session["SessionCompanyName"] as string);
+                            ClearControl();
+                            Alert.ShowAlert(this, "s", "Record added successfully.");
                         }
-
-                        var obj = new WebServices.CautionRefundOrderReference.CautionRefundOrder
+                        catch (Exception ex)
                         {
-                            Cheque_DateSpecified = true,
-                            Payment_MethodSpecified = true,
-                            Posting_DateSpecified = true,
-
-                            Academic_Year = ddlAcademicYear.SelectedItem.Text,
-                            Posting_Date = DateTimeParser.ParseDateTime(txtPostingDate.Text),
-                            Payment_Method = ddlPaymentMethod.SelectedValue == "Bank" ? WebServices.CautionRefundOrderReference.Payment_Method.Bank : WebServices.CautionRefundOrderReference.Payment_Method.Cash,
-                            Account_No = ddlAccountNo.SelectedValue,
-                            Chaque_No = txtChequeNo.Text,
-                            Cheque_Date = DateTimeParser.ParseDateTime(txtChequeDate.Text),
-                            External_Document_No = txtExternalDocumentNo.Text,
-                            Naration = txtNaration.Text
-                        };
-
-                        SOAPServices.AddCautionRefundOrder(obj, Session["SessionCompanyName"] as string);
-                        ClearControl();
-                        Alert.ShowAlert(this, "s", "Record added successfully.");
+                            Alert.ShowAlert(this, "e", "Exception occured :" + ex.Message);
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        Alert.ShowAlert(this, "e", "Exception occured :" + ex.Message);
+                        Alert.ShowAlert(this, "W", "You do not have permission to Submit the content. Kindly contact the system administrator.");
+
                     }
                 }
-                else
-                {
-                    Alert.ShowAlert(this, "W", "You do not have permission to Submit the content. Kindly contact the system administrator.");
-                 
-                }
+            }
+            else
+            {
+                ClearControl();
             }
         }
         private void ClearControl()

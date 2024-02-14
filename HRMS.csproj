@@ -540,6 +540,7 @@
     <Content Include="assets\vendor\js\academic-chart.js" />
     <Content Include="assets\vendor\js\bootstrap-multiselect.js" />
     <Content Include="assets\vendor\js\bootstrap.min.js" />
+    <Content Include="assets\vendor\js\calendarscript.js" />
     <Content Include="assets\vendor\js\chart.js" />
     <Content Include="assets\vendor\js\docs.min.js" />
     <Content Include="assets\vendor\js\FinanceDashboard.js" />
@@ -707,6 +708,7 @@
     <Content Include="Login.Master" />
     <Content Include="AccountManagement.Master" />
     <None Include="GeneralLandBuildingCard.wsdl" />
+    <Content Include="JsonResponse.ashx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -812,6 +814,7 @@
     <Content Include="Site.Master" />
     <Content Include="StaffProfile.aspx" />
     <Content Include="StaffProfileList.aspx" />
+    <Content Include="Timetable.aspx" />
     <Content Include="TrainingHistory.aspx" />
     <Content Include="TransferAccount.aspx" />
     <Content Include="TransferAccountCard.aspx" />
@@ -1085,7 +1088,9 @@
     <Compile Include="DisciplinaryCaseList.aspx.designer.cs">
       <DependentUpon>DisciplinaryCaseList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dto\CalendarEvent.cs" />
     <Compile Include="Dto\LicenesingModel.cs" />
+    <Compile Include="Dto\TimetableModel.cs" />
     <Compile Include="Dto\UserDto.cs" />
     <Compile Include="EditEmployee.aspx.cs">
       <DependentUpon>EditEmployee.aspx</DependentUpon>
@@ -1419,6 +1424,9 @@
     <Compile Include="ItemJournalBook.aspx.designer.cs">
       <DependentUpon>ItemJournalBook.aspx</DependentUpon>
     </Compile>
+    <Compile Include="JsonResponse.ashx.cs">
+      <DependentUpon>JsonResponse.ashx</DependentUpon>
+    </Compile>
     <Compile Include="LibraryManagement.Master.cs">
       <DependentUpon>LibraryManagement.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1537,6 +1545,13 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="SLCM.Master.cs">
+      <DependentUpon>SLCM.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SLCM.Master.designer.cs">
+      <DependentUpon>SLCM.Master</DependentUpon>
+    </Compile>
     <Compile Include="StaffProfile.aspx.cs">
       <DependentUpon>StaffProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1550,6 +1565,13 @@
     </Compile>
     <Compile Include="StaffProfileList.aspx.designer.cs">
       <DependentUpon>StaffProfileList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Timetable.aspx.cs">
+      <DependentUpon>Timetable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Timetable.aspx.designer.cs">
+      <DependentUpon>Timetable.aspx</DependentUpon>
     </Compile>
     <Compile Include="TrainingHistory.aspx.cs">
       <DependentUpon>TrainingHistory.aspx</DependentUpon>
@@ -1640,6 +1662,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="UserRegistration.Master" />
+    <Content Include="SLCM.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

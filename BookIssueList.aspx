@@ -230,7 +230,6 @@
             HideLoader();
         }
         function IssueBook() {
-            debugger;
             showLoader();
             var UserType = $("#ContentPlaceHolder1_ddlmdUserType option:selected").text();
             var No = $("#ContentPlaceHolder1_ddlNo option:selected").text();
@@ -263,7 +262,6 @@
             });
         }
         function OnSuccessIssueBook(data) {
-            debugger;
             var BookIssueList = data.d;
             var row = $("[id*=tblBook] tr:last-child").clone(true);
             $("[id*=tblBook] tr").not($("[id*=tblBook] tr:first-child")).remove();
@@ -312,7 +310,6 @@
             });
         }
         function OnSuccessLoadListView(data) {
-            debugger;
             var BookIssueList = data.d;
             var row = $("[id*=tblBook] tr:last-child").clone(true);
             $("[id*=tblBook] tr").not($("[id*=tblBook] tr:first-child")).remove();

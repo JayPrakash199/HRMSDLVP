@@ -169,7 +169,7 @@
                                                                 <asp:Label ID="Label1" runat="server" Text='<%# Eval("Transcation_No")%>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="Label2" runat="server" Text='<%# DateTime.Parse(Eval("Transcation_Date").ToString()).ToString("d") %>'> </asp:Label>
+                                                                <asp:Label ID="Label2" runat="server" Text='<%# DateTime.Parse(Eval("Transcation_Date").ToString()).ToString("d")=="01-01-0001"?"":DateTime.Parse(Eval("Transcation_Date").ToString()).ToString("d") %>'> </asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount")%>'> </asp:Label>

@@ -1131,11 +1131,11 @@ fieldset.custom-fieldset {
 }
 
 .table-responsive tbody tr:nth-child(odd) {
-    background: rgba(248, 248, 248, 0.75);
+    background: azure;
 }
 
 .table-responsive tbody tr:nth-child(even) {
-    background: rgba(224, 224, 224, 0.73);
+    background: #a8ffd361
 }
 
 .tal {

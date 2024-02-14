@@ -188,7 +188,7 @@
                                                                 <asp:Label ID="Label12" runat="server" Text='<%# Eval("Cheque_No_DD")%>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="Label13" runat="server" Text='<%# DateTime.Parse(Eval("Cheque_Date").ToString()).ToString("d") %>'> </asp:Label>
+                                                                <asp:Label ID="Label13" runat="server" Text='<%# DateTime.Parse(Eval("Cheque_Date").ToString()).ToString("d")=="01-01-0001"?"":DateTime.Parse(Eval("Cheque_Date").ToString()).ToString("d") %>'> </asp:Label>
 
                                                             </td>
                                                             <td>

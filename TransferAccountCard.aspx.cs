@@ -209,23 +209,30 @@ namespace HRMS
 
         protected void btnPostTransferAccount_Click(object sender, EventArgs e)
         {
-            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
-            if (lstUserRole != null)
+            if (!((Fee)this.Master).IsPageRefresh)
             {
-                var role = lstUserRole.FirstOrDefault(x =>
-                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Page_Name.Trim(), "Transfer Account", StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
-
-                if (role == null || Convert.ToBoolean(role.Insert))
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
                 {
-                    PostTransferAccount();
-                }
-                else
-                {
-                    Alert.ShowAlert(this, "W", "You do not have permission to access the content. Kindly contact the system administrator.");
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Transfer Account", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
 
-                }
+                    if (role == null || Convert.ToBoolean(role.Insert))
+                    {
+                        PostTransferAccount();
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to access the content. Kindly contact the system administrator.");
+
+                    }
+                } 
+            }
+            else
+            {
+                ClearControls();
             }
         }
         private void PostTransferAccount()

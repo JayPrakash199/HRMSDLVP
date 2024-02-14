@@ -77,62 +77,71 @@ namespace HRMS
         protected void btnExport_Click(object sender, EventArgs e)
         {
 
-            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
-
-            if (lstUserRole != null)
+            if (!((Fee)this.Master).IsPageRefresh)
             {
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
 
-                var role = lstUserRole.FirstOrDefault(x =>
-                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                    string.Equals(x.Page_Name.Trim(), "Fee Generation", StringComparison.OrdinalIgnoreCase) &&
-                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
-
-
-                if (role == null || Convert.ToBoolean(role.Read))
+                if (lstUserRole != null)
                 {
 
-                    if (ddlacademicYear.SelectedValue == "0")
+                    var role = lstUserRole.FirstOrDefault(x =>
+                        string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(x.Page_Name.Trim(), "Fee Generation", StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+
+                    if (role == null || Convert.ToBoolean(role.Read))
                     {
-                        Alert.ShowAlert(this, "e", "Select a Academic year");
-                        return;
-                    }
 
-                    if (ddlSemester.SelectedValue == "0" &&
-                        ddlFeeClassification.SelectedValue == "0" &&
-                        ddlCourseCode.SelectedValue == "0")
-                    {
-                        Alert.ShowAlert(this, "e", "Please select Semester or Fee Classification or Course)");
-                        return;
-                    }
+                        if (ddlacademicYear.SelectedValue == "0")
+                        {
+                            Alert.ShowAlert(this, "e", "Select a Academic year");
+                            return;
+                        }
 
+                        if (ddlSemester.SelectedValue == "0" &&
+                            ddlFeeClassification.SelectedValue == "0" &&
+                            ddlCourseCode.SelectedValue == "0")
+                        {
+                            Alert.ShowAlert(this, "e", "Please select Semester or Fee Classification or Course)");
+                            return;
+                        }
 
-                    var returnVal = SOAPServices.GetFeeGeneration(
-                        Request.Form[ddlacademicYear.UniqueID],
-                        ddlSemester.SelectedValue,
-                        ddlFeeClassification.SelectedValue,
-                        ddlCourseCode.SelectedValue,
-                        ddlStudentNo.SelectedValue == "0" ? "" : ddlStudentNo.SelectedValue,
-                        Session["SessionCompanyName"] as string);
+                        var returnVal = "";
+                        if (!string.IsNullOrEmpty(Request.Form[ddlacademicYear.UniqueID]) &&
+                        !string.IsNullOrEmpty(ddlSemester.SelectedValue) &&
+                        !string.IsNullOrEmpty(ddlFeeClassification.SelectedValue) &&
+                            !string.IsNullOrEmpty(ddlCourseCode.SelectedValue) &&
+                            !string.IsNullOrEmpty(ddlStudentNo.SelectedValue))
+                        {
+                            returnVal = SOAPServices.GetFeeGeneration(
+                            Request.Form[ddlacademicYear.UniqueID],
+                            ddlSemester.SelectedValue,
+                            ddlFeeClassification.SelectedValue,
+                            ddlCourseCode.SelectedValue,
+                            ddlStudentNo.SelectedValue == "0" ? "" : ddlStudentNo.SelectedValue,
+                            Session["SessionCompanyName"] as string);
 
-
-                    if (string.IsNullOrEmpty(returnVal))
-                    {
-                        ClearControl();
-                        Alert.ShowAlert(this, "s", "Fee generation completed.");
+                        }
+                        if (string.IsNullOrEmpty(returnVal))
+                        {
+                            ClearControl();
+                            Alert.ShowAlert(this, "s", "Fee generation completed.");
+                        }
+                        else
+                        {
+                            Alert.ShowAlert(this, "e", returnVal);
+                        }
                     }
                     else
                     {
-                        Alert.ShowAlert(this, "e", returnVal);
+                        Alert.ShowAlert(this, "W", "You do not have permission to access Fee Generation. Kindly contact the system administrator.");
                     }
-                }
-                else
-                {
-                    Alert.ShowAlert(this, "W", "You do not have permission to access Fee Generation. Kindly contact the system administrator.");
                 }
             }
             else
             {
-                Alert.ShowAlert(this, "W", "User authorization list is not available. Kindly contact the system administrator.");
+                ClearControl();
             }
         }
 
