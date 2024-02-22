@@ -106,13 +106,16 @@ namespace HRMS
 
         protected void btnPostToJournal_Click(object sender, EventArgs e)
         {
-            string returnVal = SOAPServices.PostToJournal(lblRefundOrderSerialNo.Text, Session["SessionCompanyName"] as string);
-            if (!string.IsNullOrEmpty(returnVal))
+            if (!((Fee)this.Master).IsPageRefresh)
             {
-                Alert.ShowAlert(this, "e", returnVal);
+                string returnVal = SOAPServices.PostToJournal(lblRefundOrderSerialNo.Text, Session["SessionCompanyName"] as string);
+                if (!string.IsNullOrEmpty(returnVal))
+                {
+                    Alert.ShowAlert(this, "e", returnVal);
+                }
+                else
+                    Alert.ShowAlert(this, "s", "Posted successfully.");
             }
-            else
-                Alert.ShowAlert(this, "s", "Posted successfully.");
         }
 
         protected void btnPostedCautionMoneyReport_Click(object sender, EventArgs e)

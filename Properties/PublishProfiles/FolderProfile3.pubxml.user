@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\SProject\Publish DLVP</_PublishTargetUrl>
-    <History>True|2024-02-14T11:17:38.8658465Z;True|2024-01-29T13:12:51.2392555+05:30;True|2024-01-11T22:05:19.5263842+05:30;True|2024-01-02T20:33:16.0405055+05:30;True|2023-12-20T15:16:37.1841528+05:30;True|2023-12-19T15:15:39.3948013+05:30;True|2023-12-11T21:24:12.6237504+05:30;True|2023-12-11T15:07:06.6829457+05:30;True|2023-12-05T16:42:15.4697443+05:30;True|2023-09-12T12:25:17.8051144+05:30;True|2023-09-09T10:26:31.8468802+05:30;</History>
+    <History>True|2024-02-16T11:11:12.4117869Z;True|2024-02-14T16:47:38.8658465+05:30;True|2024-01-29T13:12:51.2392555+05:30;True|2024-01-11T22:05:19.5263842+05:30;True|2024-01-02T20:33:16.0405055+05:30;True|2023-12-20T15:16:37.1841528+05:30;True|2023-12-19T15:15:39.3948013+05:30;True|2023-12-11T21:24:12.6237504+05:30;True|2023-12-11T15:07:06.6829457+05:30;True|2023-12-05T16:42:15.4697443+05:30;True|2023-09-12T12:25:17.8051144+05:30;True|2023-09-09T10:26:31.8468802+05:30;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -25,7 +25,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/14/2024 12:52:42</publishTime>
     </File>
     <File Include="Account_RefundOrderCard.aspx">
-      <publishTime>01/23/2024 15:37:21</publishTime>
+      <publishTime>02/17/2024 13:14:58</publishTime>
     </File>
     <File Include="AdditionalEmployeeDetails.aspx">
       <publishTime>01/23/2024 16:06:19</publishTime>
@@ -1429,10 +1429,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/22/2019 20:54:22</publishTime>
     </File>
     <File Include="bin/HRMS.dll">
-      <publishTime>02/14/2024 16:47:34</publishTime>
+      <publishTime>02/20/2024 16:24:16</publishTime>
     </File>
     <File Include="bin/HRMS.pdb">
-      <publishTime>02/14/2024 16:47:34</publishTime>
+      <publishTime>02/20/2024 16:24:16</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>07/30/2013 22:27:30</publishTime>
@@ -1558,16 +1558,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/23/2014 19:27:34</publishTime>
     </File>
     <File Include="bin/WebServices.dll">
-      <publishTime>02/14/2024 16:47:27</publishTime>
+      <publishTime>02/16/2024 16:41:01</publishTime>
     </File>
     <File Include="bin/WebServices.dll.config">
       <publishTime>09/08/2023 15:07:29</publishTime>
     </File>
     <File Include="bin/WebServices.pdb">
-      <publishTime>02/14/2024 16:47:27</publishTime>
+      <publishTime>02/16/2024 16:41:01</publishTime>
     </File>
     <File Include="bin/WebServices.XmlSerializers.dll">
-      <publishTime>02/14/2024 16:47:32</publishTime>
+      <publishTime>02/16/2024 16:41:06</publishTime>
     </File>
     <File Include="BookAccessionCard.aspx">
       <publishTime>02/14/2024 12:41:39</publishTime>
@@ -1699,7 +1699,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/23/2024 15:47:26</publishTime>
     </File>
     <File Include="Fee-GeneralPayment.aspx">
-      <publishTime>01/23/2024 15:47:34</publishTime>
+      <publishTime>02/16/2024 19:35:39</publishTime>
     </File>
     <File Include="Fee-GeneralPaymentList.aspx">
       <publishTime>02/14/2024 11:29:01</publishTime>
@@ -1711,7 +1711,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/14/2024 11:32:33</publishTime>
     </File>
     <File Include="Fee-StudentFeeCollectionCard.aspx">
-      <publishTime>02/14/2024 11:35:33</publishTime>
+      <publishTime>02/19/2024 10:00:42</publishTime>
     </File>
     <File Include="Fee.Master">
       <publishTime>01/03/2024 13:30:01</publishTime>
@@ -1729,7 +1729,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/23/2024 15:42:27</publishTime>
     </File>
     <File Include="FeeGeneration.aspx">
-      <publishTime>01/23/2024 15:42:37</publishTime>
+      <publishTime>02/17/2024 13:13:17</publishTime>
     </File>
     <File Include="FinancialUpgradation.aspx">
       <publishTime>01/23/2024 15:42:44</publishTime>
@@ -2257,7 +2257,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/14/2024 11:45:09</publishTime>
     </File>
     <File Include="TransferAccountCard.aspx">
-      <publishTime>01/23/2024 15:46:55</publishTime>
+      <publishTime>02/20/2024 11:18:19</publishTime>
     </File>
     <File Include="TransferAndPromotionManagement.aspx">
       <publishTime>01/23/2024 16:01:47</publishTime>

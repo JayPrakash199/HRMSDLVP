@@ -51,6 +51,7 @@ namespace HRMS
                 BindCustomerList();
                 divCustomerNo.Visible = true;
                 divEmployeeNo.Visible = false;
+                divfunding.Visible = false;
             }
             if (ddlType.SelectedValue == "InternalTransfer")
             {
@@ -58,6 +59,7 @@ namespace HRMS
                 BindCustomerList();
                 divCustomerNo.Visible = true;
                 divEmployeeNo.Visible = false;
+                divfunding.Visible = false;
             }
             if (ddlType.SelectedValue == "AdvancePayment")
             {
@@ -65,6 +67,7 @@ namespace HRMS
                 BindCustomerList();
                 divCustomerNo.Visible = true;
                 divEmployeeNo.Visible = false;
+                divfunding.Visible = false;
             }
             if (ddlType.SelectedValue == "OtherIncome")
             {
@@ -72,6 +75,8 @@ namespace HRMS
                 divGLNo.Visible = true;
                 divCustomerNo.Visible = false;
                 divEmployeeNo.Visible = false;
+                divfunding.Visible = true;
+                divEmpCode.Visible = false;
                 GetCashAccounts();
                 ShowDimentation();
             }
@@ -81,6 +86,8 @@ namespace HRMS
                 divGLNo.Visible = false;
                 divCustomerNo.Visible = false;
                 divEmployeeNo.Visible = true;
+                divfunding.Visible = false;
+                divEmpCode.Visible=true;
                 BindEmployee();
                 ShowDimentation();
             }
@@ -91,7 +98,7 @@ namespace HRMS
             var dimensionList = ODataServices.GetDimentionList(Session["SessionCompanyName"] as string);
             BindInstitute(dimensionList);
             BindDepartment(dimensionList);
-            BindSLCMNO(dimensionList);
+           // BindSLCMNO(dimensionList);
             BindEmployee(dimensionList);
             BindFundingSOurce(dimensionList);
         }
@@ -151,24 +158,24 @@ namespace HRMS
             ddlEmployeeCode.Items.Insert(0, new ListItem("Select Employee", "0"));
         }
 
-        private void BindSLCMNO(IList<DimValueList> dimensionList)
-        {
-            var slcmnoList = dimensionList.Where(x => string.Equals("SLCMNO", x.Dimension_Code, StringComparison.OrdinalIgnoreCase)).ToList();
-            var lstslcmno = new List<Dimension>();
-            foreach (var dc in slcmnoList)
-            {
-                lstslcmno.Add(new HRMS.Dimension
-                {
-                    Code = dc.Code,
-                    Name = dc.Name
-                });
-            }
-            ddlSlcmnoCode.DataSource = lstslcmno;
-            ddlSlcmnoCode.DataTextField = "Code";
-            ddlSlcmnoCode.DataValueField = "Name";
-            ddlSlcmnoCode.DataBind();
-            ddlSlcmnoCode.Items.Insert(0, new ListItem("Select Slcmno", "0"));
-        }
+        //private void BindSLCMNO(IList<DimValueList> dimensionList)
+        //{
+        //    var slcmnoList = dimensionList.Where(x => string.Equals("SLCMNO", x.Dimension_Code, StringComparison.OrdinalIgnoreCase)).ToList();
+        //    var lstslcmno = new List<Dimension>();
+        //    foreach (var dc in slcmnoList)
+        //    {
+        //        lstslcmno.Add(new HRMS.Dimension
+        //        {
+        //            Code = dc.Code,
+        //            Name = dc.Name
+        //        });
+        //    }
+        //    ddlSlcmnoCode.DataSource = lstslcmno;
+        //    ddlSlcmnoCode.DataTextField = "Code";
+        //    ddlSlcmnoCode.DataValueField = "Name";
+        //    ddlSlcmnoCode.DataBind();
+        //    ddlSlcmnoCode.Items.Insert(0, new ListItem("Select Slcmno", "0"));
+        //}
 
         private void BindDepartment(IList<DimValueList> dimensionList)
         {
@@ -303,7 +310,7 @@ namespace HRMS
                             Payment_Type_Collection_MethodSpecified = true,
                             Cheque_DateSpecified = true,
                             //  Date__TimeSpecified = true,
-                            //  Posting_DateSpecified       = true, 
+                              Posting_DateSpecified       = true, 
                             StatusSpecified = true,
 
                             Type = ddlType.SelectedValue == "StudentFee" ? WebServices.StudentFeeCollectionCardReference.Type.Student_Fee
@@ -392,8 +399,8 @@ namespace HRMS
                 ddlInstiuteCode.Items.FindByValue("0").Selected = true;
                 ddlDepartmentCode.ClearSelection();
                 ddlDepartmentCode.Items.FindByValue("0").Selected = true;
-                ddlSlcmnoCode.ClearSelection();
-                ddlSlcmnoCode.Items.FindByValue("0").Selected = true;
+                //ddlSlcmnoCode.ClearSelection();
+                //ddlSlcmnoCode.Items.FindByValue("0").Selected = true;
                 ddlFundingsourceCode.ClearSelection();
                 ddlFundingsourceCode.Items.FindByValue("0").Selected = true;
             }
@@ -403,8 +410,8 @@ namespace HRMS
                 ddlInstiuteCode.Items.FindByValue("0").Selected = true;
                 ddlDepartmentCode.ClearSelection();
                 ddlDepartmentCode.Items.FindByValue("0").Selected = true;
-                ddlSlcmnoCode.ClearSelection();
-                ddlSlcmnoCode.Items.FindByValue("0").Selected = true;
+                //ddlSlcmnoCode.ClearSelection();
+                //ddlSlcmnoCode.Items.FindByValue("0").Selected = true;
                 ddlEmployeeNo.ClearSelection();
                 ddlEmployeeNo.Items.FindByValue("0").Selected = true;
                 ddlFundingsourceCode.ClearSelection();

@@ -28,7 +28,7 @@
         }
 
         .row.md-12.marginx {
-            margin: 69px;
+            margin: 4%;
             padding-bottom: 36px;
         }
 
@@ -220,7 +220,7 @@
                                                         <asp:ListItem>Employee</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-2" style="position: relative; margin-top: 6px">
                                                     <asp:RequiredFieldValidator ID="reqType" ControlToValidate="ddlType" InitialValue="Select" ValidationGroup="Payment"
                                                         runat="server" Font-Bold="true" ForeColor="Red" Font-Size="Larger" ErrorMessage="*"></asp:RequiredFieldValidator>
                                                 </div>
@@ -236,7 +236,7 @@
                                                     <asp:DropDownList ID="ddlVendorNo" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-2" style="position: relative; margin-top: 6px">
                                                     <asp:RequiredFieldValidator ID="rqVendorNo" ControlToValidate="ddlVendorNo" InitialValue="0" ValidationGroup="Payment"
                                                         runat="server" Font-Bold="true" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
                                                 </div>
@@ -255,7 +255,7 @@
                                                     <asp:DropDownList ID="ddlEmployeeNo" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-2" style="position: relative; margin-top: 6px">
                                                     <asp:RequiredFieldValidator ID="rqEmpNo" ControlToValidate="ddlEmployeeNo" InitialValue="0" ValidationGroup="Payment"
                                                         runat="server" Font-Bold="true" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
                                                 </div>
@@ -273,7 +273,7 @@
                                                 <div class="col-sm-12">
                                                     <label>Status</label>
                                                 </div>
-                                                <div class="col-sm-12">
+                                                <div class="col-sm-10">
                                                     <asp:DropDownList ID="ddlStatus" CssClass="form-control" runat="server">
                                                         <asp:ListItem Selected="True">Open</asp:ListItem>
                                                         <asp:ListItem>Released</asp:ListItem>
@@ -286,7 +286,7 @@
                                                 <div class="col-sm-12">
                                                     <label>Transaction No</label>
                                                 </div>
-                                                <div class="col-sm-12">
+                                                <div class="col-sm-10">
                                                     <asp:TextBox ID="txtCheque_No_DD" ReadOnly="True" CssClass="form-control inputreadonly" runat="server"></asp:TextBox>
                                                 </div>
                                             </div>
@@ -295,7 +295,7 @@
                                                 <div class="col-sm-12">
                                                     <label>Transaction Date</label>
                                                 </div>
-                                                <div class="col-sm-12">
+                                                <div class="col-sm-10">
                                                     <asp:TextBox ID="txtCheque_Date" ReadOnly="True" type="date" CssClass="form-control inputreadonly" runat="server"></asp:TextBox>
                                                 </div>
                                             </div>
@@ -312,7 +312,7 @@
                                                         <asp:ListItem>BANK</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-2" style="position: relative; margin-top: 6px">
                                                     <asp:RequiredFieldValidator ID="rdStatus" ClientIDMode="Static" ControlToValidate="ddlPaymentMethod" InitialValue="Select" ValidationGroup="Payment"
                                                         runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
                                                 </div>
@@ -325,7 +325,7 @@
                                                     <asp:DropDownList ID="ddlBank_AccountNo" ValidationGroup="Payment" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-2" style="position: relative; margin-top: 6px">
                                                     <asp:RequiredFieldValidator ID="rdBankAcNo" ClientIDMode="Static" ControlToValidate="ddlBank_AccountNo" InitialValue="0" ValidationGroup="Payment"
                                                         runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
                                                 </div>
@@ -338,7 +338,7 @@
                                                     <asp:DropDownList ID="ddlCashAccountNo" ValidationGroup="Payment" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-2" style="position: relative; margin-top: 6px">
                                                     <asp:RequiredFieldValidator ID="rqCashAccount" ClientIDMode="Static" ControlToValidate="ddlCashAccountNo" InitialValue="0" ValidationGroup="Payment"
                                                         runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
                                                 </div>
@@ -350,7 +350,7 @@
                                                 <div class="col-sm-10">
                                                     <asp:TextBox ID="txtExternal_Document_No" CssClass="form-control" ValidationGroup="Payment" runat="server"></asp:TextBox>
                                                 </div>
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-2" style="position: relative; margin-top: 6px">
                                                     <asp:RequiredFieldValidator ID="rdExDocNo" ClientIDMode="Static" ControlToValidate="txtExternal_Document_No" ValidationGroup="Payment"
                                                         runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
                                                 </div>
@@ -362,7 +362,7 @@
                                                 <div class="col-sm-10">
                                                     <asp:TextBox ID="txtAmount" ValidationGroup="Payment" CssClass="form-control" runat="server"></asp:TextBox>
                                                 </div>
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-2" style="position: relative; margin-top: 6px">
                                                     <asp:RequiredFieldValidator ID="rdamount" ClientIDMode="Static" ControlToValidate="txtAmount" ValidationGroup="Payment"
                                                         runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
                                                 </div>
@@ -371,8 +371,12 @@
                                                 <div class="col-sm-12">
                                                     <label>Narration</label>
                                                 </div>
-                                                <div class="col-sm-12">
+                                                <div class="col-sm-10">
                                                     <asp:TextBox ID="txtNarration" CssClass="form-control" runat="server"></asp:TextBox>
+                                                </div>
+                                                 <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                    <asp:RequiredFieldValidator ID="rdnarration" ClientIDMode="Static" ControlToValidate="txtNarration" ValidationGroup="Payment"
+                                                        runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <%--<div class="form-group">

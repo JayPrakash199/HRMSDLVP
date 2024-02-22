@@ -48,34 +48,37 @@ namespace HRMS
         }
         protected void btnPost_Click(object sender, EventArgs e)
         {
-            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
-            if (lstUserRole != null)
+            if (!((Fee)this.Master).IsPageRefresh)
             {
-                var role = lstUserRole.FirstOrDefault(x =>
-                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Page_Name.Trim(), "Fee General Payment List", StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
-
-                if (role == null || Convert.ToBoolean(role.Insert))
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
                 {
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Fee General Payment List", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
 
-                    LinkButton btn = sender as LinkButton;
-                    ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
-                    Label entryNo = item.FindControl("lblEntryNo") as Label;
-                    string returnVal = SOAPServices.PostingGeneralPayment(entryNo.Text, Session["SessionCompanyName"] as string);
-                    if (string.IsNullOrEmpty(returnVal))
+                    if (role == null || Convert.ToBoolean(role.Insert))
                     {
-                        BindListView();
-                        Alert.ShowAlert(this, "s", "Posted successfully.");
+
+                        LinkButton btn = sender as LinkButton;
+                        ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                        Label entryNo = item.FindControl("lblEntryNo") as Label;
+                        string returnVal = SOAPServices.PostingGeneralPayment(entryNo.Text, Session["SessionCompanyName"] as string);
+                        if (string.IsNullOrEmpty(returnVal))
+                        {
+                            BindListView();
+                            Alert.ShowAlert(this, "s", "Posted successfully.");
+                        }
+                        else
+                            Alert.ShowAlert(this, "e", returnVal);
                     }
                     else
-                        Alert.ShowAlert(this, "e", returnVal);
-                }
-                else
-                {
-                    Alert.ShowAlert(this, "W", "You do not have permission to post the content. Kindly contact the system administrator.");
-                    
-                }
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to post the content. Kindly contact the system administrator.");
+
+                    }
+                } 
             }
         }
     }

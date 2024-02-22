@@ -24,6 +24,15 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.DropDownList ddlType;
 
         /// <summary>
+        /// rdType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rdType;
+
+        /// <summary>
         /// divCustomerNo control.
         /// </summary>
         /// <remarks>
@@ -42,6 +51,15 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.DropDownList ddlCustomerNo;
 
         /// <summary>
+        /// rdStudentNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rdStudentNo;
+
+        /// <summary>
         /// divEmployeeNo control.
         /// </summary>
         /// <remarks>
@@ -58,6 +76,15 @@ namespace HRMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEmployeeNo;
+
+        /// <summary>
+        /// rdEmpNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rdEmpNo;
 
         /// <summary>
         /// divExDocNo control.
@@ -96,6 +123,15 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.TextBox txtNarration;
 
         /// <summary>
+        /// rdNaration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rdNaration;
+
+        /// <summary>
         /// txtPostingDate control.
         /// </summary>
         /// <remarks>
@@ -103,6 +139,15 @@ namespace HRMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPostingDate;
+
+        /// <summary>
+        /// rdPostingdte control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rdPostingdte;
 
         /// <summary>
         /// txtAmount control.
@@ -114,6 +159,15 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.TextBox txtAmount;
 
         /// <summary>
+        /// rfAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfAmount;
+
+        /// <summary>
         /// ddlPaymentType control.
         /// </summary>
         /// <remarks>
@@ -121,6 +175,15 @@ namespace HRMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPaymentType;
+
+        /// <summary>
+        /// rdPaymentType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rdPaymentType;
 
         /// <summary>
         /// divGLNo control.
@@ -141,6 +204,15 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.DropDownList ddlGLNo;
 
         /// <summary>
+        /// rfGlNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfGlNo;
+
+        /// <summary>
         /// divCashGLAccount control.
         /// </summary>
         /// <remarks>
@@ -159,6 +231,15 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.DropDownList ddlCashGLAccountNo;
 
         /// <summary>
+        /// rdCashGl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rdCashGl;
+
+        /// <summary>
         /// divBankAccountNo control.
         /// </summary>
         /// <remarks>
@@ -175,6 +256,15 @@ namespace HRMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlBankAccountNo;
+
+        /// <summary>
+        /// rfbankAccNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfbankAccNo;
 
         /// <summary>
         /// divTranNo control.
@@ -231,6 +321,15 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.DropDownList ddlInstiuteCode;
 
         /// <summary>
+        /// rfInstituteCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfInstituteCode;
+
+        /// <summary>
         /// ddlDepartmentCode control.
         /// </summary>
         /// <remarks>
@@ -240,13 +339,22 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.DropDownList ddlDepartmentCode;
 
         /// <summary>
-        /// ddlSlcmnoCode control.
+        /// rfDepartment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSlcmnoCode;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfDepartment;
+
+        /// <summary>
+        /// divEmpCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divEmpCode;
 
         /// <summary>
         /// ddlEmployeeCode control.
@@ -258,6 +366,15 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.DropDownList ddlEmployeeCode;
 
         /// <summary>
+        /// divfunding control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divfunding;
+
+        /// <summary>
         /// ddlFundingsourceCode control.
         /// </summary>
         /// <remarks>
@@ -265,33 +382,6 @@ namespace HRMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFundingsourceCode;
-
-        /// <summary>
-        /// ddlShortcutDimension6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlShortcutDimension6;
-
-        /// <summary>
-        /// ddlShortcutDimension7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlShortcutDimension7;
-
-        /// <summary>
-        /// ddlShortcutDimension8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlShortcutDimension8;
 
         /// <summary>
         /// btnSubmit control.

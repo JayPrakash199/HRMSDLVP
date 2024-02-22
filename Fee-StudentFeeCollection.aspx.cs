@@ -34,7 +34,7 @@ namespace HRMS
                     else
                     {
                         Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
-                        
+
                     }
                 }
             }
@@ -48,36 +48,36 @@ namespace HRMS
 
         protected void btnPost_Click(object sender, EventArgs e)
         {
-
-            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
-            if (lstUserRole != null)
+            if (!((Fee)this.Master).IsPageRefresh)
             {
-                var role = lstUserRole.FirstOrDefault(x =>
-                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Page_Name.Trim(), "Student Fee Collection List", StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
-
-                if (role == null || Convert.ToBoolean(role.Insert))
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
                 {
-                    LinkButton btn = sender as LinkButton;
-                    ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
-                    Label entryNo = item.FindControl("lblEntryNo") as Label;
-                    string returnVaal = SOAPServices.PostingStudentFeeCollection(entryNo.Text, Session["SessionCompanyName"] as string);
-                    if (string.IsNullOrEmpty(returnVaal))
-                    {
-                        BindListView();
-                        Alert.ShowAlert(this, "s", "Posted successfully.");
-                    }
-                    else
-                        Alert.ShowAlert(this, "e", returnVaal);
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Student Fee Collection List", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
 
+                    if (role == null || Convert.ToBoolean(role.Insert))
+                    {
+                        LinkButton btn = sender as LinkButton;
+                        ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                        Label entryNo = item.FindControl("lblEntryNo") as Label;
+                        string returnVaal = SOAPServices.PostingStudentFeeCollection(entryNo.Text, Session["SessionCompanyName"] as string);
+                        if (string.IsNullOrEmpty(returnVaal))
+                        {
+                            BindListView();
+                            Alert.ShowAlert(this, "s", "Posted successfully.");
+                        }
+                        else
+                            Alert.ShowAlert(this, "e", returnVaal);
+                    }
+
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to post the content. Kindly contact the system administrator.");
+                    }
                 }
-            
-            else
-            {
-                Alert.ShowAlert(this, "W", "You do not have permission to post the content. Kindly contact the system administrator.");
-                
-            }
             }
         }
     }

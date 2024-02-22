@@ -28,7 +28,7 @@
         }
 
         .row.md-12.marginx {
-            margin: 5%;
+            margin: 4%;
         }
 
         i.fal.fa-plus-circle.full {
@@ -210,46 +210,86 @@
                                         <div class="col-md-6 contact-info">
                                             <div class="container">
                                                 <div class="form-group">
-                                                    <label for="exampleAccount">Select Academic Year</label>
-                                                    <asp:DropDownList ID="ddlacademicYear" CssClass="form-control" runat="server">
-                                                    </asp:DropDownList>
+                                                    <div class="col-sm-12">
+                                                        <label for="exampleAccount">Select Academic Year</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:DropDownList ID="ddlacademicYear" CssClass="form-control" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rqAcademicyear" ControlToValidate="ddlacademicYear" InitialValue="0" ValidationGroup="FeeGeneration"
+                                                            runat="server" Font-Bold="true" ForeColor="Red" Font-Size="Larger" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="exampleAccount">Select Semester</label>
-                                                    <asp:DropDownList ID="ddlSemester" CssClass="form-control" runat="server">
-                                                    </asp:DropDownList>
+                                                    <div class="col-sm-12">
+                                                        <label for="exampleAccount">Select Semester</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:DropDownList ID="ddlSemester" CssClass="form-control" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rqsemester" ControlToValidate="ddlSemester" InitialValue="0" ValidationGroup="FeeGeneration"
+                                                            runat="server" Font-Bold="true" ForeColor="Red" Font-Size="Larger" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="exampleAccount">Select Fee Classification</label>
-                                                    <asp:DropDownList ID="ddlFeeClassification" CssClass="form-control" runat="server">
-                                                    </asp:DropDownList>
+                                                    <div class="col-sm-12">
+                                                        <label for="exampleAccount">Select Fee Classification</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:DropDownList ID="ddlFeeClassification" CssClass="form-control" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rfFeeClasification" ControlToValidate="ddlFeeClassification" InitialValue="0" ValidationGroup="FeeGeneration"
+                                                            runat="server" Font-Bold="true" ForeColor="Red" Font-Size="Larger" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col-md-6 contact-info">
                                             <div class="form-group">
+                                                <div class="col-sm-12">
                                                     <label for="exampleAccount">Select Course</label>
+                                                </div>
+                                                <div class="col-sm-10">
                                                     <asp:DropDownList ID="ddlCourseCode" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                    <asp:RequiredFieldValidator ID="rqCourse" ControlToValidate="ddlCourseCode" InitialValue="0" ValidationGroup="FeeGeneration"
+                                                        runat="server" Font-Bold="true" ForeColor="Red" Font-Size="Larger" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
                                                     <label for="exampleAccount">Select Student</label>
+                                                </div>
+                                                <div class="col-sm-10">
                                                     <asp:DropDownList ID="ddlStudentNo" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>
+                                                <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                    <asp:RequiredFieldValidator ID="rfStudent" ControlToValidate="ddlStudentNo" InitialValue="0" ValidationGroup="FeeGeneration"
+                                                        runat="server" Font-Bold="true" ForeColor="Red" Font-Size="Larger" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                            </div>
-                            <div class="col-md-12" style="padding: 1%">
-                                <asp:Button ID="btnExport"  OnClick="btnExport_Click" runat="server" CssClass="btn-s float-right submit" Text="Generate Fees" />
-                            </div>
                         </div>
+
+                    </div>
+                    <div class="col-md-12" style="padding: 1%">
+                        <asp:Button ID="btnExport" OnClick="btnExport_Click" runat="server"  CssClass="btn-s float-right submit" Text="Generate Fees" />
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 </asp:Content>

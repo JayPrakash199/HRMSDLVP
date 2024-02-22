@@ -15,6 +15,11 @@
             border-top: none !important;
         }
 
+        .row.md-12.marginx {
+            margin: 4%;
+            padding-bottom: 36px;
+        }
+
         .container.box {
             margin-bottom: 26px;
         }
@@ -96,89 +101,189 @@
                                         <div class="col-md-6 contact-info">
                                             <div class="container">
                                                 <div class="form-group">
-                                                    <label for="exampleAccount">Type</label>
-                                                    <asp:DropDownList ID="ddlType" AutoPostBack="true" OnSelectedIndexChanged="ddlType_SelectedIndexChanged" CssClass="form-control" runat="server">
-                                                        <asp:ListItem>Select</asp:ListItem>
-                                                        <asp:ListItem Value="StudentFee">Student Fee</asp:ListItem>
-                                                        <asp:ListItem Value="OtherIncome">Other Income</asp:ListItem>
-                                                        <asp:ListItem Value="InternalTransfer">Internal Transfer</asp:ListItem>
-                                                        <asp:ListItem Value="AdvancePayment">Advance Payment</asp:ListItem>
-                                                        <asp:ListItem Value="StaffAdvanceRefund">Staff Advance Refund</asp:ListItem>
-                                                    </asp:DropDownList>
+                                                    <div class="col-sm-12">
+                                                        <label for="exampleAccount">Type</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:DropDownList ID="ddlType" AutoPostBack="true" OnSelectedIndexChanged="ddlType_SelectedIndexChanged" CssClass="form-control" runat="server">
+                                                            <asp:ListItem>Select</asp:ListItem>
+                                                            <asp:ListItem Value="StudentFee">Student Fee</asp:ListItem>
+                                                            <asp:ListItem Value="OtherIncome">Other Income</asp:ListItem>
+                                                            <asp:ListItem Value="InternalTransfer">Internal Transfer</asp:ListItem>
+                                                            <asp:ListItem Value="AdvancePayment">Advance Payment</asp:ListItem>
+                                                            <asp:ListItem Value="StaffAdvanceRefund">Staff Advance Refund</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rdType" ClientIDMode="Static" ControlToValidate="ddlType" InitialValue="Select" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>
+
                                                 </div>
                                                 <div class="form-group" runat="server" id="divCustomerNo">
-                                                    <label for="exampleAccount">Student No</label>
-                                                    <asp:DropDownList ID="ddlCustomerNo" CssClass="form-control" runat="server">
-                                                    </asp:DropDownList>
+                                                    <div class="col-sm-12">
+                                                        <label for="exampleAccount">Student No</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:DropDownList ID="ddlCustomerNo" CssClass="form-control" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rdStudentNo" ClientIDMode="Static" ControlToValidate="ddlCustomerNo" InitialValue="" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>
+
                                                 </div>
                                                 <div class="form-group" runat="server" id="divEmployeeNo" visible="false">
-                                                    <label for="exampleAccount">Employee No</label>
-                                                    <asp:DropDownList ID="ddlEmployeeNo" CssClass="form-control" runat="server">
-                                                    </asp:DropDownList>
+                                                    <div class="col-sm-12">
+                                                        <label for="exampleAccount">Employee No</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:DropDownList ID="ddlEmployeeNo" CssClass="form-control" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rdEmpNo" ClientIDMode="Static" ControlToValidate="ddlEmployeeNo" InitialValue="0" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>
+
                                                 </div>
-                                                <%-- <div class="form-group" runat="server" id="divFeeClassiifcationType" visible="false">
-                                                    <label for="exampleAccount">Fee Classification Type</label>
-                                                    <asp:DropDownList ID="ddlFeeClassSpecification" CssClass="form-control" runat="server">
-                                                    </asp:DropDownList>
-                                                </div>--%>
 
                                                 <div class="form-group" runat="server" id="divExDocNo">
-                                                    <label for="exampleAccount">Ext. Doc. No.</label>
-                                                    <asp:TextBox ID="txtExDocNo" CssClass="form-control" runat="server">
-                                                    </asp:TextBox>
+                                                    <div class="col-sm-12">
+                                                        <label for="exampleAccount">Ext. Doc. No.</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:TextBox ID="txtExDocNo" CssClass="form-control" runat="server">
+                                                        </asp:TextBox>
+                                                    </div>
+                                                    <%--<div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rdExternalDocNo" ClientIDMode="Static" ControlToValidate="txtExDocNo" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>--%>
+
                                                 </div>
                                                 <div class="form-group" runat="server" id="divNarration">
-                                                    <label for="exampleAccount">Narration</label>
-                                                    <asp:TextBox ID="txtNarration" CssClass="form-control" runat="server">
-                                                    </asp:TextBox>
+
+                                                    <div class="col-sm-12">
+                                                        <label for="exampleAccount">Narration</label>
+
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:TextBox ID="txtNarration" CssClass="form-control" runat="server">
+                                                        </asp:TextBox>
+                                                    </div>
+                                                    <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rdNaration" ClientIDMode="Static" ControlToValidate="txtNarration" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>
+
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Posting Date</label>
-                                                    <asp:TextBox ID="txtPostingDate" type="date" CssClass="form-control ajax__calendar_body" runat="server"></asp:TextBox>
+                                                    <div class="col-sm-12">
+                                                        <label>Posting Date</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:TextBox ID="txtPostingDate" type="date" CssClass="form-control ajax__calendar_body" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rdPostingdte" ClientIDMode="Static" ControlToValidate="txtPostingDate" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 contact-info">
                                             <div class="container">
                                                 <div class="form-group">
-                                                    <label>Amount</label>
-                                                    <asp:TextBox ID="txtAmount" CssClass="form-control" runat="server"></asp:TextBox>
+                                                    <div class="col-sm-12">
+                                                        <label>Amount</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:TextBox ID="txtAmount" CssClass="form-control" runat="server"></asp:TextBox>
+
+                                                    </div>
+                                                    <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rfAmount" ClientIDMode="Static" ControlToValidate="txtAmount" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Payment Type</label>
-                                                    <asp:DropDownList ID="ddlPaymentType" AutoPostBack="true" OnSelectedIndexChanged="ddlPaymentType_SelectedIndexChanged" CssClass="form-control" runat="server">
-                                                        <asp:ListItem Selected="True">Select</asp:ListItem>
-                                                        <asp:ListItem>CASH</asp:ListItem>
-                                                        <asp:ListItem>BANK</asp:ListItem>
-                                                    </asp:DropDownList>
+                                                    <div class="col-sm-12">
+                                                        <label>Payment Type</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:DropDownList ID="ddlPaymentType" AutoPostBack="true" OnSelectedIndexChanged="ddlPaymentType_SelectedIndexChanged" CssClass="form-control" runat="server">
+                                                            <asp:ListItem Selected="True">Select</asp:ListItem>
+                                                            <asp:ListItem>CASH</asp:ListItem>
+                                                            <asp:ListItem>BANK</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rdPaymentType" ClientIDMode="Static" ControlToValidate="ddlPaymentType" InitialValue="Select" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>
+
                                                 </div>
                                                 <div class="form-group" runat="server" id="divGLNo" visible="false">
-                                                    <label>GL Account No</label>
-                                                    <asp:DropDownList ID="ddlGLNo" CssClass="form-control" runat="server">
-                                                    </asp:DropDownList>
+                                                    <div class="col-sm-12">
+                                                        <label>GL Account No</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:DropDownList ID="ddlGLNo" CssClass="form-control" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rfGlNo" ClientIDMode="Static" ControlToValidate="ddlGLNo" InitialValue="0" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>
+
                                                 </div>
                                                 <div class="form-group" runat="server" id="divCashGLAccount" visible="false">
-                                                    <label>Cash GL Account No</label>
-                                                    <asp:DropDownList ID="ddlCashGLAccountNo" CssClass="form-control" runat="server">
-                                                    </asp:DropDownList>
+                                                    <div class="col-sm-12">
+                                                        <label>Cash GL Account No</label>
+
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:DropDownList ID="ddlCashGLAccountNo" CssClass="form-control" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rdCashGl" ClientIDMode="Static" ControlToValidate="ddlCashGLAccountNo" InitialValue="0" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>
+
                                                 </div>
                                                 <div class="form-group" runat="server" id="divBankAccountNo" visible="false">
-                                                    <label>Bank Account No</label>
-                                                    <asp:DropDownList ID="ddlBankAccountNo" CssClass="form-control" runat="server">
-                                                    </asp:DropDownList>
+                                                    <div class="col-sm-12">
+                                                        <label>Bank Account No</label>
+
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:DropDownList ID="ddlBankAccountNo" CssClass="form-control" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rfbankAccNo" ClientIDMode="Static" ControlToValidate="ddlBankAccountNo" InitialValue="0" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>
+
                                                 </div>
                                                 <div class="form-group" runat="server" id="divTranNo" visible="false">
-                                                    <label for="exampleAccount">Transcation No.</label>
-                                                    <asp:TextBox ID="txtTranNo" CssClass="form-control" runat="server">
-                                                    </asp:TextBox>
+                                                    <div class="col-sm-12">
+                                                        <label for="exampleAccount">Transcation No.</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:TextBox ID="txtTranNo" CssClass="form-control" runat="server">
+                                                        </asp:TextBox>
+                                                    </div>
+                                                    <%-- <div class="col-sm-2" Style="position: relative;margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rftranNo" ClientIDMode="Static" ControlToValidate="txtTranNo"  ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>--%>
                                                 </div>
                                                 <div class="form-group" runat="server" id="divTranDate" visible="false">
-                                                    <label for="exampleAccount">Transcation Date</label>
-                                                    <asp:TextBox ID="txtTranDate" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
+                                                    <div class="col-sm-12">
+                                                        <label for="exampleAccount">Transcation Date</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <asp:TextBox ID="txtTranDate" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <%--  <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                        <asp:RequiredFieldValidator ID="rfTranDate" ClientIDMode="Static" ControlToValidate="txtTranDate" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    </div>--%>
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div id="dvdimension" visible="false" runat="server">
                                             <p style="border-bottom: 1px solid black; width: 96%; float: left; margin-left: 2%; font-weight: 700; font-size: larger;">
                                                 Dimension
@@ -186,48 +291,63 @@
                                             <div class="col-md-6 contact-info">
                                                 <div class="container">
                                                     <div class="form-group">
-                                                        <label for="InstiuteCode">Instiute Code</label>
-                                                        <asp:DropDownList ID="ddlInstiuteCode" AutoPostBack="true" CssClass="form-control" runat="server">
-                                                        </asp:DropDownList>
+                                                        <div class="col-sm-12">
+                                                            <label for="InstiuteCode">Instiute Code</label>
+                                                        </div>
+                                                        <div class="col-sm-10">
+                                                            <asp:DropDownList ID="ddlInstiuteCode" AutoPostBack="true" CssClass="form-control" runat="server">
+                                                            </asp:DropDownList>
+                                                        </div>
+                                                        <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                            <asp:RequiredFieldValidator ID="rfInstituteCode" ClientIDMode="Static" ControlToValidate="ddlInstiuteCode" InitialValue="0" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                        </div>
+
                                                     </div>
                                                     <div class="form-group" runat="server">
-                                                        <label for="exampleAccount">Department Code</label>
-                                                        <asp:DropDownList ID="ddlDepartmentCode" CssClass="form-control" runat="server">
-                                                        </asp:DropDownList>
+                                                        <div class="col-sm-12">
+                                                            <label for="exampleAccount">Department Code</label>
+                                                        </div>
+                                                        <div class="col-sm-10">
+                                                            <asp:DropDownList ID="ddlDepartmentCode" CssClass="form-control" runat="server">
+                                                            </asp:DropDownList>
+                                                        </div>
+                                                        <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                            <asp:RequiredFieldValidator ID="rfDepartment" ClientIDMode="Static" ControlToValidate="ddlDepartmentCode" InitialValue="0" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                        </div>
+
                                                     </div>
-                                                    <div class="form-group" runat="server">
-                                                        <label for="exampleAccount">Slcmno Code</label>
-                                                        <asp:DropDownList ID="ddlSlcmnoCode" CssClass="form-control" runat="server">
-                                                        </asp:DropDownList>
-                                                    </div>
-                                                    <div class="form-group" runat="server">
-                                                        <label for="exampleAccount">Employee Code</label>
-                                                        <asp:DropDownList ID="ddlEmployeeCode" CssClass="form-control" runat="server">
-                                                        </asp:DropDownList>
-                                                    </div>
-                                                    <div class="form-group" runat="server">
-                                                        <label for="exampleAccount">Funding source Code</label>
-                                                        <asp:DropDownList ID="ddlFundingsourceCode" CssClass="form-control" runat="server">
-                                                        </asp:DropDownList>
-                                                    </div>
+
+
                                                 </div>
                                             </div>
                                             <div class="col-md-6 contact-info">
                                                 <div class="container">
-                                                    <div class="form-group">
-                                                        <label for="InstiuteCode">Shortcut Dimension 6 Code</label>
-                                                        <asp:DropDownList ID="ddlShortcutDimension6" AutoPostBack="true" CssClass="form-control" runat="server">
-                                                        </asp:DropDownList>
+                                                    <div class="form-group" runat="server" id="divEmpCode">
+                                                        <div class="col-sm-12">
+                                                            <label for="exampleAccount">Employee Code</label>
+                                                        </div>
+                                                        <div class="col-sm-10">
+                                                            <asp:DropDownList ID="ddlEmployeeCode" CssClass="form-control" runat="server">
+                                                            </asp:DropDownList>
+                                                        </div>
+                                                     <%--   <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                            <asp:RequiredFieldValidator ID="rfEmpCode" ClientIDMode="Static" ControlToValidate="ddlEmployeeCode" InitialValue="0" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                        </div>--%>
+
+
                                                     </div>
-                                                    <div class="form-group" runat="server">
-                                                        <label for="exampleAccount">Shortcut Dimension 7 Code</label>
-                                                        <asp:DropDownList ID="ddlShortcutDimension7" CssClass="form-control" runat="server">
-                                                        </asp:DropDownList>
-                                                    </div>
-                                                    <div class="form-group" runat="server">
-                                                        <label for="exampleAccount">Shortcut Dimension 8 Code</label>
-                                                        <asp:DropDownList ID="ddlShortcutDimension8" CssClass="form-control" runat="server">
-                                                        </asp:DropDownList>
+                                                    <div class="form-group" id="divfunding" runat="server">
+                                                        <div class="col-sm-12">
+                                                            <label for="exampleAccount">Funding source Code</label>
+                                                        </div>
+                                                        <div class="col-sm-10">
+                                                            <asp:DropDownList ID="ddlFundingsourceCode" CssClass="form-control" runat="server">
+                                                            </asp:DropDownList>
+                                                        </div>
+                                                       <%-- <div class="col-sm-2" style="position: relative; margin-top: 6px">
+                                                            <asp:RequiredFieldValidator ID="rfFundingSource" ClientIDMode="Static" ControlToValidate="ddlFundingsourceCode" InitialValue="0" ValidationGroup="Payment" runat="server" ForeColor="Red" Font-Size="20px" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                        </div>--%>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -237,13 +357,12 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12" style="padding: 10px">
-                            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" CssClass="btn-s float-right btn-primary" Text="Submit" />
+                        <div class="col-md-12">
+                            <asp:Button ID="btnSubmit" Style="margin: 2%" ValidationGroup="Payment" runat="server" OnClick="btnSubmit_Click" CssClass="btn-s float-right submit" Text="Submit" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </asp:Content>

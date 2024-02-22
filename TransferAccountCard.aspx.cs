@@ -228,7 +228,7 @@ namespace HRMS
                         Alert.ShowAlert(this, "W", "You do not have permission to access the content. Kindly contact the system administrator.");
 
                     }
-                } 
+                }
             }
             else
             {
@@ -236,8 +236,15 @@ namespace HRMS
             }
         }
         private void PostTransferAccount()
-        {
+        {  
             var entry_No = Request.QueryString["Entry_No"];
+
+            if (string.IsNullOrEmpty(txtNaration.Text))
+            {
+                Alert.ShowAlert(this, "e", "Narration Filed can not be emplty");
+                return;
+            }
+
 
             if (ddlPaymentType.SelectedValue == "CASH")
             {
