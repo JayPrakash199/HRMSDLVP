@@ -124,7 +124,7 @@ namespace HRMS
                             base.Response.ContentType = "application/pdf";
                             base.Response.BinaryWrite(buffer);
                             base.Response.End();
-
+                            ClearControls();
                         }
                     }
                     else

@@ -87,38 +87,39 @@ namespace HRMS
             if (!((Fee)this.Master).IsPageRefresh)
             {
                 List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
-            if (lstUserRole != null)
-            {
-                var role = lstUserRole.FirstOrDefault(x =>
-                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Page_Name.Trim(), "Money Receipt", StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
-
-                if (role == null || Convert.ToBoolean(role.Read))
+                if (lstUserRole != null)
                 {
-                    if (!string.IsNullOrEmpty(ddlStudentNo.SelectedValue))
-                    {
-                        var servicePath = SOAPServices.GetMoneyReceipt(ddlStudentNo.SelectedValue,
-                                                                        Session["SessionCompanyName"] as string, ddlDocumentNo.SelectedValue);
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Money Receipt", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
 
-                        var FileName = "Money-Receipt.pdf";
-                        string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
-                        WebClient wc = new WebClient();
-                        byte[] buffer = wc.DownloadData(exportedFilePath);
-                        var fileName = "attachment; filename=" + FileName;
-                        base.Response.ClearContent();
-                        base.Response.AddHeader("content-disposition", fileName);
-                        base.Response.ContentType = "application/pdf";
-                        base.Response.BinaryWrite(buffer);
-                        base.Response.End();
+                    if (role == null || Convert.ToBoolean(role.Read))
+                    {
+                        if (!string.IsNullOrEmpty(ddlStudentNo.SelectedValue))
+                        {
+                            var servicePath = SOAPServices.GetMoneyReceipt(ddlStudentNo.SelectedValue,
+                                                                            Session["SessionCompanyName"] as string, ddlDocumentNo.SelectedValue);
+
+                            var FileName = "Money-Receipt.pdf";
+                            string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
+                            WebClient wc = new WebClient();
+                            byte[] buffer = wc.DownloadData(exportedFilePath);
+                            var fileName = "attachment; filename=" + FileName;
+                            base.Response.ClearContent();
+                            base.Response.AddHeader("content-disposition", fileName);
+                            base.Response.ContentType = "application/pdf";
+                            base.Response.BinaryWrite(buffer);
+                            base.Response.End();
+                            ClearControls();
+                        }
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to export the content. Kindly contact the system administrator.");
+
                     }
                 }
-                else
-                {
-                    Alert.ShowAlert(this, "W", "You do not have permission to export the content. Kindly contact the system administrator.");
-                    
-                }
-            }
             }
             else
             {

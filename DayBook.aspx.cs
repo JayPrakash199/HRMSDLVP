@@ -92,58 +92,59 @@ namespace HRMS
             if (!((Fee)this.Master).IsPageRefresh)
             {
                 List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
-            if (lstUserRole != null)
-            {
-                var role = lstUserRole.FirstOrDefault(x =>
-                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Page_Name.Trim(), "Day Book", StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
-
-                if (role == null || Convert.ToBoolean(role.Read))
+                if (lstUserRole != null)
                 {
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Day Book", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
 
-                    try
+                    if (role == null || Convert.ToBoolean(role.Read))
                     {
-                        if (string.IsNullOrEmpty(txtFromDate.Text) && !string.IsNullOrEmpty(txtToDate.Text)
-                           || !string.IsNullOrEmpty(txtFromDate.Text) && string.IsNullOrEmpty(txtToDate.Text))
+
+                        try
                         {
-                            Alert.ShowAlert(this, "e", "plese select both From Date and To Date");
-                            return;
+                            if (string.IsNullOrEmpty(txtFromDate.Text) && !string.IsNullOrEmpty(txtToDate.Text)
+                               || !string.IsNullOrEmpty(txtFromDate.Text) && string.IsNullOrEmpty(txtToDate.Text))
+                            {
+                                Alert.ShowAlert(this, "e", "plese select both From Date and To Date");
+                                return;
+                            }
+
+                            var servicePath = SOAPServices.GetDayBookReport(
+                                        rdLineNarration.Checked,
+                                        rdvoucherNaration.Checked,
+                                        ddlDocumentNo.SelectedValue == "0" ? "" : ddlDocumentNo.SelectedValue,
+                                        !string.IsNullOrEmpty(txtFromDate.Text) ? txtFromDate.Text : "0D",
+                                        !string.IsNullOrEmpty(txtToDate.Text) ? txtToDate.Text : "0D",
+                                         ddlInstiuteCode.SelectedValue == "0" ? "" : ddlInstiuteCode.SelectedItem.Text,
+                                         ddlDepartment.SelectedValue == "0" ? "" : ddlDepartment.SelectedItem.Text,
+                                        Session["SessionCompanyName"] as string);
+
+                            var FileName = "Day_Book_Report.pdf";
+                            string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
+                            WebClient wc = new WebClient();
+                            byte[] buffer = wc.DownloadData(exportedFilePath);
+                            var fileName = "attachment; filename=" + FileName;
+                            base.Response.ClearContent();
+                            base.Response.AddHeader("content-disposition", fileName);
+                            base.Response.ContentType = "application/pdf";
+                            base.Response.BinaryWrite(buffer);
+                            base.Response.End();
+                            ClearControls();
+                        }
+                        catch (Exception ex)
+                        {
+                            Alert.ShowAlert(this, "e", ex.Message);
                         }
 
-                        var servicePath = SOAPServices.GetDayBookReport(
-                                    rdLineNarration.Checked,
-                                    rdvoucherNaration.Checked,
-                                    ddlDocumentNo.SelectedValue == "0" ? "" : ddlDocumentNo.SelectedValue,
-                                    !string.IsNullOrEmpty(txtFromDate.Text) ? txtFromDate.Text : "0D",
-                                    !string.IsNullOrEmpty(txtToDate.Text) ? txtToDate.Text : "0D",
-                                     ddlInstiuteCode.SelectedValue == "0" ? "" : ddlInstiuteCode.SelectedItem.Text,
-                                     ddlDepartment.SelectedValue == "0" ? "" : ddlDepartment.SelectedItem.Text,
-                                    Session["SessionCompanyName"] as string);
-
-                        var FileName = "Day_Book_Report.pdf";
-                        string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
-                        WebClient wc = new WebClient();
-                        byte[] buffer = wc.DownloadData(exportedFilePath);
-                        var fileName = "attachment; filename=" + FileName;
-                        base.Response.ClearContent();
-                        base.Response.AddHeader("content-disposition", fileName);
-                        base.Response.ContentType = "application/pdf";
-                        base.Response.BinaryWrite(buffer);
-                        base.Response.End();
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        Alert.ShowAlert(this, "e", ex.Message);
-                    }
+                        Alert.ShowAlert(this, "W", "You do not have permission to export the content. Kindly contact the system administrator.");
 
+                    }
                 }
-                else
-                {
-                    Alert.ShowAlert(this, "W", "You do not have permission to export the content. Kindly contact the system administrator.");
-                    
-                }
-            }
             }
             else
             {
