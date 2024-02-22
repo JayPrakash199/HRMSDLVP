@@ -241,10 +241,14 @@ namespace HRMS
 
             if (string.IsNullOrEmpty(txtNaration.Text))
             {
-                Alert.ShowAlert(this, "e", "Narration Filed can not be emplty");
+                Alert.ShowAlert(this, "e", "Narration Filed can not be empty");
                 return;
             }
-
+            if (string.IsNullOrEmpty(txtTotalAmount.Text))
+            {
+                Alert.ShowAlert(this, "e", "Amount Filed can not be empty");
+                return;
+            }
 
             if (ddlPaymentType.SelectedValue == "CASH")
             {
