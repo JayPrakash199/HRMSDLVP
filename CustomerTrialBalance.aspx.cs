@@ -40,8 +40,9 @@ namespace HRMS
 
         protected void btnExport_Click(object sender, EventArgs e)
         {
-
-            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (!((Fee)this.Master).IsPageRefresh)
+            {
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
             if (lstUserRole != null)
             {
                 var role = lstUserRole.FirstOrDefault(x =>
@@ -85,6 +86,19 @@ namespace HRMS
                     
                 }
             }
+            }
+            else
+            {
+                ClearControls();
+            }
+        }
+        private void ClearControls()
+        {
+            rdPrintAmtInLCY.Checked = false;
+            rdExcludeBalanceOnly.Checked = false;
+            rdExcludeBalanceOnly.Checked = false;
+            ddlStudentNo.ClearSelection();
+            ddlStudentNo.Items.FindByValue("0").Selected = true;
         }
     }
 }

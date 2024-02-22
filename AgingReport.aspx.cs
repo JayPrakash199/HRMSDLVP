@@ -40,55 +40,72 @@ namespace HRMS
 
         protected void btnExport_Click(object sender, EventArgs e)
         {
-            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
-            if (lstUserRole != null)
+            if (!((Fee)this.Master).IsPageRefresh)
             {
-                var role = lstUserRole.FirstOrDefault(x =>
-                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Page_Name.Trim(), "Aged Accounts", StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
-
-                if (role == null || Convert.ToBoolean(role.Read))
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
                 {
-                    try
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Aged Accounts", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                    if (role == null || Convert.ToBoolean(role.Read))
                     {
-                        if (!string.IsNullOrEmpty(ddlStudentNo.SelectedValue))
+                        try
                         {
-                            var servicePath = SOAPServices.GetAgingReport(
-                               ddlStudentNo.SelectedItem.Value != "0" ? ddlStudentNo.SelectedItem.Value : "",
-                                  !string.IsNullOrEmpty(txtEndDate.Text) ? txtEndDate.Text : "",
-                                 Convert.ToInt32(ddlagingbandBy.SelectedValue),
-                                   !string.IsNullOrEmpty(txtperiodLegth.Text) ? txtperiodLegth.Text : "",
-                                 rdPrintAmtInLCY.Checked,
-                                 rdPrintDetails.Checked,
-                                 Convert.ToInt32(ddlheadingType.SelectedValue),
-                                 rdNewPagePerCustomer.Checked,
-                                 Session["SessionCompanyName"] as string);
+                            if (!string.IsNullOrEmpty(ddlStudentNo.SelectedValue))
+                            {
+                                var servicePath = SOAPServices.GetAgingReport(
+                                   ddlStudentNo.SelectedItem.Value != "0" ? ddlStudentNo.SelectedItem.Value : "",
+                                      !string.IsNullOrEmpty(txtEndDate.Text) ? txtEndDate.Text : "",
+                                     Convert.ToInt32(ddlagingbandBy.SelectedValue),
+                                       !string.IsNullOrEmpty(txtperiodLegth.Text) ? txtperiodLegth.Text : "",
+                                     rdPrintAmtInLCY.Checked,
+                                     rdPrintDetails.Checked,
+                                     Convert.ToInt32(ddlheadingType.SelectedValue),
+                                     rdNewPagePerCustomer.Checked,
+                                     Session["SessionCompanyName"] as string);
 
-                            var FileName = "Aging-Report.pdf";
-                            string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
-                            WebClient wc = new WebClient();
-                            byte[] buffer = wc.DownloadData(exportedFilePath);
-                            var fileName = "attachment; filename=" + FileName;
-                            base.Response.ClearContent();
-                            base.Response.AddHeader("content-disposition", fileName);
-                            base.Response.ContentType = "application/pdf";
-                            base.Response.BinaryWrite(buffer);
-                            base.Response.End();
+                                var FileName = "Aging-Report.pdf";
+                                string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
+                                WebClient wc = new WebClient();
+                                byte[] buffer = wc.DownloadData(exportedFilePath);
+                                var fileName = "attachment; filename=" + FileName;
+                                base.Response.ClearContent();
+                                base.Response.AddHeader("content-disposition", fileName);
+                                base.Response.ContentType = "application/pdf";
+                                base.Response.BinaryWrite(buffer);
+                                base.Response.End();
+                            }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        Alert.ShowAlert(this, "e", ex.Message.ToString());
-                    }
+                        catch (Exception ex)
+                        {
+                            Alert.ShowAlert(this, "e", ex.Message.ToString());
+                        }
 
-                }
-                else
-                {
-                    Alert.ShowAlert(this, "W", "You do not have permission to export the content. Kindly contact the system administrator.");
-                    
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to export the content. Kindly contact the system administrator.");
+
+                    }
                 }
             }
+            else
+            {
+                ClearControls();
+            }
+        }
+        private void ClearControls()
+        {
+            txtEndDate.Text = "";
+            txtperiodLegth.Text = "";
+            rdPrintAmtInLCY.Checked = false;
+            rdPrintDetails.Checked = false;
+            rdNewPagePerCustomer.Checked = false;
+            ddlStudentNo.ClearSelection();
+            ddlStudentNo.Items.FindByValue("0").Selected = true;
         }
     }
 }

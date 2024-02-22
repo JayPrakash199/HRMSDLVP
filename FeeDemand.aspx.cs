@@ -94,45 +94,60 @@ namespace HRMS
 
         protected void btnExport_Click(object sender, EventArgs e)
         {
-            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
-            if (lstUserRole != null)
+            if (!((Fee)this.Master).IsPageRefresh)
             {
-                var role = lstUserRole.FirstOrDefault(x =>
-                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Page_Name.Trim(), "Fee Demand", StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
-
-                if (role == null || Convert.ToBoolean(role.Read))
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
                 {
-                    if (!string.IsNullOrEmpty(ddlacademicYear.SelectedItem.Text) &&
-                !string.IsNullOrEmpty(ddlStudentNo.SelectedValue) &&
-                !string.IsNullOrEmpty(ddlDocumentNo.SelectedItem.Text))
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Fee Demand", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                    if (role == null || Convert.ToBoolean(role.Read))
                     {
-                        var servicePath = SOAPServices.GetFeeDemand(ddlacademicYear.SelectedItem.Text,
-                                                                    ddlStudentNo.SelectedValue,
-                                                                    ddlDocumentNo.SelectedValue,
-                                                                    Session["SessionCompanyName"] as string);
-                        var FileName = "Fee-Demand.pdf";
-                        string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
-                        WebClient wc = new WebClient();
-                        byte[] buffer = wc.DownloadData(exportedFilePath);
-                        var fileName = "attachment; filename=" + FileName;
-                        base.Response.ClearContent();
-                        base.Response.AddHeader("content-disposition", fileName);
-                        base.Response.ContentType = "application/pdf";
-                        base.Response.BinaryWrite(buffer);
-                        base.Response.End();
+                        if (!string.IsNullOrEmpty(ddlacademicYear.SelectedItem.Text) &&
+                    !string.IsNullOrEmpty(ddlStudentNo.SelectedValue) &&
+                    !string.IsNullOrEmpty(ddlDocumentNo.SelectedItem.Text))
+                        {
+                            var servicePath = SOAPServices.GetFeeDemand(ddlacademicYear.SelectedItem.Text,
+                                                                        ddlStudentNo.SelectedValue,
+                                                                        ddlDocumentNo.SelectedValue,
+                                                                        Session["SessionCompanyName"] as string);
+                            var FileName = "Fee-Demand.pdf";
+                            string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
+                            WebClient wc = new WebClient();
+                            byte[] buffer = wc.DownloadData(exportedFilePath);
+                            var fileName = "attachment; filename=" + FileName;
+                            base.Response.ClearContent();
+                            base.Response.AddHeader("content-disposition", fileName);
+                            base.Response.ContentType = "application/pdf";
+                            base.Response.BinaryWrite(buffer);
+                            base.Response.End();
+
+                        }
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to export the content. Kindly contact the system administrator.");
 
                     }
                 }
-                else
-                {
-                    Alert.ShowAlert(this, "W", "You do not have permission to export the content. Kindly contact the system administrator.");
-
-                }
+            }
+            else
+            {
+                ClearControls();
             }
         }
-
+        private void ClearControls()
+        {
+            ddlDocumentNo.ClearSelection();
+            ddlDocumentNo.Items.FindByValue("0").Selected = true;
+            ddlStudentNo.ClearSelection();
+            ddlStudentNo.Items.FindByValue("0").Selected = true;
+            ddlacademicYear.ClearSelection();
+            ddlacademicYear.Items.FindByValue("0").Selected = true;
+        }
 
         public void BindFianacialYear()
         {

@@ -253,7 +253,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Aging Band Period Length</label>
-                                                    <asp:TextBox ID="txtperiodLength" Text="1M+CM" CssClass="form-control" runat="server">
+                                                    <asp:TextBox ID="txtperiodLength" Text="1M+CM" placeholder="1M+CM" CssClass="form-control" runat="server">
                                                     </asp:TextBox>
                                                 </div>
                                                 <div class="form-group">

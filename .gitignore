@@ -6,3 +6,5 @@
 /bin
 /WebServices/obj/Debug
 /.vs/HRMS
+/WebServices
+/Properties/PublishProfiles/FolderProfile3.pubxml.user
