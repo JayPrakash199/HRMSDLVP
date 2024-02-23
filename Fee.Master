@@ -393,6 +393,18 @@
             $(".loader").fadeOut("slow");
         });
     </script>
+        <script type="text/javascript">
+            window.addEventListener("pageshow", function (event) {
+                var historyTraversal = event.persisted ||
+                    (typeof window.performance != "undefined" &&
+                        window.performance.navigation.type === 2);
+                if (historyTraversal) {
+                    // Handle page restore.
+                    window.location.reload();
+                }
+            });
+
+        </script>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
@@ -458,9 +470,9 @@
                                             <li><a href="FeeDemand.aspx">Fee Demand</a></li>
                                             <li><a href="Fee-MoneyReceipt.aspx">Money Receipt</a></li>
                                             <li><a href="FeeGeneration.aspx">Fee Generation</a></li>
-                                            <li><a href="CustomerStatement.aspx">Customer Statement Report</a></li>
+                                            <li><a href="CustomerStatement.aspx">Student Statement Report</a></li>
                                             <li><a href="AgingReport.aspx">Aging Report</a></li>
-                                            <li><a href="CustomerTrialBalance.aspx">Customer Trial Balance Report</a></li>
+                                            <li><a href="CustomerTrialBalance.aspx">Student Trial Balance Report</a></li>
                                             <%--<li><a href="FeeCollection.aspx">Fee Collection List</a></li>
                                             <li><a href="Fee-StudentFeeCollection.aspx">Student Fee Collection List</a></li>
                                             <li><a href="Fee-GeneralPayment.aspx">Add General Payment</a></li>

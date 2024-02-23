@@ -41,59 +41,82 @@ namespace HRMS
         }
         protected void btnExport_Click(object sender, EventArgs e)
         {
-            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
-            if (lstUserRole != null)
+            if (!((Fee)this.Master).IsPageRefresh)
             {
-                var role = lstUserRole.FirstOrDefault(x =>
-                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Page_Name.Trim(), "Customer Statement", StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
-
-                if (role == null || Convert.ToBoolean(role.Read))
+                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+                if (lstUserRole != null)
                 {
-                    try
+                    var role = lstUserRole.FirstOrDefault(x =>
+                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Customer Statement", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                    if (role == null || Convert.ToBoolean(role.Read))
                     {
-                        if (!string.IsNullOrEmpty(ddlStudentNo.SelectedValue))
+                        try
                         {
-                            var servicePath = SOAPServices.GetCustomerStatement(
-                               ddlStudentNo.SelectedItem.Value != "0" ? ddlStudentNo.SelectedItem.Value : "",
-                                !string.IsNullOrEmpty(txtStartDate.Text) ? txtStartDate.Text : "0D",
-                                !string.IsNullOrEmpty(txtEndDate.Text) ? txtEndDate.Text : "0D",
-                                 rdshowOverDueEntries.Checked,
-                                 rdShowAllcustomerLedger.Checked,
-                                 rdCustomerbalance.Checked,
-                                 rdShowReverseEntity.Checked,
-                                 rdShowUnappliedEntity.Checked,
-                                 rdShowAgingBand.Checked,
-                                 !string.IsNullOrEmpty(txtperiodLength.Text) ? txtperiodLength.Text : "",
-                                 Convert.ToInt32(ddlagingbandBy.SelectedItem.Value),
-                                 rdlogInteraction.Checked,
-                                 Session["SessionCompanyName"] as string);
+                            if (!string.IsNullOrEmpty(ddlStudentNo.SelectedValue))
+                            {
+                                var servicePath = SOAPServices.GetCustomerStatement(
+                                   ddlStudentNo.SelectedItem.Value != "0" ? ddlStudentNo.SelectedItem.Value : "",
+                                    !string.IsNullOrEmpty(txtStartDate.Text) ? txtStartDate.Text : "0D",
+                                    !string.IsNullOrEmpty(txtEndDate.Text) ? txtEndDate.Text : "0D",
+                                     rdshowOverDueEntries.Checked,
+                                     rdShowAllcustomerLedger.Checked,
+                                     rdCustomerbalance.Checked,
+                                     rdShowReverseEntity.Checked,
+                                     rdShowUnappliedEntity.Checked,
+                                     rdShowAgingBand.Checked,
+                                     !string.IsNullOrEmpty(txtperiodLength.Text) ? txtperiodLength.Text : "",
+                                     Convert.ToInt32(ddlagingbandBy.SelectedItem.Value),
+                                     rdlogInteraction.Checked,
+                                     Session["SessionCompanyName"] as string);
 
-                            var FileName = "Customer-Statement.pdf";
-                            string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
-                            WebClient wc = new WebClient();
-                            byte[] buffer = wc.DownloadData(exportedFilePath);
-                            var fileName = "attachment; filename=" + FileName;
-                            base.Response.ClearContent();
-                            base.Response.AddHeader("content-disposition", fileName);
-                            base.Response.ContentType = "application/pdf";
-                            base.Response.BinaryWrite(buffer);
-                            base.Response.End();
+                                var FileName = "Customer-Statement.pdf";
+                                string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
+                                WebClient wc = new WebClient();
+                                byte[] buffer = wc.DownloadData(exportedFilePath);
+                                var fileName = "attachment; filename=" + FileName;
+                                base.Response.ClearContent();
+                                base.Response.AddHeader("content-disposition", fileName);
+                                base.Response.ContentType = "application/pdf";
+                                base.Response.BinaryWrite(buffer);
+                                base.Response.End();
+                                ClearControls();
+                            }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        Alert.ShowAlert(this, "e", ex.Message.ToString());
-                    }
+                        catch (Exception ex)
+                        {
+                            Alert.ShowAlert(this, "e", ex.Message.ToString());
+                        }
 
-                }
-                else
-                {
-                    Alert.ShowAlert(this, "W", "You do not have permission to export the content. Kindly contact the system administrator.");
-                    
-                }
+                    }
+                    else
+                    {
+                        Alert.ShowAlert(this, "W", "You do not have permission to export the content. Kindly contact the system administrator.");
+
+                    }
+                } 
             }
+            else
+            {
+                ClearControls();
+            }
+        }
+        private void ClearControls()
+        {
+            txtStartDate.Text = "";
+            txtEndDate.Text = "";
+            txtperiodLength.Text = "";
+            rdshowOverDueEntries.Checked=false;
+            rdShowAgingBand.Checked = false;
+            rdlogInteraction.Checked = false;
+            rdShowAllcustomerLedger.Checked = false;
+            rdCustomerbalance.Checked = false;
+            rdShowReverseEntity.Checked = false;
+            rdShowUnappliedEntity.Checked = false;
+            ddlStudentNo.ClearSelection();
+            ddlStudentNo.Items.FindByValue("0").Selected = true;
         }
     }
 }
