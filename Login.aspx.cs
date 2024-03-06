@@ -49,6 +49,7 @@ namespace HRMS
                 }
                 if (user != null)
                 {
+                    Session["UserAuthData"] = user;
                     string apiURL = ConfigurationManager.AppSettings["ExternalAPI"].ToString();
                     using (var client = new HttpClient())
                     {

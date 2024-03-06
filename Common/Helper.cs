@@ -22,5 +22,27 @@ namespace HRMS.Common
 
             return "";
         }
+        public static string Employee_Student_No => GetEmployeeStudentNo();
+
+        private static string GetEmployeeStudentNo()
+        {
+           var authList = HttpContext.Current.Session["UserAuthData"];
+            if (authList != null )
+            {
+                return ((HRMSODATA.UserAuthenticationList)authList).Employee_Student_No;
+            }
+            return "";
+        }
+        public static string SLCMLoginType => GetSLCMLoginType();
+
+        private static string GetSLCMLoginType()
+        {
+            var authList = HttpContext.Current.Session["UserAuthData"];
+            if (authList != null)
+            {
+                return ((HRMSODATA.UserAuthenticationList)authList).SLCM_Login_Type;
+            }
+            return "";
+        }
     }
 }

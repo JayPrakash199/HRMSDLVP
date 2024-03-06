@@ -224,11 +224,11 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Unit Cost</label>
-                                                    <asp:TextBox ID="txtUnitCost" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtUnitCost" CssClass="form-control " runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Date Of Purchase</label>
-                                                    <asp:TextBox ID="txtDateOfPurchase" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtDateOfPurchase" CssClass="form-control " runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Bill No</label>
@@ -236,7 +236,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Bill Date</label>
-                                                    <asp:TextBox ID="txtBillDate" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtBillDate" CssClass="form-control " runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Vendor No.</label>
@@ -249,7 +249,7 @@
                                             <div class="container">
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Book Current Status</label>
-                                                    <asp:TextBox ID="txtCurrentStatus" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtCurrentStatus" CssClass="form-control " runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Location Code</label>
@@ -258,15 +258,15 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Condition</label>
-                                                    <asp:TextBox ID="txtCondition" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtCondition" CssClass="form-control " runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">ISBN</label>
-                                                    <asp:TextBox ID="txtISBN" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtISBN" CssClass="form-control " runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">ISSN</label>
-                                                    <asp:TextBox ID="txtISSN" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtISSN" CssClass="form-control " runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Book Source</label>
@@ -280,7 +280,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Source By</label>
-                                                    <asp:TextBox ID="txtSourceBy" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtSourceBy" CssClass="form-control " runat="server"></asp:TextBox>
                                                 </div>
                                             </div>
                                             <asp:HiddenField ID="hdnLineNo" runat="server" />

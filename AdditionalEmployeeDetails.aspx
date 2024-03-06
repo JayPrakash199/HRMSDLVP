@@ -209,7 +209,7 @@
                                                         <asp:TextBox ID="txtHRMSIDSearch" CssClass="form-control" runat="server"></asp:TextBox>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <asp:Button ID="btnSearch" OnClick="btnSearch_Click" CssClass="btn-s float-right submit btn-yellow" Text="Search" runat="server" />
+                                                        <asp:Button ID="btnSearch" OnClick="btnSearch_Click" CssClass="btn-s float-right submit" Text="Search" runat="server" />
                                                     </div>
                                                 </div>
                                             </div>

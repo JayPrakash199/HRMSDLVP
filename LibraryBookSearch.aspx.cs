@@ -35,18 +35,16 @@ namespace HRMS
                     if (role == null || Convert.ToBoolean(role.Read))
                     {
                         lstPublisherName = ODataServices.GetPublisherNames(Session["SessionCompanyName"] as string);
-
                         BindListView();
                     }
                     else
                     {
                         Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
-
                     }
-                    lstPublisherName = ODataServices.GetPublisherNames(Session["SessionCompanyName"] as string);
                 }
             }
-           
+            lstPublisherName = ODataServices.GetPublisherNames(Session["SessionCompanyName"] as string);
+
         }
 
         private void BindListView()
@@ -162,7 +160,7 @@ namespace HRMS
                 else
                 {
                     Alert.ShowAlert(this, "W", "You do not have permission to Search the content. Kindly contact the system administrator.");
-                    
+
                 }
             }
         }
@@ -259,7 +257,9 @@ namespace HRMS
                         Langauge = Language,
                         Book_Type = bookType,
                         Supplier_Name = SuplierName,
-                        Unit_Cost = unitCost
+                        Unit_Cost = unitCost,
+                        Unit_CostSpecified = true,
+                        _Publisher_Name = txtPublisherName.Text
                     };
 
                     var result = SOAPServices.UpdateBookDetails(updateObj, Session["SessionCompanyName"] as string);
@@ -277,14 +277,14 @@ namespace HRMS
                 else
                 {
                     Alert.ShowAlert(this, "W", "You do not have permission to Edit the content. Kindly contact the system administrator.");
-                    
+
                 }
             }
         }
 
 
 
-            protected void btnAccession_Click(object sender, EventArgs e)
+        protected void btnAccession_Click(object sender, EventArgs e)
         {
             try
             {
@@ -317,8 +317,12 @@ namespace HRMS
             {
                 Label lblPublisherCode = (Label)e.Item.FindControl("lblPublisherCode");
                 Label lblPublisherName = (Label)e.Item.FindControl("lblPublisherName");
-                string publisherName = lstPublisherName.Where(x => x.Code == lblPublisherCode.Text).Select(s => s.Description).FirstOrDefault().ToString();
-                lblPublisherName.Text = publisherName;
+                if (!string.IsNullOrEmpty(lblPublisherCode.Text))
+                {
+                    string publisherName = lstPublisherName.Where(x => x.Code == lblPublisherCode.Text).Select(s => s.Description).FirstOrDefault();
+                    lblPublisherName.Text = publisherName;
+                }
+
             }
         }
     }

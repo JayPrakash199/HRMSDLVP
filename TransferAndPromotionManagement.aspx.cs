@@ -130,8 +130,8 @@ namespace HRMS
                                 : WebServices.EmployeeTransferHistoryReference.Relieving_Event._blank_,
                 Relief_Order_No = txtReliefOrderNo.Text,
                 Relief_Order_Date = DateTimeParser.ParseDateTime(txtReliefOrderDate.Text),
-                Promotion_order_date = DateTimeParser.ParseDateTime(txtPromotionOrderDate.Text),
-                To_Designation = ddlDesignation.SelectedItem.Text
+                Promotion_order_date = DateTimeParser.ParseDateTime(txtPromotionOrderDate.Text)
+                //To_Designation = ddlDesignation.SelectedItem.Text
             };
             var resultMessage =
                 SOAPServices.AddEmployeeTransferAndPromotionRecord(obj, Session["SessionCompanyName"] as string);
