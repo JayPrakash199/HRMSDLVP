@@ -200,50 +200,50 @@
             <div class="container" style="padding: 2%;">
                 <div class="row">
                     <div class=" col-md-6 col-sm-6 pb-4 ">
-                        <div class="icon-box-s2 s1  itServicePadding">
+                        <div class="icon-box-s2 s1 itServicePadding" visible="false" id="divinfra" runat="server">
                             <div class="content-box">
                                 <a class="Contenta" visible="false" href="Infra-MasterData.aspx" role="button" runat="server" id="btnInfraa">Infra</a>
                             </div>
                         </div>
                     </div>
                     <div class=" col-md-6 col-sm-6 pb-4 ">
-                        <div class="icon-box-s2 s1 itServicePadding">
+                        <div class="icon-box-s2 s1 itServicePadding" visible="false" id="divHrms" runat="server">
                             <div class="content-box">
                                 <a class="Contenta" visible="false" href="RecruitmentsAndRetirements.aspx" role="button" runat="server" id="btnHRMSs">HRMS</a>
                             </div>
                         </div>
                     </div>
                     <div class=" col-md-6 col-sm-6 pb-4 ">
-                        <div class="icon-box-s2 s1  itServicePadding">
+                        <div class="icon-box-s2 s1  itServicePadding" visible="false" id="divlibrary" runat="server">
                             <div class="content-box">
                                 <a class="Contenta" visible="false" href="LibraryBookSearch.aspx" role="button" runat="server" id="btnLibraryMgmntt">Library Management</a>
                             </div>
                         </div>
                     </div>
-                  
+
                     <div class=" col-md-6 col-sm-6 pb-4" id="divreport" visible="False" runat="server">
-                        <div class="icon-box-s2 s1 itServicePadding">
+                        <div class="icon-box-s2 s1 itServicePadding" visible="false" id="divreports" runat="server">
                             <div class="content-box">
                                 <a class="Contenta" visible="True" href="ReportManagement.aspx" role="button" runat="server" id="btnReport">Report</a>
                             </div>
                         </div>
                     </div>
-                     <div class=" col-md-6 col-sm-6 pb-4" id="divslcm"  runat="server">
-                        <div class="icon-box-s2 s1 itServicePadding">
+                    <div class=" col-md-6 col-sm-6 pb-4" id="divslcm" runat="server">
+                        <div class="icon-box-s2 s1 itServicePadding" visible="false" id="divslcs" runat="server">
                             <div class="content-box">
                                 <a class="Contenta" visible="True" href="Timetable.aspx" role="button" runat="server" id="btnslcm">SLCM</a>
                             </div>
                         </div>
                     </div>
                     <div class=" col-md-6 col-sm-6 pb-4" id="div1" visible="true" runat="server">
-                        <div class="icon-box-s2 s1 itServicePadding">
+                        <div class="icon-box-s2 s1 itServicePadding" visible="false" id="divstock" runat="server">
                             <div class="content-box">
                                 <asp:LinkButton class="Contenta" ID="btnStockStore" Text="Stock and Store" OnClick="btnStockStore_Click" runat="server" />
                             </div>
                         </div>
                     </div>
-                      <div class=" col-md-6 col-sm-6   pb-4">
-                        <div class="icon-box-s2 s1  itServicePadding">
+                    <div class=" col-md-6 col-sm-6   pb-4">
+                        <div class="icon-box-s2 s1  itServicePadding" visible="false" id="divlibrry" runat="server">
                             <div class="content-box">
                                 <a class="Contenta" visible="false" href="FeeClassificationList.aspx" role="button" runat="server" id="btnFeeMgmntt">Accounts and Fee Management</a>
                             </div>

@@ -1056,7 +1056,16 @@ namespace WebServices
             container.BuildingRequest += Context_BuildingRequest;
             List<HRMSODATA.TimeTable> lstTimeTable = container.CreateQuery<HRMSODATA.TimeTable>("TimeTable").ToList();
             return lstTimeTable;
-        } 
+        }
+        public static IList<HRMSODATA.StudentList> GetStudenteData(string companyName)
+        {
+            string serviceUrl = GetOdataURL(companyName);
+            Uri uri = new Uri(serviceUrl);
+            var container = new HRMSODATA.NAV(uri);
+            container.BuildingRequest += Context_BuildingRequest;
+            List<HRMSODATA.StudentList> lstStudentData = container.CreateQuery<HRMSODATA.StudentList>("StudentList").ToList();
+            return lstStudentData;
+        }
         #endregion
     }
 }
