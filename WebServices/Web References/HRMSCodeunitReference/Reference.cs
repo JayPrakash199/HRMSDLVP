@@ -35,6 +35,8 @@ namespace WebServices.HRMSCodeunitReference {
         
         private System.Threading.SendOrPostCallback Download_Promotion_OrderOperationCompleted;
         
+        private System.Threading.SendOrPostCallback Download_Staff_AchivementOperationCompleted;
+        
         private System.Threading.SendOrPostCallback Download_Transfer_Application_EmployeeOperationCompleted;
         
         private System.Threading.SendOrPostCallback Download_Transfer_OrderOperationCompleted;
@@ -101,6 +103,8 @@ namespace WebServices.HRMSCodeunitReference {
         
         private System.Threading.SendOrPostCallback Upload_Promotion_OrderOperationCompleted;
         
+        private System.Threading.SendOrPostCallback Upload_Staff_AchivementOperationCompleted;
+        
         private System.Threading.SendOrPostCallback Upload_Transfer_Application_EmployeeOperationCompleted;
         
         private System.Threading.SendOrPostCallback Upload_Transfer_OrderOperationCompleted;
@@ -151,6 +155,9 @@ namespace WebServices.HRMSCodeunitReference {
         
         /// <remarks/>
         public event Download_Promotion_OrderCompletedEventHandler Download_Promotion_OrderCompleted;
+        
+        /// <remarks/>
+        public event Download_Staff_AchivementCompletedEventHandler Download_Staff_AchivementCompleted;
         
         /// <remarks/>
         public event Download_Transfer_Application_EmployeeCompletedEventHandler Download_Transfer_Application_EmployeeCompleted;
@@ -252,6 +259,9 @@ namespace WebServices.HRMSCodeunitReference {
         public event Upload_Promotion_OrderCompletedEventHandler Upload_Promotion_OrderCompleted;
         
         /// <remarks/>
+        public event Upload_Staff_AchivementCompletedEventHandler Upload_Staff_AchivementCompleted;
+        
+        /// <remarks/>
         public event Upload_Transfer_Application_EmployeeCompletedEventHandler Upload_Transfer_Application_EmployeeCompleted;
         
         /// <remarks/>
@@ -348,6 +358,36 @@ namespace WebServices.HRMSCodeunitReference {
             if ((this.Download_Promotion_OrderCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.Download_Promotion_OrderCompleted(this, new Download_Promotion_OrderCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:Download_Staff_Achivement", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit", ResponseElementName="Download_Staff_Achivement_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string Download_Staff_Achivement(int sLnopar) {
+            object[] results = this.Invoke("Download_Staff_Achivement", new object[] {
+                        sLnopar});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Download_Staff_AchivementAsync(int sLnopar) {
+            this.Download_Staff_AchivementAsync(sLnopar, null);
+        }
+        
+        /// <remarks/>
+        public void Download_Staff_AchivementAsync(int sLnopar, object userState) {
+            if ((this.Download_Staff_AchivementOperationCompleted == null)) {
+                this.Download_Staff_AchivementOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDownload_Staff_AchivementOperationCompleted);
+            }
+            this.InvokeAsync("Download_Staff_Achivement", new object[] {
+                        sLnopar}, this.Download_Staff_AchivementOperationCompleted, userState);
+        }
+        
+        private void OnDownload_Staff_AchivementOperationCompleted(object arg) {
+            if ((this.Download_Staff_AchivementCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Download_Staff_AchivementCompleted(this, new Download_Staff_AchivementCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1320,6 +1360,36 @@ namespace WebServices.HRMSCodeunitReference {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:Upload_Staff_Achivement", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit", ResponseElementName="Upload_Staff_Achivement_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void Upload_Staff_Achivement(int sLnopar, string filenamePar) {
+            this.Invoke("Upload_Staff_Achivement", new object[] {
+                        sLnopar,
+                        filenamePar});
+        }
+        
+        /// <remarks/>
+        public void Upload_Staff_AchivementAsync(int sLnopar, string filenamePar) {
+            this.Upload_Staff_AchivementAsync(sLnopar, filenamePar, null);
+        }
+        
+        /// <remarks/>
+        public void Upload_Staff_AchivementAsync(int sLnopar, string filenamePar, object userState) {
+            if ((this.Upload_Staff_AchivementOperationCompleted == null)) {
+                this.Upload_Staff_AchivementOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpload_Staff_AchivementOperationCompleted);
+            }
+            this.InvokeAsync("Upload_Staff_Achivement", new object[] {
+                        sLnopar,
+                        filenamePar}, this.Upload_Staff_AchivementOperationCompleted, userState);
+        }
+        
+        private void OnUpload_Staff_AchivementOperationCompleted(object arg) {
+            if ((this.Upload_Staff_AchivementCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Upload_Staff_AchivementCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:Upload_Transfer_Application_" +
             "Employee", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit", ResponseElementName="Upload_Transfer_Application_Employee_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void Upload_Transfer_Application_Employee(int sLnopar, string hRMSIDpar, string filenamePar) {
@@ -1466,6 +1536,32 @@ namespace WebServices.HRMSCodeunitReference {
         private object[] results;
         
         internal Download_Promotion_OrderCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Download_Staff_AchivementCompletedEventHandler(object sender, Download_Staff_AchivementCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Download_Staff_AchivementCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Download_Staff_AchivementCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2182,6 +2278,10 @@ namespace WebServices.HRMSCodeunitReference {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void Upload_Promotion_OrderCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Upload_Staff_AchivementCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]

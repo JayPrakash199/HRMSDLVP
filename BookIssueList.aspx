@@ -158,6 +158,7 @@
             });
         }
         function OnSuccessData(data) {
+            debugger;
             let name = document.getElementById('ContentPlaceHolder1_txtmdName');
             let classcode = document.getElementById('ContentPlaceHolder1_txtmdClassCode');
             let DOI = document.getElementById('ContentPlaceHolder1_txtmdDateofIssue');
@@ -173,9 +174,10 @@
             else {
                 myResult = JSON.parse(data.d);
                 for (let i = 0; i < myResult.StudentList.length; i++) {
-
                     name.value = myResult.StudentList[i].FirstName;
                     classcode.value = myResult.StudentList[i].CourseCode;
+                }
+                for (let i = 0; i < myResult.BookIssueList.length; i++) {
                     DOI.value = myResult.BookIssueList.DateofIssue;
                     DOR.value = myResult.BookIssueList.DateofReturn;
                 }

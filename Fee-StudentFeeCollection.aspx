@@ -144,6 +144,7 @@
                                                                 <th runat="server">Payment Type Collection Method</th>
                                                                 <th runat="server">Fee Class Specification</th>
                                                                 <th runat="server">Cash GL Acount No</th>
+                                                                <th runat="server">GL Acount No</th>
                                                                 <th runat="server">Bank Account No</th>
                                                                 <th runat="server">Cheque No</th>
                                                                 <th runat="server">Cheque Date</th>
@@ -201,6 +202,9 @@
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="Label11" runat="server" Text='<%# Eval("Cash_G_L_Account_No")%>'> </asp:Label>
+                                                            </td>
+                                                             <td>
+                                                                <asp:Label ID="Label19" runat="server" Text='<%# Eval("G_L_No")%>'> </asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="Label12" runat="server" Text='<%# Eval("Bank_Account_No")%>'> </asp:Label>

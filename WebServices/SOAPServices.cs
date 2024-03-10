@@ -179,7 +179,7 @@ namespace WebServices
                 HRMSCodeunitReference.HRMSCodeunit objHrms = new HRMSCodeunitReference.HRMSCodeunit();
                 objHrms = (HRMSCodeunitReference.HRMSCodeunit)Configuration
                     .getNavService(new HRMSCodeunitReference.HRMSCodeunit(), "HRMSCodeunit", "Codeunit", companyName);
-                objHrms.UpdateDesignation(obj.HRMS_ID,obj.To_Designation);
+                objHrms.UpdateDesignation(obj.HRMS_ID, obj.To_Designation);
 
                 return ResultMessages.SuccessfullMessage;
             }
@@ -347,6 +347,13 @@ namespace WebServices
                 .getNavService(new HRMSCodeunitReference.HRMSCodeunit(), "HRMSCodeunit", "Codeunit", companyName);
             obj.Upload_Financial_Upgradation_Application(entryNo, hrmsID, Path.Combine(filePathWithName));
         }
+        public static void UploadEmployeeAchievement(string hrmsID, string filePathName, string companyName)
+        {
+            HRMSCodeunitReference.HRMSCodeunit obj = new HRMSCodeunitReference.HRMSCodeunit();
+            obj = (HRMSCodeunitReference.HRMSCodeunit)Configuration
+                .getNavService(new HRMSCodeunitReference.HRMSCodeunit(), "HRMSCodeunit", "Codeunit", companyName);
+            obj.Upload_Staff_Achivement(Convert.ToInt32(hrmsID), Path.Combine(filePathName));
+        }
 
         public static void Upload_Promotion_Order(int entryNo, string filePathWithName, string companyName)
         {
@@ -478,6 +485,14 @@ namespace WebServices
             return obj.Download_Financial_Upgradation_Application(entryId, hrmsID);
         }
 
+        public static string DownloadEmployeeAchievementApplication(string hrmsID, string companyName)
+        {
+            HRMSCodeunitReference.HRMSCodeunit obj = new HRMSCodeunitReference.HRMSCodeunit();
+            obj = (HRMSCodeunitReference.HRMSCodeunit)Configuration
+                .getNavService(new HRMSCodeunitReference.HRMSCodeunit(), "HRMSCodeunit", "Codeunit", companyName);
+            return obj.Download_Staff_Achivement(Convert.ToInt32(hrmsID));
+        }
+
         public static string Download_Promotion_Order(int entryId, string companyName)
         {
             HRMSCodeunitReference.HRMSCodeunit obj = new HRMSCodeunitReference.HRMSCodeunit();
@@ -536,7 +551,7 @@ namespace WebServices
             }
         }
 
-        public static string GetMoneyReceipt(string customerNo,  string companyName, string dcNo)
+        public static string GetMoneyReceipt(string customerNo, string companyName, string dcNo)
         {
             FeeManagementCodeUnitReference2.FeeManagementCodeUnit obj = new FeeManagementCodeUnitReference2.FeeManagementCodeUnit();
             obj = (FeeManagementCodeUnitReference2.FeeManagementCodeUnit)Configuration
@@ -642,7 +657,7 @@ namespace WebServices
             FeeManagementCodeUnitReference2.FeeManagementCodeUnit obj = new FeeManagementCodeUnitReference2.FeeManagementCodeUnit();
             obj = (FeeManagementCodeUnitReference2.FeeManagementCodeUnit)Configuration
                 .getNavService(new FeeManagementCodeUnitReference2.FeeManagementCodeUnit(), "FeeManagementCodeUnit", "Codeunit", companyName);
-            var result = obj.CashBook(printDetails, lineNarration, voucherNaration, gLNo, fromDate,toDate, dimension1, dimension2);
+            var result = obj.CashBook(printDetails, lineNarration, voucherNaration, gLNo, fromDate, toDate, dimension1, dimension2);
             return result;
         }
         public static string GetBankBookReport(bool printDetails,
@@ -658,7 +673,7 @@ namespace WebServices
             FeeManagementCodeUnitReference2.FeeManagementCodeUnit obj = new FeeManagementCodeUnitReference2.FeeManagementCodeUnit();
             obj = (FeeManagementCodeUnitReference2.FeeManagementCodeUnit)Configuration
                 .getNavService(new FeeManagementCodeUnitReference2.FeeManagementCodeUnit(), "FeeManagementCodeUnit", "Codeunit", companyName);
-            var result = obj.BankBook(printDetails, lineNarration, voucherNaration, bankAccNo, fromDate,todate, dimension1, dimension2);
+            var result = obj.BankBook(printDetails, lineNarration, voucherNaration, bankAccNo, fromDate, todate, dimension1, dimension2);
             return result;
         }
 
@@ -800,7 +815,28 @@ namespace WebServices
             AccountManagementReference.AccountManagement obj = new AccountManagementReference.AccountManagement();
             obj = (AccountManagementReference.AccountManagement)Configuration
                 .getNavService(new AccountManagementReference.AccountManagement(), "AccountManagement", "Codeunit", companyName);
-            obj.EmployeeLeaveSubmit(hrmsId, fromdate,todate,typeOfLeave);
+            obj.EmployeeLeaveSubmit(hrmsId, fromdate, todate, typeOfLeave);
+        }
+        public static void ForwardToGovt(string entryNo, string companyName)
+        {
+            AccountManagementReference.AccountManagement obj = new AccountManagementReference.AccountManagement();
+            obj = (AccountManagementReference.AccountManagement)Configuration
+                .getNavService(new AccountManagementReference.AccountManagement(), "AccountManagement", "Codeunit", companyName);
+            obj.EmployeeLeaveForwardtogovt(Convert.ToInt32(entryNo));
+        }
+        public static void LeaveSanctioned(string entryNo, string companyName)
+        {
+            AccountManagementReference.AccountManagement obj = new AccountManagementReference.AccountManagement();
+            obj = (AccountManagementReference.AccountManagement)Configuration
+                .getNavService(new AccountManagementReference.AccountManagement(), "AccountManagement", "Codeunit", companyName);
+            obj.EmployeeLeaveSanction(Convert.ToInt32(entryNo));
+        }
+        public static void LeaveDecliened(string entryNo, string companyName)
+        {
+            AccountManagementReference.AccountManagement obj = new AccountManagementReference.AccountManagement();
+            obj = (AccountManagementReference.AccountManagement)Configuration
+                .getNavService(new AccountManagementReference.AccountManagement(), "AccountManagement", "Codeunit", companyName);
+            obj.EmployeeLeaveDecline(Convert.ToInt32(entryNo));
         }
         #endregion
 

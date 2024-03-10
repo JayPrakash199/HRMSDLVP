@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultMasterPage.Master" AutoEventWireup="true" CodeBehind="EmployeeLeaveList.aspx.cs" Inherits="HRMS.EmployeeLeaveList" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <style>
+    <style>
         .summary-box {
             height: auto;
             text-align: center;
@@ -74,7 +75,7 @@
             background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
         }
     </style>
-     <contenttemplate>
+    <contenttemplate>
 
         <div class="container box">
             <div class="row">
@@ -101,6 +102,9 @@
                                                                 <th runat="server">Leave To Date</th>
                                                                 <th runat="server">Type of Leave</th>
                                                                 <th runat="server">Status</th>
+                                                                <th runat="server">Action</th>
+                                                                <th runat="server">Action</th>
+                                                                <th runat="server">Action</th>
                                                             </tr>
                                                             <tr id="ItemPlaceholder" runat="server">
                                                             </tr>
@@ -131,6 +135,16 @@
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="Label5" runat="server" Text='<%# Eval("Status")%>'> </asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Button ID="btnForwardTogoverment" OnClick="btnForwardTogoverment_Click" class="btn btn-primary" Text="Forward to Goverment" runat="server"></asp:Button>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Button ID="btnSanction" OnClick="btnSanction_Click" class="btn btn-primary" Text="Sanctioned" runat="server"></asp:Button>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Button ID="btnDecliend" OnClick="btnDecliend_Click" class="btn btn-primary" Text="Declined" runat="server"></asp:Button>
+
                                                             </td>
                                                         </tr>
                                                     </ItemTemplate>

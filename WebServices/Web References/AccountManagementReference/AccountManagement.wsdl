@@ -17,6 +17,42 @@
           </sequence>
         </complexType>
       </element>
+      <element name="EmployeeLeaveDecline">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="EmployeeLeaveDecline_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="EmployeeLeaveForwardtogovt">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="EmployeeLeaveForwardtogovt_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="EmployeeLeaveSanction">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="EmployeeLeaveSanction_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
       <element name="EmployeeLeaveSubmit">
         <complexType>
           <sequence>
@@ -130,6 +166,24 @@
   <message name="DeleteCautionRefundLine_Result">
     <part name="parameters" element="tns:DeleteCautionRefundLine_Result" />
   </message>
+  <message name="EmployeeLeaveDecline">
+    <part name="parameters" element="tns:EmployeeLeaveDecline" />
+  </message>
+  <message name="EmployeeLeaveDecline_Result">
+    <part name="parameters" element="tns:EmployeeLeaveDecline_Result" />
+  </message>
+  <message name="EmployeeLeaveForwardtogovt">
+    <part name="parameters" element="tns:EmployeeLeaveForwardtogovt" />
+  </message>
+  <message name="EmployeeLeaveForwardtogovt_Result">
+    <part name="parameters" element="tns:EmployeeLeaveForwardtogovt_Result" />
+  </message>
+  <message name="EmployeeLeaveSanction">
+    <part name="parameters" element="tns:EmployeeLeaveSanction" />
+  </message>
+  <message name="EmployeeLeaveSanction_Result">
+    <part name="parameters" element="tns:EmployeeLeaveSanction_Result" />
+  </message>
   <message name="EmployeeLeaveSubmit">
     <part name="parameters" element="tns:EmployeeLeaveSubmit" />
   </message>
@@ -183,6 +237,18 @@
       <input name="DeleteCautionRefundLine" message="tns:DeleteCautionRefundLine" />
       <output name="DeleteCautionRefundLine_Result" message="tns:DeleteCautionRefundLine_Result" />
     </operation>
+    <operation name="EmployeeLeaveDecline">
+      <input name="EmployeeLeaveDecline" message="tns:EmployeeLeaveDecline" />
+      <output name="EmployeeLeaveDecline_Result" message="tns:EmployeeLeaveDecline_Result" />
+    </operation>
+    <operation name="EmployeeLeaveForwardtogovt">
+      <input name="EmployeeLeaveForwardtogovt" message="tns:EmployeeLeaveForwardtogovt" />
+      <output name="EmployeeLeaveForwardtogovt_Result" message="tns:EmployeeLeaveForwardtogovt_Result" />
+    </operation>
+    <operation name="EmployeeLeaveSanction">
+      <input name="EmployeeLeaveSanction" message="tns:EmployeeLeaveSanction" />
+      <output name="EmployeeLeaveSanction_Result" message="tns:EmployeeLeaveSanction_Result" />
+    </operation>
     <operation name="EmployeeLeaveSubmit">
       <input name="EmployeeLeaveSubmit" message="tns:EmployeeLeaveSubmit" />
       <output name="EmployeeLeaveSubmit_Result" message="tns:EmployeeLeaveSubmit_Result" />
@@ -224,6 +290,33 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="DeleteCautionRefundLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="EmployeeLeaveDecline">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/AccountManagement:EmployeeLeaveDecline" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="EmployeeLeaveDecline">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="EmployeeLeaveDecline_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="EmployeeLeaveForwardtogovt">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/AccountManagement:EmployeeLeaveForwardtogovt" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="EmployeeLeaveForwardtogovt">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="EmployeeLeaveForwardtogovt_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="EmployeeLeaveSanction">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/AccountManagement:EmployeeLeaveSanction" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="EmployeeLeaveSanction">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="EmployeeLeaveSanction_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

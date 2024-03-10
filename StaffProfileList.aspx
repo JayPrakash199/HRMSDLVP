@@ -154,7 +154,7 @@
                                                                 <div class="input-group">
                                                                     <label class="input-group-btn">
                                                                         <span class="custom-file-input btn">
-                                                                            <asp:FileUpload ID="financialUpgradationpdfUploader" runat="server" Style="display: none" accept=".pdf" />
+                                                                            <asp:FileUpload ID="StaffProfileUploader" runat="server" Style="display: none" accept=".pdf" />
                                                                             <asp:LinkButton ID="staffProfileUpload" CssClass="btn btn-yellow" OnClick="staffProfileUpload_Click" runat="server">Upload</asp:LinkButton>
                                                                         </span>
                                                                     </label>

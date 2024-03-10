@@ -39,7 +39,7 @@ namespace HRMS
 
             List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
             var role = lstUserRole
-                .FirstOrDefault(x => string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) && 
+                .FirstOrDefault(x => string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Page_Name.Trim(), "Add Transfer Record", StringComparison.OrdinalIgnoreCase)
                 && string.Equals(x.Module_Name.Trim(), "HRMS", StringComparison.OrdinalIgnoreCase));
             if (role == null)
@@ -67,7 +67,8 @@ namespace HRMS
                 txtDesignation.Text = employeeResult.Designation;
                 LblMessage.Text = string.Empty;
                 txtCurrentStation.Text = employeeResult.Current_Station;
-                ddlFromStation.SelectedItem.Text = employeeResult.Current_Station;
+                ddlFromStation.ClearSelection();
+                ddlFromStation.Items.FindByValue(employeeResult.Current_Station).Selected = true;
             }
             else
             {
@@ -131,7 +132,7 @@ namespace HRMS
                 Relief_Order_No = txtReliefOrderNo.Text,
                 Relief_Order_Date = DateTimeParser.ParseDateTime(txtReliefOrderDate.Text),
                 Promotion_order_date = DateTimeParser.ParseDateTime(txtPromotionOrderDate.Text),
-                To_Designation = ddlDesignation.SelectedItem.Text
+                //To_Designation = ddlDesignation.SelectedItem.Text
             };
             var resultMessage =
                 SOAPServices.AddEmployeeTransferAndPromotionRecord(obj, Session["SessionCompanyName"] as string);

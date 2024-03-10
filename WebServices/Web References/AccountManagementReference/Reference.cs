@@ -31,6 +31,12 @@ namespace WebServices.AccountManagementReference {
         
         private System.Threading.SendOrPostCallback DeleteCautionRefundLineOperationCompleted;
         
+        private System.Threading.SendOrPostCallback EmployeeLeaveDeclineOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback EmployeeLeaveForwardtogovtOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback EmployeeLeaveSanctionOperationCompleted;
+        
         private System.Threading.SendOrPostCallback EmployeeLeaveSubmitOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetLinesOperationCompleted;
@@ -89,6 +95,15 @@ namespace WebServices.AccountManagementReference {
         public event DeleteCautionRefundLineCompletedEventHandler DeleteCautionRefundLineCompleted;
         
         /// <remarks/>
+        public event EmployeeLeaveDeclineCompletedEventHandler EmployeeLeaveDeclineCompleted;
+        
+        /// <remarks/>
+        public event EmployeeLeaveForwardtogovtCompletedEventHandler EmployeeLeaveForwardtogovtCompleted;
+        
+        /// <remarks/>
+        public event EmployeeLeaveSanctionCompletedEventHandler EmployeeLeaveSanctionCompleted;
+        
+        /// <remarks/>
         public event EmployeeLeaveSubmitCompletedEventHandler EmployeeLeaveSubmitCompleted;
         
         /// <remarks/>
@@ -142,6 +157,91 @@ namespace WebServices.AccountManagementReference {
             if ((this.DeleteCautionRefundLineCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.DeleteCautionRefundLineCompleted(this, new DeleteCautionRefundLineCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/AccountManagement:EmployeeLeaveDecline", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/AccountManagement", ResponseElementName="EmployeeLeaveDecline_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/AccountManagement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void EmployeeLeaveDecline(int entryNo) {
+            this.Invoke("EmployeeLeaveDecline", new object[] {
+                        entryNo});
+        }
+        
+        /// <remarks/>
+        public void EmployeeLeaveDeclineAsync(int entryNo) {
+            this.EmployeeLeaveDeclineAsync(entryNo, null);
+        }
+        
+        /// <remarks/>
+        public void EmployeeLeaveDeclineAsync(int entryNo, object userState) {
+            if ((this.EmployeeLeaveDeclineOperationCompleted == null)) {
+                this.EmployeeLeaveDeclineOperationCompleted = new System.Threading.SendOrPostCallback(this.OnEmployeeLeaveDeclineOperationCompleted);
+            }
+            this.InvokeAsync("EmployeeLeaveDecline", new object[] {
+                        entryNo}, this.EmployeeLeaveDeclineOperationCompleted, userState);
+        }
+        
+        private void OnEmployeeLeaveDeclineOperationCompleted(object arg) {
+            if ((this.EmployeeLeaveDeclineCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.EmployeeLeaveDeclineCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/AccountManagement:EmployeeLeaveForwardtog" +
+            "ovt", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/AccountManagement", ResponseElementName="EmployeeLeaveForwardtogovt_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/AccountManagement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void EmployeeLeaveForwardtogovt(int entryNo) {
+            this.Invoke("EmployeeLeaveForwardtogovt", new object[] {
+                        entryNo});
+        }
+        
+        /// <remarks/>
+        public void EmployeeLeaveForwardtogovtAsync(int entryNo) {
+            this.EmployeeLeaveForwardtogovtAsync(entryNo, null);
+        }
+        
+        /// <remarks/>
+        public void EmployeeLeaveForwardtogovtAsync(int entryNo, object userState) {
+            if ((this.EmployeeLeaveForwardtogovtOperationCompleted == null)) {
+                this.EmployeeLeaveForwardtogovtOperationCompleted = new System.Threading.SendOrPostCallback(this.OnEmployeeLeaveForwardtogovtOperationCompleted);
+            }
+            this.InvokeAsync("EmployeeLeaveForwardtogovt", new object[] {
+                        entryNo}, this.EmployeeLeaveForwardtogovtOperationCompleted, userState);
+        }
+        
+        private void OnEmployeeLeaveForwardtogovtOperationCompleted(object arg) {
+            if ((this.EmployeeLeaveForwardtogovtCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.EmployeeLeaveForwardtogovtCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/AccountManagement:EmployeeLeaveSanction", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/AccountManagement", ResponseElementName="EmployeeLeaveSanction_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/AccountManagement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void EmployeeLeaveSanction(int entryNo) {
+            this.Invoke("EmployeeLeaveSanction", new object[] {
+                        entryNo});
+        }
+        
+        /// <remarks/>
+        public void EmployeeLeaveSanctionAsync(int entryNo) {
+            this.EmployeeLeaveSanctionAsync(entryNo, null);
+        }
+        
+        /// <remarks/>
+        public void EmployeeLeaveSanctionAsync(int entryNo, object userState) {
+            if ((this.EmployeeLeaveSanctionOperationCompleted == null)) {
+                this.EmployeeLeaveSanctionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnEmployeeLeaveSanctionOperationCompleted);
+            }
+            this.InvokeAsync("EmployeeLeaveSanction", new object[] {
+                        entryNo}, this.EmployeeLeaveSanctionOperationCompleted, userState);
+        }
+        
+        private void OnEmployeeLeaveSanctionOperationCompleted(object arg) {
+            if ((this.EmployeeLeaveSanctionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.EmployeeLeaveSanctionCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -430,6 +530,18 @@ namespace WebServices.AccountManagementReference {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void EmployeeLeaveDeclineCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void EmployeeLeaveForwardtogovtCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void EmployeeLeaveSanctionCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]

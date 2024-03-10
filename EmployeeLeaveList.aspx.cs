@@ -53,5 +53,121 @@ namespace HRMS
             EmployeeleaveListView.DataSource = employeeList;
             EmployeeleaveListView.DataBind();
         }
+
+        protected void btnForwardTogoverment_Click(object sender, EventArgs e)
+        {
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
+            {
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Employee Leave List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Insert))
+                {
+                    try
+                    {
+                        Button btn = sender as Button;
+                        ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                        Label entryNo = item.FindControl("lblProjectCode") as Label;
+
+                        //Label status = item.FindControl("lblStatus") as Label;
+                        //if (status.Text.ToLower() == "posted")
+                        //{
+                        //    Alert.ShowAlert(this, "e", "Alredy Posted.");
+                        //    return;
+                        //}
+
+                        SOAPServices.ForwardToGovt(entryNo.Text, Session["SessionCompanyName"] as string);
+                        Alert.ShowAlert(this, "s", "Posted successfully.");
+
+                        LoadEmployeeLeaveData();
+                    }
+                    catch (Exception ex)
+                    {
+                        Alert.ShowAlert(this, "e", ex.Message);
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to post the content. Kindly contact the system administrator.");
+
+                }
+            }
+        }
+
+        protected void btnSanction_Click(object sender, EventArgs e)
+        {
+
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
+            {
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Employee Leave List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Insert))
+                {
+                    try
+                    {
+                        Button btn = sender as Button;
+                        ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                        Label entryNo = item.FindControl("lblProjectCode") as Label;
+
+                        SOAPServices.LeaveSanctioned(entryNo.Text, Session["SessionCompanyName"] as string);
+                        Alert.ShowAlert(this, "s", "Leave Sanctioned successfully.");
+
+                        LoadEmployeeLeaveData();
+                    }
+                    catch (Exception ex)
+                    {
+                        Alert.ShowAlert(this, "e", ex.Message);
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to post the content. Kindly contact the system administrator.");
+
+                }
+            }
+        }
+
+        protected void btnDecliend_Click(object sender, EventArgs e)
+        {
+
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
+            {
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Employee Leave List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Insert))
+                {
+                    try
+                    {
+                        Button btn = sender as Button;
+                        ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                        Label entryNo = item.FindControl("lblProjectCode") as Label;
+                        SOAPServices.LeaveDecliened(entryNo.Text, Session["SessionCompanyName"] as string);
+                        Alert.ShowAlert(this, "s", "Leave Decliened successfully.");
+
+                        LoadEmployeeLeaveData();
+                    }
+                    catch (Exception ex)
+                    {
+                        Alert.ShowAlert(this, "e", ex.Message);
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to post the content. Kindly contact the system administrator.");
+
+                }
+            }
+        }
     }
 }
