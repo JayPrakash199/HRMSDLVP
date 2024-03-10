@@ -46,6 +46,7 @@ namespace HRMS
                     if (directorLogin)
                     {
                         divreport.Visible = true;
+                        divreports.Visible = true;
                         btnReport.Visible = true;
                         ddlCompany.Visible = true;
                         BindCompany();
@@ -55,39 +56,40 @@ namespace HRMS
                     }
                     if (isInfra)
                     {
-                        //urlList.Add(new LicenesingModel { Name = "Infra", Link = "Infra-MasterData.aspx" });
+                        divinfra.Visible = true;
                         btnInfraa.Visible = true;
                     }
                     if (isHRMS)
                     {
-                        //urlList.Add(new LicenesingModel { Name = "HRMS", Link = "RecruitmentsAndRetirements.aspx" });
+                        divHrms.Visible = true;
                         btnHRMSs.Visible = true;
                     }
                     if (isSLCM)
                     {
+                        divslcs.Visible = true;
                         btnslcm.Visible = true;
                     }
                     if (isLibraryMgmnt)
                     {
-                        //urlList.Add(new LicenesingModel { Name = "Library Management", Link = "LibraryBookSearch.aspx" });
+                        divlibrary.Visible=true;
                         btnLibraryMgmntt.Visible = true;
                     }
                     if (isFeeMgmnt)
                     {
-                        //urlList.Add(new LicenesingModel { Name = "Fee Management", Link = "FeeClassificationList.aspx" });
+                        divlibrry.Visible = true;
                         btnFeeMgmntt.Visible = true;
                     }
                     if (isAccountMgmnt)
                     {
-                        //btnAccountMgmnt.Visible = true;
                     }
                     if (!isInfra && !isHRMS && !isSLCM && !isLibraryMgmnt && !isFeeMgmnt)
                     {
                         Response.Redirect("Login.aspx");
                     }
-
-                    //linkListView.DataSource = urlList;
-                    //linkListView.DataBind();
+                    if (isStockNStore)
+                    {
+                        divstock.Visible=true;
+                    }
                     lblcompanyName.Text = HttpUtility.UrlDecode(Convert.ToString(Session["SessionCompanyName"]));
                 }
                 else
@@ -121,7 +123,7 @@ namespace HRMS
             var userobj = Session["UserData"] as string;
             var userData = JObject.Parse(userobj.ToString());
             var userName = userData["UserName"];
-            string url = string.Format("{0}{1}{2}{3}{4}", ConfigurationManager.AppSettings["StockandStoreURL"].ToString(),"/Account/Login?id=", userName, "&Company=", Session["SessionCompanyName"].ToString());
+            string url = string.Format("{0}{1}{2}{3}{4}", ConfigurationManager.AppSettings["StockandStoreURL"].ToString(), "/Account/Login?id=", userName, "&Company=", Session["SessionCompanyName"].ToString());
             Response.Redirect(url);
         }
     }

@@ -46,6 +46,8 @@ namespace HRMS
                 ddlBookNo.DataTextField = "No";
                 ddlBookNo.DataValueField = "Book_Name";
                 ddlBookNo.DataBind();
+                ddlBookNo.Items.Insert(0, new ListItem("Select Book No", "0"));
+
             }
         }
 
@@ -63,6 +65,7 @@ namespace HRMS
             ddlNo.DataTextField = "No";
             ddlNo.DataValueField = "Name";
             ddlNo.DataBind();
+            ddlNo.Items.Insert(0, new ListItem("Select Student No", "0"));
         }
 
         protected void ddlType_SelectedIndexChanged(object sender, EventArgs e)
@@ -89,13 +92,17 @@ namespace HRMS
 
         protected void ddlBookNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string BookNo = ddlBookNo.SelectedItem.Text.ToString();
-            List<HRMSODATA.BookList> lstStudent = ODataServices.GetBookList(Session["SessionCompanyName"] as string).Where(x => x.No == BookNo).ToList();
-            if (lstStudent != null && lstStudent.Count > 0)
+            if (ddlBookNo.SelectedValue != "0")
             {
-                txtBookName.Text = lstStudent[0].Book_Name;
+                string BookNo = ddlBookNo.SelectedItem.Text.ToString();
+
+                List<HRMSODATA.BookList> lstStudent = ODataServices.GetBookList(Session["SessionCompanyName"] as string).Where(x => x.No == BookNo).ToList();
+                if (lstStudent != null && lstStudent.Count > 0)
+                {
+                    txtBookName.Text = lstStudent[0].Book_Name;
+                }
+                txtDate.Text = System.DateTime.Now.ToShortDateString();
             }
-            txtDate.Text = System.DateTime.Now.ToShortDateString();
         }
 
         protected void btnAdvanceBookCardSubmit_Click(object sender, EventArgs e)

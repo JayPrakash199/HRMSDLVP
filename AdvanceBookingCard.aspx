@@ -227,7 +227,7 @@
                                                     </asp:DropDownList>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Book Name></label>
+                                                    <label>Book Name</label>
                                                     <asp:TextBox ID="txtBookName" CssClass="form-control" runat="server"></asp:TextBox>
                                                 </div>
                                             </div>
