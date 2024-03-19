@@ -19634,6 +19634,12 @@
             <EnumMember>NAV.NavType/Date</EnumMember>
           </Annotation>
         </Property>
+        <Property Name="G_L_No" Type="Edm.String" MaxLength="10">
+          <Annotation Term="NAV.LabelId" String="G/L No." />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
         <NavigationProperty Name="Customer_No_Link" Type="Collection(NAV.CustomerList)" ContainsTarget="true">
           <ReferentialConstraint Property="Customer_No" ReferencedProperty="No" />
         </NavigationProperty>
@@ -47651,6 +47657,15 @@
         <Parameter Name="lineNo" Type="Edm.Int32" />
         <ReturnType Type="Edm.Boolean" />
       </Action>
+      <Action Name="AccountManagement_EmployeeLeaveDecline">
+        <Parameter Name="entryNo" Type="Edm.Int32" />
+      </Action>
+      <Action Name="AccountManagement_EmployeeLeaveForwardtogovt">
+        <Parameter Name="entryNo" Type="Edm.Int32" />
+      </Action>
+      <Action Name="AccountManagement_EmployeeLeaveSanction">
+        <Parameter Name="entryNo" Type="Edm.Int32" />
+      </Action>
       <Action Name="AccountManagement_EmployeeLeaveSubmit">
         <Parameter Name="hRMSID" Type="Edm.String" />
         <Parameter Name="fromDate" Type="Edm.Date" />
@@ -47791,6 +47806,10 @@
         <Parameter Name="eNTnopar" Type="Edm.Int32" />
         <ReturnType Type="Edm.String" />
       </Action>
+      <Action Name="HRMSCodeunit_Download_Staff_Achivement">
+        <Parameter Name="sLnopar" Type="Edm.Int32" />
+        <ReturnType Type="Edm.String" />
+      </Action>
       <Action Name="HRMSCodeunit_Download_Transfer_Application_Employee">
         <Parameter Name="sLnopar" Type="Edm.Int32" />
         <Parameter Name="hRMSIDpar" Type="Edm.String" />
@@ -47899,6 +47918,10 @@
       </Action>
       <Action Name="HRMSCodeunit_Upload_Promotion_Order">
         <Parameter Name="eNTnopar" Type="Edm.Int32" />
+        <Parameter Name="filenamePar" Type="Edm.String" />
+      </Action>
+      <Action Name="HRMSCodeunit_Upload_Staff_Achivement">
+        <Parameter Name="sLnopar" Type="Edm.Int32" />
         <Parameter Name="filenamePar" Type="Edm.String" />
       </Action>
       <Action Name="HRMSCodeunit_Upload_Transfer_Application_Employee">
@@ -48397,6 +48420,9 @@
       </Action>
       <EntityContainer Name="NAV">
         <ActionImport Name="AccountManagement_DeleteCautionRefundLine" Action="NAV.AccountManagement_DeleteCautionRefundLine" />
+        <ActionImport Name="AccountManagement_EmployeeLeaveDecline" Action="NAV.AccountManagement_EmployeeLeaveDecline" />
+        <ActionImport Name="AccountManagement_EmployeeLeaveForwardtogovt" Action="NAV.AccountManagement_EmployeeLeaveForwardtogovt" />
+        <ActionImport Name="AccountManagement_EmployeeLeaveSanction" Action="NAV.AccountManagement_EmployeeLeaveSanction" />
         <ActionImport Name="AccountManagement_EmployeeLeaveSubmit" Action="NAV.AccountManagement_EmployeeLeaveSubmit" />
         <ActionImport Name="AccountManagement_GetLines" Action="NAV.AccountManagement_GetLines" />
         <ActionImport Name="AccountManagement_PostTransferAccount" Action="NAV.AccountManagement_PostTransferAccount" />
@@ -48420,6 +48446,7 @@
         <ActionImport Name="HRMSCodeunit_Download_Employee_Training_History_Certificate" Action="NAV.HRMSCodeunit_Download_Employee_Training_History_Certificate" />
         <ActionImport Name="HRMSCodeunit_Download_Financial_Upgradation_Application" Action="NAV.HRMSCodeunit_Download_Financial_Upgradation_Application" />
         <ActionImport Name="HRMSCodeunit_Download_Promotion_Order" Action="NAV.HRMSCodeunit_Download_Promotion_Order" />
+        <ActionImport Name="HRMSCodeunit_Download_Staff_Achivement" Action="NAV.HRMSCodeunit_Download_Staff_Achivement" />
         <ActionImport Name="HRMSCodeunit_Download_Transfer_Application_Employee" Action="NAV.HRMSCodeunit_Download_Transfer_Application_Employee" />
         <ActionImport Name="HRMSCodeunit_Download_Transfer_Order" Action="NAV.HRMSCodeunit_Download_Transfer_Order" />
         <ActionImport Name="HRMSCodeunit_ExportAnnualEstablishmentPartA" Action="NAV.HRMSCodeunit_ExportAnnualEstablishmentPartA" />
@@ -48453,6 +48480,7 @@
         <ActionImport Name="HRMSCodeunit_Upload_Employee_Training_History_Certificate" Action="NAV.HRMSCodeunit_Upload_Employee_Training_History_Certificate" />
         <ActionImport Name="HRMSCodeunit_Upload_Financial_Upgradation_Application" Action="NAV.HRMSCodeunit_Upload_Financial_Upgradation_Application" />
         <ActionImport Name="HRMSCodeunit_Upload_Promotion_Order" Action="NAV.HRMSCodeunit_Upload_Promotion_Order" />
+        <ActionImport Name="HRMSCodeunit_Upload_Staff_Achivement" Action="NAV.HRMSCodeunit_Upload_Staff_Achivement" />
         <ActionImport Name="HRMSCodeunit_Upload_Transfer_Application_Employee" Action="NAV.HRMSCodeunit_Upload_Transfer_Application_Employee" />
         <ActionImport Name="HRMSCodeunit_Upload_Transfer_Order" Action="NAV.HRMSCodeunit_Upload_Transfer_Order" />
         <ActionImport Name="InfraCodeunit_Download_Auditorium_Building_File" Action="NAV.InfraCodeunit_Download_Auditorium_Building_File" />

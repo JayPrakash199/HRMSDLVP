@@ -67,12 +67,12 @@ namespace HRMS
             txtEmployeeName.Text = result.Employee_Name;
             txtDesignation.Text = result.Designation;
             ddlFromStation.ClearSelection();
-            ddlFromStation.Items.FindByValue( result.From_Station).Selected=true;
+            ddlFromStation.Items.FindByValue(result.From_Station).Selected = true;
             ddlToStation.ClearSelection();
             ddlToStation.Items.FindByValue(result.To_Station).Selected = true;
             txtOrderDate.Text = DateTimeParser.ConvertDateTimeToText(result.Transfer_Order_Date);
             txtLetterNo.Text = result.Letter_No;
-            
+
             hdnEntryNo.Value = Convert.ToString(result.Entry_No);
             txtOrderIssuingAuthority.Text = result.Order_Issuing_Authority;
             txtReliefOrderDate.Text = DateTimeParser.ConvertDateTimeToText(result.Relief_Order_Date);
@@ -83,7 +83,7 @@ namespace HRMS
             txtReliefOrderDate.Text = DateTimeParser.ConvertDateTimeToText(result.Relief_Order_Date);
             txtPromotionOrderDate.Text = DateTimeParser.ConvertDateTimeToText(result.Transfer_Order_Date);
             ddlJoiningEvent.ClearSelection();
-            ddlJoiningEvent.Items.FindByText(result.Relieving_Event).Selected = true;
+            ddlJoiningEvent.Items.FindByText(string.IsNullOrEmpty(result.Relieving_Event.Trim()) ? "Select" : result.Relieving_Event).Selected = true;
         }
 
         protected void btnJoin_Click(object sender, EventArgs e)
