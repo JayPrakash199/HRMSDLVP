@@ -38,8 +38,6 @@ namespace HRMS
                         Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
                     }
                 }
-
-                BindListView();
             }
         }
 
