@@ -23,7 +23,7 @@ namespace HRMS
                 {
                     var role = lstUserRole.FirstOrDefault(x =>
                     string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                    string.Equals(x.Page_Name.Trim(), "Fee Component List", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Page_Name.Trim(), "Fee Component", StringComparison.OrdinalIgnoreCase) &&
                     string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
 
                     if (role == null || Convert.ToBoolean(role.Read))
