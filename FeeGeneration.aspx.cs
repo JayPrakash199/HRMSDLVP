@@ -90,7 +90,7 @@ namespace HRMS
                         string.Equals(x.Module_Name.Trim(), "Accounts", StringComparison.OrdinalIgnoreCase));
 
 
-                    if (role == null || Convert.ToBoolean(role.Read))
+                    if (role == null || Convert.ToBoolean(role.Insert))
                     {
 
                         if (ddlacademicYear.SelectedValue == "0")

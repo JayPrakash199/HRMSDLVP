@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultMasterPage.Master" AutoEventWireup="true" CodeBehind="EmployeeLeaveList.aspx.cs" Inherits="HRMS.EmployeeLeaveList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultMasterPage.Master" AutoEventWireup="true" CodeBehind="EmployeeTransferHistoryList.aspx.cs" Inherits="HRMS.EmployeeTransferHistoryList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -18,6 +18,7 @@
         .container.box {
             margin-bottom: 5%;
         }
+
 
         p.Introduction {
             float: left;
@@ -81,7 +82,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 summary-box">
                     <div class="col-lg-12 NewEntrydiv">
-                        <p class="NewEntry">Employee Leave List</p>
+                        <p class="NewEntry">Employee Transfer List</p>
                     </div>
                     <div class="tab-pane active" id="1">
                         <div class="right_col_bg">
@@ -90,20 +91,27 @@
                                     <div class="col-md-12">
                                         <div class="table-responsive">
                                             <div id="exportto" style="height: 390px; overflow: visible">
-                                                <asp:ListView ID="EmployeeleaveListView" runat="server">
+                                                <asp:ListView ID="EmployeeTransferListView" runat="server">
                                                     <LayoutTemplate>
                                                         <table runat="server" class="table table-bordered">
                                                             <tr runat="server" class="FridgeHeader">
-                                                                <th runat="server">Entry No</th>
+                                                                <th runat="server">Entry_No	</th>
                                                                 <th runat="server">HRMS ID</th>
                                                                 <th runat="server">Employee Name</th>
                                                                 <th runat="server">Designation</th>
-                                                                <th runat="server">Leave From Date</th>
-                                                                <th runat="server">Leave To Date</th>
-                                                                <th runat="server">Type of Leave</th>
+                                                                <th runat="server">From Station</th>
+                                                                <th runat="server">To Station</th>
+                                                                <th runat="server">Order Authority</th>
+                                                                <th runat="server">Relief Order Date</th>
+                                                                <th runat="server">Relief Order No</th>
+                                                                <th runat="server">Transfer Order Date</th>
+                                                                <th runat="server">Letter No</th>
+                                                                <th runat="server">Prommotion Letter No</th>
+                                                                <th runat="server">Relievening Event</th>
+                                                                <th runat="server">Joining Event</th>
+                                                                <th runat="server">Joining Date</th>
                                                                 <th runat="server">Status</th>
-                                                                <th runat="server">Action</th>
-                                                                <th runat="server">Action</th>
+                                                                <th runat="server">To Designation</th>
                                                                 <th runat="server">Action</th>
                                                             </tr>
                                                             <tr id="ItemPlaceholder" runat="server">
@@ -113,37 +121,59 @@
                                                     <ItemTemplate>
                                                         <tr class="TableData">
                                                             <td>
-                                                                <asp:Label ID="lblProjectCode" runat="server" Text='<%# Eval("Entry_No")%>'> </asp:Label>
+                                                                <asp:Label ID="lblEntryNo" runat="server" Text='<%# Eval("Entry_No")%>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="lblProjectType" runat="server" Text='<%# Eval("HRMS_ID")%>'> </asp:Label>
+                                                                <asp:Label ID="lblHrmsId" runat="server" Text='<%# Eval("HRMS_ID")%>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("Employee_Name")%>'> </asp:Label>
+                                                                <asp:Label ID="lblEmployeeName" runat="server" Text='<%# Eval("Employee_Name")%>'> </asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="Label2" runat="server" Text='<%# Eval("Designation")%>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("Leave_From_Date")%>'> </asp:Label>
+                                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("From_Station")%>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("Leave_To_Date")%>'> </asp:Label>
+                                                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("To_Station")%>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="Label27" runat="server" Text='<%# Eval("Type_of_Leave")%>'> </asp:Label>
+                                                                <asp:Label ID="Label27" runat="server" Text='<%# Eval("Order_Issuing_Authority")%>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="Label5" runat="server" Text='<%# Eval("Status")%>'> </asp:Label>
+                                                                <asp:Label ID="Label5" runat="server" Text='<%# DateTime.Parse(Eval("Relief_Order_Date").ToString()).ToString("d") %>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Button ID="btnForwardTogoverment" OnClick="btnForwardTogoverment_Click" class="btn btn-primary" Text="Forward to Goverment" runat="server"></asp:Button>
+                                                                <asp:Label ID="Label26" runat="server" Text='<%# Eval("Relief_Order_No")%>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Button ID="btnSanction" OnClick="btnSanction_Click" class="btn btn-primary" Text="Sanctioned" runat="server"></asp:Button>
+                                                                <asp:Label ID="Label6" runat="server" Text='<%# DateTime.Parse(Eval("Transfer_Order_Date").ToString()).ToString("d") %>'> </asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Button ID="btnDecliend" OnClick="btnDecliend_Click" class="btn btn-primary" Text="Declined" runat="server"></asp:Button>
+                                                                <asp:Label ID="Label9" runat="server" Text='<%# Eval("Letter_No")%>'> </asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="Label10" runat="server" Text='<%# Eval("Promotion_letter_no")%>'> </asp:Label>
+
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="Label11" runat="server" Text='<%# Eval("Relieving_Event")%>'> </asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="Label12" runat="server" Text='<%# Eval("Joining_Event")%>'> </asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="Label13" runat="server" Text='<%# DateTime.Parse(Eval("Joining_Date").ToString()).ToString("d") %>'> </asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="Label14" runat="server" Text='<%# Eval("Status")%>'> </asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="Label15" runat="server" Text='<%# Eval("To_Designation")%>'> </asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Button ID="btnRelief" OnClick="btnRelief_Click" class="btn btn-primary" Text="Relief" runat="server"></asp:Button>
                                                             </td>
                                                         </tr>
                                                     </ItemTemplate>

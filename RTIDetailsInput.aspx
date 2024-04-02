@@ -185,7 +185,7 @@
 
                 <div class="col-lg-12 col-md-12 summary-box">
                     <div class="col-lg-12 NewEntrydiv">
-                        <p class="NewEntry">Court Cases Details Input</p>
+                        <p class="NewEntry">RTI monitoring Input</p>
                     </div>
                     <div class="row">
                         <div class="card-body">

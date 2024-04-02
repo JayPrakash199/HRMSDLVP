@@ -123,7 +123,9 @@ namespace WebServices
             //EmployeeTransferHistoryReference.EmployeeTransferHistoryCard_Service _obj_Binding = (EmployeeTransferHistoryReference.EmployeeTransferHistoryCard_Service)Configuration
             //    .getNavService(new EmployeeTransferHistoryReference.EmployeeTransferHistoryCard_Service(), "EmployeeTransferHistoryCard", "Page");
             EmployeeTransferHistoryReference.EmployeeTransferHistoryCard obj = new EmployeeTransferHistoryReference.EmployeeTransferHistoryCard();
-            List<HRMSODATA.EmployeeTransferHistoryList> objList = GetEmployeeTransferHistoryList(companyName).Where(x => string.Equals(x.HRMS_ID, hrmsID, StringComparison.OrdinalIgnoreCase)).ToList();
+            List<HRMSODATA.EmployeeTransferHistoryList> objList = GetEmployeeTransferHistoryList(companyName).
+                Where(x => string.Equals(x.HRMS_ID, hrmsID, StringComparison.OrdinalIgnoreCase))
+                .OrderByDescending(x => x.Entry_No).ToList();
             return objList.FirstOrDefault();
         }
 
@@ -397,6 +399,17 @@ namespace WebServices
             }
             else
                 return GetBookList(companyName);
+        }
+        public static IList<HRMSODATA.PostedBookAccessionList> GetFilterBookAccessionList(string inputVal, string companyName)
+        {
+            if (!string.IsNullOrEmpty(inputVal))
+            {
+                var filterBookList = GetPostedBookAccessionList(companyName).Where(x => x.Book_No.IndexOf(inputVal, StringComparison.OrdinalIgnoreCase) >= 0
+                || x.Accession_No.IndexOf(inputVal, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                return filterBookList;
+            }
+            else
+                return GetPostedBookAccessionList(companyName);
         }
         public static IList<HRMSODATA.BookIssueList> GetFilterBookIssueList(string inputVal, string companyName)
         {

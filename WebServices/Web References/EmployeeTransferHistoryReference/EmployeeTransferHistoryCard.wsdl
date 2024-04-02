@@ -21,6 +21,7 @@
       </xsd:simpleType>
       <xsd:simpleType name="Status">
         <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Submitted" />
           <xsd:enumeration value="Relieved" />
           <xsd:enumeration value="Joined" />
         </xsd:restriction>
@@ -426,7 +427,7 @@
   </binding>
   <service name="EmployeeTransferHistoryCard_Service">
     <port name="EmployeeTransferHistoryCard_Port" binding="tns:EmployeeTransferHistoryCard_Binding">
-      <address location="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Page/EmployeeTransferHistoryCard" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <address location="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/EmployeeTransferHistoryCard" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>
   </service>
 </definitions>

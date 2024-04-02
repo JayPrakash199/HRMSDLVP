@@ -137,6 +137,11 @@ namespace WebServices
                     (EmployeeTransferHistoryReference.EmployeeTransferHistoryCard_Service)Configuration
                     .getNavService(new EmployeeTransferHistoryReference.EmployeeTransferHistoryCard_Service(), "EmployeeTransferHistoryCard", "Page", companyName);
                 _obj_Binding.Create(ref obj);
+
+                HRMSCodeunitReference.HRMSCodeunit obj1 = new HRMSCodeunitReference.HRMSCodeunit();
+                obj1 = (HRMSCodeunitReference.HRMSCodeunit)Configuration
+                    .getNavService(new HRMSCodeunitReference.HRMSCodeunit(), "HRMSCodeunit", "Codeunit", companyName);
+                obj1.EmployeeRelief(obj.Entry_No);
                 return ResultMessages.SuccessfullMessage;
             }
             catch (Exception ex)
@@ -158,6 +163,11 @@ namespace WebServices
                 obj.Joining_Date = input.Joining_Date;
                 obj.Joining_Event = input.Joining_Event;
                 _obj_Binding.Update(ref obj);
+
+                HRMSCodeunitReference.HRMSCodeunit objhrms = new HRMSCodeunitReference.HRMSCodeunit();
+                objhrms = (HRMSCodeunitReference.HRMSCodeunit)Configuration
+                    .getNavService(new HRMSCodeunitReference.HRMSCodeunit(), "HRMSCodeunit", "Codeunit", companyName);
+                objhrms.EmployeeJoin(input.From_Station, input.HRMS_ID);
 
                 return ResultMessages.UpdateSuccessfullMessage;
             }
@@ -370,6 +380,23 @@ namespace WebServices
                 .getNavService(new HRMSCodeunitReference.HRMSCodeunit(), "HRMSCodeunit", "Codeunit", companyName);
             obj.Upload_Employee_Training_History_Certificate(entryNo, Path.Combine(filePathWithName));
         }
+
+        public static string ReliefEmployee(int entryNo,string companyName)
+        {
+            try
+            {
+                HRMSCodeunitReference.HRMSCodeunit obj = new HRMSCodeunitReference.HRMSCodeunit();
+                obj = (HRMSCodeunitReference.HRMSCodeunit)Configuration
+                    .getNavService(new HRMSCodeunitReference.HRMSCodeunit(), "HRMSCodeunit", "Codeunit", companyName);
+                obj.EmployeeRelief(entryNo);
+                return ResultMessages.UpdateSuccessfullMessage;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         #endregion
 
         #region Exporting to CSV

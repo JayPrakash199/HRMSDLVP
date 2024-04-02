@@ -41,6 +41,10 @@ namespace WebServices.HRMSCodeunitReference {
         
         private System.Threading.SendOrPostCallback Download_Transfer_OrderOperationCompleted;
         
+        private System.Threading.SendOrPostCallback EmployeeJoinOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback EmployeeReliefOperationCompleted;
+        
         private System.Threading.SendOrPostCallback ExportAnnualEstablishmentPartAOperationCompleted;
         
         private System.Threading.SendOrPostCallback ExportAnnualEstablishmentPartCOperationCompleted;
@@ -164,6 +168,12 @@ namespace WebServices.HRMSCodeunitReference {
         
         /// <remarks/>
         public event Download_Transfer_OrderCompletedEventHandler Download_Transfer_OrderCompleted;
+        
+        /// <remarks/>
+        public event EmployeeJoinCompletedEventHandler EmployeeJoinCompleted;
+        
+        /// <remarks/>
+        public event EmployeeReliefCompletedEventHandler EmployeeReliefCompleted;
         
         /// <remarks/>
         public event ExportAnnualEstablishmentPartACompletedEventHandler ExportAnnualEstablishmentPartACompleted;
@@ -451,6 +461,64 @@ namespace WebServices.HRMSCodeunitReference {
             if ((this.Download_Transfer_OrderCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.Download_Transfer_OrderCompleted(this, new Download_Transfer_OrderCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:EmployeeJoin", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit", ResponseElementName="EmployeeJoin_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void EmployeeJoin(string fromStation, string hRMSID) {
+            this.Invoke("EmployeeJoin", new object[] {
+                        fromStation,
+                        hRMSID});
+        }
+        
+        /// <remarks/>
+        public void EmployeeJoinAsync(string fromStation, string hRMSID) {
+            this.EmployeeJoinAsync(fromStation, hRMSID, null);
+        }
+        
+        /// <remarks/>
+        public void EmployeeJoinAsync(string fromStation, string hRMSID, object userState) {
+            if ((this.EmployeeJoinOperationCompleted == null)) {
+                this.EmployeeJoinOperationCompleted = new System.Threading.SendOrPostCallback(this.OnEmployeeJoinOperationCompleted);
+            }
+            this.InvokeAsync("EmployeeJoin", new object[] {
+                        fromStation,
+                        hRMSID}, this.EmployeeJoinOperationCompleted, userState);
+        }
+        
+        private void OnEmployeeJoinOperationCompleted(object arg) {
+            if ((this.EmployeeJoinCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.EmployeeJoinCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:EmployeeRelief", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit", ResponseElementName="EmployeeRelief_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void EmployeeRelief(int entryNo) {
+            this.Invoke("EmployeeRelief", new object[] {
+                        entryNo});
+        }
+        
+        /// <remarks/>
+        public void EmployeeReliefAsync(int entryNo) {
+            this.EmployeeReliefAsync(entryNo, null);
+        }
+        
+        /// <remarks/>
+        public void EmployeeReliefAsync(int entryNo, object userState) {
+            if ((this.EmployeeReliefOperationCompleted == null)) {
+                this.EmployeeReliefOperationCompleted = new System.Threading.SendOrPostCallback(this.OnEmployeeReliefOperationCompleted);
+            }
+            this.InvokeAsync("EmployeeRelief", new object[] {
+                        entryNo}, this.EmployeeReliefOperationCompleted, userState);
+        }
+        
+        private void OnEmployeeReliefOperationCompleted(object arg) {
+            if ((this.EmployeeReliefCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.EmployeeReliefCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1626,6 +1694,14 @@ namespace WebServices.HRMSCodeunitReference {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void EmployeeJoinCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void EmployeeReliefCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]

@@ -122,10 +122,69 @@ namespace HRMS
                         : ddlJoiningEvent.SelectedItem.Text == "Other Reason"
                             ? WebServices.EmployeeTransferHistoryReference.Joining_Event.Other_Reasons
                             : WebServices.EmployeeTransferHistoryReference.Joining_Event._blank_,
-                Entry_No = Convert.ToInt32(hdnEntryNo.Value)
+                Entry_No = Convert.ToInt32(hdnEntryNo.Value),
+                From_Station = ddlFromStation.SelectedValue
             };
-            var resultMessage = SOAPServices.UpdateTransferEmployeeDetails(obj, Session["SessionCompanyName"] as string);
+            string companyName = System.Web.HttpUtility.UrlPathEncode(ddlFromStation.SelectedItem.Value);
+
+            var resultMessage = SOAPServices.UpdateTransferEmployeeDetails(obj, companyName);
             Alert.ShowAlert(this, resultMessage == ResultMessages.UpdateSuccessfullMessage ? "s" : "e", resultMessage);
+        }
+
+        protected void ddlFromStation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtHRMSIDSearch.Text)) return;
+            string companyName = System.Web.HttpUtility.UrlPathEncode(ddlFromStation.SelectedItem.Value);
+
+            var result =
+                ODataServices.FindEmployeeTransferHistory(txtHRMSIDSearch.Text, companyName);
+            if (result == null)
+            {
+                clearControl();
+                string errmsg = string.Format("In company {0} relieve record is not there for employee {1} ", companyName, txtHRMSIDSearch.Text);
+                Alert.ShowAlert(this,  "e", errmsg);
+                return;
+            }
+            txtEmployeeName.Text = result.Employee_Name;
+            txtDesignation.Text = result.Designation;
+            ddlFromStation.ClearSelection();
+            ddlFromStation.Items.FindByValue(result.From_Station).Selected = true;
+            ddlToStation.ClearSelection();
+            ddlToStation.Items.FindByValue(result.To_Station).Selected = true;
+            txtOrderDate.Text = DateTimeParser.ConvertDateTimeToText(result.Transfer_Order_Date);
+            txtLetterNo.Text = result.Letter_No;
+
+            hdnEntryNo.Value = Convert.ToString(result.Entry_No);
+            txtOrderIssuingAuthority.Text = result.Order_Issuing_Authority;
+            txtReliefOrderDate.Text = DateTimeParser.ConvertDateTimeToText(result.Relief_Order_Date);
+            txtReliefOrderNo.Text = result.Relief_Order_No;
+            txtPromotionToDesignation.Text = result.To_Designation;
+            if (result.Joining_Date.ToString() != "0001-01-01")
+                txtJoiningDate.Text = DateTimeParser.ConvertDateTimeToText(result.Joining_Date);
+            txtReliefOrderDate.Text = DateTimeParser.ConvertDateTimeToText(result.Relief_Order_Date);
+            txtPromotionOrderDate.Text = DateTimeParser.ConvertDateTimeToText(result.Transfer_Order_Date);
+            ddlJoiningEvent.ClearSelection();
+            ddlJoiningEvent.Items.FindByText(string.IsNullOrEmpty(result.Relieving_Event.Trim()) ? "Select" : result.Relieving_Event).Selected = true;
+
+        }
+        private void clearControl()
+        {
+            txtEmployeeName.Text = "";
+            txtDesignation.Text = "";
+            ddlFromStation.ClearSelection();
+            ddlToStation.ClearSelection();
+            txtOrderDate.Text = "";
+            txtLetterNo.Text = "";
+            hdnEntryNo.Value = "";
+            txtOrderIssuingAuthority.Text = "";
+            txtReliefOrderDate.Text = "";
+            txtReliefOrderNo.Text = "";
+            txtPromotionToDesignation.Text = "";
+            txtJoiningDate.Text = "";
+            txtReliefOrderDate.Text = "";
+            txtPromotionOrderDate.Text = "";
+            ddlJoiningEvent.ClearSelection();
+
         }
     }
 }

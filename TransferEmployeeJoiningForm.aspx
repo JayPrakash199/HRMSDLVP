@@ -189,8 +189,16 @@
             padding: 10px;
             display: block;
         }
-        .blockInputClass { 
-            pointer-events: none; 
+
+        .blockInputClass {
+            pointer-events: none;
+        }
+
+        .readonly {
+            background-color: #6262629e !important;
+            cursor: not-allowed !important;
+            padding: 6px 12px !important;
+            font-size: 13px !important;
         }
     </style>
     <div class="container box">
@@ -220,18 +228,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 contact-info">
-                                                <div class="container">
-                                                    <div class="form-group border ab">
-                                                        <label for="exampleAccount">Employee Name</label>
-                                                        <asp:TextBox ID="txtEmployeeName" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
-                                                    </div>
-                                                    <div class="form-group border ab">
-                                                        <label for="exampleAccount">Designation</label>
-                                                        <asp:TextBox ID="txtDesignation" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="row ac">
                                             <div class="col-md-6 contact-info">
@@ -239,17 +235,17 @@
                                                     <div class="form-group">
                                                         <label for="exampleAccount">From Station</label>
                                                         <asp:Panel ID="Panel1" runat="server">
-                                                            <asp:DropDownList ID="ddlFromStation" CssClass="form-control blockInputClass" runat="server">
+                                                            <asp:DropDownList ID="ddlFromStation" AutoPostBack="true" OnSelectedIndexChanged="ddlFromStation_SelectedIndexChanged" CssClass="form-control" runat="server">
                                                             </asp:DropDownList>
                                                         </asp:Panel>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleAccount">Transfer Order Date</label>
-                                                        <asp:TextBox ID="txtOrderDate" type="date" CssClass="form-control ajax__calendar_body blockInputClass" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtOrderDate" type="date" ReadOnly="true" CssClass="form-control ajax__calendar_body readonly" runat="server"></asp:TextBox>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleAccount">Order Issuing Authority</label>
-                                                        <asp:TextBox ID="txtOrderIssuingAuthority" CssClass="form-control" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtOrderIssuingAuthority" ReadOnly="true" CssClass="form-control readonly" runat="server"></asp:TextBox>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleAccount">Joining Date</label>
@@ -257,11 +253,11 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleAccount">Relief Order Date</label>
-                                                        <asp:TextBox ID="txtReliefOrderDate" type="date" CssClass="form-control ajax__calendar_body blockInputClass" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtReliefOrderDate" type="date" ReadOnly="true" CssClass="form-control ajax__calendar_body readonly" runat="server"></asp:TextBox>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleAccount">Promotion Order Date</label>
-                                                        <asp:TextBox ID="txtPromotionOrderDate" type="date" CssClass="form-control ajax__calendar_body blockInputClass" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPromotionOrderDate" type="date" ReadOnly="true" CssClass="form-control ajax__calendar_body readonly" runat="server"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -270,21 +266,29 @@
                                                     <div class="form-group">
                                                         <label for="exampleAccount">To Station</label>
                                                         <asp:Panel ID="pnlname" runat="server">
-                                                            <asp:DropDownList ID="ddlToStation" CssClass="form-control blockInputClass" runat="server">
+                                                            <asp:DropDownList ID="ddlToStation" Enabled="false" CssClass="form-control readonly" runat="server">
                                                             </asp:DropDownList>
                                                         </asp:Panel>
                                                     </div>
+                                                    <div class="form-group border ab">
+                                                        <label for="exampleAccount">Employee Name</label>
+                                                        <asp:TextBox ID="txtEmployeeName" Enabled="false" CssClass="form-control readonly" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <div class="form-group border ab">
+                                                        <label for="exampleAccount">Designation</label>
+                                                        <asp:TextBox ID="txtDesignation" Enabled="false" CssClass="form-control readonly" runat="server"></asp:TextBox>
+                                                    </div>
                                                     <div class="form-group">
                                                         <label for="exampleAccount">Letter No</label>
-                                                        <asp:TextBox ID="txtLetterNo" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLetterNo" CssClass="form-control readonly" ReadOnly="true" runat="server"></asp:TextBox>
                                                     </div>
-                                                     <div class="form-group">
+                                                    <div class="form-group">
                                                         <label for="exampleAccount">Relief Order No</label>
-                                                        <asp:TextBox ID="txtReliefOrderNo" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtReliefOrderNo" CssClass="form-control readonly" ReadOnly="true" runat="server"></asp:TextBox>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleAccount">Promotion to Designation</label>
-                                                        <asp:TextBox ID="txtPromotionToDesignation" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPromotionToDesignation" CssClass="form-control readonly" ReadOnly="true" runat="server"></asp:TextBox>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleAccount">Joining Event</label>
@@ -314,5 +318,5 @@
             </div>
         </div>
     </div>
-    
+
 </asp:Content>

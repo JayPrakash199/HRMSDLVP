@@ -88,6 +88,31 @@
           </sequence>
         </complexType>
       </element>
+      <element name="EmployeeJoin">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fromStation" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="hRMSID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="EmployeeJoin_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="EmployeeRelief">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="EmployeeRelief_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
       <element name="ExportAnnualEstablishmentPartA">
         <complexType>
           <sequence />
@@ -546,6 +571,18 @@
   <message name="Download_Transfer_Order_Result">
     <part name="parameters" element="tns:Download_Transfer_Order_Result" />
   </message>
+  <message name="EmployeeJoin">
+    <part name="parameters" element="tns:EmployeeJoin" />
+  </message>
+  <message name="EmployeeJoin_Result">
+    <part name="parameters" element="tns:EmployeeJoin_Result" />
+  </message>
+  <message name="EmployeeRelief">
+    <part name="parameters" element="tns:EmployeeRelief" />
+  </message>
+  <message name="EmployeeRelief_Result">
+    <part name="parameters" element="tns:EmployeeRelief_Result" />
+  </message>
   <message name="ExportAnnualEstablishmentPartA">
     <part name="parameters" element="tns:ExportAnnualEstablishmentPartA" />
   </message>
@@ -775,6 +812,14 @@
       <input name="Download_Transfer_Order" message="tns:Download_Transfer_Order" />
       <output name="Download_Transfer_Order_Result" message="tns:Download_Transfer_Order_Result" />
     </operation>
+    <operation name="EmployeeJoin">
+      <input name="EmployeeJoin" message="tns:EmployeeJoin" />
+      <output name="EmployeeJoin_Result" message="tns:EmployeeJoin_Result" />
+    </operation>
+    <operation name="EmployeeRelief">
+      <input name="EmployeeRelief" message="tns:EmployeeRelief" />
+      <output name="EmployeeRelief_Result" message="tns:EmployeeRelief_Result" />
+    </operation>
     <operation name="ExportAnnualEstablishmentPartA">
       <input name="ExportAnnualEstablishmentPartA" message="tns:ExportAnnualEstablishmentPartA" />
       <output name="ExportAnnualEstablishmentPartA_Result" message="tns:ExportAnnualEstablishmentPartA_Result" />
@@ -965,6 +1010,24 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="Download_Transfer_Order_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="EmployeeJoin">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:EmployeeJoin" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="EmployeeJoin">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="EmployeeJoin_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="EmployeeRelief">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRMSCodeunit:EmployeeRelief" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="EmployeeRelief">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="EmployeeRelief_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

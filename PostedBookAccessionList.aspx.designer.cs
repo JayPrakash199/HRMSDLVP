@@ -15,6 +15,33 @@ namespace HRMS
     {
 
         /// <summary>
+        /// txtbookSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbookSearch;
+
+        /// <summary>
+        /// btnLibraryBookSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLibraryBookSearch;
+
+        /// <summary>
+        /// LblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblMessage;
+
+        /// <summary>
         /// PostedBookAccessionListView control.
         /// </summary>
         /// <remarks>

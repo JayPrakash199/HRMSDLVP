@@ -2,11 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using WebServices;
 
 namespace HRMS
 {
-    public partial class PostedBookAccessionList : System.Web.UI.Page
+    public partial class EmployeeTransferHistoryList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,65 +26,61 @@ namespace HRMS
                 {
                     var role = lstUserRole.FirstOrDefault(x =>
                     string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                    string.Equals(x.Page_Name.Trim(), "Posted Book Accession List", StringComparison.OrdinalIgnoreCase) &&
-                    string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
+                    string.Equals(x.Page_Name.Trim(), "Employee Transfer List", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(x.Module_Name.Trim(), "HRMS", StringComparison.OrdinalIgnoreCase));
 
                     if (role == null || Convert.ToBoolean(role.Read))
                     {
                         BindListView();
-
-
                     }
                     else
                     {
                         Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
-                        
+
                     }
                 }
             }
         }
-
-
         private void BindListView()
         {
-            var postedBookAccessionList = ODataServices.GetPostedBookAccessionList(Session["SessionCompanyName"] as string);
-            if (postedBookAccessionList != null)
+            var EmpTransferList = ODataServices.GetEmployeeTransferHistoryList(Session["SessionCompanyName"] as string);
+            if (EmpTransferList != null)
             {
-                PostedBookAccessionListView.DataSource = postedBookAccessionList;
-                PostedBookAccessionListView.DataBind();
+                EmployeeTransferListView.DataSource = EmpTransferList;
+                EmployeeTransferListView.DataBind();
             }
         }
 
-        protected void btnLibraryBookSearch_Click(object sender, EventArgs e)
+        protected void btnRelief_Click(object sender, EventArgs e)
         {
             List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
             if (lstUserRole != null)
             {
                 var role = lstUserRole.FirstOrDefault(x =>
                 string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Page_Name.Trim(), "Posted Book Accession List", StringComparison.OrdinalIgnoreCase) &&
-                string.Equals(x.Module_Name.Trim(), "Library", StringComparison.OrdinalIgnoreCase));
+                string.Equals(x.Page_Name.Trim(), "Employee Transfer List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "HRMS", StringComparison.OrdinalIgnoreCase));
 
-                if (role == null || Convert.ToBoolean(role.Read))
+                if (role == null || Convert.ToBoolean(role.Insert))
                 {
-
-                    if (!string.IsNullOrEmpty(txtbookSearch.Text))
+                    try
                     {
-                        var LibrarySearchList = ODataServices.GetFilterBookAccessionList(txtbookSearch.Text, Session["SessionCompanyName"] as string);
-                        if (LibrarySearchList != null)
-                        {
-                            PostedBookAccessionListView.DataSource = LibrarySearchList;
-                            PostedBookAccessionListView.DataBind();
-                        }
-                    }
-                    else
-                    {
+                        Button btn = sender as Button;
+                        ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                        Label entryNo = item.FindControl("lblEntryNo") as Label;
+                        Label empName = item.FindControl("lblEmployeeName") as Label;
+                        SOAPServices.ReliefEmployee(Convert.ToInt32(entryNo.Text), Session["SessionCompanyName"] as string);
+                        Alert.ShowAlert(this, "s", "Employee: "+empName.Text+ " relieved successfully.");
                         BindListView();
+                    }
+                    catch (Exception ex)
+                    {
+                        Alert.ShowAlert(this, "e", ex.Message);
                     }
                 }
                 else
                 {
-                    Alert.ShowAlert(this, "W", "You do not have permission to Search the content. Kindly contact the system administrator.");
+                    Alert.ShowAlert(this, "W", "You do not have permission to post the content. Kindly contact the system administrator.");
 
                 }
             }

@@ -631,10 +631,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>WebServices_EmployeeTransferApplicationReference_EmployeeTransferApplicationCard_Service</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Page/EmployeeTransferHistoryCard">
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/EmployeeTransferHistoryCard">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\EmployeeTransferHistoryReference\</RelPath>
-      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Page/EmployeeTransferHistoryCard</UpdateFromURL>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/EmployeeTransferHistoryCard</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

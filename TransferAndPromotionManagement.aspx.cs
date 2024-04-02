@@ -75,6 +75,7 @@ namespace HRMS
                 txtEmployeeName.Text = string.Empty;
                 txtDesignation.Text = string.Empty;
                 LblMessage.Text = "No record found. Try searching with valid HRMS ID.";
+                LblMessage.ForeColor = System.Drawing.Color.Red;
             }
         }
 
@@ -136,7 +137,17 @@ namespace HRMS
             };
             var resultMessage =
                 SOAPServices.AddEmployeeTransferAndPromotionRecord(obj, Session["SessionCompanyName"] as string);
-            Alert.ShowAlert(this, resultMessage == ResultMessages.SuccessfullMessage ? "s" : "e", resultMessage);
+
+            String msg = string.Format("Employee :{0} Relieved Successfully", txtHRMSID.Text);
+
+            if (resultMessage == ResultMessages.SuccessfullMessage)
+            {
+                Alert.ShowAlert(this, "s", msg);
+            }
+            else
+            {
+                Alert.ShowAlert(this, "e", resultMessage);
+            }
         }
     }
 }

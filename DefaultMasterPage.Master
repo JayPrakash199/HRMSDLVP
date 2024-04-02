@@ -460,6 +460,7 @@
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transfer and Promo.<b class="caret"></b></a>
                                             <ul class="dropdown-menu" id="Ul2" runat="server">
                                                 <li><a href="TransferAndPromotionManagement.aspx">Add Transfer Record</a></li>
+                                                <li><a href="EmployeeTransferHistoryList.aspx">Employee Transfer List</a></li>
                                                 <li><a href="TransferEmployeeJoiningForm.aspx">Joining Form</a></li>
                                                 <li><a href="PromotionEventsRecord.aspx">Add Promotion Record</a></li>
                                                 <li><a href="PromotionHistoryList.aspx">Promotion History List</a></li>

@@ -91,6 +91,22 @@
                     <div class="col-lg-12 NewEntrydiv">
                         <p class="NewEntry">Posted Book Accession List</p>
                     </div>
+                    <div class="col-lg-12" style="padding: 15px">
+                        <div class="container">
+                            <div class="form-group">
+                                <div class="col-md-4" style="padding-left: 0px;">
+                                    <i class="fa fa-search icon"></i>
+                                    <asp:TextBox ID="txtbookSearch" Style="text-align: right;" placeholder="Book no/Accession_No:" CssClass="form-control" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="col-md-1">
+                                    <asp:Button ID="btnLibraryBookSearch" OnClientClick="showLoader();" OnClick="btnLibraryBookSearch_Click" CssClass="btn-s float-right submit btn-yellow form-control" Text="Search" runat="server" />
+                                </div>
+                                <div class="col-md-7" style="padding-top: 0.5%;">
+                                    <asp:Label CssClass="message" ID="LblMessage" runat="server"></asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="tab-pane active" id="1">
                         <div class="right_col_bg">
                             <div class="right_col_content border-box label-responsive">
@@ -133,7 +149,7 @@
                                                         </table>
                                                     </LayoutTemplate>
                                                     <ItemTemplate>
-                                                        <tr class="TableData">    
+                                                        <tr class="TableData">
                                                             <td>
                                                                 <asp:Label ID="Label2" runat="server" Text='<%# Eval("Accession_No")%>'> </asp:Label>
                                                             </td>
@@ -178,7 +194,7 @@
                                                             </td>--%>
                                                             <td>
                                                                 <asp:Label ID="Label21" runat="server" Text='<%# Eval("Book_Source")%>'> </asp:Label>
-                                                            </td>                                                            
+                                                            </td>
                                                         </tr>
                                                     </ItemTemplate>
                                                 </asp:ListView>

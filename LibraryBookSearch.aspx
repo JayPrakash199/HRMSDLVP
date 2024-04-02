@@ -130,7 +130,7 @@
             });
         }
         function OnSuccess(data) {
-            
+
             let txtPublish = document.getElementById('ContentPlaceHolder1_txtPublisherName');
             txtPublish.value = data.d;
             HideLoader();
@@ -151,7 +151,7 @@
                             <div class="form-group">
                                 <div class="col-md-3" style="padding-left: 0px;">
                                     <i class="fa fa-search icon"></i>
-                                    <asp:TextBox ID="txtbookSearch" CssClass="form-control" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtbookSearch" placeholder="Book Name :" CssClass="form-control" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="col-md-1">
                                     <asp:Button ID="btnLibraryBookSearch" OnClientClick="showLoader();" OnClick="btnLibraryBookSearch_Click" CssClass="btn-s float-right submit btn-yellow form-control" Text="Search" runat="server" />
@@ -220,7 +220,7 @@
                                                             <td>
                                                                 <asp:Label ID="lblAvailableCount" runat="server" Text='<%# Eval("Available_Count")%>'> </asp:Label>
                                                             </td>
-                                                             <td>
+                                                            <td>
                                                                 <asp:Label ID="lblPublisherCode" runat="server" Text='<%# Eval("Place__x0026__Publisher_Name")%>'> </asp:Label>
                                                             </td>
                                                             <td>

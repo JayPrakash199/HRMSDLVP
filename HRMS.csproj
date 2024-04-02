@@ -605,6 +605,7 @@
     <Content Include="EmployeeLeaveList.aspx" />
     <Content Include="EmployeeList.aspx" />
     <Content Include="EmployeeTrainingDetailsInput.aspx" />
+    <Content Include="EmployeeTransferHistoryList.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="ExistingDisciplinaryCaseUdate.aspx" />
     <Content Include="favicon.ico" />
@@ -1140,6 +1141,13 @@
     </Compile>
     <Compile Include="EmployeeTrainingDetailsInput.aspx.designer.cs">
       <DependentUpon>EmployeeTrainingDetailsInput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeTransferHistoryList.aspx.cs">
+      <DependentUpon>EmployeeTransferHistoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeTransferHistoryList.aspx.designer.cs">
+      <DependentUpon>EmployeeTransferHistoryList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
