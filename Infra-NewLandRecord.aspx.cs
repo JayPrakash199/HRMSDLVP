@@ -21,27 +21,12 @@ namespace HRMS
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
                     Response.Redirect("Default.aspx");
                 }
-                List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
-                if (lstUserRole != null)
-                {
-                    var role = lstUserRole.FirstOrDefault(x =>
-                    string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
-                    string.Equals(x.Page_Name.Trim(), "Add Land Record", StringComparison.OrdinalIgnoreCase) &&
-                    string.Equals(x.Module_Name.Trim(), "Infra", StringComparison.OrdinalIgnoreCase));
 
-                    if (role == null || Convert.ToBoolean(role.Read))
-                    {
-                        ddlDistrict.DataSource = ODataServices.Getdistricts(Session["SessionCompanyName"] as string);
-                        ddlDistrict.DataTextField = "Name";
-                        ddlDistrict.DataValueField = "Code";
-                        ddlDistrict.DataBind();
-                        ddlDistrict.Items.Insert(0, new ListItem("Select District", "0"));
-                    }
-                    else
-                    {
-                        Alert.ShowAlert(this, "W", "You do not have permission to Read the content. Kindly contact the system administrator.");
-                    }
-                }
+                ddlDistrict.DataSource = ODataServices.Getdistricts(Session["SessionCompanyName"] as string);
+                ddlDistrict.DataTextField = "Name";
+                ddlDistrict.DataValueField = "Code";
+                ddlDistrict.DataBind();
+                ddlDistrict.Items.Insert(0, new ListItem("Select District", "0"));
             }
         }
 
