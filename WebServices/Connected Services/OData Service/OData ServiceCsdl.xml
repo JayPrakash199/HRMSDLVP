@@ -7952,6 +7952,12 @@
             <EnumMember>NAV.NavType/String</EnumMember>
           </Annotation>
         </Property>
+        <Property Name="Last_Name34464" Type="Edm.String" MaxLength="30">
+          <Annotation Term="NAV.LabelId" String="Last Name" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
         <Property Name="Bill_Group" Type="Edm.String" MaxLength="50">
           <Annotation Term="NAV.LabelId" String="Bill Group" />
           <Annotation Term="NAV.NavType">
@@ -10286,9 +10292,10 @@
           <Annotation Term="NAV.NavType">
             <EnumMember>NAV.NavType/Real</EnumMember>
           </Annotation>
+          <Annotation Term="NAV.AllowEdit" Bool="false" />
         </Property>
         <Property Name="Book_Price" Type="Edm.Decimal" Scale="Variable">
-          <Annotation Term="NAV.LabelId" String="Purchase Price (Including GST)" />
+          <Annotation Term="NAV.LabelId" String="Purchase Price (Excluding GST)" />
           <Annotation Term="NAV.NavType">
             <EnumMember>NAV.NavType/Real</EnumMember>
           </Annotation>
@@ -11262,7 +11269,7 @@
           </Annotation>
           <Annotation Term="NAV.AllowEditOnCreate" Bool="true" />
         </Property>
-        <Property Name="Institute_Code" Type="Edm.String" Nullable="false" MaxLength="20">
+        <Property Name="Institute_Code" Type="Edm.String" Nullable="false" MaxLength="50">
           <Annotation Term="NAV.LabelId" String="Institute Code" />
           <Annotation Term="NAV.NavType">
             <EnumMember>NAV.NavType/String</EnumMember>
@@ -11271,6 +11278,12 @@
         </Property>
         <Property Name="Institute_Name" Type="Edm.String" MaxLength="100">
           <Annotation Term="NAV.LabelId" String="Institute Name" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Company_Name" Type="Edm.String" MaxLength="30">
+          <Annotation Term="NAV.LabelId" String="Company Name" />
           <Annotation Term="NAV.NavType">
             <EnumMember>NAV.NavType/String</EnumMember>
           </Annotation>
@@ -47752,6 +47765,39 @@
         <Parameter Name="excludeBalanceOnly1" Type="Edm.Boolean" />
         <ReturnType Type="Edm.String" />
       </Action>
+      <Action Name="FeeManagementCodeUnit_DailyPaymentDTET">
+        <Parameter Name="lineNarration1" Type="Edm.Boolean" />
+        <Parameter Name="voucherNaration1" Type="Edm.Boolean" />
+        <Parameter Name="documentNo" Type="Edm.String" />
+        <Parameter Name="postingDate2" Type="Edm.String" />
+        <Parameter Name="postingDate4" Type="Edm.String" />
+        <Parameter Name="dimension1" Type="Edm.String" />
+        <Parameter Name="dimension2" Type="Edm.String" />
+        <Parameter Name="compName" Type="Edm.String" />
+        <ReturnType Type="Edm.String" />
+      </Action>
+      <Action Name="FeeManagementCodeUnit_DailyReciptDTET">
+        <Parameter Name="lineNarration1" Type="Edm.Boolean" />
+        <Parameter Name="voucherNaration1" Type="Edm.Boolean" />
+        <Parameter Name="documentNo" Type="Edm.String" />
+        <Parameter Name="postingDate2" Type="Edm.String" />
+        <Parameter Name="postingDate4" Type="Edm.String" />
+        <Parameter Name="dimension1" Type="Edm.String" />
+        <Parameter Name="dimension2" Type="Edm.String" />
+        <Parameter Name="compName" Type="Edm.String" />
+        <ReturnType Type="Edm.String" />
+      </Action>
+      <Action Name="FeeManagementCodeUnit_DayBookDTET">
+        <Parameter Name="lineNarration1" Type="Edm.Boolean" />
+        <Parameter Name="voucherNaration1" Type="Edm.Boolean" />
+        <Parameter Name="documentNo" Type="Edm.String" />
+        <Parameter Name="postingDate2" Type="Edm.String" />
+        <Parameter Name="postingDate4" Type="Edm.String" />
+        <Parameter Name="dimension1" Type="Edm.String" />
+        <Parameter Name="dimension2" Type="Edm.String" />
+        <Parameter Name="compName" Type="Edm.String" />
+        <ReturnType Type="Edm.String" />
+      </Action>
       <Action Name="FeeManagementCodeUnit_DayBook">
         <Parameter Name="lineNarration1" Type="Edm.Boolean" />
         <Parameter Name="voucherNaration1" Type="Edm.Boolean" />
@@ -47818,6 +47864,13 @@
       <Action Name="HRMSCodeunit_Download_Transfer_Order">
         <Parameter Name="eNTnopar" Type="Edm.Int32" />
         <ReturnType Type="Edm.String" />
+      </Action>
+      <Action Name="HRMSCodeunit_EmployeeJoin">
+        <Parameter Name="fromStation" Type="Edm.String" />
+        <Parameter Name="hRMSID" Type="Edm.String" />
+      </Action>
+      <Action Name="HRMSCodeunit_EmployeeRelief">
+        <Parameter Name="entryNo" Type="Edm.Int32" />
       </Action>
       <Action Name="HRMSCodeunit_ExportAnnualEstablishmentPartA">
         <ReturnType Type="Edm.String" />
@@ -48268,6 +48321,9 @@
         <Parameter Name="bookNo" Type="Edm.String" />
         <Parameter Name="lineNo" Type="Edm.Int32" />
       </Action>
+      <Action Name="LibraryMgmt_AdvanceBook">
+        <Parameter Name="bookNo" Type="Edm.String" />
+      </Action>
       <Action Name="LibraryMgmt_Book_Issue">
         <Parameter Name="entryNo" Type="Edm.String" />
       </Action>
@@ -48279,6 +48335,10 @@
       </Action>
       <Action Name="LibraryMgmt_CreateBookBatch">
         <Parameter Name="itemCategory" Type="Edm.String" />
+      </Action>
+      <Action Name="LibraryMgmt_GetBookAvlQty">
+        <Parameter Name="bookNo" Type="Edm.String" />
+        <ReturnType Type="Edm.Int32" />
       </Action>
       <Action Name="LibraryMgmt_ItemJournalBook">
         <Parameter Name="fileName" Type="Edm.String" />
@@ -48436,6 +48496,9 @@
         <ActionImport Name="FeeManagementCodeUnit_CashBook" Action="NAV.FeeManagementCodeUnit_CashBook" />
         <ActionImport Name="FeeManagementCodeUnit_CustomerStatement" Action="NAV.FeeManagementCodeUnit_CustomerStatement" />
         <ActionImport Name="FeeManagementCodeUnit_CustomerTrialBalance" Action="NAV.FeeManagementCodeUnit_CustomerTrialBalance" />
+        <ActionImport Name="FeeManagementCodeUnit_DailyPaymentDTET" Action="NAV.FeeManagementCodeUnit_DailyPaymentDTET" />
+        <ActionImport Name="FeeManagementCodeUnit_DailyReciptDTET" Action="NAV.FeeManagementCodeUnit_DailyReciptDTET" />
+        <ActionImport Name="FeeManagementCodeUnit_DayBookDTET" Action="NAV.FeeManagementCodeUnit_DayBookDTET" />
         <ActionImport Name="FeeManagementCodeUnit_DayBook" Action="NAV.FeeManagementCodeUnit_DayBook" />
         <ActionImport Name="FeeManagementCodeUnit_FeeDemand" Action="NAV.FeeManagementCodeUnit_FeeDemand" />
         <ActionImport Name="FeeManagementCodeUnit_FeeGeneration" Action="NAV.FeeManagementCodeUnit_FeeGeneration" />
@@ -48449,6 +48512,8 @@
         <ActionImport Name="HRMSCodeunit_Download_Staff_Achivement" Action="NAV.HRMSCodeunit_Download_Staff_Achivement" />
         <ActionImport Name="HRMSCodeunit_Download_Transfer_Application_Employee" Action="NAV.HRMSCodeunit_Download_Transfer_Application_Employee" />
         <ActionImport Name="HRMSCodeunit_Download_Transfer_Order" Action="NAV.HRMSCodeunit_Download_Transfer_Order" />
+        <ActionImport Name="HRMSCodeunit_EmployeeJoin" Action="NAV.HRMSCodeunit_EmployeeJoin" />
+        <ActionImport Name="HRMSCodeunit_EmployeeRelief" Action="NAV.HRMSCodeunit_EmployeeRelief" />
         <ActionImport Name="HRMSCodeunit_ExportAnnualEstablishmentPartA" Action="NAV.HRMSCodeunit_ExportAnnualEstablishmentPartA" />
         <ActionImport Name="HRMSCodeunit_ExportAnnualEstablishmentPartC" Action="NAV.HRMSCodeunit_ExportAnnualEstablishmentPartC" />
         <ActionImport Name="HRMSCodeunit_ExportAnnualEstablishmentPartE" Action="NAV.HRMSCodeunit_ExportAnnualEstablishmentPartE" />
@@ -48574,10 +48639,12 @@
         <ActionImport Name="LibraryCodeunit_DTETBookDetails" Action="NAV.LibraryCodeunit_DTETBookDetails" />
         <ActionImport Name="LibraryMgmt_AccessionList" Action="NAV.LibraryMgmt_AccessionList" />
         <ActionImport Name="LibraryMgmt_AccessionPost" Action="NAV.LibraryMgmt_AccessionPost" />
+        <ActionImport Name="LibraryMgmt_AdvanceBook" Action="NAV.LibraryMgmt_AdvanceBook" />
         <ActionImport Name="LibraryMgmt_Book_Issue" Action="NAV.LibraryMgmt_Book_Issue" />
         <ActionImport Name="LibraryMgmt_Book_Renewal" Action="NAV.LibraryMgmt_Book_Renewal" />
         <ActionImport Name="LibraryMgmt_Book_Return" Action="NAV.LibraryMgmt_Book_Return" />
         <ActionImport Name="LibraryMgmt_CreateBookBatch" Action="NAV.LibraryMgmt_CreateBookBatch" />
+        <ActionImport Name="LibraryMgmt_GetBookAvlQty" Action="NAV.LibraryMgmt_GetBookAvlQty" />
         <ActionImport Name="LibraryMgmt_ItemJournalBook" Action="NAV.LibraryMgmt_ItemJournalBook" />
         <ActionImport Name="LibraryMgmt_ItemUpload" Action="NAV.LibraryMgmt_ItemUpload" />
         <ActionImport Name="PortalFunction_ChangePassword" Action="NAV.PortalFunction_ChangePassword" />

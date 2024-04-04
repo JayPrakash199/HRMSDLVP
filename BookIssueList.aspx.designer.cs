@@ -96,24 +96,6 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.TextBox txtmdBookName;
 
         /// <summary>
-        /// txtmdDateofIssue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmdDateofIssue;
-
-        /// <summary>
-        /// txtmdDateofReturn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmdDateofReturn;
-
-        /// <summary>
         /// txtmdBookNo control.
         /// </summary>
         /// <remarks>
@@ -130,15 +112,6 @@ namespace HRMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtmdQuantity;
-
-        /// <summary>
-        /// txtmdClassCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmdClassCode;
 
         /// <summary>
         /// btnAdd control.

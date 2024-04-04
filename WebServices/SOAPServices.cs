@@ -150,12 +150,12 @@ namespace WebServices
             }
         }
 
-        public static string UpdateTransferEmployeeDetails(EmployeeTransferHistoryReference.EmployeeTransferHistoryCard input, string companyName)
+        public static string UpdateTransferEmployeeDetails(EmployeeTransferHistoryReference.EmployeeTransferHistoryCard input, string FromcompanyName,string companyName)
         {
             try
             {
                 EmployeeTransferHistoryReference.EmployeeTransferHistoryCard_Service _obj_Binding = (EmployeeTransferHistoryReference.EmployeeTransferHistoryCard_Service)Configuration
-                    .getNavService(new EmployeeTransferHistoryReference.EmployeeTransferHistoryCard_Service(), "EmployeeTransferHistoryCard", "Page", companyName);
+                    .getNavService(new EmployeeTransferHistoryReference.EmployeeTransferHistoryCard_Service(), "EmployeeTransferHistoryCard", "Page", FromcompanyName);
                 EmployeeTransferHistoryReference.EmployeeTransferHistoryCard obj = new EmployeeTransferHistoryReference.EmployeeTransferHistoryCard();
                 //List<HRMSODATA.EmployeeTransferHistoryList> objList = ODataServices.GetEmployeeTransferHistoryList().Where(x => string.Equals(x.HRMS_ID, input.HRMS_ID, StringComparison.OrdinalIgnoreCase)).ToList();
 
@@ -381,7 +381,7 @@ namespace WebServices
             obj.Upload_Employee_Training_History_Certificate(entryNo, Path.Combine(filePathWithName));
         }
 
-        public static string ReliefEmployee(int entryNo,string companyName)
+        public static string ReliefEmployee(int entryNo, string companyName)
         {
             try
             {
@@ -704,6 +704,57 @@ namespace WebServices
             return result;
         }
 
+        public static string GetDayBookDTETReport(bool lineNarration,
+                                            bool voucherNaration,
+                                            string documentNo,
+                                            string fromDate,
+                                            string toDate,
+                                            string dimension1,
+                                            string dimension2,
+                                            string companyName,
+                                            string companyNameDtet)
+        {
+            FeeManagementCodeUnitReference2.FeeManagementCodeUnit obj = new FeeManagementCodeUnitReference2.FeeManagementCodeUnit();
+            obj = (FeeManagementCodeUnitReference2.FeeManagementCodeUnit)Configuration
+                .getNavService(new FeeManagementCodeUnitReference2.FeeManagementCodeUnit(), "FeeManagementCodeUnit", "Codeunit", companyName);
+            var result = obj.DayBookDTET(lineNarration, voucherNaration, documentNo, fromDate, toDate, dimension1, dimension2, companyNameDtet);
+            return result;
+        }
+
+        public static string GetDailyReciptDTETReport(bool lineNarration,
+                                              bool voucherNaration,
+                                              string documentNo,
+                                              string fromDate,
+                                              string toDate,
+                                              string dimension1,
+                                              string dimension2,
+                                              string companyName,
+                                              string companyNameDtet)
+        {
+            FeeManagementCodeUnitReference2.FeeManagementCodeUnit obj = new FeeManagementCodeUnitReference2.FeeManagementCodeUnit();
+            obj = (FeeManagementCodeUnitReference2.FeeManagementCodeUnit)Configuration
+                .getNavService(new FeeManagementCodeUnitReference2.FeeManagementCodeUnit(), "FeeManagementCodeUnit", "Codeunit", companyName);
+            var result = obj.DailyReciptDTET(lineNarration, voucherNaration, documentNo, fromDate, toDate, dimension1, dimension2, companyNameDtet);
+            return result;
+        }
+        public static string GetDailyPaymentDTETReport(bool lineNarration,
+                                              bool voucherNaration,
+                                              string documentNo,
+                                              string fromDate,
+                                              string toDate,
+                                              string dimension1,
+                                              string dimension2,
+                                              string companyName,
+                                              string companyNameDtet)
+        {
+            FeeManagementCodeUnitReference2.FeeManagementCodeUnit obj = new FeeManagementCodeUnitReference2.FeeManagementCodeUnit();
+            obj = (FeeManagementCodeUnitReference2.FeeManagementCodeUnit)Configuration
+                .getNavService(new FeeManagementCodeUnitReference2.FeeManagementCodeUnit(), "FeeManagementCodeUnit", "Codeunit", companyName);
+            var result = obj.DailyPaymentDTET(lineNarration, voucherNaration, documentNo, fromDate, toDate, dimension1, dimension2, companyNameDtet);
+            return result;
+        }
+
+
         #endregion
 
         #region Account Mangement
@@ -904,6 +955,18 @@ namespace WebServices
                 .getNavService(new LibraryMgmtReference.LibraryMgmt(), "LibraryMgmt", "codeunit", companyName);
             _obj_Binding.Book_Return(Entry_No);
         }
+        public static int GetQuantityByBookNo(string bookNo, string companyName)
+        {
+            LibraryMgmtReference.LibraryMgmt _obj_Binding = new LibraryMgmtReference.LibraryMgmt();
+            _obj_Binding = (LibraryMgmtReference.LibraryMgmt)Configuration
+                .getNavService(new LibraryMgmtReference.LibraryMgmt(), "LibraryMgmt", "codeunit", companyName);
+            dynamic bookQty = _obj_Binding.GetBookAvlQty(bookNo);
+            return bookQty;
+
+
+        }
+
+
 
         public static void ItemUpload(string fileName, string companyName)
         {

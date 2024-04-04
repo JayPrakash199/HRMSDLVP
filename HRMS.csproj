@@ -598,6 +598,7 @@
     <Content Include="DayBook.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DisciplinaryCaseList.aspx" />
+    <Content Include="DTETReport.aspx" />
     <Content Include="EditEmployee.aspx" />
     <Content Include="EmployeeCard.aspx" />
     <Content Include="EmployeeDisciplinaryCaseList.aspx" />
@@ -1088,6 +1089,13 @@
     </Compile>
     <Compile Include="DisciplinaryCaseList.aspx.designer.cs">
       <DependentUpon>DisciplinaryCaseList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DTETReport.aspx.cs">
+      <DependentUpon>DTETReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DTETReport.aspx.designer.cs">
+      <DependentUpon>DTETReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dto\CalendarEvent.cs" />
     <Compile Include="Dto\LicenesingModel.cs" />

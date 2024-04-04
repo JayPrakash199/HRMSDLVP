@@ -213,6 +213,33 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.LinkButton lbLibrary;
 
         /// <summary>
+        /// lbdaybookdtet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbdaybookdtet;
+
+        /// <summary>
+        /// lbdailyreceiptdtet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbdailyreceiptdtet;
+
+        /// <summary>
+        /// lbdailypaymentdtet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbdailypaymentdtet;
+
+        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>

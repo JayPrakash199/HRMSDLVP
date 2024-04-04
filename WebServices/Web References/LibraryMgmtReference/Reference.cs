@@ -14,16 +14,16 @@
 #pragma warning disable 1591
 
 namespace WebServices.LibraryMgmtReference {
-    using System;
-    using System.Web.Services;
     using System.Diagnostics;
-    using System.Web.Services.Protocols;
+    using System;
     using System.Xml.Serialization;
     using System.ComponentModel;
+    using System.Web.Services.Protocols;
+    using System.Web.Services;
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="LibraryMgmt_Binding", Namespace="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt")]
@@ -40,6 +40,8 @@ namespace WebServices.LibraryMgmtReference {
         private System.Threading.SendOrPostCallback Book_ReturnOperationCompleted;
         
         private System.Threading.SendOrPostCallback CreateBookBatchOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetBookAvlQtyOperationCompleted;
         
         private System.Threading.SendOrPostCallback ItemJournalBookOperationCompleted;
         
@@ -100,6 +102,9 @@ namespace WebServices.LibraryMgmtReference {
         
         /// <remarks/>
         public event CreateBookBatchCompletedEventHandler CreateBookBatchCompleted;
+        
+        /// <remarks/>
+        public event GetBookAvlQtyCompletedEventHandler GetBookAvlQtyCompleted;
         
         /// <remarks/>
         public event ItemJournalBookCompletedEventHandler ItemJournalBookCompleted;
@@ -278,6 +283,36 @@ namespace WebServices.LibraryMgmtReference {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt:GetBookAvlQty", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt", ResponseElementName="GetBookAvlQty_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public int GetBookAvlQty(string bookNo) {
+            object[] results = this.Invoke("GetBookAvlQty", new object[] {
+                        bookNo});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetBookAvlQtyAsync(string bookNo) {
+            this.GetBookAvlQtyAsync(bookNo, null);
+        }
+        
+        /// <remarks/>
+        public void GetBookAvlQtyAsync(string bookNo, object userState) {
+            if ((this.GetBookAvlQtyOperationCompleted == null)) {
+                this.GetBookAvlQtyOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetBookAvlQtyOperationCompleted);
+            }
+            this.InvokeAsync("GetBookAvlQty", new object[] {
+                        bookNo}, this.GetBookAvlQtyOperationCompleted, userState);
+        }
+        
+        private void OnGetBookAvlQtyOperationCompleted(object arg) {
+            if ((this.GetBookAvlQtyCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetBookAvlQtyCompleted(this, new GetBookAvlQtyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt:ItemJournalBook", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt", ResponseElementName="ItemJournalBook_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void ItemJournalBook(string fileName) {
             this.Invoke("ItemJournalBook", new object[] {
@@ -353,35 +388,61 @@ namespace WebServices.LibraryMgmtReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void AccessionListCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void AccessionPostCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void Book_IssueCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void Book_RenewalCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void Book_ReturnCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void CreateBookBatchCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void GetBookAvlQtyCompletedEventHandler(object sender, GetBookAvlQtyCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetBookAvlQtyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetBookAvlQtyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void ItemJournalBookCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void ItemUploadCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 

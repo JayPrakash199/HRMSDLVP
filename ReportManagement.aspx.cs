@@ -232,5 +232,20 @@ namespace HRMS
             }
 
         }
+
+        protected void lbdailypaymentdtet_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DTETReport?reportname=daybookdtetreport");
+        }
+
+        protected void lbdailyreceiptdtet_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DTETReport?reportname=dailyreceiptdtetreport");
+        }
+
+        protected void lbdaybookdtet_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DTETReport?reportname=dailypaymentdtetreport");
+        }
     }
 }

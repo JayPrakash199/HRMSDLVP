@@ -75,6 +75,20 @@
           <sequence />
         </complexType>
       </element>
+      <element name="GetBookAvlQty">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bookNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetBookAvlQty_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="int" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="ItemJournalBook">
         <complexType>
           <sequence>
@@ -137,6 +151,12 @@
   <message name="CreateBookBatch_Result">
     <part name="parameters" element="tns:CreateBookBatch_Result" />
   </message>
+  <message name="GetBookAvlQty">
+    <part name="parameters" element="tns:GetBookAvlQty" />
+  </message>
+  <message name="GetBookAvlQty_Result">
+    <part name="parameters" element="tns:GetBookAvlQty_Result" />
+  </message>
   <message name="ItemJournalBook">
     <part name="parameters" element="tns:ItemJournalBook" />
   </message>
@@ -173,6 +193,10 @@
     <operation name="CreateBookBatch">
       <input name="CreateBookBatch" message="tns:CreateBookBatch" />
       <output name="CreateBookBatch_Result" message="tns:CreateBookBatch_Result" />
+    </operation>
+    <operation name="GetBookAvlQty">
+      <input name="GetBookAvlQty" message="tns:GetBookAvlQty" />
+      <output name="GetBookAvlQty_Result" message="tns:GetBookAvlQty_Result" />
     </operation>
     <operation name="ItemJournalBook">
       <input name="ItemJournalBook" message="tns:ItemJournalBook" />
@@ -239,6 +263,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="GetBookAvlQty">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt:GetBookAvlQty" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetBookAvlQty">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetBookAvlQty_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="ItemJournalBook">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/LibraryMgmt:ItemJournalBook" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="ItemJournalBook">
@@ -260,7 +293,7 @@
   </binding>
   <service name="LibraryMgmt">
     <port name="LibraryMgmt_Port" binding="tns:LibraryMgmt_Binding">
-      <address location="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%20India%20Ltd./Codeunit/LibraryMgmt" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <address location="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Codeunit/LibraryMgmt" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>
   </service>
 </definitions>

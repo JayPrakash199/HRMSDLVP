@@ -412,7 +412,6 @@
     <None Include="Web References\HRMSCodeunitReference\HRMSCodeunit.wsdl" />
     <None Include="Web References\HRMSCodeunitReference\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\InfraAMCReference\AMCCard.datasource" />
     <None Include="Web References\InfraAMCReference\AMCCard.wsdl" />
@@ -543,10 +542,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>WebServices_InfraCodeunitReference_InfraCodeunit</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Codeunit/LibraryMgmt">
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Codeunit/LibraryMgmt">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\LibraryMgmtReference\</RelPath>
-      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/CRONUS%2520India%2520Ltd./Codeunit/LibraryMgmt</UpdateFromURL>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Codeunit/LibraryMgmt</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

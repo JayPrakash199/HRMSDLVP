@@ -42,7 +42,7 @@ namespace HRMS
                         if (!Convert.ToBoolean(role.Read))
                         {
                             Alert.ShowAlert(this, "W", "You do not have permission to read the content. Kindly contact the system administrator.");
-                            
+
                         }
                         BindListView();
                     }
@@ -70,7 +70,7 @@ namespace HRMS
                 BookIssueListView.DataBind();
             }
         }
-        
+
         //Added By Deshpande
         protected void btnSearchBookIssuedata_Click(object sender, EventArgs e)
         {
@@ -97,9 +97,9 @@ namespace HRMS
             {
                 Alert.ShowAlert(this, "W", "You do not have permission to Search the content. Kindly contact the system administrator.");
             }
-            }
+        }
 
-        
+
 
 
         //Added by Deshpande(02-02-2024)
@@ -119,7 +119,7 @@ namespace HRMS
             else
             {
                 Alert.ShowAlert(this, "W", "You do not have permission to Add the Books. Kindly contact the system administrator.");
-                
+
             }
         }
 
@@ -161,7 +161,8 @@ namespace HRMS
 
         [System.Web.Services.WebMethod]
         [ScriptMethod(UseHttpGet = false)]
-        public static IList<HRMSODATA.BookIssueList> IssueBookData(String UserType, String No, String Name, String AccessNo, String Bookname, String DOI, String DOR, String BookNo, String AvlQty, String classcode)
+        public static IList<HRMSODATA.BookIssueList> IssueBookData(String UserType, String No, String Name,
+            String AccessNo, String Bookname, String BookNo, String AvlQty)
         {
             User_Type Type = (User_Type)Enum.Parse(typeof(User_Type), UserType);
             var updateObj = new WebServices.BookIssueCardReference.BookIssueCard
@@ -248,15 +249,18 @@ namespace HRMS
             if (AccessNo != "select")
             {
                 string jsonData = "";
-                IList<HRMSODATA.BookIssueList> lstStudent = ODataServices.GetBookIssueListByAccessNo(AccessNo, CompanyName);
+                //IList<HRMSODATA.BookIssueList> lstStudent = ODataServices.GetBookIssueListByAccessNo(AccessNo, CompanyName);
+
+                IList<HRMSODATA.PostedBookAccessionList> lstStudent = ODataServices.GetFilterBookAccessionList(AccessNo, CompanyName as string);
 
                 if (lstStudent != null && lstStudent.Count > 0)
                 {
+                    //int quantity = SOAPServices.GetQuantityByBookNo(lstStudent[0].Book_Name, CompanyName);
                     var lstStudentAccession = lstStudent.Select(x => new
                     {
                         BookName = x.Book_Name,
                         BookNo = x.Book_No,
-                        AvlQty = x.Avl_Qty
+                        AvlQty = SOAPServices.GetQuantityByBookNo(x.Book_No, CompanyName)
                     }).ToList();
                     jsonData = (new JavaScriptSerializer()).Serialize(lstStudentAccession);
                 }

@@ -39,6 +39,12 @@ namespace WebServices.FeeManagementCodeUnitReference2 {
         
         private System.Threading.SendOrPostCallback CustomerTrialBalanceOperationCompleted;
         
+        private System.Threading.SendOrPostCallback DailyPaymentDTETOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DailyReciptDTETOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DayBookDTETOperationCompleted;
+        
         private System.Threading.SendOrPostCallback DayBookOperationCompleted;
         
         private System.Threading.SendOrPostCallback FeeDemandOperationCompleted;
@@ -105,6 +111,15 @@ namespace WebServices.FeeManagementCodeUnitReference2 {
         
         /// <remarks/>
         public event CustomerTrialBalanceCompletedEventHandler CustomerTrialBalanceCompleted;
+        
+        /// <remarks/>
+        public event DailyPaymentDTETCompletedEventHandler DailyPaymentDTETCompleted;
+        
+        /// <remarks/>
+        public event DailyReciptDTETCompletedEventHandler DailyReciptDTETCompleted;
+        
+        /// <remarks/>
+        public event DayBookDTETCompletedEventHandler DayBookDTETCompleted;
         
         /// <remarks/>
         public event DayBookCompletedEventHandler DayBookCompleted;
@@ -345,6 +360,138 @@ namespace WebServices.FeeManagementCodeUnitReference2 {
             if ((this.CustomerTrialBalanceCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.CustomerTrialBalanceCompleted(this, new CustomerTrialBalanceCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:DailyPaymentDTET", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit", ResponseElementName="DailyPaymentDTET_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string DailyPaymentDTET(bool lineNarration1, bool voucherNaration1, string documentNo, string postingDate2, string postingDate4, string dimension1, string dimension2, string compName) {
+            object[] results = this.Invoke("DailyPaymentDTET", new object[] {
+                        lineNarration1,
+                        voucherNaration1,
+                        documentNo,
+                        postingDate2,
+                        postingDate4,
+                        dimension1,
+                        dimension2,
+                        compName});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DailyPaymentDTETAsync(bool lineNarration1, bool voucherNaration1, string documentNo, string postingDate2, string postingDate4, string dimension1, string dimension2, string compName) {
+            this.DailyPaymentDTETAsync(lineNarration1, voucherNaration1, documentNo, postingDate2, postingDate4, dimension1, dimension2, compName, null);
+        }
+        
+        /// <remarks/>
+        public void DailyPaymentDTETAsync(bool lineNarration1, bool voucherNaration1, string documentNo, string postingDate2, string postingDate4, string dimension1, string dimension2, string compName, object userState) {
+            if ((this.DailyPaymentDTETOperationCompleted == null)) {
+                this.DailyPaymentDTETOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDailyPaymentDTETOperationCompleted);
+            }
+            this.InvokeAsync("DailyPaymentDTET", new object[] {
+                        lineNarration1,
+                        voucherNaration1,
+                        documentNo,
+                        postingDate2,
+                        postingDate4,
+                        dimension1,
+                        dimension2,
+                        compName}, this.DailyPaymentDTETOperationCompleted, userState);
+        }
+        
+        private void OnDailyPaymentDTETOperationCompleted(object arg) {
+            if ((this.DailyPaymentDTETCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DailyPaymentDTETCompleted(this, new DailyPaymentDTETCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:DailyReciptDTET", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit", ResponseElementName="DailyReciptDTET_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string DailyReciptDTET(bool lineNarration1, bool voucherNaration1, string documentNo, string postingDate2, string postingDate4, string dimension1, string dimension2, string compName) {
+            object[] results = this.Invoke("DailyReciptDTET", new object[] {
+                        lineNarration1,
+                        voucherNaration1,
+                        documentNo,
+                        postingDate2,
+                        postingDate4,
+                        dimension1,
+                        dimension2,
+                        compName});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DailyReciptDTETAsync(bool lineNarration1, bool voucherNaration1, string documentNo, string postingDate2, string postingDate4, string dimension1, string dimension2, string compName) {
+            this.DailyReciptDTETAsync(lineNarration1, voucherNaration1, documentNo, postingDate2, postingDate4, dimension1, dimension2, compName, null);
+        }
+        
+        /// <remarks/>
+        public void DailyReciptDTETAsync(bool lineNarration1, bool voucherNaration1, string documentNo, string postingDate2, string postingDate4, string dimension1, string dimension2, string compName, object userState) {
+            if ((this.DailyReciptDTETOperationCompleted == null)) {
+                this.DailyReciptDTETOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDailyReciptDTETOperationCompleted);
+            }
+            this.InvokeAsync("DailyReciptDTET", new object[] {
+                        lineNarration1,
+                        voucherNaration1,
+                        documentNo,
+                        postingDate2,
+                        postingDate4,
+                        dimension1,
+                        dimension2,
+                        compName}, this.DailyReciptDTETOperationCompleted, userState);
+        }
+        
+        private void OnDailyReciptDTETOperationCompleted(object arg) {
+            if ((this.DailyReciptDTETCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DailyReciptDTETCompleted(this, new DailyReciptDTETCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:DayBookDTET", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit", ResponseElementName="DayBookDTET_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string DayBookDTET(bool lineNarration1, bool voucherNaration1, string documentNo, string postingDate2, string postingDate4, string dimension1, string dimension2, string compName) {
+            object[] results = this.Invoke("DayBookDTET", new object[] {
+                        lineNarration1,
+                        voucherNaration1,
+                        documentNo,
+                        postingDate2,
+                        postingDate4,
+                        dimension1,
+                        dimension2,
+                        compName});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DayBookDTETAsync(bool lineNarration1, bool voucherNaration1, string documentNo, string postingDate2, string postingDate4, string dimension1, string dimension2, string compName) {
+            this.DayBookDTETAsync(lineNarration1, voucherNaration1, documentNo, postingDate2, postingDate4, dimension1, dimension2, compName, null);
+        }
+        
+        /// <remarks/>
+        public void DayBookDTETAsync(bool lineNarration1, bool voucherNaration1, string documentNo, string postingDate2, string postingDate4, string dimension1, string dimension2, string compName, object userState) {
+            if ((this.DayBookDTETOperationCompleted == null)) {
+                this.DayBookDTETOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDayBookDTETOperationCompleted);
+            }
+            this.InvokeAsync("DayBookDTET", new object[] {
+                        lineNarration1,
+                        voucherNaration1,
+                        documentNo,
+                        postingDate2,
+                        postingDate4,
+                        dimension1,
+                        dimension2,
+                        compName}, this.DayBookDTETOperationCompleted, userState);
+        }
+        
+        private void OnDayBookDTETOperationCompleted(object arg) {
+            if ((this.DayBookDTETCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DayBookDTETCompleted(this, new DayBookDTETCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -722,6 +869,84 @@ namespace WebServices.FeeManagementCodeUnitReference2 {
         private object[] results;
         
         internal CustomerTrialBalanceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void DailyPaymentDTETCompletedEventHandler(object sender, DailyPaymentDTETCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DailyPaymentDTETCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DailyPaymentDTETCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void DailyReciptDTETCompletedEventHandler(object sender, DailyReciptDTETCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DailyReciptDTETCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DailyReciptDTETCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void DayBookDTETCompletedEventHandler(object sender, DayBookDTETCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DayBookDTETCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DayBookDTETCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

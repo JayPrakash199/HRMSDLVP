@@ -160,27 +160,27 @@
         function OnSuccessData(data) {
             debugger;
             let name = document.getElementById('ContentPlaceHolder1_txtmdName');
-            let classcode = document.getElementById('ContentPlaceHolder1_txtmdClassCode');
-            let DOI = document.getElementById('ContentPlaceHolder1_txtmdDateofIssue');
-            let DOR = document.getElementById('ContentPlaceHolder1_txtmdDateofReturn');
+            //let classcode = document.getElementById('ContentPlaceHolder1_txtmdClassCode');
+            //let DOI = document.getElementById('ContentPlaceHolder1_txtmdDateofIssue');
+            //let DOR = document.getElementById('ContentPlaceHolder1_txtmdDateofReturn');
 
             if (data.d == '') {
                 name.value = '';
-                classcode.value = '';
+                //classcode.value = '';
 
-                DOI.value = '';
-                DOR.value = '';
+                //DOI.value = '';
+                //DOR.value = '';
             }
             else {
                 myResult = JSON.parse(data.d);
                 for (let i = 0; i < myResult.StudentList.length; i++) {
                     name.value = myResult.StudentList[i].FirstName;
-                    classcode.value = myResult.StudentList[i].CourseCode;
+                    //classcode.value = myResult.StudentList[i].CourseCode;
                 }
-                for (let i = 0; i < myResult.BookIssueList.length; i++) {
-                    DOI.value = myResult.BookIssueList.DateofIssue;
-                    DOR.value = myResult.BookIssueList.DateofReturn;
-                }
+                //for (let i = 0; i < myResult.BookIssueList.length; i++) {
+                //    DOI.value = myResult.BookIssueList.DateofIssue;
+                //    DOR.value = myResult.BookIssueList.DateofReturn;
+                //}
             }
             HideLoader();
         }
@@ -238,18 +238,18 @@
             var Name = document.getElementById('ContentPlaceHolder1_txtmdName').value;
             var AccessNo = document.getElementById('ContentPlaceHolder1_ddlAccessNo').value;
             var Bookname = document.getElementById('ContentPlaceHolder1_txtmdBookName').value;
-            var DOI = document.getElementById('ContentPlaceHolder1_txtmdDateofIssue').value;
-            var DOR = document.getElementById('ContentPlaceHolder1_txtmdDateofReturn').value;
+            //var DOI = document.getElementById('ContentPlaceHolder1_txtmdDateofIssue').value;
+            //var DOR = document.getElementById('ContentPlaceHolder1_txtmdDateofReturn').value;
             var BookNo = document.getElementById('ContentPlaceHolder1_txtmdBookNo').value;
             var AvlQty = document.getElementById('ContentPlaceHolder1_txtmdQuantity').value;
-            var classcode = document.getElementById('ContentPlaceHolder1_txtmdClassCode').value;
+            //var classcode = document.getElementById('ContentPlaceHolder1_txtmdClassCode').value;
 
             $.ajax({
                 type: "POST",
                 url: "BookIssueList.aspx/IssueBookData",
                 data: "{'UserType':'" + UserType + "','No':'" + No + "','Name':'" + Name + "','AccessNo':'"
-                    + AccessNo + "','Bookname': '" + Bookname + "', 'DOI': '" + DOI + "', 'DOR': '" + DOR + "', 'BookNo': '"
-                    + BookNo + "', 'AvlQty': '" + AvlQty + "','classcode': '" + classcode + "'}",
+                    + AccessNo + "','Bookname': '" + Bookname + "', 'BookNo': '"
+                    + BookNo + "', 'AvlQty': '" + AvlQty + "'}",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: OnSuccessIssueBook,
@@ -493,23 +493,23 @@
                                                                     <asp:DropDownList ID="ddlAccessNo" onchange="LoadStudentAccessInfo();" AutoPostBack="false" CssClass="form-control" runat="server">
                                                                     </asp:DropDownList>
                                                                 </div>
-                                                                <div class="form-group">
-                                                                    <asp:Label runat="server" Text="Book Name"></asp:Label>
-                                                                    <asp:TextBox ID="txtmdBookName" ReadOnly="true" CssClass="DivReadonly form-control" runat="server"> </asp:TextBox>
-                                                                </div>
+                                                               
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6 contact-info">
                                                             <div class="container">
-
-                                                                <div class="form-group">
+                                                                 <div class="form-group">
+                                                                    <asp:Label runat="server" Text="Book Name"></asp:Label>
+                                                                    <asp:TextBox ID="txtmdBookName" ReadOnly="true" CssClass="DivReadonly form-control" runat="server"> </asp:TextBox>
+                                                                </div>
+                                                               <%-- <div class="form-group">
                                                                     <asp:Label runat="server" Text="Date of Issue"></asp:Label>
                                                                     <asp:TextBox ID="txtmdDateofIssue" ReadOnly="true" CssClass="DivReadonly form-control" runat="server"> </asp:TextBox>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <asp:Label runat="server" Text="Date of Return"></asp:Label>
                                                                     <asp:TextBox ID="txtmdDateofReturn" ReadOnly="true" CssClass="DivReadonly form-control" runat="server"> </asp:TextBox>
-                                                                </div>
+                                                                </div>--%>
                                                                 <div class="form-group">
                                                                     <asp:Label runat="server" Text="Book No"></asp:Label>
                                                                     <asp:TextBox ID="txtmdBookNo" ReadOnly="true" CssClass="DivReadonly form-control" runat="server"> </asp:TextBox>
@@ -518,15 +518,12 @@
                                                                     <asp:Label runat="server" Text="Avl Quantity"></asp:Label>
                                                                     <asp:TextBox ID="txtmdQuantity" ReadOnly="true" CssClass="DivReadonly form-control" runat="server"> </asp:TextBox>
                                                                 </div>
-                                                                <div class="form-group">
+                                                                <%--<div class="form-group">
                                                                     <asp:Label runat="server" Text="ClassCode"></asp:Label>
                                                                     <asp:TextBox ID="txtmdClassCode" ReadOnly="true" CssClass="DivReadonly form-control" runat="server"> </asp:TextBox>
-                                                                </div>
-
-
+                                                                </div>--%>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>

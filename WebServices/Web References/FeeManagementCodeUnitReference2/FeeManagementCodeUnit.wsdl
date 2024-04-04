@@ -107,6 +107,69 @@
           </sequence>
         </complexType>
       </element>
+      <element name="DailyPaymentDTET">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="lineNarration1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="voucherNaration1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="postingDate2" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="postingDate4" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dimension1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dimension2" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="compName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DailyPaymentDTET_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DailyReciptDTET">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="lineNarration1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="voucherNaration1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="postingDate2" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="postingDate4" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dimension1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dimension2" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="compName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DailyReciptDTET_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DayBookDTET">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="lineNarration1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="voucherNaration1" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="postingDate2" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="postingDate4" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dimension1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dimension2" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="compName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DayBookDTET_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="DayBook">
         <complexType>
           <sequence>
@@ -250,6 +313,24 @@
   <message name="CustomerTrialBalance_Result">
     <part name="parameters" element="tns:CustomerTrialBalance_Result" />
   </message>
+  <message name="DailyPaymentDTET">
+    <part name="parameters" element="tns:DailyPaymentDTET" />
+  </message>
+  <message name="DailyPaymentDTET_Result">
+    <part name="parameters" element="tns:DailyPaymentDTET_Result" />
+  </message>
+  <message name="DailyReciptDTET">
+    <part name="parameters" element="tns:DailyReciptDTET" />
+  </message>
+  <message name="DailyReciptDTET_Result">
+    <part name="parameters" element="tns:DailyReciptDTET_Result" />
+  </message>
+  <message name="DayBookDTET">
+    <part name="parameters" element="tns:DayBookDTET" />
+  </message>
+  <message name="DayBookDTET_Result">
+    <part name="parameters" element="tns:DayBookDTET_Result" />
+  </message>
   <message name="DayBook">
     <part name="parameters" element="tns:DayBook" />
   </message>
@@ -312,6 +393,18 @@
     <operation name="CustomerTrialBalance">
       <input name="CustomerTrialBalance" message="tns:CustomerTrialBalance" />
       <output name="CustomerTrialBalance_Result" message="tns:CustomerTrialBalance_Result" />
+    </operation>
+    <operation name="DailyPaymentDTET">
+      <input name="DailyPaymentDTET" message="tns:DailyPaymentDTET" />
+      <output name="DailyPaymentDTET_Result" message="tns:DailyPaymentDTET_Result" />
+    </operation>
+    <operation name="DailyReciptDTET">
+      <input name="DailyReciptDTET" message="tns:DailyReciptDTET" />
+      <output name="DailyReciptDTET_Result" message="tns:DailyReciptDTET_Result" />
+    </operation>
+    <operation name="DayBookDTET">
+      <input name="DayBookDTET" message="tns:DayBookDTET" />
+      <output name="DayBookDTET_Result" message="tns:DayBookDTET_Result" />
     </operation>
     <operation name="DayBook">
       <input name="DayBook" message="tns:DayBook" />
@@ -386,6 +479,33 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="CustomerTrialBalance_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="DailyPaymentDTET">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:DailyPaymentDTET" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="DailyPaymentDTET">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="DailyPaymentDTET_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="DailyReciptDTET">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:DailyReciptDTET" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="DailyReciptDTET">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="DailyReciptDTET_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="DayBookDTET">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/FeeManagementCodeUnit:DayBookDTET" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="DayBookDTET">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="DayBookDTET_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

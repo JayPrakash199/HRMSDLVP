@@ -28,7 +28,7 @@ namespace HRMS
 
                 ddlFromStation.DataSource = station;
                 ddlFromStation.DataTextField = "Institute_Name";
-                ddlFromStation.DataValueField = "Institute_Code";
+                ddlFromStation.DataValueField = "Company_Name";
                 ddlFromStation.DataBind();
                 ddlFromStation.Items.Insert(0, new ListItem("Select Station", "0"));
             }
@@ -67,7 +67,7 @@ namespace HRMS
             txtEmployeeName.Text = result.Employee_Name;
             txtDesignation.Text = result.Designation;
             ddlFromStation.ClearSelection();
-            ddlFromStation.Items.FindByValue(result.From_Station).Selected = true;
+            //ddlFromStation.Items.FindByValue(result.From_Station).Selected = true;
             ddlToStation.ClearSelection();
             ddlToStation.Items.FindByValue(result.To_Station).Selected = true;
             txtOrderDate.Text = DateTimeParser.ConvertDateTimeToText(result.Transfer_Order_Date);
@@ -127,7 +127,7 @@ namespace HRMS
             };
             string companyName = System.Web.HttpUtility.UrlPathEncode(ddlFromStation.SelectedItem.Value);
 
-            var resultMessage = SOAPServices.UpdateTransferEmployeeDetails(obj, companyName);
+            var resultMessage = SOAPServices.UpdateTransferEmployeeDetails(obj, companyName, Session["SessionCompanyName"] as string);
             Alert.ShowAlert(this, resultMessage == ResultMessages.UpdateSuccessfullMessage ? "s" : "e", resultMessage);
         }
 
@@ -147,8 +147,8 @@ namespace HRMS
             }
             txtEmployeeName.Text = result.Employee_Name;
             txtDesignation.Text = result.Designation;
-            ddlFromStation.ClearSelection();
-            ddlFromStation.Items.FindByValue(result.From_Station).Selected = true;
+            //ddlFromStation.ClearSelection();
+            //ddlFromStation.Items.FindByValue(result.From_Station).Selected = true;
             ddlToStation.ClearSelection();
             ddlToStation.Items.FindByValue(result.To_Station).Selected = true;
             txtOrderDate.Text = DateTimeParser.ConvertDateTimeToText(result.Transfer_Order_Date);
