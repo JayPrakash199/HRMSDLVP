@@ -57,73 +57,121 @@ namespace HRMS
 
         protected void btnExport_Click(object sender, EventArgs e)
         {
-            var servicePath = SOAPServices.ExportStaffAchivementDetails(Session["SessionCompanyName"] as string);
-            var FileName = "StaffAchivementDetails.XLS";
-            string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
-            WebClient wc = new WebClient();
-            byte[] buffer = wc.DownloadData(exportedFilePath);
-            var fileName = "attachment; filename=" + FileName;
-            base.Response.ClearContent();
-            base.Response.AddHeader("content-disposition", fileName);
-            base.Response.ContentType = "application/vnd.ms-excel";
-            base.Response.BinaryWrite(buffer);
-            base.Response.End();
-        }
-
-        protected void staffProfileUpload_Click(object sender, EventArgs e)
-        {
-            LinkButton btn = sender as LinkButton;
-            ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
-            Label hrmsID = item.FindControl("lblProjectCode") as Label;
-
-            FileUpload uploadedFile = item.FindControl("StaffProfileUploader") as FileUpload;
-
-            if (uploadedFile.HasFile && !string.IsNullOrEmpty(hrmsID.Text))
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
             {
-                string fileExtention = Path.GetExtension(uploadedFile.FileName);
-                string finalFileName = Path.GetFileNameWithoutExtension(new string(uploadedFile.FileName.Take(10).ToArray())) + "_" + DateTime.Now.ToString("dd MMM yyyy") + fileExtention;
-                string path = Path.Combine(System.Web.HttpContext.Current.Server.MapPath("./" + "PDF" + "/"));
-                if (!Directory.Exists(path))
-                    Directory.CreateDirectory(path);
-                if (Directory.Exists(path))
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Staff Profile List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "HRMS", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Read))
                 {
-                    path = Path.Combine(path, finalFileName);
-                    uploadedFile.SaveAs(path);
-                }
-                string servicePath = ConfigurationManager.AppSettings["PdfPath"].ToString() + finalFileName;
-                SOAPServices.UploadEmployeeAchievement( hrmsID.Text, servicePath, Session["SessionCompanyName"] as string);
-                Alert.ShowAlert(this, "s", "file uploaded successfully");
-            }
-        }
-
-        protected void btnDownload_Click(object sender, EventArgs e)
-        {
-
-            LinkButton btn = sender as LinkButton;
-            ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
-            Label hrmsID = item.FindControl("lblProjectCode") as Label;
-
-            if (!string.IsNullOrEmpty(hrmsID.Text))
-            {
-                string FileName = "EmployeeAchievement" + "_" + hrmsID.Text + ".pdf";
-                string companyName = Session["SessionCompanyName"] as string;
-                string bcPath = SOAPServices.DownloadEmployeeAchievementApplication(hrmsID.Text, companyName);
-                if (!string.IsNullOrEmpty(bcPath))
-                {
-                    string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(bcPath);
+                    var servicePath = SOAPServices.ExportStaffAchivementDetails(Session["SessionCompanyName"] as string);
+                    var FileName = "StaffAchivementDetails.XLS";
+                    string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
                     WebClient wc = new WebClient();
                     byte[] buffer = wc.DownloadData(exportedFilePath);
-
                     var fileName = "attachment; filename=" + FileName;
                     base.Response.ClearContent();
                     base.Response.AddHeader("content-disposition", fileName);
-                    base.Response.ContentType = "application/pdf";
+                    base.Response.ContentType = "application/vnd.ms-excel";
                     base.Response.BinaryWrite(buffer);
                     base.Response.End();
                 }
                 else
                 {
-                    Alert.ShowAlert(this, "e", "No file found. Please upload a file.");
+                    Alert.ShowAlert(this, "w", "You do not have permission to Export the content. Kindly contact the system administrator");
+                }
+            }
+        }
+
+        protected void staffProfileUpload_Click(object sender, EventArgs e)
+        {
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
+            {
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Staff Profile List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "HRMS", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Insert))
+                {
+                    LinkButton btn = sender as LinkButton;
+                    ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                    Label hrmsID = item.FindControl("lblProjectCode") as Label;
+
+                    FileUpload uploadedFile = item.FindControl("StaffProfileUploader") as FileUpload;
+
+                    if (uploadedFile.HasFile && !string.IsNullOrEmpty(hrmsID.Text))
+                    {
+                        string fileExtention = Path.GetExtension(uploadedFile.FileName);
+                        string finalFileName = Path.GetFileNameWithoutExtension(new string(uploadedFile.FileName.Take(10).ToArray())) + "_" + DateTime.Now.ToString("dd MMM yyyy") + fileExtention;
+                        string path = Path.Combine(System.Web.HttpContext.Current.Server.MapPath("./" + "PDF" + "/"));
+                        if (!Directory.Exists(path))
+                            Directory.CreateDirectory(path);
+                        if (Directory.Exists(path))
+                        {
+                            path = Path.Combine(path, finalFileName);
+                            uploadedFile.SaveAs(path);
+                        }
+                        string servicePath = ConfigurationManager.AppSettings["PdfPath"].ToString() + finalFileName;
+                        SOAPServices.UploadEmployeeAchievement(hrmsID.Text, servicePath, Session["SessionCompanyName"] as string);
+                        Alert.ShowAlert(this, "s", "file uploaded successfully");
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "w", "You do not have permission to Upload the content. Kindly contact the system administrator");
+                }
+            }
+        }
+
+        protected void btnDownload_Click(object sender, EventArgs e)
+        {
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
+            {
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Staff Profile List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "HRMS", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Read))
+                {
+
+                    LinkButton btn = sender as LinkButton;
+                    ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                    Label hrmsID = item.FindControl("lblProjectCode") as Label;
+
+                    if (!string.IsNullOrEmpty(hrmsID.Text))
+                    {
+                        string FileName = "EmployeeAchievement" + "_" + hrmsID.Text + ".pdf";
+                        string companyName = Session["SessionCompanyName"] as string;
+                        string bcPath = SOAPServices.DownloadEmployeeAchievementApplication(hrmsID.Text, companyName);
+                        if (!string.IsNullOrEmpty(bcPath))
+                        {
+                            string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(bcPath);
+                            WebClient wc = new WebClient();
+                            byte[] buffer = wc.DownloadData(exportedFilePath);
+
+                            var fileName = "attachment; filename=" + FileName;
+                            base.Response.ClearContent();
+                            base.Response.AddHeader("content-disposition", fileName);
+                            base.Response.ContentType = "application/pdf";
+                            base.Response.BinaryWrite(buffer);
+                            base.Response.End();
+                        }
+                        else
+                        {
+                            Alert.ShowAlert(this, "e", "No file found. Please upload a file.");
+                        }
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "w", "You do not have permission to Download the content. Kindly contact the system administrator");
                 }
             }
         }
