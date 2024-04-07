@@ -130,7 +130,7 @@ namespace HRMS
                 }
                 if (reportName.ToLower() == "dailyreceiptdtetreport")
                 {
-                    servicePath = SOAPServices.GetDailyPaymentDTETReport(
+                    servicePath = SOAPServices.GetDailyReciptDTETReport(
                             rdLineNarration.Checked,
                             rdvoucherNaration.Checked,
                             ddlDocumentNo.SelectedValue == "0" ? "" : ddlDocumentNo.SelectedValue,

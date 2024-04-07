@@ -233,7 +233,7 @@
                             <li class="nav-item active"><a data-toggle="tab" href="#InfraReport">Infra Report</a></li>
                             <li class="nav-item"><a data-toggle="tab" href="#HRMSReport">HRMS Report</a></li>
                             <li class="nav-item"><a data-toggle="tab" href="#LibraryReport">Library Report</a></li>
-                            <li class="nav-item"><a data-toggle="tab" href="#DtetReport">DTET Report</a></li>
+                            <li class="nav-item"><a data-toggle="tab" href="#DtetReport">DTE&T Accounts Report</a></li>
                         </ul>
 
                         <div class="tab-content">
@@ -346,18 +346,18 @@
                                     <div class="containerList">
                                         <ul class="myUL">
                                             <li>
-                                                <asp:LinkButton ID="lbdaybookdtet" OnClick="lbdaybookdtet_Click" runat="server">Download Day Book DTET Report
+                                                <asp:LinkButton ID="lbdaybookdtet" OnClick="lbdaybookdtet_Click" runat="server">Download Day Book Report
                                                 </asp:LinkButton>
                                                 <i class="fa fa-download" aria-hidden="true" style="font-size: 16px; color: #105be6;"></i>
                                             </li>
                                             <li>
-                                                <asp:LinkButton ID="lbdailyreceiptdtet" OnClick="lbdailyreceiptdtet_Click" runat="server">Download Daily Receipt Report
+                                                <asp:LinkButton ID="lbdailyreceiptdtet" OnClick="lbdailyreceiptdtet_Click" runat="server">Download Receipts Report
                                                 </asp:LinkButton>
                                                 <i class="fa fa-download" aria-hidden="true" style="font-size: 16px; color: #105be6;"></i>
                                             </li>
 
                                             <li>
-                                                <asp:LinkButton ID="lbdailypaymentdtet" OnClick="lbdailypaymentdtet_Click" runat="server">Download Daily Payment Report
+                                                <asp:LinkButton ID="lbdailypaymentdtet" OnClick="lbdailypaymentdtet_Click" runat="server">Download Payments Report
                                                 </asp:LinkButton>
                                                 <i class="fa fa-download" aria-hidden="true" style="font-size: 16px; color: #105be6;"></i>
                                             </li>

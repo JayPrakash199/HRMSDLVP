@@ -235,7 +235,7 @@ namespace HRMS
 
         protected void lbdailypaymentdtet_Click(object sender, EventArgs e)
         {
-            Response.Redirect("DTETReport?reportname=daybookdtetreport");
+            Response.Redirect("DTETReport?reportname=dailypaymentdtetreport");
         }
 
         protected void lbdailyreceiptdtet_Click(object sender, EventArgs e)
@@ -245,7 +245,7 @@ namespace HRMS
 
         protected void lbdaybookdtet_Click(object sender, EventArgs e)
         {
-            Response.Redirect("DTETReport?reportname=dailypaymentdtetreport");
+            Response.Redirect("DTETReport?reportname=daybookdtetreport");
         }
     }
 }
