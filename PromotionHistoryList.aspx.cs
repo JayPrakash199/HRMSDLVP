@@ -52,71 +52,119 @@ namespace HRMS
 
         protected void btnExport_Click(object sender, EventArgs e)
         {
-            var servicePath = SOAPServices.ExportPromotionHistory(Session["SessionCompanyName"] as string);
-            var FileName = "PromotionHistory.XLS";
-            string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
-            WebClient wc = new WebClient();
-            byte[] buffer = wc.DownloadData(exportedFilePath);
-            var fileName = "attachment; filename=" + FileName;
-            base.Response.ClearContent();
-            base.Response.AddHeader("content-disposition", fileName);
-            base.Response.ContentType = "application/vnd.ms-excel";
-            base.Response.BinaryWrite(buffer);
-            base.Response.End();
-        }
-
-        protected void promotionHistoryUpload_Click(object sender, EventArgs e)
-        {
-            LinkButton btn = sender as LinkButton;
-            ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
-            Label entryNo = item.FindControl("lblEntryNo") as Label;
-
-            FileUpload uploadedFile = item.FindControl("promotionHistorypdfUploader") as FileUpload;
-
-            if (uploadedFile.HasFile && !string.IsNullOrEmpty(entryNo.Text))
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
             {
-                string fileExtention = Path.GetExtension(uploadedFile.FileName);
-                string finalFileName = Path.GetFileNameWithoutExtension(new string(uploadedFile.FileName.Take(10).ToArray())) + "_" + DateTime.Now.ToString("dd MMM yyyy") + fileExtention;
-                string path = Path.Combine(System.Web.HttpContext.Current.Server.MapPath("./" + "PDF" + "/"));
-                if (!Directory.Exists(path))
-                    Directory.CreateDirectory(path);
-                if (Directory.Exists(path))
-                {
-                    path = Path.Combine(path, finalFileName);
-                    uploadedFile.SaveAs(path);
-                }
-                string servicePath = ConfigurationManager.AppSettings["PdfPath"].ToString() + finalFileName;
-                SOAPServices.Upload_Promotion_Order(Convert.ToInt32(entryNo.Text), servicePath, Session["SessionCompanyName"] as string);
-                Alert.ShowAlert(this, "s", "file uploaded successfully");
-            }
-        }
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Promotion History List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "HRMS", StringComparison.OrdinalIgnoreCase));
 
-        protected void btnDownload_Click(object sender, EventArgs e)
-        {
-            LinkButton btn = sender as LinkButton;
-            ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
-            Label entryNo = item.FindControl("lblEntryNo") as Label;
-
-            if (!string.IsNullOrEmpty(entryNo.Text))
-            {
-                string FileName = "PromotionOrder" + "_" + entryNo.Text + ".pdf";
-                string bcPath = SOAPServices.Download_Promotion_Order(Convert.ToInt32(entryNo.Text), Session["SessionCompanyName"] as string);
-                if (!string.IsNullOrEmpty(bcPath))
+                if (role == null || Convert.ToBoolean(role.Read))
                 {
-                    string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(bcPath);
+                    var servicePath = SOAPServices.ExportPromotionHistory(Session["SessionCompanyName"] as string);
+                    var FileName = "PromotionHistory.XLS";
+                    string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
                     WebClient wc = new WebClient();
                     byte[] buffer = wc.DownloadData(exportedFilePath);
-
                     var fileName = "attachment; filename=" + FileName;
                     base.Response.ClearContent();
                     base.Response.AddHeader("content-disposition", fileName);
-                    base.Response.ContentType = "application/pdf";
+                    base.Response.ContentType = "application/vnd.ms-excel";
                     base.Response.BinaryWrite(buffer);
                     base.Response.End();
                 }
                 else
                 {
-                    Alert.ShowAlert(this, "e", "No file found. Please upload a file.");
+                    Alert.ShowAlert(this, "w", "You do not have permission to Export the content. Kindly contact the system administrator");
+                }
+            }
+        }
+
+        protected void promotionHistoryUpload_Click(object sender, EventArgs e)
+        {
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
+            {
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Promotion History List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "HRMS", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Insert))
+                {
+                    LinkButton btn = sender as LinkButton;
+                    ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                    Label entryNo = item.FindControl("lblEntryNo") as Label;
+
+                    FileUpload uploadedFile = item.FindControl("promotionHistorypdfUploader") as FileUpload;
+
+                    if (uploadedFile.HasFile && !string.IsNullOrEmpty(entryNo.Text))
+                    {
+                        string fileExtention = Path.GetExtension(uploadedFile.FileName);
+                        string finalFileName = Path.GetFileNameWithoutExtension(new string(uploadedFile.FileName.Take(10).ToArray())) + "_" + DateTime.Now.ToString("dd MMM yyyy") + fileExtention;
+                        string path = Path.Combine(System.Web.HttpContext.Current.Server.MapPath("./" + "PDF" + "/"));
+                        if (!Directory.Exists(path))
+                            Directory.CreateDirectory(path);
+                        if (Directory.Exists(path))
+                        {
+                            path = Path.Combine(path, finalFileName);
+                            uploadedFile.SaveAs(path);
+                        }
+                        string servicePath = ConfigurationManager.AppSettings["PdfPath"].ToString() + finalFileName;
+                        SOAPServices.Upload_Promotion_Order(Convert.ToInt32(entryNo.Text), servicePath, Session["SessionCompanyName"] as string);
+                        Alert.ShowAlert(this, "s", "file uploaded successfully");
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "w", "You do not have permission to Upload the content. Kindly contact the system administrator");
+                }
+            }
+        }
+
+        protected void btnDownload_Click(object sender, EventArgs e)
+        {
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
+            {
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "Promotion History List", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "HRMS", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Read))
+                {
+                    LinkButton btn = sender as LinkButton;
+                    ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                    Label entryNo = item.FindControl("lblEntryNo") as Label;
+
+                    if (!string.IsNullOrEmpty(entryNo.Text))
+                    {
+                        string FileName = "PromotionOrder" + "_" + entryNo.Text + ".pdf";
+                        string bcPath = SOAPServices.Download_Promotion_Order(Convert.ToInt32(entryNo.Text), Session["SessionCompanyName"] as string);
+                        if (!string.IsNullOrEmpty(bcPath))
+                        {
+                            string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(bcPath);
+                            WebClient wc = new WebClient();
+                            byte[] buffer = wc.DownloadData(exportedFilePath);
+
+                            var fileName = "attachment; filename=" + FileName;
+                            base.Response.ClearContent();
+                            base.Response.AddHeader("content-disposition", fileName);
+                            base.Response.ContentType = "application/pdf";
+                            base.Response.BinaryWrite(buffer);
+                            base.Response.End();
+                        }
+                        else
+                        {
+                            Alert.ShowAlert(this, "e", "No file found. Please upload a file.");
+                        }
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "w", "You do not have permission to Download the content. Kindly contact the system administrator");
                 }
             }
         }

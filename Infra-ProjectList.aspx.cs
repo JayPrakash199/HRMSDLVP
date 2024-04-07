@@ -1,5 +1,6 @@
 ﻿using HRMS.Common;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
@@ -19,103 +20,151 @@ namespace HRMS
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
                 Response.Redirect("Default.aspx");
             }
-            ListView1.Visible = false;
-            if (ddlProjectType.SelectedItem.Text == "New")
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
             {
-                var result = ODataServices.GetAllProjectDetails(Session["SessionCompanyName"] as string);
-                ListView1.DataSource = result.Where(x => x.Project_Type == Convert.ToString(WebServices.InfraNewprojectReference.Project_Type.New));
-                ListView1.DataBind();
-                ListView1.Visible = true;
-            }
-            if (ddlProjectType.SelectedItem.Text == "Ongoing")
-            {
-                var result = ODataServices.GetAllProjectDetails(Session["SessionCompanyName"] as string);
-                ListView1.DataSource = result.Where(x => x.Project_Type == Convert.ToString(WebServices.InfraNewprojectReference.Project_Type.Ongoing));
-                ListView1.DataBind();
-                ListView1.Visible = true;
-            }
-            if (ddlProjectType.SelectedItem.Text == "Improvement")
-            {
-                var result = ODataServices.GetAllProjectDetails(Session["SessionCompanyName"] as string);
-                ListView1.DataSource = result.Where(x => x.Project_Type == Convert.ToString(WebServices.InfraNewprojectReference.Project_Type.Improvement));
-                ListView1.DataBind();
-                ListView1.Visible = true;
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "All Project Details", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Infra", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Read))
+                {
+                    ListView1.Visible = false;
+                    if (ddlProjectType.SelectedItem.Text == "New")
+                    {
+                        var result = ODataServices.GetAllProjectDetails(Session["SessionCompanyName"] as string);
+                        ListView1.DataSource = result.Where(x => x.Project_Type == Convert.ToString(WebServices.InfraNewprojectReference.Project_Type.New));
+                        ListView1.DataBind();
+                        ListView1.Visible = true;
+                    }
+                    if (ddlProjectType.SelectedItem.Text == "Ongoing")
+                    {
+                        var result = ODataServices.GetAllProjectDetails(Session["SessionCompanyName"] as string);
+                        ListView1.DataSource = result.Where(x => x.Project_Type == Convert.ToString(WebServices.InfraNewprojectReference.Project_Type.Ongoing));
+                        ListView1.DataBind();
+                        ListView1.Visible = true;
+                    }
+                    if (ddlProjectType.SelectedItem.Text == "Improvement")
+                    {
+                        var result = ODataServices.GetAllProjectDetails(Session["SessionCompanyName"] as string);
+                        ListView1.DataSource = result.Where(x => x.Project_Type == Convert.ToString(WebServices.InfraNewprojectReference.Project_Type.Improvement));
+                        ListView1.DataBind();
+                        ListView1.Visible = true;
+                    }
+                }
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to Read the content. Kindly contact the system administrator.");
+                }
             }
         }
 
         protected void btnExport_Click(object sender, EventArgs e)
         {
-            LinkButton btn = sender as LinkButton;
-            ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
-            Label projectCode = item.FindControl("lblProjectCode") as Label;
-            Label projectType = item.FindControl("lblProjectType") as Label;
-
-            if (!string.IsNullOrEmpty(projectCode.Text) && !string.IsNullOrEmpty(projectType.Text))
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
             {
-                var servicePath = SOAPServices.DownloadProjectFile(GetProjectTypeIndex(projectType.Text), projectCode.Text, Session["SessionCompanyName"] as string);
-                if (!string.IsNullOrEmpty(servicePath))
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "All Project Details", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Infra", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Read))
                 {
-                    string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
-                    WebClient wc = new WebClient();
-                    byte[] buffer = wc.DownloadData(exportedFilePath);
-                    var FileName = "Project" + "_" + projectCode.Text + ".PDF";
-                    var fileName = "attachment; filename=" + FileName;
-                    base.Response.ClearContent();
-                    base.Response.AddHeader("content-disposition", fileName);
-                    base.Response.ContentType = "application/vnd.ms-excel";
-                    base.Response.BinaryWrite(buffer);
-                    base.Response.End();
+                    LinkButton btn = sender as LinkButton;
+                    ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                    Label projectCode = item.FindControl("lblProjectCode") as Label;
+                    Label projectType = item.FindControl("lblProjectType") as Label;
+
+                    if (!string.IsNullOrEmpty(projectCode.Text) && !string.IsNullOrEmpty(projectType.Text))
+                    {
+                        var servicePath = SOAPServices.DownloadProjectFile(GetProjectTypeIndex(projectType.Text), projectCode.Text, Session["SessionCompanyName"] as string);
+                        if (!string.IsNullOrEmpty(servicePath))
+                        {
+                            string exportedFilePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + StringHelper.GetFileNameFromURL(servicePath);
+                            WebClient wc = new WebClient();
+                            byte[] buffer = wc.DownloadData(exportedFilePath);
+                            var FileName = "Project" + "_" + projectCode.Text + ".PDF";
+                            var fileName = "attachment; filename=" + FileName;
+                            base.Response.ClearContent();
+                            base.Response.AddHeader("content-disposition", fileName);
+                            base.Response.ContentType = "application/vnd.ms-excel";
+                            base.Response.BinaryWrite(buffer);
+                            base.Response.End();
+                        }
+                        else
+                        {
+                            Alert.ShowAlert(this, "e", "No file found.");
+                        }
+                    }
                 }
                 else
                 {
-                    Alert.ShowAlert(this, "e", "No file found.");
+                    Alert.ShowAlert(this, "W", "You do not have permission to Export the content. Kindly contact the system administrator.");
                 }
             }
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            LinkButton btn = sender as LinkButton;
-            ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
-            Label projectCode = item.FindControl("lblProjectCode") as Label;
-            Label projectType = item.FindControl("lblProjectType") as Label;
-
-            FileUpload uploadedFile = item.FindControl("ProjectpdfUploader") as FileUpload;
-
-            if (uploadedFile.HasFile)
+            List<HRMSODATA.UserAuthorizationList> lstUserRole = ODataServices.GetUserAuthorizationList();
+            if (lstUserRole != null)
             {
-                string fileExtention = Path.GetExtension(uploadedFile.FileName);
-                string finalFileName = Path.GetFileNameWithoutExtension(new string(uploadedFile.FileName.Take(10).ToArray())) + "_" + DateTime.Now.ToString("dd MMM yyyy") + fileExtention;
-                string path = Path.Combine(System.Web.HttpContext.Current.Server.MapPath("./" + "PDF" + "/"));
-                if (!Directory.Exists(path))
-                    Directory.CreateDirectory(path);
-                if (Directory.Exists(path))
+                var role = lstUserRole.FirstOrDefault(x =>
+                string.Equals(x.User_Name, Helper.UserName, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Page_Name.Trim(), "All Project Details", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Module_Name.Trim(), "Infra", StringComparison.OrdinalIgnoreCase));
+
+                if (role == null || Convert.ToBoolean(role.Insert))
                 {
-                    path = Path.Combine(path, finalFileName);
-                    uploadedFile.SaveAs(path);
+                    LinkButton btn = sender as LinkButton;
+                    ListViewDataItem item = btn.NamingContainer as ListViewDataItem;
+                    Label projectCode = item.FindControl("lblProjectCode") as Label;
+                    Label projectType = item.FindControl("lblProjectType") as Label;
+
+                    FileUpload uploadedFile = item.FindControl("ProjectpdfUploader") as FileUpload;
+
+                    if (uploadedFile.HasFile)
+                    {
+                        string fileExtention = Path.GetExtension(uploadedFile.FileName);
+                        string finalFileName = Path.GetFileNameWithoutExtension(new string(uploadedFile.FileName.Take(10).ToArray())) + "_" + DateTime.Now.ToString("dd MMM yyyy") + fileExtention;
+                        string path = Path.Combine(System.Web.HttpContext.Current.Server.MapPath("./" + "PDF" + "/"));
+                        if (!Directory.Exists(path))
+                            Directory.CreateDirectory(path);
+                        if (Directory.Exists(path))
+                        {
+                            path = Path.Combine(path, finalFileName);
+                            uploadedFile.SaveAs(path);
+                        }
+                        string servicePath = ConfigurationManager.AppSettings["PdfPath"].ToString() + finalFileName;
+                        SOAPServices.UploadProjectFile(GetProjectTypeIndex(projectType.Text), projectCode.Text, servicePath, Session["SessionCompanyName"] as string);
+                        Alert.ShowAlert(this, "s", "file Upload successfully");
+                    }
                 }
-                string servicePath = ConfigurationManager.AppSettings["PdfPath"].ToString() + finalFileName;
-                SOAPServices.UploadProjectFile(GetProjectTypeIndex(projectType.Text), projectCode.Text, servicePath, Session["SessionCompanyName"] as string);
-                Alert.ShowAlert(this, "s", "file Upload successfully");
+                else
+                {
+                    Alert.ShowAlert(this, "W", "You do not have permission to Upload the content. Kindly contact the system administrator.");
+                }
             }
         }
 
-        public int GetProjectTypeIndex(string projectType)
-        {
-            int projectTypeIndex = 2;
-            if (WebServices.InfraImprovementprojectReference.Project_Type.Improvement.ToString() == projectType)
-            {
-                projectTypeIndex = 0;
+                public int GetProjectTypeIndex(string projectType)
+                {
+                    int projectTypeIndex = 2;
+                    if (WebServices.InfraImprovementprojectReference.Project_Type.Improvement.ToString() == projectType)
+                    {
+                        projectTypeIndex = 0;
+                    }
+                    if (WebServices.InfraImprovementprojectReference.Project_Type.Ongoing.ToString() == projectType)
+                    {
+                        projectTypeIndex = 1;
+                    }
+                    //if (WebServices.ImprovementProjectReference.Project_Type.New.ToString() == projectType)
+                    //{
+                    //    projectTypeIndex = 2;
+                    //}
+                    return projectTypeIndex;
+                }
             }
-            if (WebServices.InfraImprovementprojectReference.Project_Type.Ongoing.ToString() == projectType)
-            {
-                projectTypeIndex = 1;
-            }
-            //if (WebServices.ImprovementProjectReference.Project_Type.New.ToString() == projectType)
-            //{
-            //    projectTypeIndex = 2;
-            //}
-            return projectTypeIndex;
         }
-    }
-}
