@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Web.UI.WebControls;
 using WebServices;
+using WebServices.BookAccessionReference;
 
 namespace HRMS
 {
@@ -72,7 +73,24 @@ namespace HRMS
                 Location_Code = ddlLocationCode.SelectedValue,
                 Vendor_No = ddlVendor.SelectedValue,
                 Book_No = txtBookNo.Text,
-                Line_No = Convert.ToInt32(hdnLineNo.Value)
+                Line_No = Convert.ToInt32(hdnLineNo.Value),
+                Line_NoSpecified=true,
+                Book_Current_StatusSpecified =true,
+                Unit_Cost = Convert.ToDecimal(txtUnitCost.Text),
+                Unit_CostSpecified = true,
+                Date_of_Purchase = DateTimeParser.ParseDateTime(txtDateOfPurchase.Text),
+                Date_of_PurchaseSpecified = true,
+                Bill_No = txtBillNo.Text,
+                Bill_Date = DateTimeParser.ParseDateTime(txtBillDate.Text),
+                Bill_DateSpecified = true,
+                Book_SourceSpecified = true,
+                Book_Source = ddlBookSource.SelectedItem.Text.ToLower() == "purchased" ? Book_Source.Purchased :
+                ddlBookSource.SelectedItem.Text.ToLower() == "sponsored" ? Book_Source.Sponsored :
+                ddlBookSource.SelectedItem.Text.ToLower() == "gifted" ? Book_Source.Gifted :
+                ddlBookSource.SelectedItem.Text.ToLower() == "donated" ? Book_Source.Donated : Book_Source._blank_,
+                Source_By=txtSourceBy.Text,
+                ISSN=txtISSN.Text,
+                ISBN=txtISBN.Text
             };
             var resultMessage = SOAPServices.UpdateBookAccessionCard(obj, Session["SessionCompanyName"] as string);
             if (resultMessage == ResultMessages.UpdateSuccessfullMessage)

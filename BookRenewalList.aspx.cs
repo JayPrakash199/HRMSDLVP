@@ -29,20 +29,7 @@ namespace HRMS
 
                 if (role == null || Convert.ToBoolean(role.Read))
                 {
-                    string companyName = Session["SessionCompanyName"] as string;
-
-                    var bookRenewalList = ODataServices.GetBookRenewalList(companyName);
-
-                    if (bookRenewalList != null)
-                    {
-
-                        BookRenewalListView.DataSource = bookRenewalList;
-                        BookRenewalListView.DataBind();
-                    }
-                    else
-                    {
-
-                    }
+                    BindGrid();
                 }
                 else
                 {
@@ -52,6 +39,18 @@ namespace HRMS
             }
         }
 
+        private void BindGrid()
+        {
+            string companyName = Session["SessionCompanyName"] as string;
+
+            var bookRenewalList = ODataServices.GetBookRenewalList(companyName);
+
+            if (bookRenewalList != null)
+            {
+                BookRenewalListView.DataSource = bookRenewalList;
+                BookRenewalListView.DataBind();
+            }
+        }
 
         protected void btnSearchBookRenewaldata_Click(object sender, EventArgs e)
         {
@@ -102,6 +101,7 @@ namespace HRMS
                             try
                             {
                                 SOAPServices.BookRenewal(Entry_No, Session["SessionCompanyName"] as string);
+                                BindGrid();
                                 Alert.ShowAlert(this, "s", "Book renewed successfully.");
                             }
                             catch (Exception ex)

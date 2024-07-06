@@ -521,6 +521,8 @@ namespace WebServices.StudentFeeCollectionCardReference {
         
         private bool posting_DateFieldSpecified;
         
+        private string portal_User_IDField;
+        
         /// <remarks/>
         public string Key {
             get {
@@ -908,6 +910,16 @@ namespace WebServices.StudentFeeCollectionCardReference {
                 this.posting_DateFieldSpecified = value;
             }
         }
+        
+        /// <remarks/>
+        public string Portal_User_ID {
+            get {
+                return this.portal_User_IDField;
+            }
+            set {
+                this.portal_User_IDField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1101,6 +1113,9 @@ namespace WebServices.StudentFeeCollectionCardReference {
         
         /// <remarks/>
         Posting_Date,
+        
+        /// <remarks/>
+        Portal_User_ID,
     }
     
     /// <remarks/>

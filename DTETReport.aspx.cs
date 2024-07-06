@@ -58,16 +58,13 @@ namespace HRMS
         {
             var departmentList = dimensionList.Where(x => string.Equals("DEPARTMENT", x.Dimension_Code, StringComparison.OrdinalIgnoreCase)).ToList();
             var lstDpt = new List<Dimension>();
-            foreach (var dc in departmentList)
+
+            foreach (var dimension in departmentList)
             {
-                lstDpt.Add(new HRMS.Dimension
-                {
-                    Code = dc.Code,
-                    Name = dc.Name
-                });
+                lstDpt.Add(new HRMS.Dimension { Name = dimension.Code + "_" + dimension.Name, Code = dimension.Code });
             }
             ddlDepartment.DataSource = lstDpt;
-            ddlDepartment.DataTextField = "Code";
+            ddlDepartment.DataTextField = "Name";
             ddlDepartment.DataValueField = "Code";
             ddlDepartment.DataBind();
             ddlDepartment.Items.Insert(0, new ListItem("Select Department", "0"));
@@ -77,16 +74,13 @@ namespace HRMS
         {
             var instituteList = dimensionList.Where(x => string.Equals("INSTITUTE", x.Dimension_Code, StringComparison.OrdinalIgnoreCase)).ToList();
             var lstInstitute = new List<Dimension>();
-            foreach (var dc in instituteList)
+
+            foreach (var dimension in instituteList)
             {
-                lstInstitute.Add(new HRMS.Dimension
-                {
-                    Code = dc.Code,
-                    Name = dc.Name
-                });
+                lstInstitute.Add(new HRMS.Dimension { Name = dimension.Code + "_" + dimension.Name, Code = dimension.Code });
             }
             ddlInstiuteCode.DataSource = lstInstitute;
-            ddlInstiuteCode.DataTextField = "Code";
+            ddlInstiuteCode.DataTextField = "Name";
             ddlInstiuteCode.DataValueField = "Code";
             ddlInstiuteCode.DataBind();
             ddlInstiuteCode.Items.Insert(0, new ListItem("Select Institute", "0"));
@@ -106,13 +100,6 @@ namespace HRMS
 
             try
             {
-                if (string.IsNullOrEmpty(txtFromDate.Text) && !string.IsNullOrEmpty(txtToDate.Text)
-                   || !string.IsNullOrEmpty(txtFromDate.Text) && string.IsNullOrEmpty(txtToDate.Text))
-                {
-                    Alert.ShowAlert(this, "e", "plese select both From Date and To Date");
-                    return;
-                }
-
                 string servicePath = "";
 
                 if (reportName.ToLower() == "daybookdtetreport")
@@ -126,7 +113,7 @@ namespace HRMS
                              ddlInstiuteCode.SelectedValue == "0" ? "" : ddlInstiuteCode.SelectedItem.Text,
                              ddlDepartment.SelectedValue == "0" ? "" : ddlDepartment.SelectedItem.Text,
                             Session["SessionCompanyName"] as string,
-                            ddlCompany.SelectedItem.Text);
+                            ddlCompany.SelectedItem.Text.ToLower()=="select company"?"": ddlCompany.SelectedValue);
                 }
                 if (reportName.ToLower() == "dailyreceiptdtetreport")
                 {
@@ -139,7 +126,7 @@ namespace HRMS
                              ddlInstiuteCode.SelectedValue == "0" ? "" : ddlInstiuteCode.SelectedItem.Text,
                              ddlDepartment.SelectedValue == "0" ? "" : ddlDepartment.SelectedItem.Text,
                             Session["SessionCompanyName"] as string,
-                            ddlCompany.SelectedItem.Text);
+                            ddlCompany.SelectedItem.Text.ToLower() == "select company" ? "": ddlCompany.SelectedValue);
                 }
                 if (reportName.ToLower() == "dailypaymentdtetreport")
                 {
@@ -152,7 +139,7 @@ namespace HRMS
                              ddlInstiuteCode.SelectedValue == "0" ? "" : ddlInstiuteCode.SelectedItem.Text,
                              ddlDepartment.SelectedValue == "0" ? "" : ddlDepartment.SelectedItem.Text,
                             Session["SessionCompanyName"] as string,
-                            ddlCompany.SelectedItem.Text);
+                            ddlCompany.SelectedItem.Text.ToLower() == "select company" ? "": ddlCompany.SelectedValue);
                 }
 
                 var FileName = reportName + ".pdf";

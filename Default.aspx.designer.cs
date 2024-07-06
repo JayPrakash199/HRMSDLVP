@@ -78,13 +78,13 @@ namespace HRMS
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divHrms;
 
         /// <summary>
-        /// btnHRMSs control.
+        /// btnHRMS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnHRMSs;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnHRMS;
 
         /// <summary>
         /// divlibrary control.
@@ -202,6 +202,24 @@ namespace HRMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor btnFeeMgmntt;
+
+        /// <summary>
+        /// divPowerBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPowerBi;
+
+        /// <summary>
+        /// A1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor A1;
 
         /// <summary>
         /// ddlCompany control.

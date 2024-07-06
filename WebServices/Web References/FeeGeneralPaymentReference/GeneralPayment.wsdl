@@ -51,6 +51,7 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="Date__x0026__Time" type="xsd:dateTime" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Status" type="tns:Status" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Payment_Type_Code" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Portal_User_ID" type="xsd:string" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="GeneralPayment_List">
@@ -84,6 +85,7 @@
           <xsd:enumeration value="Date__x0026__Time" />
           <xsd:enumeration value="Status" />
           <xsd:enumeration value="Payment_Type_Code" />
+          <xsd:enumeration value="Portal_User_ID" />
         </xsd:restriction>
       </xsd:simpleType>
       <xsd:complexType name="GeneralPayment_Filter">

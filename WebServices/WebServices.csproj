@@ -76,6 +76,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\AdvanceBookingCardReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\AnnualEstablishmentReviewReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -248,6 +253,14 @@
     </None>
     <None Include="Web References\AccountManagementReference\AccountManagement.wsdl" />
     <None Include="Web References\AccountManagementReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AdvanceBookingCardReference\AdvanceBookingCard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AdvanceBookingCardReference\AdvanceBookingCard.wsdl" />
+    <None Include="Web References\AdvanceBookingCardReference\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -552,6 +565,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>WebServices_LibraryMgmtReference_LibraryMgmt</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/AdvanceBookingCard">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AdvanceBookingCardReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/AdvanceBookingCard</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServices_AdvanceBookingCardReference_AdvanceBookingCard_Service</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://192.168.1.252:10102/DTETDLVP/WS/GOVT%2520POLYTECHNIC%2520ANGUL/Page/AnnualEstablishmentReviewCard">
       <UrlBehavior>Dynamic</UrlBehavior>

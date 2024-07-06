@@ -25,7 +25,8 @@ namespace HRMS
                 {
                     var userData = JObject.Parse(userobj.ToString());
                     var isFeeMgmnt = Convert.ToBoolean(userData["FeeManagement"]);
-                    if (!isFeeMgmnt)
+                    var isAccountMgmnt = Convert.ToBoolean(userData["AccountManagement"]);
+                    if ((isFeeMgmnt == false) && (isAccountMgmnt = false))
                     {
                         Response.Redirect("Login.aspx");
                     }

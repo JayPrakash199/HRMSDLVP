@@ -1,4 +1,5 @@
 ﻿//using HRMS.Common;
+using HRMS.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,14 @@ using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebServices;
+using WebServices.AdvanceBookingCardReference;
 using WebServices.BookIssueCardReference;
 
 namespace HRMS
 {
     public partial class AdvanceBookingCard : System.Web.UI.Page
     {
-
+        public static string CompanyName;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,6 +26,7 @@ namespace HRMS
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(\"" + message + "\");", true);
                     Response.Redirect("Default.aspx");
                 }
+                CompanyName = Session["SessionCompanyName"] as string;
                 LoadBookNoDropDown(Session["SessionCompanyName"] as string);
             }
         }
@@ -107,7 +110,33 @@ namespace HRMS
 
         protected void btnAdvanceBookCardSubmit_Click(object sender, EventArgs e)
         {
+            string UserType = ddlType.SelectedItem.Text;
+            WebServices.AdvanceBookingCardReference.Type type= (WebServices.AdvanceBookingCardReference.Type)Enum.Parse(typeof(WebServices.AdvanceBookingCardReference.Type), UserType);
+            var obj = new WebServices.AdvanceBookingCardReference.AdvanceBookingCard
+            {
+                Type = type,
+                No = ddlNo.SelectedItem.Text,
+                Name=txtName.Text,
+                Book_No=ddlBookNo.SelectedItem.Text,
+                Book_Name=txtBookName.Text,
+                Date= DateTimeParser.ParseDateTime(txtDate.Text),
+                User_ID=txtuserId.Text,
+                Portal_ID=txtPortalId.Text,
+                TypeSpecified = IsUserTypeSpecified(UserType),
+                DateSpecified=true,
+                BookedSpecified=true,
+            };
 
+            SOAPServices.CreateAdvaceBooking(obj, CompanyName);
+        }
+        public static bool IsUserTypeSpecified(string userType)
+        {
+            WebServices.AdvanceBookingCardReference.Type Type = (WebServices.AdvanceBookingCardReference.Type)Enum.Parse(typeof(WebServices.AdvanceBookingCardReference.Type), userType);
+            if (Type == WebServices.AdvanceBookingCardReference.Type.Student || Type == WebServices.AdvanceBookingCardReference.Type.Staff)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

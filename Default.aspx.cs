@@ -45,9 +45,9 @@ namespace HRMS
                     var directorLogin = Session["directorLogin"] != null && Convert.ToBoolean(Session["directorLogin"]);
                     if (directorLogin)
                     {
-                        divreport.Visible = true;
-                        divreports.Visible = true;
-                        btnReport.Visible = true;
+                        divreports.Attributes.Add("class", divreports.Attributes["class"].ToString().Replace("blur", ""));
+                        divreports.Attributes.Add("class", divreports.Attributes["class"].ToString().Replace("tooltipp", ""));
+                        btnReport.HRef = "ReportManagement.aspx";
                         ddlCompany.Visible = true;
                         BindCompany();
                         ddlCompany.SelectedItem.Text = HttpUtility.UrlDecode(Convert.ToString(Session["SessionCompanyName"]));
@@ -56,40 +56,47 @@ namespace HRMS
                     }
                     if (isInfra)
                     {
-                        divinfra.Visible = true;
-                        btnInfraa.Visible = true;
+                        divinfra.Attributes.Add("class", divinfra.Attributes["class"].ToString().Replace("blur", ""));
+                        divinfra.Attributes.Add("class", divinfra.Attributes["class"].ToString().Replace("tooltipp", ""));
+                        btnInfraa.HRef = "Infra-MasterData.aspx";
                     }
                     if (isHRMS)
                     {
-                        divHrms.Visible = true;
-                        btnHRMSs.Visible = true;
+                        
+                        divHrms.Attributes.Add("class", divinfra.Attributes["class"].ToString().Replace("blur", ""));
+                        divHrms.Attributes.Add("class", divinfra.Attributes["class"].ToString().Replace("tooltipp", ""));
+                        btnHRMS.HRef = "RecruitmentsAndRetirements.aspx";
                     }
                     if (isSLCM)
                     {
-                        divslcs.Visible = true;
-                        btnslcm.Visible = true;
+                        divslcs.Attributes.Add("class", divslcs.Attributes["class"].ToString().Replace("blur", ""));
+                        divslcs.Attributes.Add("class", divslcs.Attributes["class"].ToString().Replace("tooltipp", ""));
+                        btnslcm.HRef = "Timetable.aspx";
                     }
                     if (isLibraryMgmnt)
                     {
-                        divlibrary.Visible=true;
-                        btnLibraryMgmntt.Visible = true;
+                        divlibrary.Attributes.Add("class", divlibrary.Attributes["class"].ToString().Replace("blur", ""));
+                        divlibrary.Attributes.Add("class", divlibrary.Attributes["class"].ToString().Replace("tooltipp", ""));
+                        btnLibraryMgmntt.HRef = "LibraryBookSearch.aspx";
+
                     }
-                    if (isFeeMgmnt)
+                    if (isFeeMgmnt || isAccountMgmnt)
                     {
-                        divlibrry.Visible = true;
-                        btnFeeMgmntt.Visible = true;
-                    }
-                    if (isAccountMgmnt)
-                    {
-                    }
-                    if (!isInfra && !isHRMS && !isSLCM && !isLibraryMgmnt && !isFeeMgmnt)
-                    {
-                        Response.Redirect("Login.aspx");
+                        divlibrry.Attributes.Add("class", divlibrry.Attributes["class"].ToString().Replace("blur", ""));
+                        divlibrry.Attributes.Add("class", divlibrry.Attributes["class"].ToString().Replace("tooltipp", ""));
+                        btnFeeMgmntt.HRef = "FeeClassificationList.aspx";
+
                     }
                     if (isStockNStore)
                     {
-                        divstock.Visible=true;
+                        divstock.Attributes.Add("class", divstock.Attributes["class"].ToString().Replace("blur", ""));
+                        divstock.Attributes.Add("class", divstock.Attributes["class"].ToString().Replace("tooltipp", ""));
                     }
+                    if (!isInfra && !isHRMS && !isSLCM && !isLibraryMgmnt && !isAccountMgmnt && !isFeeMgmnt && !isStockNStore)
+                    {
+                        Response.Redirect("Login.aspx");
+                    }
+                    
                     lblcompanyName.Text = HttpUtility.UrlDecode(Convert.ToString(Session["SessionCompanyName"]));
                 }
                 else

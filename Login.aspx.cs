@@ -2,16 +2,13 @@
 using System;
 using System.Configuration;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Web.Script.Services;
 using System.Web.UI.WebControls;
-using BotDetect.C5;
 using WebServices;
-using WebServices.BookIssueCardReference;
-using static System.Collections.Specialized.BitVector32;
 using System.Web;
 using HRMS.Common;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace HRMS
 {
@@ -57,30 +54,42 @@ namespace HRMS
                         client.DefaultRequestHeaders.Accept.Clear();
                         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                         //GET Method
-                        HttpResponseMessage response = client.GetAsync(string.Format("User/Getdata?userName={0}", txtEmailAddress.Text.Trim())).Result;
-
-                        if (response.IsSuccessStatusCode)
+                        try
                         {
-                            var jsonResult = JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result);
-                            Session["UserData"] = jsonResult.ToString();
-                            if (user.Director != null && (bool)user.Director)
+                            HttpResponseMessage response = client.GetAsync(string.Format("User/Getdata?userName={0}", txtEmailAddress.Text.Trim())).Result;
+
+                            if (response.IsSuccessStatusCode)
                             {
-                                Session["directorLogin"] = (bool)user.Director;
-                                var companyList = ODataServices.GetCompanyList();
-                                ddlCompany.DataSource = companyList;
-                                ddlCompany.DataTextField = "Name";
-                                ddlCompany.DataValueField = "Name";
-                                ddlCompany.DataBind();
-                                ddlCompany.Items.Insert(0, new ListItem("Select company", "0"));
-                                ClientScript.RegisterStartupScript(this.GetType(), "Popup", "$('#CompanyPopup').modal('show')", true);
+                                var jsonResult = JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result);
+                                Session["UserData"] = jsonResult.ToString();
+                                if (user.Director != null && (bool)user.Director)
+                                {
+                                    Session["directorLogin"] = (bool)user.Director;
+                                    var companyList = ODataServices.GetCompanyList();
+                                    ddlCompany.DataSource = companyList;
+                                    ddlCompany.DataTextField = "Name";
+                                    ddlCompany.DataValueField = "Name";
+                                    ddlCompany.DataBind();
+                                    ddlCompany.Items.Insert(0, new ListItem("Select company", "0"));
+                                    ClientScript.RegisterStartupScript(this.GetType(), "Popup", "$('#CompanyPopup').modal('show')", true);
+                                }
+                                else
+                                {
+                                    Session["SessionCompanyName"] = System.Web.HttpUtility.UrlPathEncode(user.Company_Name);
+                                    string sessionId = System.Web.HttpContext.Current.Session.SessionID;
+                                    SOAPServices.LogSessionData(Helper.UserName, sessionId, System.DateTime.Now, Session["SessionCompanyName"] as string);
+                                    Response.Redirect("Default.aspx");
+                                }
                             }
                             else
                             {
-                                Session["SessionCompanyName"] = System.Web.HttpUtility.UrlPathEncode(user.Company_Name);
-                                string sessionId = System.Web.HttpContext.Current.Session.SessionID;
-                                SOAPServices.LogSessionData(Helper.UserName, sessionId, System.DateTime.Now, Session["SessionCompanyName"] as string);
-                                Response.Redirect("Default.aspx");
+                                Server.Transfer("Error.aspx?e=" + "An error occured while trying to connect :" + apiURL);
                             }
+                        }
+                        catch (Exception ex)
+                        {
+                            string errorMsg = ((System.Net.Sockets.SocketException)ex.InnerException.InnerException.InnerException).Message;
+                            Server.Transfer("Error.aspx?e=" + errorMsg);
                         }
                     }
                 }

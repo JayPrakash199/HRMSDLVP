@@ -128,7 +128,20 @@ namespace HRMS
             string companyName = System.Web.HttpUtility.UrlPathEncode(ddlFromStation.SelectedItem.Value);
 
             var resultMessage = SOAPServices.UpdateTransferEmployeeDetails(obj, companyName, Session["SessionCompanyName"] as string);
-            Alert.ShowAlert(this, resultMessage == ResultMessages.UpdateSuccessfullMessage ? "s" : "e", resultMessage);
+            if (resultMessage == ResultMessages.UpdateSuccessfullMessage)
+            {
+                Alert.ShowAlert(this, string.Format("Employee :{0} joined successfuly", obj.HRMS_ID) ,"s" );
+            }
+            else
+            {
+                if (resultMessage.Length > 80)
+                {
+                    Alert.ShowAlert(this, "e", resultMessage.Substring(0, 80) + "...");
+                }
+                else
+                    Alert.ShowAlert(this, "e", resultMessage);
+
+            }
         }
 
         protected void ddlFromStation_SelectedIndexChanged(object sender, EventArgs e)
@@ -142,7 +155,7 @@ namespace HRMS
             {
                 clearControl();
                 string errmsg = string.Format("In company {0} relieve record is not there for employee {1} ", companyName, txtHRMSIDSearch.Text);
-                Alert.ShowAlert(this,  "e", errmsg);
+                Alert.ShowAlert(this, "e", errmsg);
                 return;
             }
             txtEmployeeName.Text = result.Employee_Name;

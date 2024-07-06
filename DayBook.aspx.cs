@@ -54,16 +54,13 @@ namespace HRMS
         {
             var departmentList = dimensionList.Where(x => string.Equals("DEPARTMENT", x.Dimension_Code, StringComparison.OrdinalIgnoreCase)).ToList();
             var lstDpt = new List<Dimension>();
-            foreach (var dc in departmentList)
+
+            foreach (var dimension in departmentList)
             {
-                lstDpt.Add(new HRMS.Dimension
-                {
-                    Code = dc.Code,
-                    Name = dc.Name
-                });
+                lstDpt.Add(new HRMS.Dimension { Name = dimension.Code + "_" + dimension.Name, Code = dimension.Code });
             }
             ddlDepartment.DataSource = lstDpt;
-            ddlDepartment.DataTextField = "Code";
+            ddlDepartment.DataTextField = "Name";
             ddlDepartment.DataValueField = "Code";
             ddlDepartment.DataBind();
             ddlDepartment.Items.Insert(0, new ListItem("Select Department", "0"));
@@ -73,16 +70,13 @@ namespace HRMS
         {
             var instituteList = dimensionList.Where(x => string.Equals("INSTITUTE", x.Dimension_Code, StringComparison.OrdinalIgnoreCase)).ToList();
             var lstInstitute = new List<Dimension>();
-            foreach (var dc in instituteList)
+
+            foreach (var dimension in instituteList)
             {
-                lstInstitute.Add(new HRMS.Dimension
-                {
-                    Code = dc.Code,
-                    Name = dc.Name
-                });
+                lstInstitute.Add(new HRMS.Dimension { Name = dimension.Code + "_" + dimension.Name, Code = dimension.Code });
             }
             ddlInstiuteCode.DataSource = lstInstitute;
-            ddlInstiuteCode.DataTextField = "Code";
+            ddlInstiuteCode.DataTextField = "Name";
             ddlInstiuteCode.DataValueField = "Code";
             ddlInstiuteCode.DataBind();
             ddlInstiuteCode.Items.Insert(0, new ListItem("Select Institute", "0"));
@@ -110,6 +104,17 @@ namespace HRMS
                                 Alert.ShowAlert(this, "e", "plese select both From Date and To Date");
                                 return;
                             }
+                            string institutecode = ddlInstiuteCode.SelectedValue != "0"
+                               ? ddlInstiuteCode.SelectedItem.Text.Trim().Substring(0, ddlInstiuteCode.SelectedItem.Text.Trim().IndexOf('_')) : "";
+                            string deptcode = ddlDepartment.SelectedValue != "0"
+                                ? ddlDepartment.SelectedItem.Text.Trim().Substring(0, ddlDepartment.SelectedItem.Text.Trim().IndexOf('_')) : "";
+
+
+
+                            //string institutecode = ddlInstiuteCode.SelectedItem.Text.Trim().Substring((ddlInstiuteCode.SelectedItem.Text.Trim().IndexOf('_') + 1), ddlInstiuteCode.SelectedItem.Text.Trim().Length - (ddlInstiuteCode.SelectedItem.Text.Trim().IndexOf('_') + 1));
+
+                            //string deptcode = ddlDepartment.SelectedItem.Text.Trim().Substring((ddlDepartment.SelectedItem.Text.Trim().IndexOf('_') + 1), ddlDepartment.SelectedItem.Text.Trim().Length - (ddlDepartment.SelectedItem.Text.Trim().IndexOf('_') + 1));
+
 
                             var servicePath = SOAPServices.GetDayBookReport(
                                         rdLineNarration.Checked,
@@ -117,8 +122,8 @@ namespace HRMS
                                         ddlDocumentNo.SelectedValue == "0" ? "" : ddlDocumentNo.SelectedValue,
                                         !string.IsNullOrEmpty(txtFromDate.Text) ? txtFromDate.Text : "0D",
                                         !string.IsNullOrEmpty(txtToDate.Text) ? txtToDate.Text : "0D",
-                                         ddlInstiuteCode.SelectedValue == "0" ? "" : ddlInstiuteCode.SelectedItem.Text,
-                                         ddlDepartment.SelectedValue == "0" ? "" : ddlDepartment.SelectedItem.Text,
+                                         ddlInstiuteCode.SelectedValue == "0" ? "" : institutecode,
+                                         ddlDepartment.SelectedValue == "0" ? "" : deptcode,
                                         Session["SessionCompanyName"] as string);
 
                             var FileName = "Day_Book_Report.pdf";
@@ -135,7 +140,14 @@ namespace HRMS
                         }
                         catch (Exception ex)
                         {
-                            Alert.ShowAlert(this, "e", ex.Message);
+                            if (ex.Message.Contains("404"))
+                            {
+                                Alert.ShowAlert(this, "e", "Report is empty");
+                            }
+                            else
+                            {
+                                Alert.ShowAlert(this, "e", ex.Message);
+                            }
                         }
 
                     }

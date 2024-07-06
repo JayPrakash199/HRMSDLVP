@@ -513,6 +513,8 @@ namespace WebServices.TransferAccountReference {
         
         private bool transcation_DateFieldSpecified;
         
+        private string portal_User_IDField;
+        
         /// <remarks/>
         public string Key {
             get {
@@ -860,6 +862,16 @@ namespace WebServices.TransferAccountReference {
                 this.transcation_DateFieldSpecified = value;
             }
         }
+        
+        /// <remarks/>
+        public string Portal_User_ID {
+            get {
+                return this.portal_User_IDField;
+            }
+            set {
+                this.portal_User_IDField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1026,6 +1038,9 @@ namespace WebServices.TransferAccountReference {
         
         /// <remarks/>
         Transcation_Date,
+        
+        /// <remarks/>
+        Portal_User_ID,
     }
     
     /// <remarks/>

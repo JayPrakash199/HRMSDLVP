@@ -511,6 +511,8 @@ namespace WebServices.FeeGeneralPaymentReference {
         
         private string payment_Type_CodeField;
         
+        private string portal_User_IDField;
+        
         /// <remarks/>
         public string Key {
             get {
@@ -851,6 +853,16 @@ namespace WebServices.FeeGeneralPaymentReference {
                 this.payment_Type_CodeField = value;
             }
         }
+        
+        /// <remarks/>
+        public string Portal_User_ID {
+            get {
+                return this.portal_User_IDField;
+            }
+            set {
+                this.portal_User_IDField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1014,6 +1026,9 @@ namespace WebServices.FeeGeneralPaymentReference {
         
         /// <remarks/>
         Payment_Type_Code,
+        
+        /// <remarks/>
+        Portal_User_ID,
     }
     
     /// <remarks/>

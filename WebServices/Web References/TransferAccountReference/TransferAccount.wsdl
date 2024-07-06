@@ -52,6 +52,7 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="Narration" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Transcation_No" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Transcation_Date" type="xsd:date" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Portal_User_ID" type="xsd:string" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="TransferAccount_List">
@@ -88,6 +89,7 @@
           <xsd:enumeration value="Narration" />
           <xsd:enumeration value="Transcation_No" />
           <xsd:enumeration value="Transcation_Date" />
+          <xsd:enumeration value="Portal_User_ID" />
         </xsd:restriction>
       </xsd:simpleType>
       <xsd:complexType name="TransferAccount_Filter">

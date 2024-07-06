@@ -172,6 +172,47 @@
         header {
             position: unset !important;
         }
+
+        .blur {
+            /*filter: blur(2px);*/
+            /*pointer-events: none;*/
+            opacity: 0.4;
+        }
+
+        .tooltipp {
+            position: relative;
+            border-bottom: 1px dotted black;
+        }
+
+            .tooltipp .tooltiptext {
+                visibility: hidden;
+                width: auto;
+                background-color: #f80c0c;
+                color: #eee7e7;
+                text-align: center;
+                position: absolute;
+                bottom: 16%;
+                left: 4%;
+                border-radius: 50px;
+                padding: 4%;
+                font-weight: 700;
+            }
+
+                .tooltipp .tooltiptext::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    margin-left: -5px;
+                    border-width: 5px;
+                    border-style: solid;
+                    border-color: black transparent transparent transparent;
+                }
+
+            .tooltipp:hover .tooltiptext {
+                visibility: visible !important;
+                text-shadow: none !important;
+            }
     </style>
     <link rel="shortcut icon" href="images/favicon.ico" />
     <script src="assets/plugins/jQuery-lib/2.0.3/jquery.min.js"></script>
@@ -199,53 +240,73 @@
         <div class="gradient-custom">
             <div class="container" style="padding: 2%;">
                 <div class="row">
-                    <div class=" col-md-6 col-sm-6 pb-4 ">
-                        <div class="icon-box-s2 s1 itServicePadding" visible="false" id="divinfra" runat="server">
+                    <div class=" col-md-6 col-sm-6 pb-4">
+                        <div class="icon-box-s2 s1 itServicePadding blur tooltipp" id="divinfra" runat="server">
+                            <span class="tooltiptext" style="visibility: hidden">You don't have permission for Infra Module kindly contact Admin !</span>
+
                             <div class="content-box">
-                                <a class="Contenta" visible="false" href="Infra-MasterData.aspx" role="button" runat="server" id="btnInfraa">Infra</a>
+                                <a class="Contenta" role="button" runat="server" id="btnInfraa">Infra</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-md-6 col-sm-6 pb-4">
+                        <div class="icon-box-s2 s1 itServicePadding tooltipp  blur" id="divHrms" runat="server">
+                            <span class="tooltiptext" style="visibility: hidden">You don't have permission for HRMS Module kindly contact Admin !</span>
+                            <div class="content-box">
+                                <a class="Contenta" role="button" runat="server" id="btnHRMS">HRMS</a>
                             </div>
                         </div>
                     </div>
                     <div class=" col-md-6 col-sm-6 pb-4 ">
-                        <div class="icon-box-s2 s1 itServicePadding" visible="false" id="divHrms" runat="server">
+                        <div class="icon-box-s2 s1  itServicePadding blur tooltipp" id="divlibrary" runat="server">
+                            <span class="tooltiptext" style="visibility: hidden">You don't have permission for Library Module kindly contact Admin !</span>
                             <div class="content-box">
-                                <a class="Contenta" visible="false" href="RecruitmentsAndRetirements.aspx" role="button" runat="server" id="btnHRMSs">HRMS</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" col-md-6 col-sm-6 pb-4 ">
-                        <div class="icon-box-s2 s1  itServicePadding" visible="false" id="divlibrary" runat="server">
-                            <div class="content-box">
-                                <a class="Contenta" visible="false" href="LibraryBookSearch.aspx" role="button" runat="server" id="btnLibraryMgmntt">Library Management</a>
+                                <a class="Contenta" role="button" runat="server" id="btnLibraryMgmntt">Library Management</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class=" col-md-6 col-sm-6 pb-4" id="divreport" visible="False" runat="server">
-                        <div class="icon-box-s2 s1 itServicePadding" visible="false" id="divreports" runat="server">
+                    <div class=" col-md-6 col-sm-6 pb-4" id="divreport" runat="server">
+                        <div class="icon-box-s2 s1 itServicePadding blur tooltipp" id="divreports" runat="server">
+                            <span class="tooltiptext" style="visibility: hidden">You don't have permission for Report Module kindly contact Admin !</span>
+
                             <div class="content-box">
-                                <a class="Contenta" visible="True" href="ReportManagement.aspx" role="button" runat="server" id="btnReport">Report</a>
+                                <a class="Contenta" href="ReportManagement.aspx" role="button" runat="server" id="btnReport">Report</a>
                             </div>
                         </div>
                     </div>
                     <div class=" col-md-6 col-sm-6 pb-4" id="divslcm" runat="server">
-                        <div class="icon-box-s2 s1 itServicePadding" visible="false" id="divslcs" runat="server">
+                        <div class="icon-box-s2 s1 itServicePadding blur tooltipp" id="divslcs" runat="server">
+                            <span class="tooltiptext" style="visibility: hidden">You don't have permission for SLCM Module kindly contact Admin !</span>
+
                             <div class="content-box">
-                                <a class="Contenta" visible="True" href="Timetable.aspx" role="button" runat="server" id="btnslcm">SLCM</a>
+                                <a class="Contenta" href="Timetable.aspx" role="button" runat="server" id="btnslcm">SLCM</a>
                             </div>
                         </div>
                     </div>
-                    <div class=" col-md-6 col-sm-6 pb-4" id="div1" visible="true" runat="server">
-                        <div class="icon-box-s2 s1 itServicePadding" visible="false" id="divstock" runat="server">
+                    <div class=" col-md-6 col-sm-6 pb-4" id="div1" runat="server">
+                        <div class="icon-box-s2 s1 itServicePadding blur tooltipp" id="divstock" runat="server">
+                            <span class="tooltiptext" style="visibility: hidden">You don't have permission for Stock & Store Module kindly contact Admin !</span>
+
                             <div class="content-box">
                                 <asp:LinkButton class="Contenta" ID="btnStockStore" Text="Stock and Store" OnClick="btnStockStore_Click" runat="server" />
                             </div>
                         </div>
                     </div>
                     <div class=" col-md-6 col-sm-6   pb-4">
-                        <div class="icon-box-s2 s1  itServicePadding" visible="false" id="divlibrry" runat="server">
+                        <div class="icon-box-s2 s1  itServicePadding blur tooltipp" id="divlibrry" runat="server">
+                            <span class="tooltiptext" style="visibility: hidden">You don't have permission for Accounts Module kindly contact Admin !</span>
                             <div class="content-box">
-                                <a class="Contenta" visible="false" href="FeeClassificationList.aspx" role="button" runat="server" id="btnFeeMgmntt">Accounts and Fee Management</a>
+                                <a class="Contenta" href="FeeClassificationList.aspx" role="button" runat="server" id="btnFeeMgmntt">Accounts and Fee Management</a>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class=" col-md-6 col-sm-6   pb-4">
+                        <div class="icon-box-s2 s1  itServicePadding" id="divPowerBi" runat="server">
+<%--                            <span class="tooltiptext" >You don't have permission for Accounts Module kindly contact Admin !</span>--%>
+                            <div class="content-box">
+                                <a class="Contenta" href="https://app.powerbi.com/links/ryQDNW88U_?ctid=078e93f7-11f8-4a74-b8a6-c57c997e3146&pbi_source=linkShare" role="button" runat="server" id="A1">Power BI</a>
                             </div>
                         </div>
                     </div>

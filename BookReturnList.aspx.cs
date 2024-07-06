@@ -1,4 +1,5 @@
 ﻿using HRMS.Common;
+using HRMSODATA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,16 +32,7 @@ namespace HRMS
 
                 if (role == null || Convert.ToBoolean(role.Read))
                 {
-
-                    var bookReturnList = ODataServices.GetBookReturnList(companyName);
-
-                    if (bookReturnList != null)
-                    {
-
-                        BookReturnListView.DataSource = bookReturnList;
-                        BookReturnListView.DataBind();
-                    }
-
+                    BindGrid();
                 }
                 else
                 {
@@ -80,7 +72,17 @@ namespace HRMS
             }
         }
 
+        private void BindGrid()
+        {
+            string companyName = Session["SessionCompanyName"] as string;
+            var bookReturnList = ODataServices.GetBookReturnList(companyName);
 
+            if (bookReturnList != null)
+            {
+                BookReturnListView.DataSource = bookReturnList;
+                BookReturnListView.DataBind();
+            }
+        }
         protected void BookReturnListView_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
 
@@ -102,6 +104,7 @@ namespace HRMS
                             try
                             {
                                 SOAPServices.ReturnBook(Entry_No, Session["SessionCompanyName"] as string);
+                                BindGrid();
                                 Alert.ShowAlert(this, "s", "Books Returned Successfully");
                             }
                             catch (Exception ex)

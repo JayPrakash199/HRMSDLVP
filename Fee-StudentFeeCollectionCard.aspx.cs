@@ -181,16 +181,13 @@ namespace HRMS
         {
             var departmentList = dimensionList.Where(x => string.Equals("DEPARTMENT", x.Dimension_Code, StringComparison.OrdinalIgnoreCase)).ToList();
             var lstDpt = new List<Dimension>();
-            foreach (var dc in departmentList)
+
+            foreach (var dimension in departmentList)
             {
-                lstDpt.Add(new HRMS.Dimension
-                {
-                    Code = dc.Code,
-                    Name = dc.Name
-                });
+                lstDpt.Add(new HRMS.Dimension { Name = dimension.Code + "_" + dimension.Name, Code = dimension.Code });
             }
             ddlDepartmentCode.DataSource = lstDpt;
-            ddlDepartmentCode.DataTextField = "Code";
+            ddlDepartmentCode.DataTextField = "Name";
             ddlDepartmentCode.DataValueField = "Code";
             ddlDepartmentCode.DataBind();
             ddlDepartmentCode.Items.Insert(0, new ListItem("Select Department", "0"));
@@ -200,16 +197,13 @@ namespace HRMS
         {
             var instituteList = dimensionList.Where(x => string.Equals("INSTITUTE", x.Dimension_Code, StringComparison.OrdinalIgnoreCase)).ToList();
             var lstInstitute = new List<Dimension>();
-            foreach (var dc in instituteList)
+
+            foreach (var dimension in instituteList)
             {
-                lstInstitute.Add(new HRMS.Dimension
-                {
-                    Code = dc.Code,
-                    Name = dc.Name
-                });
+                lstInstitute.Add(new HRMS.Dimension { Name = dimension.Code + "_" + dimension.Name, Code = dimension.Code });
             }
             ddlInstiuteCode.DataSource = lstInstitute;
-            ddlInstiuteCode.DataTextField = "Code";
+            ddlInstiuteCode.DataTextField = "Name";
             ddlInstiuteCode.DataValueField = "Code";
             ddlInstiuteCode.DataBind();
             ddlInstiuteCode.Items.Insert(0, new ListItem("Select Institute", "0"));
@@ -332,10 +326,10 @@ namespace HRMS
                             Employee_No = ddlType.SelectedValue == "StaffAdvanceRefund" ? ddlEmployeeNo.SelectedValue : string.Empty,
 
                             Shortcut_Dimension_1 = ddlType.SelectedValue == "OtherIncome" || ddlType.SelectedValue == "StaffAdvanceRefund" ?
-                    ddlInstiuteCode.SelectedItem.Text != "Select Institute" ? ddlInstiuteCode.SelectedItem.Text : "" : string.Empty,
+                    ddlInstiuteCode.SelectedItem.Text != "Select Institute" ? ddlInstiuteCode.SelectedItem.Value : "" : string.Empty,
 
                             Shortcut_Dimension_2 = ddlType.SelectedValue == "OtherIncome" || ddlType.SelectedValue == "StaffAdvanceRefund" ?
-                    ddlDepartmentCode.SelectedItem.Text != "Select Department" ? ddlDepartmentCode.SelectedItem.Text : "" : string.Empty,
+                    ddlDepartmentCode.SelectedItem.Text != "Select Department" ? ddlDepartmentCode.SelectedItem.Value : "" : string.Empty,
 
                             Shortcut_Dimension_5 = ddlType.SelectedValue == "OtherIncome" || ddlType.SelectedValue == "StaffAdvanceRefund" ?
                     ddlFundingsourceCode.SelectedItem.Text != "Select Funding Source" ? ddlFundingsourceCode.SelectedItem.Text : "" : string.Empty,
@@ -345,6 +339,7 @@ namespace HRMS
                             Cheque_No_DD = ddlPaymentType.SelectedValue == "BANK" ? txtTranNo.Text : string.Empty,
                             Cheque_Date = DateTimeParser.ParseDateTime(txtTranDate.Text),
                             Posting_Date = DateTimeParser.ParseDateTime(txtPostingDate.Text),
+                            Portal_User_ID = Helper.UserName,
                         };
 
                         try

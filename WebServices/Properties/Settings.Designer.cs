@@ -525,5 +525,16 @@ namespace WebServices.Properties {
                 return ((string)(this["WebServices_TransferAccountReference_TransferAccount_Service"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/AdvanceBoo" +
+            "kingCard")]
+        public string WebServices_AdvanceBookingCardReference_AdvanceBookingCard_Service {
+            get {
+                return ((string)(this["WebServices_AdvanceBookingCardReference_AdvanceBookingCard_Service"]));
+            }
+        }
     }
 }

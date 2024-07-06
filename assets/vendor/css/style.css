@@ -508,7 +508,6 @@ table thead tr th, .table > tbody > tr > th {
     border-top: 2px solid #fc0 !important;
     font-size: small;
     font-weight: normal;
-    vertical-align: middle !important;
     outline: none;
     TEXT-ALIGN: CENTER;
 }

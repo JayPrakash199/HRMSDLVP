@@ -80,7 +80,7 @@ namespace HRMS
                             Cheque_DateSpecified = ddlPaymentMethod.SelectedItem.Text.ToLower() == "bank" ? true : false,
                             Cheque_Date = DateTimeParser.ParseDateTime(txtCheque_Date.Text),
                             Cheque_No_DD = txtCheque_No_DD.Text,
-
+                            Portal_User_ID = Helper.UserName,
                         };
 
                         try

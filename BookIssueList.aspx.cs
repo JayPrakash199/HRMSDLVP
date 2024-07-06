@@ -133,6 +133,7 @@ namespace HRMS
                     try
                     {
                         SOAPServices.BookIssue(Entry_No, CompanyName);
+                        BindListView();
                         Alert.ShowAlert(this, "s", "Book issued successfully.");
                     }
                     catch (Exception ex)

@@ -186,8 +186,8 @@
     </style>
     <script type="text/javascript">
         function preventPostBack(event) {
-         
-            if (event.keyCode === 13 ) {
+
+            if (event.keyCode === 13) {
                 event.preventDefault();
                 return false;
             }
@@ -228,7 +228,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Date Of Purchase</label>
-                                                    <asp:TextBox ID="txtDateOfPurchase" CssClass="form-control " runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtDateOfPurchase" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Bill No</label>
@@ -236,7 +236,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Bill Date</label>
-                                                    <asp:TextBox ID="txtBillDate" CssClass="form-control " runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtBillDate" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Vendor No.</label>

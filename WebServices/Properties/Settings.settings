@@ -140,5 +140,8 @@
     <Setting Name="WebServices_TransferAccountReference_TransferAccount_Service" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/TransferAccount</Value>
     </Setting>
+    <Setting Name="WebServices_AdvanceBookingCardReference_AdvanceBookingCard_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.252:10102/DTETDLVP/WS/GOVT%20POLYTECHNIC%20ANGUL/Page/AdvanceBookingCard</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

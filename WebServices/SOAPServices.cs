@@ -1032,10 +1032,34 @@ namespace WebServices
             obj.Accession_No = input.Accession_No;
             obj.Location_Code = input.Location_Code;
             obj.Vendor_No = input.Vendor_No;
+
+            obj.Book_No = input.Book_No;
+            obj.Line_No = input.Line_No;
+            obj.Line_NoSpecified = input.Line_NoSpecified;
+            obj.Unit_Cost = input.Unit_Cost;
+            obj.Unit_CostSpecified = input.Unit_CostSpecified;
+            obj.Date_of_Purchase = input.Date_of_Purchase;
+            obj.Date_of_PurchaseSpecified = input.Date_of_PurchaseSpecified;
+            obj.Bill_No = input.Bill_No;
+            obj.Bill_Date = input.Bill_Date;
+            obj.Bill_DateSpecified = input.Bill_DateSpecified;
+            obj.Book_SourceSpecified = input.Book_SourceSpecified;
+            obj.Book_Source = input.Book_Source;
+
+            obj.Source_By = input.Source_By;
+            obj.ISSN = input.ISSN;
+            obj.ISBN = input.ISBN;
+
             _obj_Binding.Update(ref obj);
             return ResultMessages.UpdateSuccessfullMessage;
         }
 
+        public static void CreateAdvaceBooking(AdvanceBookingCardReference.AdvanceBookingCard obj, string companyName)
+        {
+            AdvanceBookingCardReference.AdvanceBookingCard_Service _obj_Binding = (AdvanceBookingCardReference.AdvanceBookingCard_Service)Configuration
+                .getNavService(new AdvanceBookingCardReference.AdvanceBookingCard_Service(), "AdvanceBookingCard", "Page", companyName);
+            _obj_Binding.Create(ref obj);
+        }
         #endregion
 
         #region Infra
