@@ -318,6 +318,9 @@
                                             <li>
                                                 <asp:LinkButton ID="btnFinanceUpgrade" OnClick="btnFinanceUpgrade_OnClick" runat="server">Download DTET Financial Upgradation details Report</asp:LinkButton>
                                                 <i class="fa fa-download" aria-hidden="true" style="font-size: 16px; color: #105be6;"></i></li>
+                                             <li>
+                                                <asp:LinkButton ID="lbEmployeeList" OnClick="lbEmployeeList_Click" runat="server">DTE&T HRMS Employees Query page</asp:LinkButton>
+                                                <i class="fa fa-download" aria-hidden="true" style="font-size: 16px; color: #105be6;"></i></li>
 
                                         </ul>
                                     </div>

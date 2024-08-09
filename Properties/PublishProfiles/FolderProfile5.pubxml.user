@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\SProject\Publish DLVP</_PublishTargetUrl>
-    <History>True|2024-07-05T04:41:15.0910413Z;True|2024-07-03T13:08:50.7477956+05:30;True|2024-07-03T10:46:40.5413285+05:30;True|2024-06-03T13:11:27.6559477+05:30;True|2024-05-15T12:24:32.7016959+05:30;True|2024-05-13T14:52:53.9877830+05:30;True|2024-05-13T13:01:30.2449616+05:30;True|2024-04-25T19:29:38.3950029+05:30;True|2024-04-21T17:38:03.7085897+05:30;True|2024-04-17T22:02:42.9699497+05:30;</History>
+    <History>True|2024-08-09T06:36:20.5504493Z;True|2024-07-10T15:52:17.5209412+05:30;True|2024-07-05T10:11:15.0910413+05:30;True|2024-07-03T13:08:50.7477956+05:30;True|2024-07-03T10:46:40.5413285+05:30;True|2024-06-03T13:11:27.6559477+05:30;True|2024-05-15T12:24:32.7016959+05:30;True|2024-05-13T14:52:53.9877830+05:30;True|2024-05-13T13:01:30.2449616+05:30;True|2024-04-25T19:29:38.3950029+05:30;True|2024-04-21T17:38:03.7085897+05:30;True|2024-04-17T22:02:42.9699497+05:30;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -1429,10 +1429,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/22/2019 20:54:22</publishTime>
     </File>
     <File Include="bin/HRMS.dll">
-      <publishTime>07/05/2024 10:53:43</publishTime>
+      <publishTime>08/09/2024 12:06:15</publishTime>
     </File>
     <File Include="bin/HRMS.pdb">
-      <publishTime>07/05/2024 10:53:43</publishTime>
+      <publishTime>08/09/2024 12:06:15</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>07/30/2013 22:27:30</publishTime>
@@ -1603,7 +1603,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/23/2024 15:47:33</publishTime>
     </File>
     <File Include="BookIssueList.aspx">
-      <publishTime>04/04/2024 15:39:02</publishTime>
+      <publishTime>07/10/2024 15:08:43</publishTime>
     </File>
     <File Include="BookRenewalList.aspx">
       <publishTime>01/23/2024 15:47:32</publishTime>
@@ -1681,7 +1681,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/23/2024 15:47:30</publishTime>
     </File>
     <File Include="Default.aspx">
-      <publishTime>07/05/2024 09:31:32</publishTime>
+      <publishTime>07/10/2024 15:50:18</publishTime>
     </File>
     <File Include="DefaultMasterPage.Master">
       <publishTime>04/03/2024 20:36:43</publishTime>
@@ -1709,6 +1709,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="EmployeeList.aspx">
       <publishTime>07/05/2024 09:39:35</publishTime>
+    </File>
+    <File Include="EmployeeReportList.aspx">
+      <publishTime>08/09/2024 11:56:25</publishTime>
     </File>
     <File Include="EmployeeTrainingDetailsInput.aspx">
       <publishTime>01/23/2024 15:47:29</publishTime>
@@ -1882,7 +1885,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/23/2024 15:45:58</publishTime>
     </File>
     <File Include="ReportManagement.aspx">
-      <publishTime>04/06/2024 11:40:41</publishTime>
+      <publishTime>08/09/2024 11:57:36</publishTime>
     </File>
     <File Include="RTIDetailsInput.aspx">
       <publishTime>04/03/2024 20:36:43</publishTime>
@@ -2317,7 +2320,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/28/2023 12:28:13</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/05/2024 10:53:44</publishTime>
+      <publishTime>07/10/2024 15:52:13</publishTime>
     </File>
   </ItemGroup>
 </Project>

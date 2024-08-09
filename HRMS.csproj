@@ -654,6 +654,7 @@
     <Content Include="EmployeeLeave.aspx" />
     <Content Include="EmployeeLeaveList.aspx" />
     <Content Include="EmployeeList.aspx" />
+    <Content Include="EmployeeReportList.aspx" />
     <Content Include="EmployeeTrainingDetailsInput.aspx" />
     <Content Include="EmployeeTransferHistoryList.aspx" />
     <Content Include="Error.aspx" />
@@ -1192,6 +1193,13 @@
     </Compile>
     <Compile Include="EmployeeList.aspx.designer.cs">
       <DependentUpon>EmployeeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeReportList.aspx.cs">
+      <DependentUpon>EmployeeReportList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeReportList.aspx.designer.cs">
+      <DependentUpon>EmployeeReportList.aspx</DependentUpon>
     </Compile>
     <Compile Include="EmployeeTrainingDetailsInput.aspx.cs">
       <DependentUpon>EmployeeTrainingDetailsInput.aspx</DependentUpon>

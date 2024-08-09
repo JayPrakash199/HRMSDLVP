@@ -133,6 +133,12 @@ namespace HRMS
             string url = string.Format("{0}{1}{2}{3}{4}", ConfigurationManager.AppSettings["StockandStoreURL"].ToString(), "/Account/Login?id=", userName, "&Company=", Session["SessionCompanyName"].ToString());
             Response.Redirect(url);
         }
+
+        protected void btnPowerBi_Click1(object sender, EventArgs e)
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "$('#PowerBiPopup').modal('show')", true);
+
+        }
     }
 
     public class company

@@ -7,6 +7,8 @@ using System.IO;
 using System.Net;
 using WebServices;
 using Microsoft.Office.Interop.Excel;
+using Microsoft.OData.Edm;
+
 namespace HRMS
 {
     public partial class ReportManagement : System.Web.UI.Page
@@ -246,6 +248,11 @@ namespace HRMS
         protected void lbdaybookdtet_Click(object sender, EventArgs e)
         {
             Response.Redirect("DTETReport?reportname=daybookdtetreport");
+        }
+
+        protected void lbEmployeeList_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EmployeeReportList.aspx");
         }
     }
 }
