@@ -211,7 +211,7 @@
 
                 <div class="col-lg-12 col-md-12 summary-box">
                     <div class="col-lg-12 NewEntrydiv">
-                        <p class="NewEntry">Existing Disciplinary Case Udate</p>
+                        <p class="NewEntry">Existing Disciplinary Case Update</p>
                     </div>
                     <div class="row">
                         <div class="card-body">

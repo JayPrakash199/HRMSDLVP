@@ -209,12 +209,12 @@
                                                         </asp:TextBox>
                                                     </div>
                                                     <div class="form-group" runat="server" id="divTranNo">
-                                                        <label for="exampleAccount">Transcation No.</label>
+                                                        <label for="exampleAccount">Transaction No.</label>
                                                         <asp:TextBox ID="txtTranNo" CssClass="form-control" runat="server">
                                                         </asp:TextBox>
                                                     </div>
                                                     <div class="form-group" runat="server" id="divTranDate">
-                                                        <label for="exampleAccount">Transcation Date</label>
+                                                        <label for="exampleAccount">Transaction Date</label>
                                                         <asp:TextBox ID="txtTranDate" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
                                                     </div>
                                                 </div>

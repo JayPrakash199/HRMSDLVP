@@ -136,9 +136,9 @@ namespace HRMS
             {
                 employeeList = employeeList.Where(x => x.Basic_Gr_Pay == Convert.ToDecimal( grossPay)).ToList();
             }
-            if (!string.IsNullOrEmpty(grossPay))
+            if (!string.IsNullOrEmpty(pensionremark))
             {
-                employeeList = employeeList.Where(x => x.Pension_Remark == grossPay).ToList();
+                employeeList = employeeList.Where(x => x.Pension_Remark == pensionremark).ToList();
             }
 
 

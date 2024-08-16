@@ -121,7 +121,7 @@
                             <div class="col-md-6 ">
                                 <div class="row">
                                     <div class="col-md-6 ">
-                                        <label for="exampleAccount">Type of Buliding </label>
+                                        <label for="exampleAccount">Type of Building </label>
                                     </div>
                                     <div class="col-md-5 ">
                                         <asp:DropDownList ID="ddlBuildingList" CssClass="form-control select" runat="server">
@@ -239,7 +239,7 @@
                                                 <div class="col-md-6 Buliding">
                                                     <div class="row">
                                                         <div class="col-md-6 ">
-                                                            <label for="exampleAccount">Type of Buliding </label>
+                                                            <label for="exampleAccount">Type of Building </label>
                                                         </div>
                                                         <div class="col-md-6 ">
                                                             <asp:DropDownList ID="DropDownList2" CssClass="form-control select" runat="server">
@@ -271,7 +271,7 @@
                                                                 <asp:TextBox ID="txtInstituteBlockCode" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </div>--%>
                                                             <div class="form-group">
-                                                                <label for="exampleAccount">Buliding Block Type <span>(if any)</span></label>
+                                                                <label for="exampleAccount">Building Block Type <span>(if any)</span></label>
                                                                 <asp:TextBox ID="txtInstituteBuildingBlock" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </div>
                                                             <div class="form-group">
@@ -332,7 +332,7 @@
                                                     <div class="col-md-6 contact-info">
                                                         <div class="container">
                                                             <div class="form-group">
-                                                                <label for="exampleAccount">Buliding Block Name <span>(if any)</span></label>
+                                                                <label for="exampleAccount">Building Block Name <span>(if any)</span></label>
                                                                 <asp:TextBox ID="txtInstituteBlockName" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </div>
                                                             <div class="form-group">
@@ -367,7 +367,7 @@
                                                                 </asp:DropDownList>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="exampleAccount">Electicity Consumer No.</label>
+                                                                <label for="exampleAccount">Electricity Consumer No.</label>
                                                                 <asp:TextBox ID="txtInstituteElcConsumerNo" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </div>
                                                             <div class="form-group">

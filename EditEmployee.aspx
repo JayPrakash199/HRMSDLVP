@@ -234,7 +234,7 @@
                                         <div class="col-md-6 contact-info">
                                             <div class="container">
                                                 <div class="form-group">
-                                                    <label for="exampleAccount">Employe Name</label>
+                                                    <label for="exampleAccount">Employee Name</label>
                                                     <asp:TextBox ID="txtEmployeeName" CssClass="form-control readonly" Enabled="false" runat="server"></asp:TextBox>
                                                 </div>
                                             </div>

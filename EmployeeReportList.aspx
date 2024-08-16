@@ -225,7 +225,8 @@
                                                 <div class="form-group">
                                                     <label>Post Group</label>
                                                     <asp:DropDownList ID="ddlPostGroup" CssClass="form-control" runat="server">
-                                                        <asp:ListItem Selected="True">A</asp:ListItem>
+                                                        <asp:ListItem Selected="True">Select</asp:ListItem>
+                                                        <asp:ListItem>A</asp:ListItem>
                                                         <asp:ListItem>B</asp:ListItem>
                                                         <asp:ListItem>C</asp:ListItem>
                                                         <asp:ListItem>D</asp:ListItem>

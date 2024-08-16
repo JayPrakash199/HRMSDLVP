@@ -239,7 +239,7 @@
                                             <div class="col-md-6 contact-info">
                                                 <div class="container">
                                                     <div class="form-group border ab">
-                                                        <label for="exampleAccount">Employe Name</label>
+                                                        <label for="exampleAccount">Employee Name</label>
                                                         <asp:TextBox ID="txtEmployeeName" CssClass="form-control blockInputClass" runat="server"></asp:TextBox>
                                                     </div>
                                                     <div class="form-group border ab">
@@ -276,7 +276,7 @@
                                                             <asp:ListItem>Select</asp:ListItem>
                                                             <asp:ListItem>DTET</asp:ListItem>
                                                             <asp:ListItem>SDTE</asp:ListItem>
-                                                            <asp:ListItem>Prinicipal</asp:ListItem>
+                                                            <asp:ListItem>Principal</asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
                                                     <div class="form-group">

@@ -136,10 +136,10 @@
                                                 <div class="col-md-6 contact-info">
                                                     <div class="container">
                                                         <div class="form-group">
-                                                            <label for="exampleAccount">Edit Hostel Building Details For Buliding Block No.</label>
+                                                            <label for="exampleAccount">Edit Hostel Building Details For Building Block No.</label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleAccount">Hostel Buliding Block Type </label>
+                                                            <label for="exampleAccount">Hostel Building Block Type </label>
                                                             <asp:DropDownList ID="ddlHostelBlockType" CssClass="form-control select" runat="server">
                                                                 <asp:ListItem Selected="True" Value="Boys">Boys</asp:ListItem>
                                                                 <asp:ListItem Value="Girls">Girls</asp:ListItem>
@@ -199,7 +199,7 @@
                                                             <asp:Label ID="lblHostelBuidingBlockNo" CssClass="Labels" for="exampleAccount" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleAccount">Buliding Block Name <span>(if any)</span></label>
+                                                            <label for="exampleAccount">Building Block Name <span>(if any)</span></label>
                                                             <asp:TextBox ID="txtHostelBlockName" CssClass="form-control" runat="server"></asp:TextBox>
                                                         </div>
                                                         <div class="form-group">
@@ -234,7 +234,7 @@
                                                             </asp:DropDownList>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleAccount">Electicity Consumer No.</label>
+                                                            <label for="exampleAccount">Electricity Consumer No.</label>
                                                             <asp:TextBox ID="txtHostelElctricityConsumerNo" CssClass="form-control" runat="server"></asp:TextBox>
                                                         </div>
                                                         <div class="form-group">

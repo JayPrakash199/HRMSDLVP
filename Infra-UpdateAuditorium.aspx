@@ -193,7 +193,7 @@
                                                             </asp:DropDownList>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleAccount">Electicity Consumer No.</label>
+                                                            <label for="exampleAccount">Electricity Consumer No.</label>
                                                             <asp:TextBox ID="txtElectricityConsumerNo" CssClass="form-control" runat="server"></asp:TextBox>
                                                         </div>
                                                         <div class="form-group">

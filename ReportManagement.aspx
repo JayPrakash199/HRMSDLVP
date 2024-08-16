@@ -261,7 +261,7 @@
                                                 <asp:LinkButton ID="LinkButton6" OnClick="btnLandDataDetail_Click" runat="server">Download DTET Land Data Details Report</asp:LinkButton>
                                                 <i class="fa fa-download" aria-hidden="true" style="font-size: 16px; color: #105be6;"></i></li>
                                             <li>
-                                                <asp:LinkButton ID="LinkButton7" OnClick="btnMaintanenceAndAMC_Click" runat="server">Download DTET Maintanence And AMC Report</asp:LinkButton>
+                                                <asp:LinkButton ID="LinkButton7" OnClick="btnMaintanenceAndAMC_Click" runat="server">Download DTET Maintenance And AMC Report</asp:LinkButton>
                                                 <i class="fa fa-download" aria-hidden="true" style="font-size: 16px; color: #105be6;"></i></li>
                                             <li>
                                                 <asp:LinkButton ID="LinkButton8" OnClick="btnProjectProgressDetail_Click" runat="server">Download DTET Project Progress Details Report</asp:LinkButton>

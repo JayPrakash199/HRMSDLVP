@@ -143,8 +143,8 @@
                                                                 <th runat="server">Amount</th>
                                                                 <th runat="server">Payment Type Collection Method</th>
                                                                 <th runat="server">Fee Class Specification</th>
-                                                                <th runat="server">Cash GL Acount No</th>
-                                                                <th runat="server">GL Acount No</th>
+                                                                <th runat="server">Cash GL Account No</th>
+                                                                <th runat="server">GL Account No</th>
                                                                 <th runat="server">Bank Account No</th>
                                                                 <th runat="server">Cheque No</th>
                                                                 <th runat="server">Cheque Date</th>

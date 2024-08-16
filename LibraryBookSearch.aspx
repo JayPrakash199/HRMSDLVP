@@ -192,7 +192,7 @@
                                                                 <th runat="server">No. Of Pages</th>
                                                                 <th runat="server">Call No</th>
                                                                 <th runat="server">Shelf</th>
-                                                                <th runat="server">Suplier Name</th>
+                                                                <th runat="server">Supplier Name</th>
                                                                 <th runat="server">Unit Cost</th>
                                                                 <th runat="server">Edit</th>
                                                             </tr>

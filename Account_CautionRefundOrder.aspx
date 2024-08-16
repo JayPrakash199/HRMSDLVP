@@ -280,7 +280,7 @@
                                             <asp:TextBox ID="txtExternalDocumentNo" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
-                                            <label>Naration</label>
+                                            <label>Narration</label>
                                             <asp:TextBox ID="txtNaration" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>

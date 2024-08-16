@@ -106,8 +106,8 @@
                                                                 <th runat="server">Relief Order No</th>
                                                                 <th runat="server">Transfer Order Date</th>
                                                                 <th runat="server">Letter No</th>
-                                                                <th runat="server">Prommotion Letter No</th>
-                                                                <th runat="server">Relievening Event</th>
+                                                                <th runat="server">Promotion Letter No</th>
+                                                                <th runat="server">Relieving Event</th>
                                                                 <th runat="server">Joining Event</th>
                                                                 <th runat="server">Joining Date</th>
                                                                 <th runat="server">Status</th>

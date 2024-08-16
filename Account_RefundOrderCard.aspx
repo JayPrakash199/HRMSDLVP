@@ -185,7 +185,7 @@
 
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
-                                                        <label>Naration</label>
+                                                        <label>Narration</label>
                                                     </div>
                                                     <div class="col-sm-10">
                                                         <asp:TextBox ID="txtNaration" CssClass="form-control" runat="server"></asp:TextBox>

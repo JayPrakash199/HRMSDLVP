@@ -110,7 +110,7 @@
                                                                 <th runat="server">Cheque Date</th>
                                                                 <th runat="server">External Document No</th>
                                                                 <th runat="server">Account No</th>
-                                                                <th runat="server">Naration</th> 
+                                                                <th runat="server">Narration</th> 
                                                                 <th runat="server">Posted</th> 
                                                                 <%--<th runat="server">Lines</th>
                                                                 <th runat="server">Journal</th>--%>

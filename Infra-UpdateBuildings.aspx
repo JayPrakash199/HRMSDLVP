@@ -122,7 +122,7 @@
                             <div class="col-md-5 ">
                                 <div class="row">
                                     <div class="col-md-4 ">
-                                        <label for="exampleAccount">Type of Buliding </label>
+                                        <label for="exampleAccount">Type of Building </label>
                                     </div>
                                     <div class="col-md-5 ">
                                         <asp:DropDownList ID="ddlBuildings" CssClass="form-control select" runat="server">

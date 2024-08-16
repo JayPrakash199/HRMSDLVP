@@ -261,7 +261,7 @@
                                                 </div>
                                                 <div class="form-group" runat="server" id="divTranNo" visible="false">
                                                     <div class="col-sm-12">
-                                                        <label for="exampleAccount">Transcation No.</label>
+                                                        <label for="exampleAccount">Transaction No.</label>
                                                     </div>
                                                     <div class="col-sm-10">
                                                         <asp:TextBox ID="txtTranNo" CssClass="form-control" runat="server">

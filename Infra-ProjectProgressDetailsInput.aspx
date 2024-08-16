@@ -231,7 +231,7 @@
                                             <div class="col-md-12 space">
                                                 <div class="row">
                                                     <div class="col-md-12 ">
-                                                        <label runat="server" id="Label1" for="exampleAccount">Distict - </label>
+                                                        <label runat="server" id="Label1" for="exampleAccount">District - </label>
                                                         <label runat="server" id="lblDistrict" for="exampleAccount"></label>
                                                     </div>
                                                     <div class="col-md-12 ">
@@ -326,7 +326,7 @@
                                                 <asp:TextBox ID="txtAADate" type="date" max="9999-12-31" CssClass="form-control ajax__calendar_body" runat="server"></asp:TextBox>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleAccount">Aggrement value with GST (Rs In Lakh)</label>
+                                                <label for="exampleAccount">Agreement value with GST (Rs In Lakh)</label>
                                                 <asp:TextBox ID="txtAgreementValue" CssClass="form-control" onkeypress="return isDecimalNumberKey(event)" runat="server"></asp:TextBox>
                                             </div>
                                             <div class="form-group">

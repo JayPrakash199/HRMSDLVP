@@ -218,7 +218,7 @@
                                                     <asp:CheckBox ID="rdLineNarration" Checked="false" CssClass="chkboxReport" runat="server"></asp:CheckBox>
                                                 </div>
                                                 <div class="form-group tal" style="padding: 12px 0px;">
-                                                    <label style="display: contents">Print Voucher Naration</label>
+                                                    <label style="display: contents">Print Voucher Narration</label>
                                                     <asp:CheckBox ID="rdvoucherNaration" Checked="false" CssClass="chkboxReport" runat="server"></asp:CheckBox>
                                                 </div>
                                                 <div class="form-group">
@@ -240,7 +240,7 @@
                                                     <asp:TextBox ID="txtToDate" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Instiute Code</label>
+                                                    <label>Institute Code</label>
                                                     <asp:DropDownList ID="ddlInstiuteCode" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>

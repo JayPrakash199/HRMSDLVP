@@ -235,7 +235,7 @@
                                                     </asp:DropDownList>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="exampleAccount">Period Legth</label>
+                                                    <label for="exampleAccount">Period Length</label>
                                                     <asp:TextBox ID="txtperiodLegth" CssClass="form-control" Text="1M" runat="server"></asp:TextBox>
                                                 </div>
                                             </div>

@@ -145,7 +145,7 @@
                                     <li>
                                         <asp:LinkButton ID="LinkButton6" OnClick="btnLandDataDetail_Click" runat="server">Download DTET Land Data Details Report</asp:LinkButton></li>
                                     <li>
-                                        <asp:LinkButton ID="LinkButton7" OnClick="btnMaintanenceAndAMC_Click" runat="server">Download DTET Maintanence And AMC Report</asp:LinkButton></li>
+                                        <asp:LinkButton ID="LinkButton7" OnClick="btnMaintanenceAndAMC_Click" runat="server">Download DTET Maintenance And AMC Report</asp:LinkButton></li>
                                     <li>
                                         <asp:LinkButton ID="LinkButton8" OnClick="btnProjectProgressDetail_Click" runat="server">Download DTET Project Progress Details Report</asp:LinkButton></li>
                                     <li>

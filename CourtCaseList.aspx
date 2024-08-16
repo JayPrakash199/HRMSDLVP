@@ -99,7 +99,7 @@
                                                                 <th runat="server">Place</th>
                                                                 <th runat="server">Petitioner Name</th>
                                                                 <th runat="server">Opposite Party Name</th>
-                                                                <th runat="server">Lowest level office in the hirechy(Relating to this case)</th>
+                                                                <th runat="server">Lowest level office in the hierarchy(Relating to this case)</th>
                                                                 <th runat="server">Matter Relating to </th>
                                                                 <th runat="server">Case Last Date</th>
                                                                 <th runat="server">Case Status</th>

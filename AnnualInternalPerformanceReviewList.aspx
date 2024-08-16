@@ -96,7 +96,7 @@
                                                                 <th runat="server">Designation</th>
                                                                 <th runat="server">Dept./Trade/Sec.</th>
                                                                 <th runat="server">Academic Year</th>
-                                                                <th runat="server">Performance Review Score Our of 10</th>
+                                                                <th runat="server">Performance Review Score Out of 10</th>
                                                             </tr>
                                                             <tr id="ItemPlaceholder" runat="server">
                                                             </tr>
