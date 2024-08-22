@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultMasterPage.Master" AutoEventWireup="true" CodeBehind="EmployeeReportList.aspx.cs" Inherits="HRMS.EmployeeReportList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
@@ -183,7 +187,102 @@
         input#ContentPlaceHolder1_txtHRMSIDSearch {
             text-align: right;
         }
+
+        .btn-group {
+            display: block !important;
+        }
+
+            .btn-group .btn {
+                background-color: white;
+                color: #007bff;
+                border: 1px solid #007bff;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+                .btn-group .btn.active,
+                .btn-group .btn:active {
+                    background-color: #007bff;
+                    color: white;
+                }
+
+                .btn-group .btn:focus,
+                .btn-group .btn:focus.active {
+                    box-shadow: none;
+                    outline: none;
+                }
+                .input-group {
+    display: inline-flex;
+    align-items: center;
+}
+
+.input-group-text {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    padding: 6px 12px;
+    border-radius: 0.25rem;
+    margin-right: 5px;
+    font-size: 14px;
+    color: #495057;
+}
     </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var hrmsTextbox = $("#<%= txtHrmsId.ClientID %>");
+
+            // Handle the change event on the input directly
+            $('input[name="filterOption"]').on('change', function () {
+                console.log('Radio button changed'); // Debug log
+                hrmsTextbox.val(''); // Clear the textbox
+            });
+
+            // Ensure button label clicks trigger the input change
+            $('.btn').on('click', function () {
+                var input = $(this).find('input');
+                if (!input.prop('checked')) {
+                    input.prop('checked', true).trigger('change'); // Manually trigger change event
+                }
+            });
+
+            $("#<%= txtHrmsId.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    // Get the selected index and value from the dropdown list
+                    var selectedIndex = $('#<%= ddlInstituteName.ClientID %>').prop('selectedIndex');
+                    var selectedValue = $('#<%= ddlInstituteName.ClientID %>').val();
+
+                    var selectedRadio = $('input[name="filterOption"]:checked').attr('id') || 'rdHrms';
+
+                    // AJAX call to the WebMethod
+                    $.ajax({
+                        url: "EmployeeReportList.aspx/GetHrmsIds", // Adjust the URL if necessary
+                        data: JSON.stringify({
+                            prefix: request.term, // The term entered by the user in the autocomplete textbox
+                            selectedIndex: selectedIndex, // The selected index from the dropdown
+                            selectedValue: selectedValue, // The selected value from the dropdown
+                            filterType: selectedRadio
+                        }),
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            // Process the returned data and pass it to the autocomplete response
+                            response($.map(data.d, function (item) {
+                                return { label: item, value: item };
+                            }));
+                        },
+                        error: function (response) {
+                            // Handle any errors
+                        },
+                        failure: function (response) {
+                            // Handle any failures
+                        }
+                    });
+                },
+                minLength: 2 // Minimum number of characters before suggestions appear
+            });
+        });
+
+    </script>
     <div class="container box">
         <div class="row">
             <div class="col-lg-12 col-md-12 model-box">
@@ -201,15 +300,49 @@
                                             <div class="container">
                                                 <div class="form-group">
                                                     <label>Institute Name</label>
-                                                    <asp:DropDownList ID="ddlInstituteType" CssClass="form-control" runat="server">
+                                                    <asp:DropDownList ID="ddlInstituteName" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Date of Service Joiing To</label>
-                                                    <asp:TextBox ID="txtdosjto" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
+                                                    <label>Date of Service Joining From</label>
+                                                    <asp:TextBox ID="txtDosjfrom" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
                                                 </div>
+
+                                                 <div class="form-group">
+    <label>DOS</label>
+    <div class="input-group">
+        <span class="input-group-text">From:</span>
+        <asp:TextBox ID="txtdosfrom" CssClass="form-control" type="date" placeholder="dd-mm-yyyy" runat="server"></asp:TextBox>
+    </div>
+    <div class="input-group mt-2">
+        <span class="input-group-text">To:</span>
+        <asp:TextBox ID="txtdosto" CssClass="form-control" type="date" placeholder="dd-mm-yyyy" runat="server"></asp:TextBox>
+    </div>
+</div>
+
+
+
+                                                <div class="form-group btn-group" data-toggle="buttons">
+                                                    <label>Employee Filter Parameter</label>
+                                                    <label class="btn  active">
+                                                        <input type="radio" name="filterOption" id="rdHrms" autocomplete="off" />
+                                                        HRMS Id
+       
+                                                    </label>
+                                                    <label class="btn">
+                                                        <input type="radio" name="filterOption" id="rdFirstName" autocomplete="off" />
+                                                        First Name
+       
+                                                    </label>
+                                                    <label class="btn">
+                                                        <input type="radio" name="filterOption" id="idLastName" autocomplete="off" />
+                                                        Last Name
+       
+                                                    </label>
+                                                </div>
+
                                                 <div class="form-group">
-                                                    <label>HRMS ID</label>
+                                                    <%--<label>HRMS ID</label>--%>
                                                     <asp:TextBox ID="txtHrmsId" CssClass="form-control" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
@@ -251,15 +384,23 @@
                                             <div class="container">
                                                 <div class="form-group">
                                                     <label>Institute Type</label>
-                                                    <asp:TextBox ID="txtInstituteName" CssClass="form-control" runat="server"></asp:TextBox>
+                                                    <asp:DropDownList ID="ddlInstituteType" CssClass="form-control" runat="server">
+                                                        <asp:ListItem>Select All</asp:ListItem>
+                                                        <asp:ListItem>GP</asp:ListItem>
+                                                        <asp:ListItem>GITI</asp:ListItem>
+                                                    </asp:DropDownList>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Date of Service Joiing From</label>
-                                                    <asp:TextBox ID="txtDosjfrom" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
+                                                    <label>Date of Service Joining To</label>
+                                                    <asp:TextBox ID="txtdosjto" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
                                                 </div>
+
                                                 <div class="form-group">
                                                     <label>Account Type</label>
                                                     <asp:DropDownList ID="ddlAccountType" CssClass="form-control" runat="server">
+                                                        <asp:ListItem>Select</asp:ListItem>
+                                                        <asp:ListItem>PRAN</asp:ListItem>
+                                                        <asp:ListItem>GPF</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
                                                 <div class="form-group">
@@ -300,6 +441,11 @@
                                                         <asp:ListItem Value="3rd">3rd</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label>Category</label>
+                                                    <asp:DropDownList ID="ddlCategory" CssClass="form-control" runat="server">
+                                                    </asp:DropDownList>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -314,12 +460,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12" style="margin-top:4%">
+                    <div class="col-md-12" style="margin-top: 4%">
                         <div class="table-responsive">
-                            <div id="exportto" style="height: 390px; overflow: visible">
+                            <div id="exportto" style="min-height: 200px; max-height: 400px; overflow: visible">
                                 <asp:ListView ID="EmployeeListView" runat="server">
                                     <LayoutTemplate>
                                         <table runat="server" class="table table-bordered">
+                                             <thead>
                                             <tr runat="server" class="FridgeHeader">
                                                 <th runat="server">HRMS ID</th>
                                                 <th runat="server">Name Of the Staff</th>
@@ -354,6 +501,7 @@
                                                 <th runat="server">Home Dist</th>
                                                 <th runat="server">Status</th>
                                             </tr>
+                                                 </thead>
                                             <tr id="ItemPlaceholder" runat="server">
                                             </tr>
                                         </table>

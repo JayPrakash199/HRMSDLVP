@@ -15,22 +15,40 @@ namespace HRMS
     {
 
         /// <summary>
-        /// ddlInstituteType control.
+        /// ddlInstituteName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlInstituteType;
+        protected global::System.Web.UI.WebControls.DropDownList ddlInstituteName;
 
         /// <summary>
-        /// txtdosjto control.
+        /// txtDosjfrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdosjto;
+        protected global::System.Web.UI.WebControls.TextBox txtDosjfrom;
+
+        /// <summary>
+        /// txtdosfrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtdosfrom;
+
+        /// <summary>
+        /// txtdosto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtdosto;
 
         /// <summary>
         /// txtHrmsId control.
@@ -87,22 +105,22 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.DropDownList ddlPensionRemark;
 
         /// <summary>
-        /// txtInstituteName control.
+        /// ddlInstituteType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInstituteName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlInstituteType;
 
         /// <summary>
-        /// txtDosjfrom control.
+        /// txtdosjto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDosjfrom;
+        protected global::System.Web.UI.WebControls.TextBox txtdosjto;
 
         /// <summary>
         /// ddlAccountType control.
@@ -157,6 +175,15 @@ namespace HRMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMACPStatus;
+
+        /// <summary>
+        /// ddlCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
 
         /// <summary>
         /// btnEmployeeFilter control.
