@@ -100,7 +100,7 @@
                                             <asp:DropDownList ID="ddlProjectType" AutoPostBack="True" CssClass="form-control select" runat="server">
                                                 <asp:ListItem>Select Project Type</asp:ListItem>
                                                 <asp:ListItem>New</asp:ListItem>
-                                                <asp:ListItem>Ongoing</asp:ListItem>
+                                                <%--<asp:ListItem>Ongoing</asp:ListItem>--%>
                                                 <asp:ListItem>Improvement</asp:ListItem>
                                             </asp:DropDownList>
                                         </div>

@@ -222,6 +222,33 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.LinkButton btnPowerBi;
 
         /// <summary>
+        /// divPlacement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPlacement;
+
+        /// <summary>
+        /// innerDivPlacement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl innerDivPlacement;
+
+        /// <summary>
+        /// btnPlacement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnPlacement;
+
+        /// <summary>
         /// ddlCompany control.
         /// </summary>
         /// <remarks>

@@ -87,7 +87,7 @@ namespace WebServices
 
         public static IList<HRMSODATA.Institutelist> GetStationList(string companyName)
         {
-            string serviceUrl = GetOdataURL(companyName);
+            string serviceUrl = GetOdataURL();
             Uri uri = new Uri(serviceUrl);
             var container = new HRMSODATA.NAV(uri);
             container.BuildingRequest += Context_BuildingRequest;

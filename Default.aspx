@@ -324,6 +324,15 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class=" col-md-6 col-sm-6 pb-4" id="divPlacement" visible="true" runat="server">
+                        <div class="icon-box-s2 s1 itServicePadding" visible="false" id="innerDivPlacement" runat="server">
+                            <div class="content-box">
+                                <asp:LinkButton class="Contenta" ID="btnPlacement" Text="Placement" OnClick="btnPlacement_Click" runat="server" />
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">

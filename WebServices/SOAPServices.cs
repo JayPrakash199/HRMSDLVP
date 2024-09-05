@@ -887,7 +887,7 @@ namespace WebServices
             return ResultMessages.UpdateSuccessfullMessage;
         }
 
-
+         
         public static void ApplyLeave(string hrmsId, DateTime fromdate, DateTime todate, int typeOfLeave, string companyName)
         {
             AccountManagementReference.AccountManagement obj = new AccountManagementReference.AccountManagement();

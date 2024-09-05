@@ -174,11 +174,11 @@
                                                                     <a href="#" onclick="toggleFilter('divHRMSFilter')"><i id="filtericon" runat="server" class="fa fa-filter" aria-hidden="true"></i></a>
                                                                     <div id="divHRMSFilter" class="filter-dropdown" style="display: none;">
                                                                         <div class="search-container">
-                                                                            <i  class="fa fa-search icon"></i>
+                                                                            <i class="fa fa-search icon"></i>
                                                                             <asp:TextBox ID="txtHrmsFilter" runat="server" onkeyup="filterCheckboxList('ContentPlaceHolder1_EmployeeListView_chkHrmsFilter', 'ContentPlaceHolder1_EmployeeListView_txtHrmsFilter')" placeholder="Enter text to filter" Class="form-control"></asp:TextBox>
                                                                         </div>
                                                                         <div class="scrollable-content">
-                                                                            <asp:CheckBoxList ID="chkHrmsFilter"  CssClass="chkbox" runat="server"></asp:CheckBoxList>
+                                                                            <asp:CheckBoxList ID="chkHrmsFilter" CssClass="chkbox" runat="server"></asp:CheckBoxList>
                                                                         </div>
                                                                         <div class="filter-footer">
                                                                             <asp:Button ID="btnApplyHrmsFilter" runat="server" Text="OK" CssClass="btn-s float-right submit" OnClick="btnApplyHrmsFilter_Click" />
@@ -343,7 +343,8 @@
                                                                             <asp:Button ID="btnApplyDOBFilter" runat="server" Text="OK" CssClass="btn-s float-right submit" OnClick="btnApplyDOBFilter_Click" />
                                                                             <asp:Button ID="Button18" runat="server" Text="Cancel" CssClass="btn-s float-right submit" OnClientClick="closeFilter('divDOB'); return false;" />
                                                                         </div>
-                                                                    </div></th>
+                                                                    </div>
+                                                                </th>
                                                                 <th runat="server">Gender
                                                                      <a href="#" onclick="toggleFilter('divGender')"><i class="fa fa-filter" aria-hidden="true"></i></a>
                                                                     <div id="divGender" class="filter-dropdown" style="display: none;">
@@ -504,7 +505,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </th>
-                                                                <th runat="server">Date ofIncrement
+                                                                <th runat="server">Date of Increment
                                                                      <a href="#" onclick="toggleFilter('divDateofIncrement')"><i class="fa fa-filter" aria-hidden="true"></i></a>
                                                                     <div id="divDateofIncrement" class="filter-dropdown" style="display: none;">
                                                                         <div class="search-container">
@@ -680,6 +681,10 @@
                                                                         </div>
                                                                     </div>
                                                                 </th>
+                                                                <th runat="server">Deployment Start Date
+                                                                </th>
+                                                                <th runat="server">Deployment End Date
+                                                                </th>
                                                             </tr>
                                                             <tr id="ItemPlaceholder" runat="server">
                                                             </tr>
@@ -785,6 +790,12 @@
                                                             <td>
                                                                 <asp:Label ID="Label17" runat="server" Text='<%# Eval("Status")%>'> </asp:Label>
                                                             </td>
+                                                            <td>
+                                                                <asp:Label ID="Label31" runat="server" Text='<%# Eval("Deployment_Start_Date")%>'> </asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="Label32" runat="server" Text='<%# Eval("Deployment_End_Date")%>'> </asp:Label>
+                                                            </td>
                                                         </tr>
                                                     </ItemTemplate>
                                                 </asp:ListView>
@@ -828,6 +839,6 @@
         function closeFilter(filterId) {
             document.getElementById(filterId).style.display = 'none';
         }
-        
+
     </script>
 </asp:Content>

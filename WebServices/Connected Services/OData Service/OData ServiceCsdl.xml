@@ -7629,6 +7629,18 @@
             <EnumMember>NAV.NavType/String</EnumMember>
           </Annotation>
         </Property>
+        <Property Name="Deployment_Start_Date" Type="Edm.Date">
+          <Annotation Term="NAV.LabelId" String="Deployment Start Date" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/Date</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Deployment_End_Date" Type="Edm.Date">
+          <Annotation Term="NAV.LabelId" String="Deployment End Date" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/Date</EnumMember>
+          </Annotation>
+        </Property>
         <NavigationProperty Name="HRMS_ID_Link" Type="Collection(NAV.EmployeeList)" ContainsTarget="true">
           <ReferentialConstraint Property="HRMS_ID" ReferencedProperty="No" />
         </NavigationProperty>
@@ -7724,6 +7736,18 @@
           <Annotation Term="NAV.LabelId" String="Dept./Trade/Section" />
           <Annotation Term="NAV.NavType">
             <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Deployment_Start_Date" Type="Edm.Date">
+          <Annotation Term="NAV.LabelId" String="Deployment Start Date" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/Date</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Deployment_End_Date" Type="Edm.Date">
+          <Annotation Term="NAV.LabelId" String="Deployment End Date" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/Date</EnumMember>
           </Annotation>
         </Property>
         <NavigationProperty Name="HRMS_ID_Link" Type="Collection(NAV.EmployeeList)" ContainsTarget="true">
@@ -8147,6 +8171,18 @@
         </Property>
         <Property Name="Deployment_Date" Type="Edm.Date">
           <Annotation Term="NAV.LabelId" String="Deployment Date" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/Date</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Deployment_Start_Date" Type="Edm.Date">
+          <Annotation Term="NAV.LabelId" String="Deployment Start Date" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/Date</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Deployment_End_Date" Type="Edm.Date">
+          <Annotation Term="NAV.LabelId" String="Deployment End Date" />
           <Annotation Term="NAV.NavType">
             <EnumMember>NAV.NavType/Date</EnumMember>
           </Annotation>
@@ -10002,6 +10038,12 @@
             <EnumMember>NAV.NavType/String</EnumMember>
           </Annotation>
         </Property>
+        <Property Name="Portal_User_ID" Type="Edm.String" MaxLength="20">
+          <Annotation Term="NAV.LabelId" String="Portal User ID" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
         <NavigationProperty Name="Student_No_Link" Type="Collection(NAV.StudentList)" ContainsTarget="true">
           <ReferentialConstraint Property="Student_No" ReferencedProperty="No" />
         </NavigationProperty>
@@ -11694,6 +11736,48 @@
             <EnumMember>NAV.NavType/String</EnumMember>
           </Annotation>
         </Property>
+        <Property Name="Item_Attribute1" Type="Edm.String" MaxLength="20">
+          <Annotation Term="NAV.LabelId" String="Item Attribute1" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Item_Attribute2" Type="Edm.String" MaxLength="20">
+          <Annotation Term="NAV.LabelId" String="Item Attribute2" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Item_Attribute3" Type="Edm.String" MaxLength="20">
+          <Annotation Term="NAV.LabelId" String="Item Attribute3" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Item_Attribute4" Type="Edm.String" MaxLength="20">
+          <Annotation Term="NAV.LabelId" String="Item Attribute4" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Item_Attribute5" Type="Edm.String" MaxLength="20">
+          <Annotation Term="NAV.LabelId" String="Item Attribute5" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Item_Attribute6" Type="Edm.String" MaxLength="20">
+          <Annotation Term="NAV.LabelId" String="Item Attribute6" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Item_Attribute7" Type="Edm.String" MaxLength="20">
+          <Annotation Term="NAV.LabelId" String="Item Attribute7" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
         <Property Name="Invt_Receipt_Nos" Type="Edm.String" MaxLength="20">
           <Annotation Term="NAV.LabelId" String="Invt. Receipt Nos." />
           <Annotation Term="NAV.NavType">
@@ -11853,6 +11937,36 @@
             <EnumMember>NAV.NavType/String</EnumMember>
           </Annotation>
           <Annotation Term="NAV.AllowEditOnCreate" Bool="true" />
+        </Property>
+        <Property Name="Generic_Name" Type="Edm.String" MaxLength="100">
+          <Annotation Term="NAV.LabelId" String="Generic Name" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Specification" Type="Edm.String" MaxLength="250">
+          <Annotation Term="NAV.LabelId" String="Specification" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Model" Type="Edm.String" MaxLength="100">
+          <Annotation Term="NAV.LabelId" String="Model" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Brand" Type="Edm.String" MaxLength="50">
+          <Annotation Term="NAV.LabelId" String="Brand" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Institute_Type" Type="Edm.String">
+          <Annotation Term="NAV.LabelId" String="Institute Type" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
+          </Annotation>
         </Property>
         <Property Name="Blocked" Type="Edm.Boolean">
           <Annotation Term="NAV.LabelId" String="Blocked" />
@@ -18592,6 +18706,13 @@
           </Annotation>
           <Annotation Term="NAV.AllowEdit" Bool="false" />
         </Property>
+        <Property Name="Posted" Type="Edm.Boolean">
+          <Annotation Term="NAV.LabelId" String="Posted" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/Bool</EnumMember>
+          </Annotation>
+          <Annotation Term="NAV.AllowEdit" Bool="false" />
+        </Property>
         <NavigationProperty Name="Financial_Year_Link" Type="Collection(NAV.FinancialYearList)" ContainsTarget="true">
           <ReferentialConstraint Property="Financial_Year" ReferencedProperty="Financial_Code" />
         </NavigationProperty>
@@ -19865,6 +19986,12 @@
           <Annotation Term="NAV.LabelId" String="Posting Date" />
           <Annotation Term="NAV.NavType">
             <EnumMember>NAV.NavType/Date</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Portal_User_ID" Type="Edm.String" MaxLength="20">
+          <Annotation Term="NAV.LabelId" String="Portal User ID" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
           </Annotation>
         </Property>
         <NavigationProperty Name="Customer_No_Link" Type="Collection(NAV.CustomerList)" ContainsTarget="true">
@@ -21801,6 +21928,12 @@
           <Annotation Term="NAV.LabelId" String="Transcation Date" />
           <Annotation Term="NAV.NavType">
             <EnumMember>NAV.NavType/Date</EnumMember>
+          </Annotation>
+        </Property>
+        <Property Name="Portal_User_ID" Type="Edm.String" MaxLength="20">
+          <Annotation Term="NAV.LabelId" String="Portal User ID" />
+          <Annotation Term="NAV.NavType">
+            <EnumMember>NAV.NavType/String</EnumMember>
           </Annotation>
         </Property>
         <NavigationProperty Name="Bank_account_no_Link" Type="Collection(NAV.BankAccountList)" ContainsTarget="true">
@@ -48243,7 +48376,7 @@
       </Action>
       <Action Name="ItemJournalCodeunit_RegisterAtQualityLocation">
         <Parameter Name="itemNo" Type="Edm.String" />
-        <Parameter Name="quantity" Type="Edm.Int32" />
+        <Parameter Name="quantity" Type="Edm.Decimal" />
         <Parameter Name="bookPrice" Type="Edm.Decimal" />
         <Parameter Name="unitCost" Type="Edm.Decimal" />
         <Parameter Name="externalDocumentNo" Type="Edm.String" />
@@ -48268,7 +48401,7 @@
         <Parameter Name="externalDocumentNo" Type="Edm.String" />
         <Parameter Name="slNo" Type="Edm.String" />
         <Parameter Name="batchNo" Type="Edm.String" />
-        <Parameter Name="quantitytoMove" Type="Edm.Int32" />
+        <Parameter Name="quantitytoMove" Type="Edm.Decimal" />
       </Action>
       <Action Name="ItemJournalCodeunit_ReverseConsumptionEntry">
         <Parameter Name="documentNo" Type="Edm.String" />
@@ -48290,7 +48423,7 @@
         <Parameter Name="externalDocumentNo" Type="Edm.String" />
         <Parameter Name="slNo" Type="Edm.String" />
         <Parameter Name="batchNo" Type="Edm.String" />
-        <Parameter Name="quantitytoMove" Type="Edm.Int32" />
+        <Parameter Name="quantitytoMove" Type="Edm.Decimal" />
       </Action>
       <Action Name="ItemJournalCodeunit_TransferMaterialMR">
         <Parameter Name="mRNo" Type="Edm.String" />
@@ -54933,6 +55066,9 @@
         <Annotation Term="Org.OData.Core.V1.IsLanguageDependent" Bool="true" />
       </Annotations>
       <Annotations Target="NAV.InventorySetup/Direct_Transfer_Posting">
+        <Annotation Term="Org.OData.Core.V1.IsLanguageDependent" Bool="true" />
+      </Annotations>
+      <Annotations Target="NAV.ItemCard/Institute_Type">
         <Annotation Term="Org.OData.Core.V1.IsLanguageDependent" Bool="true" />
       </Annotations>
       <Annotations Target="NAV.ItemCard/Type">

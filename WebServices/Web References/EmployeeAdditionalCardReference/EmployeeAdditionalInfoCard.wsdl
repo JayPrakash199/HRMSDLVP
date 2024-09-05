@@ -46,6 +46,8 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="Dept_Trade_Section" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Designation" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Home_Dist" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Deployment_Start_Date" type="xsd:date" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Deployment_End_Date" type="xsd:date" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="EmployeeAdditionalInfoCard_List">
@@ -70,6 +72,8 @@
           <xsd:enumeration value="Dept_Trade_Section" />
           <xsd:enumeration value="Designation" />
           <xsd:enumeration value="Home_Dist" />
+          <xsd:enumeration value="Deployment_Start_Date" />
+          <xsd:enumeration value="Deployment_End_Date" />
         </xsd:restriction>
       </xsd:simpleType>
       <xsd:complexType name="EmployeeAdditionalInfoCard_Filter">

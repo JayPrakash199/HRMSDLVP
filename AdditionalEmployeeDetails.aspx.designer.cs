@@ -96,6 +96,15 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.DropDownList ddlDistrict;
 
         /// <summary>
+        /// txtDeploymentStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDeploymentStartDate;
+
+        /// <summary>
         /// txtEmployeeName control.
         /// </summary>
         /// <remarks>
@@ -148,6 +157,15 @@ namespace HRMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTrade;
+
+        /// <summary>
+        /// txtDeploymentEnddate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDeploymentEnddate;
 
         /// <summary>
         /// btnAdditionalEmployeeSubmit control.

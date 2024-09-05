@@ -55,6 +55,13 @@ namespace HRMS
                 ddlSeviceJoiningStation.DataValueField = "Institute_Code";
                 ddlSeviceJoiningStation.DataBind();
                 ddlSeviceJoiningStation.Items.Insert(0, new ListItem("Select Joining Station", "0"));
+
+
+                //ddldeployementLocation.DataSource = stations;
+                //ddldeployementLocation.DataTextField = "Institute_Name";
+                //ddldeployementLocation.DataValueField = "Institute_Code";
+                //ddldeployementLocation.DataBind();
+                //ddldeployementLocation.Items.Insert(0, new ListItem("Select deployment Location", "0"));
             }
         }
 
@@ -188,7 +195,14 @@ namespace HRMS
                 Employment_StatusSpecified = true,
                 MACP_StatusSpecified = true,
                 Pension_RemarkSpecified = true,
+                Deployment_End_DateSpecified=true,
+                Deployment_Start_DateSpecified=true,
                 HRMS_ID = txtHRMSIDSearch.Text,
+                
+                Deployment_Start_Date= DateTimeParser.ParseDateTime(txtDeploymentStartDate.Text),
+                Deployment_End_Date= DateTimeParser.ParseDateTime(txtDeploymentEnddate.Text),
+                
+
 
                 Employee_Name = txtEmployeeName.Text,
                 D_O_J_Service = DateTimeParser.ParseDateTime(txtdoj.Text),

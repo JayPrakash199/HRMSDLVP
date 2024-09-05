@@ -250,6 +250,9 @@
                                                         <label for="exampleAccount">Type of Training</label>
                                                         <asp:DropDownList ID="ddlTrainingType" CssClass="form-control" runat="server">
                                                             <asp:ListItem>Select</asp:ListItem>
+                                                            <asp:ListItem>CITS Training</asp:ListItem>
+                                                            <asp:ListItem>Refresher Training</asp:ListItem>
+                                                            <asp:ListItem>MDP Training</asp:ListItem>
                                                             <asp:ListItem>Induction Training</asp:ListItem>
                                                             <asp:ListItem>Industrial Training</asp:ListItem>
                                                             <asp:ListItem>Accounts Training</asp:ListItem>

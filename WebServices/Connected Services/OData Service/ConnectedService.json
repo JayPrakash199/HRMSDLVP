@@ -1,6 +1,6 @@
 ﻿{
   "ProviderId": "Microsoft.OData.ConnectedService",
-  "Version": "1.0.2.0",
+  "Version": "1.1.0.0",
   "GettingStartedDocument": {
     "Uri": "http://odata.github.io/odata.net/"
   },
@@ -12,6 +12,7 @@
     "ExcludedBoundOperations": [
       "SetComplete(NAV.UserTaskSetComplete)"
     ],
+    "OmitVersioningInfo": false,
     "ServiceName": "OData Service",
     "Endpoint": "http://192.168.1.252:10103/DTETDLVP/ODataV4/$metadata",
     "EdmxVersion": {

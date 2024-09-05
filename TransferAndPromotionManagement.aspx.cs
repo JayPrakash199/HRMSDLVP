@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Web.UI.WebControls;
 using WebServices;
 using System.Linq;
+using System.Web;
 
 namespace HRMS
 {
@@ -30,7 +31,14 @@ namespace HRMS
                 ddlFromStation.DataTextField = "Institute_Name";
                 ddlFromStation.DataValueField = "Institute_Code";
                 ddlFromStation.DataBind();
-                ddlFromStation.Items.Insert(0, new ListItem("Select Station", "0"));
+                //ddlFromStation.Items.Insert(0, new ListItem("Select Station", "0"));
+
+                var currentStation = station
+                    .Where(x => x.Company_Name.ToLower().Trim() == HttpUtility.UrlDecode(Session["SessionCompanyName"] as string).ToString().ToLower().Trim())
+                    .Select(x => x.Institute_Code)
+                    .FirstOrDefault();
+                ddlFromStation.Items.FindByValue(currentStation).Selected= true;
+
             }
         }
 

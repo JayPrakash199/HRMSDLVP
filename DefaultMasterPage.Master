@@ -447,6 +447,7 @@
                                                 <li><a href="EditEmployee.aspx">Update Additional Employee Details</a></li>
                                                 <li><a href="EmployeeLeave.aspx">Employee Leave Application</a></li>
                                                 <li><a href="EmployeeLeaveList.aspx">Employee Leave List</a></li>
+                                                 <li><a href="EmployeeReportList.aspx">Employee Query</a></li>
                                             </ul>
                                         </li>
                                         <li class="dropdown clearfix">
@@ -513,7 +514,7 @@
                                             </ul>
                                         </li>
                                         <li class="dropdown clearfix">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTI<b class="caret"></b></a>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Legal<b class="caret"></b></a>
                                             <ul class="dropdown-menu" id="Ul10" style="right: 0 !important; left: auto !important" runat="server">
                                                 <li><a href="CourtCasesDetailsInput.aspx">Court Case</a></li>
                                                 <li><a href="CourtCaseList.aspx">Court Case List</a></li>

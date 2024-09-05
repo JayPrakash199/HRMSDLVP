@@ -96,7 +96,10 @@ namespace HRMS
                     {
                         Response.Redirect("Login.aspx");
                     }
-                    
+                    if (isPlacement) // added by sweta
+                    {
+                        innerDivPlacement.Visible = true;
+                    }
                     lblcompanyName.Text = HttpUtility.UrlDecode(Convert.ToString(Session["SessionCompanyName"]));
                 }
                 else
@@ -138,6 +141,15 @@ namespace HRMS
         {
             ClientScript.RegisterStartupScript(this.GetType(), "Popup", "$('#PowerBiPopup').modal('show')", true);
 
+        }
+
+        protected void btnPlacement_Click(object sender, EventArgs e)
+        {
+            var userobj = Session["UserData"] as string;
+            var userData = JObject.Parse(userobj.ToString());
+            var userName = userData["UserName"];
+            string url = string.Format("{0}{1}{2}{3}{4}", ConfigurationManager.AppSettings["PlacementURL"].ToString(), "?isLoginFromHrms=yes&id=", userName, "&Company=", Session["SessionCompanyName"].ToString());
+            Response.Redirect(url);
         }
     }
 

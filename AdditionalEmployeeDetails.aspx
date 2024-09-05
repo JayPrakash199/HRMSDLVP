@@ -13,7 +13,7 @@
             border: 1px solid;
         }
 
-       
+
 
         p.Introduction {
             float: left;
@@ -190,7 +190,7 @@
     </style>
     <div class="container box">
         <div class="row">
-            <div class="col-lg-12 col-md-12 model-box">                
+            <div class="col-lg-12 col-md-12 model-box">
                 <div class="col-lg-12 col-md-12 summary-box">
                     <div class="col-lg-12 NewEntrydiv">
                         <p class="NewEntry">Part - B (Add Additional Employee Details)</p>
@@ -256,6 +256,11 @@
                                                     <asp:DropDownList ID="ddlDistrict" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label for="exampleAccount">Deployment Start Date</label>
+                                                    <asp:TextBox ID="txtDeploymentStartDate" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
+
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 contact-info">
@@ -266,7 +271,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleAccount">Service Joining Designation</label>
-                                                     <asp:DropDownList ID="ddlServiceJoiningDesignation" CssClass="form-control" runat="server">
+                                                    <asp:DropDownList ID="ddlServiceJoiningDesignation" CssClass="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>
                                                 <div class="form-group">
@@ -278,11 +283,11 @@
                                                     <label for="exampleAccount">Employment Status</label>
                                                     <asp:DropDownList ID="ddlEmplyomentStatus" CssClass="form-control" runat="server">
                                                         <asp:ListItem>Select</asp:ListItem>
-                                                        <asp:ListItem Value ="Ad_hoc">Ad hoc</asp:ListItem>
+                                                        <asp:ListItem Value="Ad_hoc">Ad hoc</asp:ListItem>
                                                         <asp:ListItem Value="Temporary_status">Temporary status</asp:ListItem>
                                                         <asp:ListItem Value="Initial_appointee">Initial appointee</asp:ListItem>
-                                                        <asp:ListItem Value ="Regular">Regular</asp:ListItem>
-                                                        <asp:ListItem Value ="Inactive">Inactive</asp:ListItem>
+                                                        <asp:ListItem Value="Regular">Regular</asp:ListItem>
+                                                        <asp:ListItem Value="Inactive">Inactive</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
                                                 <div class="form-group">
@@ -302,6 +307,17 @@
                                                         <asp:ListItem>No</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label for="exampleAccount">Deployment End Date</label>
+                                                    <asp:TextBox ID="txtDeploymentEnddate" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
+
+
+                                                </div>
+                                                 <%--<div class="form-group">
+                                                    <label for="exampleAccount">Deployment Location</label>
+                                                    <asp:DropDownList ID="ddldeployementLocation" CssClass="form-control" runat="server">
+                                                    </asp:DropDownList>
+                                                </div>--%>
                                             </div>
                                         </div>
                                     </div>

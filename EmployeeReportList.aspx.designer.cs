@@ -33,6 +33,15 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.TextBox txtDosjfrom;
 
         /// <summary>
+        /// txtDeploymentStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDeploymentStartDate;
+
+        /// <summary>
         /// txtdosfrom control.
         /// </summary>
         /// <remarks>
@@ -123,6 +132,15 @@ namespace HRMS
         protected global::System.Web.UI.WebControls.TextBox txtdosjto;
 
         /// <summary>
+        /// txtDeploymentEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDeploymentEndDate;
+
+        /// <summary>
         /// ddlAccountType control.
         /// </summary>
         /// <remarks>
@@ -202,5 +220,23 @@ namespace HRMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView EmployeeListView;
+
+        /// <summary>
+        /// btnExportExcel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExportExcel;
+
+        /// <summary>
+        /// btnExportpdf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExportpdf;
     }
 }

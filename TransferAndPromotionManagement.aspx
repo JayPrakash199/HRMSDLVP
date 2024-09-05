@@ -192,6 +192,13 @@
         .blockInputClass {
             pointer-events: none;
         }
+        
+        .readonly {
+            background-color: #6262629e !important;
+            cursor: not-allowed !important;
+            padding: 6px 12px !important;
+            font-size: 13px !important;
+        }
     </style>
     <div class="container box">
         <div class="row">
@@ -269,7 +276,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleAccount">From Station</label>
-                                                        <asp:DropDownList ID="ddlFromStation" CssClass="form-control" runat="server">
+                                                        <asp:DropDownList ID="ddlFromStation"  Enabled="false" CssClass="form-control readonly" runat="server">
                                                         </asp:DropDownList>
                                                     </div>
                                                     <div class="form-group">

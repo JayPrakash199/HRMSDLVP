@@ -211,20 +211,21 @@
                     box-shadow: none;
                     outline: none;
                 }
-                .input-group {
-    display: inline-flex;
-    align-items: center;
-}
 
-.input-group-text {
-    background-color: #f8f9fa;
-    border: 1px solid #ced4da;
-    padding: 6px 12px;
-    border-radius: 0.25rem;
-    margin-right: 5px;
-    font-size: 14px;
-    color: #495057;
-}
+        .input-group {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .input-group-text {
+            background-color: #f8f9fa;
+            border: 1px solid #ced4da;
+            padding: 6px 12px;
+            border-radius: 0.25rem;
+            margin-right: 5px;
+            font-size: 14px;
+            color: #495057;
+        }
     </style>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -288,7 +289,11 @@
             <div class="col-lg-12 col-md-12 model-box">
                 <div class="col-lg-12 col-md-12 summary-box">
                     <div class="col-lg-12 NewEntrydiv">
-                        <p class="NewEntry">DTE&T HRMS EMPLOYEES QUERY PAGE</p>
+
+                        <p style="background-color: #007bff; color: whitesmoke; padding: 1%; margin-top: -1% !important; margin-left: -2.2%; margin-right: -2.2%;"
+                            class="NewEntry">
+                            HRMS EMPLOYEES QUERY
+                        </p>
                     </div>
                     <div class="row">
                         <div class="card-body">
@@ -307,20 +312,22 @@
                                                     <label>Date of Service Joining From</label>
                                                     <asp:TextBox ID="txtDosjfrom" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label>Deployment Start Date</label>
+                                                    <asp:TextBox ID="txtDeploymentStartDate" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
+                                                </div>
 
-                                                 <div class="form-group">
-    <label>DOS</label>
-    <div class="input-group">
-        <span class="input-group-text">From:</span>
-        <asp:TextBox ID="txtdosfrom" CssClass="form-control" type="date" placeholder="dd-mm-yyyy" runat="server"></asp:TextBox>
-    </div>
-    <div class="input-group mt-2">
-        <span class="input-group-text">To:</span>
-        <asp:TextBox ID="txtdosto" CssClass="form-control" type="date" placeholder="dd-mm-yyyy" runat="server"></asp:TextBox>
-    </div>
-</div>
-
-
+                                                <div class="form-group">
+                                                    <label>DOS</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text">From:</span>
+                                                        <asp:TextBox ID="txtdosfrom" CssClass="form-control" type="date" placeholder="dd-mm-yyyy" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <div class="input-group mt-2">
+                                                        <span class="input-group-text">To:</span>
+                                                        <asp:TextBox ID="txtdosto" CssClass="form-control" type="date" placeholder="dd-mm-yyyy" runat="server"></asp:TextBox>
+                                                    </div>
+                                                </div>
 
                                                 <div class="form-group btn-group" data-toggle="buttons">
                                                     <label>Employee Filter Parameter</label>
@@ -378,6 +385,7 @@
                                                         <asp:ListItem>NPS</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
+
                                             </div>
                                         </div>
                                         <div class="col-md-6 contact-info">
@@ -386,13 +394,17 @@
                                                     <label>Institute Type</label>
                                                     <asp:DropDownList ID="ddlInstituteType" CssClass="form-control" runat="server">
                                                         <asp:ListItem>Select All</asp:ListItem>
-                                                        <asp:ListItem>GP</asp:ListItem>
-                                                        <asp:ListItem>GITI</asp:ListItem>
+                                                        <asp:ListItem Value="Polytechnics">GP</asp:ListItem>
+                                                        <asp:ListItem Value="ITI">GITI</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Date of Service Joining To</label>
                                                     <asp:TextBox ID="txtdosjto" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Deployment End Date</label>
+                                                    <asp:TextBox ID="txtDeploymentEndDate" CssClass="form-control ajax__calendar_body" type="date" runat="server"></asp:TextBox>
                                                 </div>
 
                                                 <div class="form-group">
@@ -466,42 +478,44 @@
                                 <asp:ListView ID="EmployeeListView" runat="server">
                                     <LayoutTemplate>
                                         <table runat="server" class="table table-bordered">
-                                             <thead>
-                                            <tr runat="server" class="FridgeHeader">
-                                                <th runat="server">HRMS ID</th>
-                                                <th runat="server">Name Of the Staff</th>
-                                                <th runat="server">Bill Group</th>
-                                                <th runat="server">Account Type</th>
-                                                <th runat="server">Bill Type</th>
-                                                <th runat="server">Designation</th>
-                                                <th runat="server">Service Joining Designation</th>
-                                                <th runat="server">Dept./Trade/Section</th>
-                                                <th runat="server">Post Group</th>
-                                                <th runat="server">GPF/PRAN No.</th>
-                                                <th runat="server">D.O.B</th>
-                                                <th runat="server">Gender</th>
-                                                <th runat="server">D.O.S</th>
-                                                <th runat="server">Category</th>
-                                                <th runat="server">Joining Station</th>
-                                                <th runat="server">D.O.J(Service)</th>
-                                                <th runat="server">Current Station</th>
-                                                <th runat="server">Joining Designation</th>
-                                                <th runat="server">Base Qualification</th>
-                                                <th runat="server">Basic Gr. Pay</th>
-                                                <th runat="server">Employment Status</th>
-                                                <th runat="server">Date ofIncrement</th>
-                                                <th runat="server">Email ID</th>
-                                                <th runat="server">MACP Status</th>
-                                                <th runat="server">EPIC No.</th>
-                                                <th runat="server">Mobile No.</th>
-                                                <th runat="server">Pension Remark</th>
-                                                <th runat="server">Aadhaar No.</th>
-                                                <th runat="server">Designation as per HRMS Site</th>
-                                                <th runat="server">Home Dist as per HRMS Site</th>
-                                                <th runat="server">Home Dist</th>
-                                                <th runat="server">Status</th>
-                                            </tr>
-                                                 </thead>
+                                            <thead>
+                                                <tr runat="server" class="FridgeHeader">
+                                                    <th runat="server">HRMS ID</th>
+                                                    <th runat="server">Name Of the Staff</th>
+                                                    <th runat="server">Bill Group</th>
+                                                    <th runat="server">Account Type</th>
+                                                    <th runat="server">Bill Type</th>
+                                                    <th runat="server">Designation</th>
+                                                    <th runat="server">Service Joining Designation</th>
+                                                    <th runat="server">Dept./Trade/Section</th>
+                                                    <th runat="server">Post Group</th>
+                                                    <th runat="server">GPF/PRAN No.</th>
+                                                    <th runat="server">D.O.B</th>
+                                                    <th runat="server">Gender</th>
+                                                    <th runat="server">D.O.S</th>
+                                                    <th runat="server">Category</th>
+                                                    <th runat="server">Joining Station</th>
+                                                    <th runat="server">D.O.J(Service)</th>
+                                                    <th runat="server">Current Station</th>
+                                                    <th runat="server">Joining Designation</th>
+                                                    <th runat="server">Base Qualification</th>
+                                                    <th runat="server">Basic Gr. Pay</th>
+                                                    <th runat="server">Employment Status</th>
+                                                    <th runat="server">Date ofIncrement</th>
+                                                    <th runat="server">Email ID</th>
+                                                    <th runat="server">MACP Status</th>
+                                                    <th runat="server">EPIC No.</th>
+                                                    <th runat="server">Mobile No.</th>
+                                                    <th runat="server">Pension Remark</th>
+                                                    <th runat="server">Aadhaar No.</th>
+                                                    <th runat="server">Designation as per HRMS Site</th>
+                                                    <th runat="server">Home Dist as per HRMS Site</th>
+                                                    <th runat="server">Home Dist</th>
+                                                    <th runat="server">Status</th>
+                                                    <th runat="server">Deployment Start Date</th>
+                                                    <th runat="server">Deployment End Date</th>
+                                                </tr>
+                                            </thead>
                                             <tr id="ItemPlaceholder" runat="server">
                                             </tr>
                                         </table>
@@ -606,11 +620,22 @@
                                             <td>
                                                 <asp:Label ID="Label17" runat="server" Text='<%# Eval("Status")%>'> </asp:Label>
                                             </td>
+                                            <td>
+                                                <asp:Label ID="Label31" runat="server" Text='<%# Eval("Deployment_Start_Date")%>'> </asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="Label32" runat="server" Text='<%# Eval("Deployment_End_Date")%>'> </asp:Label>
+                                            </td>
                                         </tr>
                                     </ItemTemplate>
                                 </asp:ListView>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-lg-12 ExportFoot">
+                        <asp:Button Style="margin: 1%" ID="btnExportExcel" OnClick="btnExportExcel_Click" CssClass="exportcss btn-yellow" runat="server" Text="Export Excel" />
+                        <asp:Button Style="margin: 1%" ID="btnExportpdf" OnClick="btnExportpdf_Click" CssClass="exportcss btn-yellow" runat="server" Text="Export Pdf" />
+
                     </div>
                 </div>
             </div>

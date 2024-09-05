@@ -203,7 +203,7 @@
                                             <div class="col-md-5 ">
                                                 <asp:DropDownList ID="ddlProjectType" CssClass="form-control select" runat="server">
                                                     <asp:ListItem Selected="True">Improvement</asp:ListItem>
-                                                    <asp:ListItem>Ongoing</asp:ListItem>
+                                                    <%--<asp:ListItem>Ongoing</asp:ListItem>--%>
                                                     <asp:ListItem>New</asp:ListItem>
                                                 </asp:DropDownList>
                                             </div>

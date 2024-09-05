@@ -129,6 +129,9 @@
                                             <asp:ListItem Value="HostelBuildings">Hostel Building</asp:ListItem>
                                             <asp:ListItem Value="StaffQuarters">Staff Quarter</asp:ListItem>
                                             <asp:ListItem Value="Auditoriums">Auditorium</asp:ListItem>
+                                            <asp:ListItem Value="Auditoriums">Dispensary</asp:ListItem>
+                                            <asp:ListItem Value="Auditoriums">Guest House</asp:ListItem>
+                                            <asp:ListItem Value="Auditoriums">Others</asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>

@@ -903,7 +903,9 @@ namespace HRMS
                 "Designation as per HRMS Site",
                 "Home Dist as per HRMS Site",
                 "Home Dist",
-                "Status"
+                "Status",
+                "Deployment Start Date",
+                "Deployment End Date"
             };
 
             // Add header cells to the header row

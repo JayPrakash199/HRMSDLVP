@@ -491,6 +491,14 @@ namespace WebServices.EmployeeAdditionalCardReference {
         
         private string home_DistField;
         
+        private System.DateTime deployment_Start_DateField;
+        
+        private bool deployment_Start_DateFieldSpecified;
+        
+        private System.DateTime deployment_End_DateField;
+        
+        private bool deployment_End_DateFieldSpecified;
+        
         /// <remarks/>
         public string Key {
             get {
@@ -718,6 +726,50 @@ namespace WebServices.EmployeeAdditionalCardReference {
                 this.home_DistField = value;
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime Deployment_Start_Date {
+            get {
+                return this.deployment_Start_DateField;
+            }
+            set {
+                this.deployment_Start_DateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Deployment_Start_DateSpecified {
+            get {
+                return this.deployment_Start_DateFieldSpecified;
+            }
+            set {
+                this.deployment_Start_DateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime Deployment_End_Date {
+            get {
+                return this.deployment_End_DateField;
+            }
+            set {
+                this.deployment_End_DateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Deployment_End_DateSpecified {
+            get {
+                return this.deployment_End_DateFieldSpecified;
+            }
+            set {
+                this.deployment_End_DateFieldSpecified = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -866,6 +918,12 @@ namespace WebServices.EmployeeAdditionalCardReference {
         
         /// <remarks/>
         Home_Dist,
+        
+        /// <remarks/>
+        Deployment_Start_Date,
+        
+        /// <remarks/>
+        Deployment_End_Date,
     }
     
     /// <remarks/>
