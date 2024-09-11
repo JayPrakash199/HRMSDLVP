@@ -281,12 +281,21 @@ namespace HRMS
 
         private void BindCompany()
         {
-            var companyList = ODataServices.GetCompanyList();
-            ddlInstituteName.DataSource = companyList;
-            ddlInstituteName.DataTextField = "Name";
-            ddlInstituteName.DataValueField = "Name";
-            ddlInstituteName.DataBind();
-            ddlInstituteName.Items.Insert(0, new System.Web.UI.WebControls.ListItem("Select company", "0"));
+            var directorLogin = Session["directorLogin"] != null && Convert.ToBoolean(Session["directorLogin"]);
+            if (directorLogin)
+            {
+                var companyList = ODataServices.GetCompanyList();
+                ddlInstituteName.DataSource = companyList;
+                ddlInstituteName.DataTextField = "Name";
+                ddlInstituteName.DataValueField = "Name";
+                ddlInstituteName.DataBind();
+                ddlInstituteName.Items.Insert(0, new System.Web.UI.WebControls.ListItem("Select company", "0"));
+            }
+            else
+            {
+                divInstituteName.Attributes.Add("style", "display:none;");
+                divInstituteType.Attributes.Add("style", "display:none;");
+            }
         }
         [WebMethod]
         public static List<string> GetHrmsIds(string prefix, int selectedIndex, string selectedValue, string filterType)
@@ -417,133 +426,15 @@ namespace HRMS
             if (Session["employeeList"] != null)
             {
                 System.Collections.Generic.IList<HRMSODATA.EmployeeList> employeeList = (System.Collections.Generic.IList<HRMSODATA.EmployeeList>)Session["employeeList"];
-                ExportEmployeeListToPdf(employeeList);
+                if (employeeList.Count > 0)
+                    ExportEmployeeListToPdf(employeeList);
 
             }
         }
 
-        //public void ExportEmployeeListToPdf1(System.Collections.Generic.IList<HRMSODATA.EmployeeList> employeeList)
-        //{
-        //    Document pdfDoc = new Document(PageSize.A4.Rotate(), 10f, 10f, 10f, 10f); // Landscape orientation
-        //    using (MemoryStream memoryStream = new MemoryStream())
-        //    {
-        //        try
-        //        {
-        //            PdfWriter.GetInstance(pdfDoc, memoryStream);
-        //            pdfDoc.Open();
-
-        //            PdfPTable pdfTable = new PdfPTable(34); // Number of columns
-        //            pdfTable.WidthPercentage = 100; // Fit table to the page width
-        //            float[] widths = new float[] { 1f, 2f, 1.5f, 1f, 2f, 1f, 1.5f, 1f, 1.5f, 1.5f, 1f, 1f, 1f, 1f, 1.5f, 2f, 1f, 1.5f, 1.5f, 1f, 1f, 1.5f, 2f, 1.5f, 1.5f, 1.5f, 1.5f, 1.5f, 1.5f, 1.5f, 1.5f, 1.5f, 1.5f, 1.5f };
-        //            pdfTable.SetWidths(widths);
-
-        //            // Set Font for cells
-        //            Font font = FontFactory.GetFont("Arial", 8, Font.NORMAL);
-
-        //            // Add headers
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("HRMS ID", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("Name Of the Staff", font)));
-
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("Bill Group", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("Account Type", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("Bill Type", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            pdfTable.AddCell(new PdfPCell(new Phrase("", font)));
-        //            // Add other headers similarly...
-
-        //            pdfTable.AddCell("Bill Group");
-        //            pdfTable.AddCell("Account Type");
-        //            pdfTable.AddCell("Bill Type");
-        //            pdfTable.AddCell("Designation");
-        //            pdfTable.AddCell("Service Joining Designation");
-        //            pdfTable.AddCell("Dept./Trade/Section");
-        //            pdfTable.AddCell("Post Group");
-        //            pdfTable.AddCell("GPF/PRAN No.");
-        //            pdfTable.AddCell("D.O.B");
-        //            pdfTable.AddCell("Gender");
-        //            pdfTable.AddCell("D.O.S");
-        //            pdfTable.AddCell("Category");
-        //            pdfTable.AddCell("Joining Station");
-        //            pdfTable.AddCell("D.O.J(Service)");
-        //            pdfTable.AddCell("Current Station");
-        //            pdfTable.AddCell("Joining Designation");
-        //            pdfTable.AddCell("Base Qualification");
-        //            pdfTable.AddCell("Basic Gr. Pay");
-        //            pdfTable.AddCell("Employment Status");
-        //            pdfTable.AddCell("Date of Increment");
-        //            pdfTable.AddCell("Email ID");
-        //            pdfTable.AddCell("MACP Status");
-        //            pdfTable.AddCell("EPIC No.");
-        //            pdfTable.AddCell("Mobile No.");
-        //            pdfTable.AddCell("Pension Remark");
-        //            pdfTable.AddCell("Aadhaar No.");
-        //            pdfTable.AddCell("Designation as per HRMS Site");
-        //            pdfTable.AddCell("Home Dist as per HRMS Site");
-        //            pdfTable.AddCell("Home Dist");
-        //            pdfTable.AddCell("Status");
-        //            pdfTable.AddCell("Deployment Start Date");
-        //            pdfTable.AddCell("Deployment End Date");
-
-
-        //            // Add data rows
-        //            foreach (var employee in employeeList)
-        //            {
-        //                pdfTable.AddCell(new PdfPCell(new Phrase(employee.No, font)));
-        //                pdfTable.AddCell(new PdfPCell(new Phrase(employee.First_Name, font)));
-        //                // Add other data similarly...
-        //            }
-
-        //            pdfDoc.Add(pdfTable);
-        //            pdfDoc.Close();
-        //            byte[] bytes = memoryStream.ToArray();
-
-        //            HttpContext.Current.Response.Clear();
-        //            HttpContext.Current.Response.ContentType = "application/pdf";
-        //            HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment; filename=EmployeeList.pdf");
-        //            HttpContext.Current.Response.OutputStream.Write(bytes, 0, bytes.Length);
-        //            HttpContext.Current.Response.Flush();
-        //            HttpContext.Current.ApplicationInstance.CompleteRequest();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw new Exception("Error occurred while exporting to PDF: " + ex.Message);
-        //        }
-        //        finally
-        //        {
-        //            pdfDoc.Close();
-        //        }
-        //    }
-        //}
+        
         public void ExportEmployeeListToPdf(System.Collections.Generic.IList<HRMSODATA.EmployeeList> employeeList)
         {
-            string filePath = ConfigurationManager.AppSettings["ExportFilePath"].ToString() + "/exportEmploye.pdf";
 
             // Create a new PDF document
             Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 10f);

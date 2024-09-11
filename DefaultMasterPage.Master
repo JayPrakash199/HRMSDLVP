@@ -447,7 +447,7 @@
                                                 <li><a href="EditEmployee.aspx">Update Additional Employee Details</a></li>
                                                 <li><a href="EmployeeLeave.aspx">Employee Leave Application</a></li>
                                                 <li><a href="EmployeeLeaveList.aspx">Employee Leave List</a></li>
-                                                 <li><a href="EmployeeReportList.aspx">Employee Query</a></li>
+                                                 <li><a href="EmployeeReportList.aspx">Employee Report</a></li>
                                             </ul>
                                         </li>
                                         <li class="dropdown clearfix">

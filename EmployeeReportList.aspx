@@ -226,6 +226,8 @@
             font-size: 14px;
             color: #495057;
         }
+
+        
     </style>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -303,9 +305,9 @@
                                     <div class="row">
                                         <div class="col-md-6 contact-info">
                                             <div class="container">
-                                                <div class="form-group">
+                                                <div class="form-group" id="divInstituteName" runat="server">
                                                     <label>Institute Name</label>
-                                                    <asp:DropDownList ID="ddlInstituteName" CssClass="form-control" runat="server">
+                                                    <asp:DropDownList ID="ddlInstituteName" Class="form-control" runat="server">
                                                     </asp:DropDownList>
                                                 </div>
                                                 <div class="form-group">
@@ -390,9 +392,9 @@
                                         </div>
                                         <div class="col-md-6 contact-info">
                                             <div class="container">
-                                                <div class="form-group">
+                                                <div class="form-group" id="divInstituteType" runat="server">>
                                                     <label>Institute Type</label>
-                                                    <asp:DropDownList ID="ddlInstituteType" CssClass="form-control" runat="server">
+                                                    <asp:DropDownList ID="ddlInstituteType"  Class="form-control" runat="server">
                                                         <asp:ListItem>Select All</asp:ListItem>
                                                         <asp:ListItem Value="Polytechnics">GP</asp:ListItem>
                                                         <asp:ListItem Value="ITI">GITI</asp:ListItem>
@@ -634,8 +636,7 @@
                     </div>
                     <div class="col-lg-12 ExportFoot">
                         <asp:Button Style="margin: 1%" ID="btnExportExcel" OnClick="btnExportExcel_Click" CssClass="exportcss btn-yellow" runat="server" Text="Export Excel" />
-                        <asp:Button Style="margin: 1%" ID="btnExportpdf" OnClick="btnExportpdf_Click" CssClass="exportcss btn-yellow" runat="server" Text="Export Pdf" />
-
+                        <asp:Button Style="margin: 1%" ID="btnExportpdf" Visible="false" OnClick="btnExportpdf_Click" CssClass="exportcss btn-yellow" runat="server" Text="Export Pdf" />
                     </div>
                 </div>
             </div>

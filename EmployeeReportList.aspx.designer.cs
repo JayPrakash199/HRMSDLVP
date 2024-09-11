@@ -15,6 +15,15 @@ namespace HRMS
     {
 
         /// <summary>
+        /// divInstituteName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInstituteName;
+
+        /// <summary>
         /// ddlInstituteName control.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace HRMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPensionRemark;
+
+        /// <summary>
+        /// divInstituteType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInstituteType;
 
         /// <summary>
         /// ddlInstituteType control.
