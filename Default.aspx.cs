@@ -41,6 +41,7 @@ namespace HRMS
                     var isAccountMgmnt = Convert.ToBoolean(userData["AccountManagement"]);
                     var isStockNStore = Convert.ToBoolean(userData["StockAndStore"]);
                     var isPlacement = Convert.ToBoolean(userData["Placement"]);
+                    var isPowerBi = Convert.ToBoolean(userData["PowerBi"]);
 
                     var directorLogin = Session["directorLogin"] != null && Convert.ToBoolean(Session["directorLogin"]);
                     if (directorLogin)
@@ -92,14 +93,22 @@ namespace HRMS
                         divstock.Attributes.Add("class", divstock.Attributes["class"].ToString().Replace("blur", ""));
                         divstock.Attributes.Add("class", divstock.Attributes["class"].ToString().Replace("tooltipp", ""));
                     }
-                    if (!isInfra && !isHRMS && !isSLCM && !isLibraryMgmnt && !isAccountMgmnt && !isFeeMgmnt && !isStockNStore)
+                    if (isPowerBi)
                     {
-                        Response.Redirect("Login.aspx");
+                        divPowerBi.Attributes.Add("class", divPowerBi.Attributes["class"].ToString().Replace("blur", ""));
+                        divPowerBi.Attributes.Add("class", divPowerBi.Attributes["class"].ToString().Replace("tooltipp", ""));
                     }
                     if (isPlacement) // added by sweta
                     {
-                        innerDivPlacement.Visible = true;
+                        divPlacement.Attributes.Add("class", divPlacement.Attributes["class"].ToString().Replace("blur", ""));
+                        divPlacement.Attributes.Add("class", divPlacement.Attributes["class"].ToString().Replace("tooltipp", ""));
                     }
+                    if (!isInfra && !isHRMS && !isSLCM && !isLibraryMgmnt && !isAccountMgmnt 
+                        && !isFeeMgmnt && !isStockNStore && !isPlacement && !isPowerBi)
+                    {
+                        Response.Redirect("Login.aspx");
+                    }
+                    
                     lblcompanyName.Text = HttpUtility.UrlDecode(Convert.ToString(Session["SessionCompanyName"]));
                 }
                 else

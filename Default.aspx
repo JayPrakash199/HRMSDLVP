@@ -215,7 +215,7 @@
             }
     </style>
 
- <script type="text/javascript">
+    <script type="text/javascript">
         function ShowPopup(title) {
             $("#PowerBiPopup .modal-title").html(title);
             $("#PowerBiPopup").modal("show");
@@ -225,8 +225,8 @@
         };
         function HideLoader() {
             $('#loader').hide();
-     };
- </script>
+        };
+    </script>
 
     <link rel="shortcut icon" href="images/favicon.ico" />
     <script src="assets/plugins/jQuery-lib/2.0.3/jquery.min.js"></script>
@@ -316,17 +316,18 @@
                         </div>
                     </div>
 
-                     <div class=" col-md-6 col-sm-6   pb-4">
-                        <div class="icon-box-s2 s1  itServicePadding" id="divPowerBi" runat="server">
-<%--                            <span class="tooltiptext" >You don't have permission for Accounts Module kindly contact Admin !</span>--%>
+                    <div class=" col-md-6 col-sm-6   pb-4">
+                        <div class="icon-box-s2 s1  itServicePadding blur tooltipp" id="divPowerBi" runat="server">
+                            <span class="tooltiptext" style="visibility: hidden">>You don't have permission for PowerBI Module kindly contact Admin !</span>
                             <div class="content-box">
-                                <asp:LinkButton class="Contenta" role="button" OnClick="btnPowerBi_Click1" runat="server" Text="Power BI" id="btnPowerBi"></asp:LinkButton>
+                                <asp:LinkButton class="Contenta" role="button" OnClick="btnPowerBi_Click1" runat="server" Text="Power BI" ID="btnPowerBi"></asp:LinkButton>
                             </div>
                         </div>
                     </div>
 
-                    <div class=" col-md-6 col-sm-6 pb-4" id="divPlacement" visible="true" runat="server">
-                        <div class="icon-box-s2 s1 itServicePadding" visible="false" id="innerDivPlacement" runat="server">
+                    <div class=" col-md-6 col-sm-6 pb-4" >
+                        <div class="icon-box-s2 s1 itServicePadding blur tooltipp" id="divPlacement" runat="server">
+                            <span class="tooltiptext" style="visibility: hidden">>You don't have permission for Placement Module kindly contact Admin !</span>
                             <div class="content-box">
                                 <asp:LinkButton class="Contenta" ID="btnPlacement" Text="Placement" OnClick="btnPlacement_Click" runat="server" />
                             </div>
@@ -351,7 +352,7 @@
             <footer class="p-10">©<asp:Label runat="server" ID="Label1"></asp:Label></footer>
         </div>
     </div>
-      <div id="PowerBiPopup" class="modal fade" role="dialog">
+    <div id="PowerBiPopup" class="modal fade" role="dialog">
         <div class="modal-dialog" style="width: 800px">
             <!-- Modal content-->
             <div class="modal-content">
@@ -365,11 +366,11 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-2"></div>
                             <div class="col-lg-12 col-md-12 model-box">
-                               <%-- <div class="loader"  style="position:absolute" id="loader">
+                                <%-- <div class="loader"  style="position:absolute" id="loader">
                                     <div class="loader-img"><i class="fa fa-spinner fa-spin"></i></div>
                                 </div>--%>
                                 <div class="col-lg-12 col-md-12 ">
-                                    
+
                                     <div class="row">
                                         <div class="card-body">
                                             <div class="row md-12 marginx">
@@ -378,13 +379,13 @@
                                                         <div class="col-md-12 contact-info">
                                                             <div class="container">
                                                                 <div class="form-group">
-                                                                    <a class="Contenta" style="text-shadow: 0 0 black !important;color:black;font-size:20px" href="https://app.powerbi.com/links/ryQDNW88U_?ctid=078e93f7-11f8-4a74-b8a6-c57c997e3146&pbi_source=linkShare" id="bankDetails"> 1 .Bank Details</a>
+                                                                    <a class="Contenta" style="text-shadow: 0 0 black !important; color: black; font-size: 20px" href="https://app.powerbi.com/links/ryQDNW88U_?ctid=078e93f7-11f8-4a74-b8a6-c57c997e3146&pbi_source=linkShare" id="bankDetails">1 .Bank Details</a>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                      <a class="Contenta" style="text-shadow: 0 0 black !important;color:black;font-size:20px" href="https://app.powerbi.com/links/r_Zy4WUMq2?ctid=078e93f7-11f8-4a74-b8a6-c57c997e3146&pbi_source=linkShare" id="empSummery"> 2 .Employee Summary</a>
+                                                                    <a class="Contenta" style="text-shadow: 0 0 black !important; color: black; font-size: 20px" href="https://app.powerbi.com/links/r_Zy4WUMq2?ctid=078e93f7-11f8-4a74-b8a6-c57c997e3146&pbi_source=linkShare" id="empSummery">2 .Employee Summary</a>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                      <a class="Contenta" style="text-shadow: 0 0 black !important;color:black;font-size:20px" href="https://app.powerbi.com/links/ket2b94ygJ?ctid=078e93f7-11f8-4a74-b8a6-c57c997e3146&pbi_source=linkShare" id="portalAnalysys">3 .GemsPortalAnalysis </a>
+                                                                    <a class="Contenta" style="text-shadow: 0 0 black !important; color: black; font-size: 20px" href="https://app.powerbi.com/links/ket2b94ygJ?ctid=078e93f7-11f8-4a74-b8a6-c57c997e3146&pbi_source=linkShare" id="portalAnalysys">3 .GemsPortalAnalysis </a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -399,7 +400,7 @@
                     </div>
 
                 </div>
-                
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">
                         Close</button>
